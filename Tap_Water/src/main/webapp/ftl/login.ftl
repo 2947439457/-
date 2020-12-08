@@ -19,7 +19,7 @@
 <div id="login">
 	<h1>员工登陆</h1>
 	<div id="login_panel">
-		<form action="workspace.html" method="post" accept-charset="utf-8">
+		<form action="workspace.ftl" method="post" accept-charset="utf-8">
 			<div class="login_fields">
 				<div class="field">
 					<label for="email">员工工号：</label>
