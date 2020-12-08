@@ -41,18 +41,18 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="./page/be__request.html">01 用户申请</a></li>
-							<li><a href="./page/be__audit.html">02 初步审核</a></li>
-							<li><a href="./page/be__pay.html">03 交施工费</a></li>
-							<li><a href="./page/be__billclear.html">04 水费清算</a></li>
-							<li><a href="./page/be__contract.html">05 供水协议</a></li>
-							<li><a href="./page/be__working.html">06 施工竣工</a></li>
-							<li><a href="./page/be__open.html">07 通水停水</a></li>
-							<li><a href="./page/be__save.html">08 档案存档</a></li>
-							<li><a href="./page/be_order.html">工单管理</a></li>
-							<li><a href="./page/be_abort.html">终止工单</a></li>
-							<li><a href="./page/be_reportProgress.html">业扩工程进度</a></li>
-							<li><a href="./page/be_reportMoney.html">业扩收费报表</a></li>
+							<li><a href="page/be__request.ftl">01 用户申请</a></li>
+							<li><a href="page/be__audit.ftl">02 初步审核</a></li>
+							<li><a href="page/be__pay.ftl">03 交施工费</a></li>
+							<li><a href="page/be__billclear.ftl">04 水费清算</a></li>
+							<li><a href="page/be__contract.ftl">05 供水协议</a></li>
+							<li><a href="page/be__working.ftl">06 施工竣工</a></li>
+							<li><a href="page/be__open.ftl">07 通水停水</a></li>
+							<li><a href="page/be__save.ftl">08 档案存档</a></li>
+							<li><a href="page/be_order.ftl">工单管理</a></li>
+							<li><a href="page/be_abort.ftl">终止工单</a></li>
+							<li><a href="page/be_reportProgress.ftl">业扩工程进度</a></li>
+							<li><a href="page/be_reportMoney.ftl">业扩收费报表</a></li>
 						</ul>
 						
 					</div>
@@ -63,16 +63,16 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="./page/user_search.html">用户查询</a></li>	
-							<li><a href="./page/user_add.html">快捷新户</a></li>	
-							<li><a href="./page/user_changeName.html">快捷过户</a></li>
-							<li><a href="./page/user_changeBank.html">快捷代扣</a></li>
-							<li><a href="./page/user_changeMeter.html">快捷换表</a></li>
-							<li><a href="./page/user_changeFormula.html">快捷重签</a></li>
-							<li><a href="./page/user_delete.html">快捷销户</a></li>
-							<li><a href="./page/user_reportShortcut.html">快捷操作记录</a></li>
-							<li><a href="./page/user_docNum.html">档案号管理</a></li>
-							<li><a href="./page/user_sendMsg.html">短信群发</a></li>
+							<li><a href="page/user_search.ftl">用户查询</a></li>
+							<li><a href="page/user_add.ftl">快捷新户</a></li>
+							<li><a href="page/user_changeName.ftl">快捷过户</a></li>
+							<li><a href="page/user_changeBank.ftl">快捷代扣</a></li>
+							<li><a href="page/user_changeMeter.ftl">快捷换表</a></li>
+							<li><a href="page/user_changeFormula.ftl">快捷重签</a></li>
+							<li><a href="page/user_delete.ftl">快捷销户</a></li>
+							<li><a href="page/user_reportShortcut.ftl">快捷操作记录</a></li>
+							<li><a href="page/user_docNum.ftl">档案号管理</a></li>
+							<li><a href="page/user_sendMsg.ftl">短信群发</a></li>
 						</ul>
 						
 					</div>
@@ -83,17 +83,17 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="./page/rd_volume.html">表册管理</a></li>	
-							<li><a href="./page/rd_init.html">抄表初始化</a></li>	
-							<li><a href="./page/rd_task.html">任务分配</a></li>	
-							<li><a href="./page/rd_enter.html">抄表录入</a></li>	
-							<li><a href="./page/rd_audit.html">抄表审核</a></li>
-							<li><a href="./page/rd_reportReading.html">抄表情况查询</a></li>	
-							<li><a href="./page/rd_reportVolumeReading.html">抄表统计报表</a></li>	
-							<li><a href="./page/rd_reportZero.html">零吨位用户查询</a></li>	
-							<li><a href="./page/rd_reportMaxValue.html">最大码值修正记录</a></li>
-							<li><a href="./page/rd_reportCPreAmount.html">底码修正记录</a></li>	
-							<li><a href="./page/rd_reportMeterCheck.html">水表周检报表</a></li>
+							<li><a href="page/rd_volume.ftl">表册管理</a></li>
+							<li><a href="page/rd_init.ftl">抄表初始化</a></li>
+							<li><a href="page/rd_task.ftl">任务分配</a></li>
+							<li><a href="page/rd_enter.ftl">抄表录入</a></li>
+							<li><a href="page/rd_audit.ftl">抄表审核</a></li>
+							<li><a href="page/rd_reportReading.ftl">抄表情况查询</a></li>
+							<li><a href="page/rd_reportVolumeReading.ftl">抄表统计报表</a></li>
+							<li><a href="page/rd_reportZero.ftl">零吨位用户查询</a></li>
+							<li><a href="page/rd_reportMaxValue.ftl">最大码值修正记录</a></li>
+							<li><a href="page/rd_reportCPreAmount.ftl">底码修正记录</a></li>
+							<li><a href="page/rd_reportMeterCheck.ftl">水表周检报表</a></li>
 						</ul>
 						
 					</div>
@@ -104,14 +104,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="./page/pay_window.html">窗口收费</a></li>	
-							<li><a href="./page/pay_batch.html">批量收费</a></li>
-							<li><a href="./page/pay_invoiceReprint.html">发票补开/作废</a></li>	
-							<li><a href="./page/pay_reportDebts.html">欠费报表</a></li>	
-							<li><a href="./page/pay_reportPay.html">收费情况报表</a></li>	
-							<li><a href="./page/pay_reportMonthRecycle.html">月资金回收情况报表</a></li>	
-							<li><a href="./page/pay_reportBalance.html">用户预收情况报表</a></li>	
-							<li><a href="./page/pay_reportWaterType.html">各类用水统计总表</a></li>
+							<li><a href="page/pay_window.ftl">窗口收费</a></li>
+							<li><a href="page/pay_batch.ftl">批量收费</a></li>
+							<li><a href="page/pay_invoiceReprint.ftl">发票补开/作废</a></li>
+							<li><a href="page/pay_reportDebts.ftl">欠费报表</a></li>
+							<li><a href="page/pay_reportPay.ftl">收费情况报表</a></li>
+							<li><a href="page/pay_reportMonthRecycle.ftl">月资金回收情况报表</a></li>
+							<li><a href="page/pay_reportBalance.ftl">用户预收情况报表</a></li>
+							<li><a href="page/pay_reportWaterType.ftl">各类用水统计总表</a></li>
 						</ul>
 						
 					</div>
@@ -122,16 +122,16 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="./page/inv_invoiceManage.html">发票总表</a></li>
-							<li><a href="./page/inv_invoiceIn.html">发票入库</a></li>	
-							<li><a href="./page/inv_invoiceOut.html">发票出库</a></li>
-							<li><a href="./page/inv_invoiceArchive.html">发票交票</a></li>
-							<li><a href="./page/inv_invoiceReportOut.html">发票出库情况查询</a></li>	
-							<li><a href="./page/inv_invoiceReportEmp.html">收费人员发票查询</a></li>	
-							<li><a href="./page/inv_invoiceReportArchive.html">发票交票情况查询</a></li>	
-							<li><a href="./page/inv_invoiceReportUse.html">发票使用情况查询</a></li>	
-							<li><a href="./page/inv_invoiceReportMoneySum.html">销账汇总报表</a></li>	
-							<li><a href="./page/inv_invoiceReportMoneyDetail.html">销账明细报表</a></li>	
+							<li><a href="page/inv_invoiceManage.ftl">发票总表</a></li>
+							<li><a href="page/inv_invoiceIn.ftl">发票入库</a></li>
+							<li><a href="page/inv_invoiceOut.ftl">发票出库</a></li>
+							<li><a href="page/inv_invoiceArchive.ftl">发票交票</a></li>
+							<li><a href="page/inv_invoiceReportOut.ftl">发票出库情况查询</a></li>
+							<li><a href="page/inv_invoiceReportEmp.ftl">收费人员发票查询</a></li>
+							<li><a href="page/inv_invoiceReportArchive.ftl">发票交票情况查询</a></li>
+							<li><a href="page/inv_invoiceReportUse.ftl">发票使用情况查询</a></li>
+							<li><a href="page/inv_invoiceReportMoneySum.ftl">销账汇总报表</a></li>
+							<li><a href="page/inv_invoiceReportMoneyDetail.ftl">销账明细报表</a></li>
 						</ul>
 					</div>
 				</li>
@@ -141,15 +141,15 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="./page/sys_area.html">抄表辖区</a></li>	
-							<li><a href="./page/sys_meterType.html">水表型号</a></li>	
-							<li><a href="./page/sys_dept.html">部门管理</a></li>	
-							<li><a href="./page/sys_emp.html">员工管理</a></li>	
-							<li><a href="./page/sys_menupower.html">菜单权限设置</a></li>	
-							<li><a href="./page/sys_areapower.html">辖区权限设置</a></li>	
-							<li><a href="./page/sys_waterType.html">用水类型设定</a></li>	
-							<li><a href="./page/sys_surcharge.html">附加费设定</a></li>	
-							<li><a href="./page/sys_flow.html">流程配置</a></li>	
+							<li><a href="page/sys_area.ftl">抄表辖区</a></li>
+							<li><a href="page/sys_meterType.ftl">水表型号</a></li>
+							<li><a href="page/sys_dept.ftl">部门管理</a></li>
+							<li><a href="page/sys_emp.ftl">员工管理</a></li>
+							<li><a href="page/sys_menupower.ftl">菜单权限设置</a></li>
+							<li><a href="page/sys_areapower.ftl">辖区权限设置</a></li>
+							<li><a href="page/sys_waterType.ftl">用水类型设定</a></li>
+							<li><a href="page/sys_surcharge.ftl">附加费设定</a></li>
+							<li><a href="page/sys_flow.ftl">流程配置</a></li>
 						</ul>
 						
 					</div>
@@ -161,7 +161,7 @@
 					<div class="nav_menu">
 						<ul>
 							<li><a href="./workspace.ftl">我的工作台</a></li>
-							<li><a href="./page/sys_pwd.html">修改密码</a></li>
+							<li><a href="page/sys_pwd.ftl">修改密码</a></li>
 							<li><a href="login.ftl">退出系统</a></li>
 						</ul>
 					</div> <!-- .menu -->
@@ -292,7 +292,7 @@
 			
 			<h2>
 				待处理的工单
-				<span class="fright "><a href="./page/be_order.html" class="ticket closed" style="color:#fff;">更多</a></span>
+				<span class="fright "><a href="page/be_order.ftl" class="ticket closed" style="color:#fff;">更多</a></span>
 			</h2>
 			
 			<table class="data support_table">
@@ -300,8 +300,8 @@
 				<tr>
 					<td><span class="ticket responded">新户</span></td>
 					<td><span class="ticket open">初步审核</span></td>
-					<td class="full"><a href="./page/be__auditForm.html" target="_blank">雨花区南门口东风巷子12号</a></td>					
-					<td class="who"><a href="./page/be__auditForm.html" target="_blank">张三</a></td>
+					<td class="full"><a href="page/be__auditForm.ftl" target="_blank">雨花区南门口东风巷子12号</a></td>
+					<td class="who"><a href="page/be__auditForm.ftl" target="_blank">张三</a></td>
 				</tr>
 
 				<tr>
@@ -344,8 +344,8 @@
 			</table>
 		</div> <!-- .x6 -->
 		
-		<a href="./page/error.html">出错演示页</a> |
-		<a href="./page/success.html">成功演示页</a>
+		<a href="page/error.ftl">出错演示页</a> |
+		<a href="page/success.ftl">成功演示页</a>
 		
 	</div> <!-- #content -->
 	
