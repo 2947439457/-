@@ -11,10 +11,19 @@
 	<link rel="stylesheet" href="./css/form.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="./css/buttons.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="./css/login.css" type="text/css" media="screen" title="no title" />
+    <script type="text/javascript" src="js/jquery/jquery-1.5.2.min.js"></script>
+</head>
+<body>
+<script src="js/jquery/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+    $(document).ready(function(){
+        var gh=$("#email");
+        var mm=$("#password");
+        alert(gh.val());
+        alert(mm.val()); //html和text的区别在于,text只显示div中的文本,不包含HTML标记.html方法会显示div中其它的标记,你可以试着把<div id="mydiv"><font stle='color:red;'>aaaa</font></div> 可以体验一下就知道里面的区别了
 
-</head> 
- 
-<body> 
+    }) ;
+</script>
 <div id="login_background">
 <div id="login">
 	<h1>员工登陆</h1>
