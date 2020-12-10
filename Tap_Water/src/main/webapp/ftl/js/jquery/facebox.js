@@ -341,7 +341,7 @@ function showWindow(options) {
 	
 
 	if(window.ActiveXObject){//IE浏览器	
-		return window.showModalDialog("../js/showWindow.html", window
+		return window.showModalDialog("../js/showWindow.ftl", window
 			, "dialogHeight:" + opt.height + "px;dialogWidth:" + opt.width + "px;");
 	}else{ //非IE浏览器
 		return window.showModalDialog(opt.url                , window
@@ -382,10 +382,10 @@ function showWindow(options) {
 	
 	if(window.ActiveXObject){//IE浏览器	
 		if (opt.model) {
-			return window.showModalDialog("../js/showWindow.html", [window, opt]
+			return window.showModalDialog("../js/showWindow.ftl", [window, opt]
 				, "dialogHeight:" + opt.height + "px;dialogWidth:" + opt.width + "px;");
 		} else {
-			return window.showModelessDialog("../js/showWindow.html", [window, opt]
+			return window.showModelessDialog("../js/showWindow.ftl", [window, opt]
 				, "dialogHeight:" + opt.height + "px;dialogWidth:" + opt.width + "px;");
 		}
 	}else{ //非IE浏览器
