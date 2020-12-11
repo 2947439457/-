@@ -12,71 +12,80 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 ">
-
-    <!--1. 注解驱动 mvc-->
-    <mvc:annotation-driven></mvc:annotation-driven>
-
-    <!--2. 扫描包中的注解 context-->
-    <context:component-scan base-package="com.zhibang"></context:component-scan>
-
-    <!--&lt;!&ndash;3. 配置静态资源访问 &ndash;&gt;-->
-    <!--&lt;!&ndash;静态资源的访问都通过servlet的默认处理器进行处理&ndash;&gt;-->
-    <!--<mvc:default-servlet-handler></mvc:default-servlet-handler>-->
-    <!--<mvc:resources mapping="/css/**" location="/css/"></mvc:resources>-->
-    <!--<mvc:resources mapping="/js/**" location="/js/"></mvc:resources>-->
-    <!--<mvc:resources mapping="/images/**" location="/images/"></mvc:resources>-->
-
-    <!--4. 配置前后缀-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/"></property>
-        <property name="suffix" value=".jsp"></property>
+    <!--导入druid文件-->
+    <context:property-override location="classpath*:db.properties"/>
+    <!--扫描注解-->
+    <context:component-scan base-package="com.zhibang"/>
+    <!--加载注解驱动-->
+    <mvc:annotation-driven/>
+    <!--配置静态资源文件-->
+    <mvc:resources mapping="/ftl/**" location="/ftl/"/>
+    <!--配置freemarker解析器-->
+    <bean id="viewResolverFtl" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="contentType" value="text/html; charset=utf-8"/>
+        <property name="cache" value="true" />
+        <property name="suffix" value=".ftl" />
+        <property name="order" value="0"/>
     </bean>
 
-    <!--5. 加载外部配置文件properties-->
-    <context:property-placeholder location=""></context:property-placeholder>
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath">
+            <value>/ftl/</value>
+        </property>
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="xml_escape" value-ref="fmXmlEscape" />
+            </map>
+        </property>
+        <property name="defaultEncoding">
+            <value>utf-8</value>
+        </property>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">3600</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
 
-    <!--6. 配置druid数据源-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <!--配置数据源四要素-->
-        <property name="driverClassName" value="${db.driverClass}" />
-        <property name="url" value="${db.url}" />
-        <property name="username" value="${db.username}" />
-        <property name="password" value="${db.pwd}" />
-
-        <!--配置druid连接池参数-->
-        <!-- 最大并发连接数 -->
-        <property name="maxActive" value="${pool.maxActive}" />
-        <!-- 初始化连接数量 -->
-        <property name="initialSize" value="${pool.initialSize}" />
+        <property name="driverClassName" value="${db.driverClassName}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
     </bean>
 
-
-    <!--7. 配置sqlSessionFactory-->
+    <!--配置会话工厂-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <!--引入数据源-->
-        <property name="dataSource" ref="dataSource"></property>
-        <!--加载XxxxxMapper.xml映射文件-->
-        <property name="mapperLocations" value="classpath*:mappers/*.xml"></property>
-        <!--为实体包下的类设置别名-->
-        <property name="typeAliasesPackage" value="cn.zhibang.ems.model"></property>
-        <!--加载mybatis-config.xml-->
-        <!--<property name="configLocation" value="classpath*:mybatis-config.xml"></property>-->
+        <property name="dataSource" ref="dataSource"/>
+        <property name="typeAliasesPackage" value="com.zhibang.model"/>
+        <!--<property name="configLocation" value="classpath*:mybatis-config.xml"/>-->
     </bean>
-
-    <!--8. 向dao层接口注入sqlSessionFactory-->
+    <!--扫描映射配置文件-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!--指定SqlSessionFactory-->
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-        <!--指定自动装配的路径：包下面所有的类（接口）自动装配sqlSessionFactory-->
-        <property name="basePackage" value=""></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="basePackage" value="com.zhibang.mapper"/>
     </bean>
 
-    <!--9. 配置事务管理器-->
+    <!--开启事务加载器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"></property>
+        <property name="dataSource" ref="dataSource"/>
     </bean>
-    <!--配置注解式事务@Transactional  或  非注解式事务<aop:-->
-    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+    <!--配置事务-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="del*" propagation="REQUIRED"/>
+            <tx:method name="up*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--切面切入事务-->
+    <aop:config>
+        <aop:pointcut id="aopPoin" expression="execution(* com.zhibang.service..*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="aopPoin"/>
+    </aop:config>
+
 
 
 </beans>
