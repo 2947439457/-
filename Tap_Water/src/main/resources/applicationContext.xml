@@ -13,47 +13,32 @@
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 ">
     <!--导入druid文件-->
-    <context:property-override location="classpath*:db.properties"/>
+    <!--<context:property-override location="classpath*:db.properties"/>-->
     <!--扫描注解-->
     <context:component-scan base-package="com.zhibang"/>
     <!--加载注解驱动-->
     <mvc:annotation-driven/>
     <!--配置静态资源文件-->
-    <mvc:resources mapping="/ftl/**" location="/ftl/"/>
-    <!--配置freemarker解析器-->
-    <bean id="viewResolverFtl" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
-        <property name="contentType" value="text/html; charset=utf-8"/>
-        <property name="cache" value="true" />
-        <property name="suffix" value=".ftl" />
-        <property name="order" value="0"/>
+    <mvc:resources mapping="/**" location="/ftl/"/>
+    <!-- 配置freeMarker的模板路径 -->
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="ftl/" />
+        <property name="defaultEncoding" value="UTF-8" />
     </bean>
-
-    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath">
-            <value>/ftl/</value>
-        </property>
-        <property name="freemarkerVariables">
-            <map>
-                <entry key="xml_escape" value-ref="fmXmlEscape" />
-            </map>
-        </property>
-        <property name="defaultEncoding">
-            <value>utf-8</value>
-        </property>
-        <property name="freemarkerSettings">
-            <props>
-                <prop key="template_update_delay">3600</prop>
-            </props>
-        </property>
+    <!-- freemarker视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="suffix" value=".ftl" />
+        <property name="contentType" value="text/html;charset=UTF-8" />
+        <!-- 此变量值为pageContext.request, 页面使用方法：rc.contextPath -->
+        <property name="requestContextAttribute" value="rc" />
     </bean>
     <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="${db.driverClassName}"/>
-        <property name="url" value="${db.url}"/>
-        <property name="username" value="${db.username}"/>
-        <property name="password" value="${db.password}"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.43.36:3306/tap_water?characterEncoding=UTF-8"/>
+        <property name="username" value="xhyhh"/>
+        <property name="password" value="123456"/>
     </bean>
 
     <!--配置会话工厂-->
