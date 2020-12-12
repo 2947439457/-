@@ -5,20 +5,8 @@
       <change afterPath="$PROJECT_DIR$/Tap_Water/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tap_Water/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeFlow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeFormula.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeFormula.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeOrderuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/BeOrderuser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdChangemaxvalue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdChangemaxvalue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdChangevalue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdChangevalue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdVolume.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdVolume.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdYearmonth.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/RdYearmonth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/UsMeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/UsMeter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/UsUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/model/UsUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/service/impl/TestServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/java/com/zhibang/service/impl/TestServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tap_Water/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Tap_Water/src/main/resources/applicationContext.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -63,6 +51,7 @@
     <session id="-184018668">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.opened" value="2" />
