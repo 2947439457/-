@@ -194,4 +194,28 @@ public class RdRead {
     this.auditDate = auditDate;
   }
 
+  @Override
+  public String toString() {
+    return "RdRead{" +
+            "id=" + id +
+            ", readYear=" + readYear +
+            ", readMonth=" + readMonth +
+            ", userNo='" + userNo + '\'' +
+            ", meterNo='" + meterNo + '\'' +
+            ", maxValue=" + maxValue +
+            ", volumeId=" + volumeId +
+            ", volumeIndex=" + volumeIndex +
+            ", readEmpId=" + readEmpId +
+            ", readDate=" + readDate +
+            ", preValue=" + preValue +
+            ", enter=" + enter +
+            ", curValue=" + curValue +
+            ", dial=" + dial +
+            ", amount=" + amount +
+            ", formula='" + formula + '\'' +
+            ", audit='" + audit + '\'' +
+            ", auditEmpId=" + auditEmpId +
+            ", auditDate=" + auditDate +
+            '}';
+  }
 }

@@ -56,4 +56,14 @@ public class BeComment {
     this.comment = comment;
   }
 
+  @Override
+  public String toString() {
+    return "BeComment{" +
+            "id=" + id +
+            ", orderNo='" + orderNo + '\'' +
+            ", datee=" + datee +
+            ", empId=" + empId +
+            ", comment='" + comment + '\'' +
+            '}';
+  }
 }

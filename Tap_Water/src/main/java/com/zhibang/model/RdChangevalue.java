@@ -76,4 +76,16 @@ public class RdChangevalue {
     this.remark = remark;
   }
 
+  @Override
+  public String toString() {
+    return "RdChangevalue{" +
+            "id=" + id +
+            ", datee=" + datee +
+            ", empId=" + empId +
+            ", userNo='" + userNo + '\'' +
+            ", preValue1=" + preValue1 +
+            ", preValue2=" + preValue2 +
+            ", remark='" + remark + '\'' +
+            '}';
+  }
 }

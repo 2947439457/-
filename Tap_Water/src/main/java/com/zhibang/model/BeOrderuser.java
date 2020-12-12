@@ -174,4 +174,26 @@ public class BeOrderuser {
     this.userNo = userNo;
   }
 
+  @Override
+  public String toString() {
+    return "BeOrderuser{" +
+            "id=" + id +
+            ", orderNo='" + orderNo + '\'' +
+            ", userName='" + userName + '\'' +
+            ", phone='" + phone + '\'' +
+            ", address='" + address + '\'' +
+            ", projectMoney=" + projectMoney +
+            ", realMoney=" + realMoney +
+            ", invoiceNo='" + invoiceNo + '\'' +
+            ", formula='" + formula + '\'' +
+            ", contractNum='" + contractNum + '\'' +
+            ", meterTypeId=" + meterTypeId +
+            ", meterName='" + meterName + '\'' +
+            ", maxValue=" + maxValue +
+            ", startValue=" + startValue +
+            ", meterFactory='" + meterFactory + '\'' +
+            ", docNum='" + docNum + '\'' +
+            ", userNo='" + userNo + '\'' +
+            '}';
+  }
 }

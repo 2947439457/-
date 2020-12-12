@@ -205,4 +205,29 @@ public class UsUser {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "UsUser{" +
+            "userNo='" + userNo + '\'' +
+            ", userName='" + userName + '\'' +
+            ", abc='" + abc + '\'' +
+            ", createDate=" + createDate +
+            ", address='" + address + '\'' +
+            ", phone='" + phone + '\'' +
+            ", areaId=" + areaId +
+            ", userType='" + userType + '\'' +
+            ", payType='" + payType + '\'' +
+            ", bankName='" + bankName + '\'' +
+            ", bankNum='" + bankNum + '\'' +
+            ", formula='" + formula + '\'' +
+            ", userMoney=" + userMoney +
+            ", meterId=" + meterId +
+            ", docNum='" + docNum + '\'' +
+            ", contractNum='" + contractNum + '\'' +
+            ", contractDate=" + contractDate +
+            ", volumeId=" + volumeId +
+            ", volumeOrderIndex=" + volumeOrderIndex +
+            ", disabled=" + disabled +
+            '}';
+  }
 }

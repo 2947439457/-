@@ -53,4 +53,14 @@ public class RdTask {
     this.empId = empId;
   }
 
+  @Override
+  public String toString() {
+    return "RdTask{" +
+            "id=" + id +
+            ", readYear=" + readYear +
+            ", readMonth=" + readMonth +
+            ", volumeId=" + volumeId +
+            ", empId=" + empId +
+            '}';
+  }
 }
