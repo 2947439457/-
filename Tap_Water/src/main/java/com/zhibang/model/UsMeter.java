@@ -93,4 +93,18 @@ public class UsMeter {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "UsMeter{" +
+            "meterNo='" + meterNo + '\'' +
+            ", userNo='" + userNo + '\'' +
+            ", meterName='" + meterName + '\'' +
+            ", meterTypeId=" + meterTypeId +
+            ", maxValue=" + maxValue +
+            ", startValue=" + startValue +
+            ", setupDate=" + setupDate +
+            ", factory='" + factory + '\'' +
+            ", disabled=" + disabled +
+            '}';
+  }
 }

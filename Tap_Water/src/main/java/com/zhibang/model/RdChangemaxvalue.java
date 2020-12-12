@@ -86,4 +86,17 @@ public class RdChangemaxvalue {
     this.remark = remark;
   }
 
+  @Override
+  public String toString() {
+    return "RdChangemaxvalue{" +
+            "id=" + id +
+            ", datee=" + datee +
+            ", empId=" + empId +
+            ", userNo='" + userNo + '\'' +
+            ", meterNo='" + meterNo + '\'' +
+            ", maxValue1=" + maxValue1 +
+            ", maxValue2=" + maxValue2 +
+            ", remark='" + remark + '\'' +
+            '}';
+  }
 }

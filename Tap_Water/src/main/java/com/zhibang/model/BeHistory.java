@@ -66,4 +66,15 @@ public class BeHistory {
     this.isBack = isBack;
   }
 
+  @Override
+  public String toString() {
+    return "BeHistory{" +
+            "id=" + id +
+            ", orderNo='" + orderNo + '\'' +
+            ", stepId=" + stepId +
+            ", datee=" + datee +
+            ", empId=" + empId +
+            ", isBack=" + isBack +
+            '}';
+  }
 }

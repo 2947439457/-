@@ -64,4 +64,15 @@ public class RdVolume {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "RdVolume{" +
+            "id=" + id +
+            ", volumeName='" + volumeName + '\'' +
+            ", areaId=" + areaId +
+            ", orderIndex=" + orderIndex +
+            ", remark='" + remark + '\'' +
+            ", disabled=" + disabled +
+            '}';
+  }
 }

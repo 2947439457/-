@@ -64,4 +64,15 @@ public class BeFormula {
     this.allotValue = allotValue;
   }
 
+  @Override
+  public String toString() {
+    return "BeFormula{" +
+            "id=" + id +
+            ", orderUserId=" + orderUserId +
+            ", waterTypeCode='" + waterTypeCode + '\'' +
+            ", allotText='" + allotText + '\'' +
+            ", allotType=" + allotType +
+            ", allotValue=" + allotValue +
+            '}';
+  }
 }

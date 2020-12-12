@@ -74,4 +74,16 @@ public class RdYearmonth {
     this.endDate = endDate;
   }
 
+  @Override
+  public String toString() {
+    return "RdYearmonth{" +
+            "id=" + id +
+            ", readYear=" + readYear +
+            ", readMonth=" + readMonth +
+            ", isCurrent=" + isCurrent +
+            ", initEmpId=" + initEmpId +
+            ", initDate=" + initDate +
+            ", endDate=" + endDate +
+            '}';
+  }
 }
