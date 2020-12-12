@@ -1,14 +1,16 @@
 package com.zhibang.model;
 
 
+import java.util.Date;
+
 public class BeHistory {
 
   private Integer id;
   private String orderNo;
   private Integer stepId;
-  private java.sql.Timestamp datee;
+  private Date datee;
   private Integer empId;
-  private String isBack;
+  private Boolean isBack;
 
 
   public Integer getId() {
@@ -38,11 +40,11 @@ public class BeHistory {
   }
 
 
-  public java.sql.Timestamp getDatee() {
+  public Date getDatee() {
     return datee;
   }
 
-  public void setDatee(java.sql.Timestamp datee) {
+  public void setDatee(Date datee) {
     this.datee = datee;
   }
 
@@ -56,11 +58,11 @@ public class BeHistory {
   }
 
 
-  public String getIsBack() {
+  public Boolean getIsBack() {
     return isBack;
   }
 
-  public void setIsBack(String isBack) {
+  public void setIsBack(Boolean isBack) {
     this.isBack = isBack;
   }
 

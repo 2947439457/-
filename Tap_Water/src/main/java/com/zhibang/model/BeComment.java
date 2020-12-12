@@ -1,11 +1,13 @@
 package com.zhibang.model;
 
 
+import java.util.Date;
+
 public class BeComment {
 
   private Integer id;
   private String orderNo;
-  private java.sql.Timestamp datee;
+  private Date datee;
   private Integer empId;
   private String comment;
 
@@ -28,11 +30,11 @@ public class BeComment {
   }
 
 
-  public java.sql.Timestamp getDatee() {
+  public Date getDatee() {
     return datee;
   }
 
-  public void setDatee(java.sql.Timestamp datee) {
+  public void setDatee(Date datee) {
     this.datee = datee;
   }
 

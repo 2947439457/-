@@ -1,17 +1,19 @@
 package com.zhibang.model;
 
 
+import java.util.Date;
+
 public class BeOrder {
 
   private String orderNo;
   private Integer orderType;
   private Integer stepId;
   private Integer createEmp;
-  private java.sql.Timestamp createDate;
+  private Date createDate;
   private Integer completeEmp;
-  private java.sql.Timestamp completeDate;
+  private Date completeDate;
   private Integer lastEditEmp;
-  private java.sql.Timestamp lastEditDate;
+  private Date lastEditDate;
   private String userNo;
   private String useTarget;
   private Integer houseHeight;
@@ -28,9 +30,9 @@ public class BeOrder {
   private String auditMessage;
   private Double projectMoney;
   private Double realMoney;
-  private java.sql.Timestamp payDate;
-  private java.sql.Timestamp projectDate1;
-  private java.sql.Timestamp projectDate2;
+  private Date payDate;
+  private Date projectDate1;
+  private Date projectDate2;
   private Integer areaId;
   private String abortCause;
 
@@ -71,11 +73,11 @@ public class BeOrder {
   }
 
 
-  public java.sql.Timestamp getCreateDate() {
+  public Date getCreateDate() {
     return createDate;
   }
 
-  public void setCreateDate(java.sql.Timestamp createDate) {
+  public void setCreateDate(Date createDate) {
     this.createDate = createDate;
   }
 
@@ -89,11 +91,11 @@ public class BeOrder {
   }
 
 
-  public java.sql.Timestamp getCompleteDate() {
+  public Date getCompleteDate() {
     return completeDate;
   }
 
-  public void setCompleteDate(java.sql.Timestamp completeDate) {
+  public void setCompleteDate(Date completeDate) {
     this.completeDate = completeDate;
   }
 
@@ -107,11 +109,11 @@ public class BeOrder {
   }
 
 
-  public java.sql.Timestamp getLastEditDate() {
+  public Date getLastEditDate() {
     return lastEditDate;
   }
 
-  public void setLastEditDate(java.sql.Timestamp lastEditDate) {
+  public void setLastEditDate(Date lastEditDate) {
     this.lastEditDate = lastEditDate;
   }
 
@@ -260,29 +262,29 @@ public class BeOrder {
   }
 
 
-  public java.sql.Timestamp getPayDate() {
+  public Date getPayDate() {
     return payDate;
   }
 
-  public void setPayDate(java.sql.Timestamp payDate) {
+  public void setPayDate(Date payDate) {
     this.payDate = payDate;
   }
 
 
-  public java.sql.Timestamp getProjectDate1() {
+  public Date getProjectDate1() {
     return projectDate1;
   }
 
-  public void setProjectDate1(java.sql.Timestamp projectDate1) {
+  public void setProjectDate1(Date projectDate1) {
     this.projectDate1 = projectDate1;
   }
 
 
-  public java.sql.Timestamp getProjectDate2() {
+  public Date getProjectDate2() {
     return projectDate2;
   }
 
-  public void setProjectDate2(java.sql.Timestamp projectDate2) {
+  public void setProjectDate2(Date projectDate2) {
     this.projectDate2 = projectDate2;
   }
 

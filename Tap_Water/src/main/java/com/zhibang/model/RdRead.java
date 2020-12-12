@@ -1,6 +1,6 @@
 package com.zhibang.model;
 
-
+import java.util.Date;
 public class RdRead {
 
   private Integer id;
@@ -12,16 +12,16 @@ public class RdRead {
   private Integer volumeId;
   private Integer volumeIndex;
   private Integer readEmpId;
-  private java.sql.Timestamp readDate;
+  private Date readDate;
   private Integer preValue;
-  private String enter;
+  private Boolean enter;
   private Integer curValue;
-  private String dial;
+  private Boolean dial;
   private Integer amount;
   private String formula;
   private String audit;
   private Integer auditEmpId;
-  private java.sql.Timestamp auditDate;
+  private Date auditDate;
 
 
   public Integer getId() {
@@ -105,11 +105,11 @@ public class RdRead {
   }
 
 
-  public java.sql.Timestamp getReadDate() {
+  public Date getReadDate() {
     return readDate;
   }
 
-  public void setReadDate(java.sql.Timestamp readDate) {
+  public void setReadDate(Date readDate) {
     this.readDate = readDate;
   }
 
@@ -123,11 +123,11 @@ public class RdRead {
   }
 
 
-  public String getEnter() {
+  public Boolean getEnter() {
     return enter;
   }
 
-  public void setEnter(String enter) {
+  public void setEnter(Boolean enter) {
     this.enter = enter;
   }
 
@@ -141,11 +141,11 @@ public class RdRead {
   }
 
 
-  public String getDial() {
+  public Boolean getDial() {
     return dial;
   }
 
-  public void setDial(String dial) {
+  public void setDial(Boolean dial) {
     this.dial = dial;
   }
 
@@ -186,11 +186,11 @@ public class RdRead {
   }
 
 
-  public java.sql.Timestamp getAuditDate() {
+  public Date getAuditDate() {
     return auditDate;
   }
 
-  public void setAuditDate(java.sql.Timestamp auditDate) {
+  public void setAuditDate(Date auditDate) {
     this.auditDate = auditDate;
   }
 

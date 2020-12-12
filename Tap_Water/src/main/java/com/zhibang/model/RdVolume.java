@@ -8,7 +8,7 @@ public class RdVolume {
   private Integer areaId;
   private Integer orderIndex;
   private String remark;
-  private String disabled;
+  private Boolean disabled;
 
 
   public Integer getId() {
@@ -56,11 +56,11 @@ public class RdVolume {
   }
 
 
-  public String getDisabled() {
+  public Boolean getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(String disabled) {
+  public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 

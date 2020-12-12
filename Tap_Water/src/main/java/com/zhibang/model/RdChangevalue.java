@@ -1,10 +1,12 @@
 package com.zhibang.model;
 
 
+import java.util.Date;
+
 public class RdChangevalue {
 
   private Integer id;
-  private java.sql.Timestamp datee;
+  private Date datee;
   private Integer empId;
   private String userNo;
   private Integer preValue1;
@@ -21,11 +23,11 @@ public class RdChangevalue {
   }
 
 
-  public java.sql.Timestamp getDatee() {
+  public Date getDatee() {
     return datee;
   }
 
-  public void setDatee(java.sql.Timestamp datee) {
+  public void setDatee(Date datee) {
     this.datee = datee;
   }
 
