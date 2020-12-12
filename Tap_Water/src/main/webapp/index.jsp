@@ -4,6 +4,6 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/show">ssss</a>
+<jsp:forward page="/show"></jsp:forward>
 </body>
 </html>
