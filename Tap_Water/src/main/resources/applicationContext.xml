@@ -20,6 +20,11 @@
     <mvc:annotation-driven/>
     <!--配置静态资源文件-->
     <mvc:resources mapping="/**" location="/ftl/"/>
+    <mvc:resources mapping="/**" location="/ftl/css"/>
+    <mvc:resources mapping="/**" location="/ftl/docs"/>
+    <mvc:resources mapping="/**" location="/ftl/images"/>
+    <mvc:resources mapping="/**" location="/ftl/js"/>
+    <mvc:resources mapping="/**" location="/ftl/page"/>
     <!-- 配置freeMarker的模板路径 -->
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="ftl/" />
@@ -34,42 +39,42 @@
     </bean>
     <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
 
-    <!--<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
-        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
-        <!--<property name="url" value="jdbc:mysql://192.168.43.36:3306/tap_water?characterEncoding=UTF-8"/>-->
-        <!--<property name="username" value="xhyhh"/>-->
-        <!--<property name="password" value="123456"/>-->
-    <!--</bean>-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.43.36:3306/tap_water?characterEncoding=UTF-8"/>
+        <property name="username" value="xhyhh"/>
+        <property name="password" value="123456"/>
+    </bean>
 
-    <!--&lt;!&ndash;配置会话工厂&ndash;&gt;-->
-    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
-        <!--<property name="dataSource" ref="dataSource"/>-->
-        <!--<property name="typeAliasesPackage" value="com.zhibang.model"/>-->
-        <!--&lt;!&ndash;<property name="configLocation" value="classpath*:mybatis-config.xml"/>&ndash;&gt;-->
-    <!--</bean>-->
-    <!--&lt;!&ndash;扫描映射配置文件&ndash;&gt;-->
-    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
-        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
-        <!--<property name="basePackage" value="com.zhibang.mapper"/>-->
-    <!--</bean>-->
+    <!--配置会话工厂-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="typeAliasesPackage" value="com.zhibang.model"/>
+        <!--<property name="configLocation" value="classpath*:mybatis-config.xml"/>-->
+    </bean>
+    <!--扫描映射配置文件-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="basePackage" value="com.zhibang.mapper"/>
+    </bean>
 
-    <!--&lt;!&ndash;开启事务加载器&ndash;&gt;-->
-    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
-        <!--<property name="dataSource" ref="dataSource"/>-->
-    <!--</bean>-->
-    <!--&lt;!&ndash;配置事务&ndash;&gt;-->
-    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
-        <!--<tx:attributes>-->
-            <!--<tx:method name="add*" propagation="REQUIRED"/>-->
-            <!--<tx:method name="del*" propagation="REQUIRED"/>-->
-            <!--<tx:method name="up*" propagation="REQUIRED"/>-->
-        <!--</tx:attributes>-->
-    <!--</tx:advice>-->
-    <!--&lt;!&ndash;切面切入事务&ndash;&gt;-->
-    <!--<aop:config>-->
-        <!--<aop:pointcut id="aopPoin" expression="execution(* com.zhibang.service..*(..))"/>-->
-        <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="aopPoin"/>-->
-    <!--</aop:config>-->
+    <!--开启事务加载器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--配置事务-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="del*" propagation="REQUIRED"/>
+            <tx:method name="up*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--切面切入事务-->
+    <aop:config>
+        <aop:pointcut id="aopPoin" expression="execution(* com.zhibang.service..*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="aopPoin"/>
+    </aop:config>
 
 
 

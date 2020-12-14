@@ -50,7 +50,7 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="../page/be__request.ftl">01 用户申请</a></li>
+							<li><a href="/be/request">01 用户申请</a></li>
 							<li><a href="be__audit.ftl">02 初步审核</a></li>
 							<li><a href="be__pay.ftl">03 交施工费</a></li>
 							<li><a href="be__billclear.ftl">04 水费清算</a></li>
@@ -194,13 +194,13 @@
 			
 			<h2>用户申请</h2>
 			
-			<a class="metro" href="be__request1.ftl">新户</a>
-			<a class="metro" href="be__request2.ftl">分户</a>
-			<a class="metro" href="be__request3.ftl">过户</a>
-			<a class="metro" href="be__request4.ftl">代扣</a>
-			<a class="metro" href="be__request5.ftl">换表</a>
-			<a class="metro" href="be__request6.ftl">重签</a>
-			<a class="metro" href="be__request7.ftl">销户</a>
+			<a class="metro" href="/be/requestInt?rid=1">新户</a>
+			<a class="metro" href="/be/requestInt?rid=2">分户</a>
+			<a class="metro" href="/be/requestInt?rid=3">过户</a>
+			<a class="metro" href="/be/requestInt?rid=4">代扣</a>
+			<a class="metro" href="/be/requestInt?rid=5">换表</a>
+			<a class="metro" href="/be/requestInt?rid=6">重签</a>
+			<a class="metro" href="/be/requestInt?rid=7">销户</a>
 			<a class="metro" href="be__requestOrder.ftl">工单</a>
 			
 			

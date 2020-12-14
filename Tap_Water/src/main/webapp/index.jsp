@@ -4,6 +4,6 @@
     <title>Title</title>
 </head>
 <body>
-<jsp:forward page="/show"></jsp:forward>
+<jsp:forward page="/be/request"></jsp:forward>
 </body>
 </html>
