@@ -1,10 +1,6 @@
 package com.zhibang.service.RD;
 
-/**
- * @Author 何岷鸿
- * @ClassName RD_VolumeService
- * @Description 表册
- * @createTime 2020/12/12 18:05
- **/
-public class RD_VolumeService {
+import com.zhibang.mapper.RD.RD_VolumeMapper;
+
+public interface RD_VolumeService extends RD_VolumeMapper {
 }

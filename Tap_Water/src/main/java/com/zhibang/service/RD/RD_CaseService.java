@@ -1,10 +1,6 @@
 package com.zhibang.service.RD;
 
-/**@Author 何岷鸿
- *@ClassName RD_CaseService
- *@Description 抄表情况查询
- *@createTime 2020/12/12 17:57
- **/
+import com.zhibang.mapper.RD.RD_CaseMapper;
 
-public class RD_CaseService {
+public interface RD_CaseService extends RD_CaseMapper {
 }

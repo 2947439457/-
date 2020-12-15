@@ -1,10 +1,6 @@
 package com.zhibang.service.RD;
 
-/**
- * @Author 何岷鸿
- * @ClassName RD_ChangeMaxValueService
- * @Description 最大表码修正记录
- * @createTime 2020/12/12 17:59
- **/
-public class RD_ChangeMaxValueService {
+import com.zhibang.mapper.RD.RD_ChangeMaxValueMapper;
+
+public interface RD_ChangeMaxValueService extends RD_ChangeMaxValueMapper {
 }
