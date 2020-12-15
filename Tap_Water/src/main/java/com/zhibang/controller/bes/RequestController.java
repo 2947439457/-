@@ -23,11 +23,10 @@ public class RequestController {
         return  "/page/be__request";
     }
 
-    //选择办理用户
+    //跳转选择办理业务
     @GetMapping(value = "/requestInt")
     public String requestInt(Integer rid){
         String requestId = "/page/be__request" + rid;
-        System.out.println(requestId);
         return requestId;
     }
 

@@ -61,7 +61,7 @@ function setMeter(){
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
+							<li><a href="/be/request">01 用户申请</a></li>
 							<li><a href="be__audit.ftl">02 初步审核</a></li>
 							<li><a href="be__pay.ftl">03 交施工费</a></li>
 							<li><a href="be__billclear.ftl">04 水费清算</a></li>
