@@ -47,4 +47,13 @@ public class SyArea implements Serializable {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyArea{" +
+            "id=" + id +
+            ", areaName='" + areaName + '\'' +
+            ", remark='" + remark + '\'' +
+            ", disabled=" + disabled +
+            '}';
+  }
 }

@@ -66,4 +66,15 @@ public class SyMenu implements Serializable {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyMenu{" +
+            "id=" + id +
+            ", menuName='" + menuName + '\'' +
+            ", parent='" + parent + '\'' +
+            ", orderIndex=" + orderIndex +
+            ", flowId=" + flowId +
+            ", disabled='" + disabled + '\'' +
+            '}';
+  }
 }

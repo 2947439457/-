@@ -36,4 +36,12 @@ public class SyEmpareapower implements Serializable {
     this.areaId = areaId;
   }
 
+  @Override
+  public String toString() {
+    return "SyEmpareapower{" +
+            "id=" + id +
+            ", empId=" + empId +
+            ", areaId=" + areaId +
+            '}';
+  }
 }

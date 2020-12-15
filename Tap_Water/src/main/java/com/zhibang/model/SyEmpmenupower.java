@@ -36,4 +36,12 @@ public class SyEmpmenupower implements Serializable {
     this.menuId = menuId;
   }
 
+  @Override
+  public String toString() {
+    return "SyEmpmenupower{" +
+            "id=" + id +
+            ", empId=" + empId +
+            ", menuId=" + menuId +
+            '}';
+  }
 }

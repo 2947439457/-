@@ -86,4 +86,17 @@ public class SyMetertype implements Serializable {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyMetertype{" +
+            "id=" + id +
+            ", meterTypeName='" + meterTypeName + '\'' +
+            ", aperture=" + aperture +
+            ", mavValue=" + mavValue +
+            ", minValue=" + minValue +
+            ", life=" + life +
+            ", remark='" + remark + '\'' +
+            ", disabled='" + disabled + '\'' +
+            '}';
+  }
 }

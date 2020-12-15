@@ -76,4 +76,16 @@ public class SyEmp implements Serializable {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyEmp{" +
+            "id=" + id +
+            ", empName='" + empName + '\'' +
+            ", empNo='" + empNo + '\'' +
+            ", pwd='" + pwd + '\'' +
+            ", deptId=" + deptId +
+            ", remark='" + remark + '\'' +
+            ", disabled=" + disabled +
+            '}';
+  }
 }

@@ -96,4 +96,18 @@ public class SyCosttype implements Serializable {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyCosttype{" +
+            "id=" + id +
+            ", kind=" + kind +
+            ", code='" + code + '\'' +
+            ", costTypeName='" + costTypeName + '\'' +
+            ", fullName='" + fullName + '\'' +
+            ", peice=" + peice +
+            ", surchargeText='" + surchargeText + '\'' +
+            ", remark='" + remark + '\'' +
+            ", disabled='" + disabled + '\'' +
+            '}';
+  }
 }

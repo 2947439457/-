@@ -46,4 +46,13 @@ public class SyDept implements Serializable {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyDept{" +
+            "id=" + id +
+            ", deptName='" + deptName + '\'' +
+            ", remark='" + remark + '\'' +
+            ", disabled='" + disabled + '\'' +
+            '}';
+  }
 }

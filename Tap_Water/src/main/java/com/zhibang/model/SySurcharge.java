@@ -36,4 +36,12 @@ public class SySurcharge implements Serializable {
     this.waterTypeId = waterTypeId;
   }
 
+  @Override
+  public String toString() {
+    return "SySurcharge{" +
+            "id=" + id +
+            ", surchargeId=" + surchargeId +
+            ", waterTypeId=" + waterTypeId +
+            '}';
+  }
 }
