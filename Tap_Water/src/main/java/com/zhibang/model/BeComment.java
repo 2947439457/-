@@ -1,10 +1,12 @@
 package com.zhibang.model;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BeComment {
+public class BeComment implements Serializable {
 
+  private static final long serialVersionUID = 3612976991643067301L;
   private Integer id;
   private String orderNo;
   private Date datee;

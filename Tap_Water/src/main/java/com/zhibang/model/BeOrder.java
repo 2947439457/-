@@ -1,10 +1,12 @@
 package com.zhibang.model;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class BeOrder {
+public class BeOrder implements Serializable {
 
+    private static final long serialVersionUID = -1319190645632479513L;
     private String orderNo;
     private Integer orderType;
     private Integer stepId;

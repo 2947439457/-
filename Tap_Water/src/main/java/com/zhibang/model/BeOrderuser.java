@@ -1,8 +1,11 @@
 package com.zhibang.model;
 
 
-public class BeOrderuser {
+import java.io.Serializable;
 
+public class BeOrderuser implements Serializable {
+
+  private static final long serialVersionUID = -6150821001751957931L;
   private Integer id;
   private String orderNo;
   private String userName;

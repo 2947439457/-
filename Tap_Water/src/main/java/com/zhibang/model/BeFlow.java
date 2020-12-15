@@ -1,8 +1,11 @@
 package com.zhibang.model;
 
 
-public class BeFlow {
+import java.io.Serializable;
 
+public class BeFlow implements Serializable {
+
+  private static final long serialVersionUID = 4673211565866201983L;
   private Integer id;
   private String stepName;
   private Integer deptId;

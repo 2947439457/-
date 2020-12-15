@@ -1,8 +1,10 @@
 package com.zhibang.model;
 
+import java.io.Serializable;
 import java.util.Date;
-public class RdRead {
+public class RdRead implements Serializable {
 
+  private static final long serialVersionUID = -7760181010395207682L;
   private Integer id;
   private Integer readYear;
   private Integer readMonth;

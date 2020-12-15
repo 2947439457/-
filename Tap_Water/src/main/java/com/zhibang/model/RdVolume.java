@@ -1,8 +1,11 @@
 package com.zhibang.model;
 
 
-public class RdVolume {
+import java.io.Serializable;
 
+public class RdVolume implements Serializable {
+
+  private static final long serialVersionUID = -6111071383753928798L;
   private Integer id;
   private String volumeName;
   private Integer areaId;

@@ -1,9 +1,11 @@
 package com.zhibang.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class UsUser {
+public class UsUser implements Serializable {
 
+  private static final long serialVersionUID = 8248024855748530967L;
   private String userNo;
   private String userName;
   private String abc;

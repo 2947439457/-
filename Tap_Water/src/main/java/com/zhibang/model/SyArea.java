@@ -1,8 +1,11 @@
 package com.zhibang.model;
 
 
-public class SyArea {
+import java.io.Serializable;
 
+public class SyArea implements Serializable {
+
+  private static final long serialVersionUID = -3137436602725817903L;
   private Integer id;
   private String areaName;
   private String remark;

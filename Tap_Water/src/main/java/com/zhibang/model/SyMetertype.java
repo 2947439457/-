@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyMetertype {
+import java.io.Serializable;
 
+public class SyMetertype implements Serializable {
+
+  private static final long serialVersionUID = 3985071759069503545L;
   private Integer id;
   private String meterTypeName;
   private Integer aperture;

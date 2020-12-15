@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyMenu {
+import java.io.Serializable;
 
+public class SyMenu implements Serializable {
+
+  private static final long serialVersionUID = -881596635153393790L;
   private Integer id;
   private String menuName;
   private String parent;

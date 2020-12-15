@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyEmpareapower {
+import java.io.Serializable;
 
+public class SyEmpareapower implements Serializable {
+
+  private static final long serialVersionUID = -2247551956030742021L;
   private Integer id;
   private Integer empId;
   private Integer areaId;

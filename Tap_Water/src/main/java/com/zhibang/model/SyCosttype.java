@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyCosttype {
+import java.io.Serializable;
 
+public class SyCosttype implements Serializable {
+
+  private static final long serialVersionUID = 1313173732423230159L;
   private Integer id;
   private Integer kind;
   private String code;

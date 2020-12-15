@@ -1,10 +1,12 @@
 package com.zhibang.model;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class RdChangemaxvalue {
+public class RdChangemaxvalue implements Serializable {
 
+  private static final long serialVersionUID = 7324073388324978617L;
   private Integer id;
   private Date datee;
   private Integer empId;

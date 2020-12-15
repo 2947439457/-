@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyDept {
+import java.io.Serializable;
 
+public class SyDept implements Serializable {
+
+  private static final long serialVersionUID = -9122905395861015118L;
   private Integer id;
   private String deptName;
   private String remark;

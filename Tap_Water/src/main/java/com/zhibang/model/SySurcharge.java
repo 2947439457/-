@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SySurcharge {
+import java.io.Serializable;
 
+public class SySurcharge implements Serializable {
+
+  private static final long serialVersionUID = 9037354444996853656L;
   private Integer id;
   private Integer surchargeId;
   private Integer waterTypeId;

@@ -1,8 +1,11 @@
 package com.zhibang.model;
 
 
-public class BeFormula {
+import java.io.Serializable;
 
+public class BeFormula implements Serializable {
+
+  private static final long serialVersionUID = -1020824390258308756L;
   private Integer id;
   private Integer orderUserId;
   private String waterTypeCode;
