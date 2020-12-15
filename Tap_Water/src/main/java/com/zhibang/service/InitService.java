@@ -1,5 +1,9 @@
 package com.zhibang.service;
 
+import com.zhibang.model.SyMetertype;
+
+import java.util.List;
+
 /**
  * @author admin
  * @version 1.0.0
@@ -9,6 +13,7 @@ package com.zhibang.service;
  */
 public interface InitService {
 
-
+    //获得全部水表型号
+    public List<SyMetertype> selSyMetertype();
 
 }

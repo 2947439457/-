@@ -236,8 +236,6 @@ function setMeter(){
 									</td>
 								</tr>
 								<tr>
-									<td>联系人</td>
-									<td><input /></td>
 									<td>联系电话</td>
 									<td><input /></td>
 								</tr>
@@ -250,15 +248,9 @@ function setMeter(){
 									<td><input /></td>
 									<td>申请表径</td>
 									<td><select style="width:158px;">
-											<option>DN10</option>
-											<option selected="selected">DN15</option>
-											<option>DN20</option>
-											<option>DN40</option>
-											<option>DN80</option>
-											<option>DN100</option>
-											<option>DN200</option>
-											<option>DN500</option>
-											<option>DN1000</option>
+                                            <#list syMetertypes as sm>
+                                                <option>${sm.meterTypeName}</option>
+                                            </#list>
 										</select>
 									</td>
 								</tr>

@@ -16,20 +16,19 @@
     <!--<context:property-override location="classpath*:db.properties"/>-->
     <!--扫描注解-->
     <context:component-scan base-package="com.zhibang"/>
+
     <!--加载注解驱动-->
     <mvc:annotation-driven/>
+
     <!--配置静态资源文件-->
     <mvc:resources mapping="/**" location="/ftl/"/>
-    <mvc:resources mapping="/**" location="/ftl/css"/>
-    <mvc:resources mapping="/**" location="/ftl/docs"/>
-    <mvc:resources mapping="/**" location="/ftl/images"/>
-    <mvc:resources mapping="/**" location="/ftl/js"/>
-    <mvc:resources mapping="/**" location="/ftl/page"/>
+
     <!-- 配置freeMarker的模板路径 -->
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <property name="templateLoaderPath" value="ftl/" />
         <property name="defaultEncoding" value="UTF-8" />
     </bean>
+
     <!-- freemarker视图解析器 -->
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <property name="suffix" value=".ftl" />
@@ -50,8 +49,10 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="com.zhibang.model"/>
+        <property name="mapperLocations" value="classpath*:mapper/**/*.xml"/>
         <!--<property name="configLocation" value="classpath*:mybatis-config.xml"/>-->
     </bean>
+
     <!--扫描映射配置文件-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
@@ -62,6 +63,7 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
     <!--配置事务-->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
@@ -70,6 +72,7 @@
             <tx:method name="up*" propagation="REQUIRED"/>
         </tx:attributes>
     </tx:advice>
+
     <!--切面切入事务-->
     <aop:config>
         <aop:pointcut id="aopPoin" expression="execution(* com.zhibang.service..*(..))"/>
