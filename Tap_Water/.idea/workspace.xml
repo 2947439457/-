@@ -8,23 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3d9beb61-c9f6-418f-ba13-211bc5b7aa85" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeFlow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeFormula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeFormula.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeOrderuser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/BeOrderuser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/RdChangemaxvalue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/RdChangemaxvalue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/RdChangevalue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/RdChangevalue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/RdRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/RdRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/RdTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/RdTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/RdYearmonth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/RdYearmonth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/SyEmp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/SyEmp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/SyEmpareapower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/SyEmpareapower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/SyEmpmenupower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/SyEmpmenupower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/SySurcharge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/SySurcharge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/UsMeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/UsMeter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/model/UsUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/model/UsUser.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -149,7 +132,7 @@
     <session id="84565522">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.40" value="2" />
@@ -160,13 +143,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="162" />
+          <entry key="java" value="163" />
           <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="162" />
+          <entry key="JAVA" value="163" />
           <entry key="XML" value="13" />
         </counts>
       </usages-collector>
@@ -175,14 +158,14 @@
           <entry key="dummy" value="18" />
           <entry key="ft" value="4" />
           <entry key="java" value="211" />
-          <entry key="txt" value="82" />
+          <entry key="txt" value="96" />
           <entry key="xml" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="211" />
-          <entry key="PLAIN_TEXT" value="100" />
+          <entry key="PLAIN_TEXT" value="114" />
           <entry key="VTL" value="4" />
           <entry key="XML" value="12" />
         </counts>
@@ -199,45 +182,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
               <caret line="4" column="23" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/model/SyEmp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="18" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="18" />
-              <folding>
-                <element signature="e#371#372#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
-                <element signature="e#425#426#0" expanded="true" />
-                <element signature="e#447#448#0" expanded="true" />
-                <element signature="e#479#480#0" expanded="true" />
-                <element signature="e#503#504#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#579#580#0" expanded="true" />
-                <element signature="e#609#610#0" expanded="true" />
-                <element signature="e#631#632#0" expanded="true" />
-                <element signature="e#671#672#0" expanded="true" />
-                <element signature="e#699#700#0" expanded="true" />
-                <element signature="e#727#728#0" expanded="true" />
-                <element signature="e#747#748#0" expanded="true" />
-                <element signature="e#783#784#0" expanded="true" />
-                <element signature="e#807#808#0" expanded="true" />
-                <element signature="e#838#839#0" expanded="true" />
-                <element signature="e#861#862#0" expanded="true" />
-                <element signature="e#903#904#0" expanded="true" />
-                <element signature="e#933#934#0" expanded="true" />
-                <element signature="e#964#965#0" expanded="true" />
-                <element signature="e#987#988#0" expanded="true" />
-                <element signature="e#1029#1030#0" expanded="true" />
-                <element signature="e#1059#1060#0" expanded="true" />
-                <element signature="e#1093#1094#0" expanded="true" />
-                <element signature="e#1118#1119#0" expanded="true" />
-                <element signature="e#1165#1166#0" expanded="true" />
-                <element signature="e#1199#1200#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -353,7 +297,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/model/UsUser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="181">
@@ -440,6 +384,15 @@
                 <element signature="e#3469#3470#0" expanded="true" />
                 <element signature="e#3503#3504#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/service/RD/impl/RD_AuditServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -888,7 +841,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1608100632683" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1608100723411" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1109,7 +1062,7 @@
       <workItem from="1607997387834" duration="353000" />
       <workItem from="1607997772048" duration="4874000" />
       <workItem from="1608026483376" duration="40000" />
-      <workItem from="1608097226528" duration="3383000" />
+      <workItem from="1608097226528" duration="3558000" />
     </task>
     <task id="LOCAL-00001" summary="完成ApplicationContext的配置与Web.xml">
       <created>1607590445506</created>
@@ -1174,11 +1127,18 @@
       <option name="project" value="LOCAL" />
       <updated>1608000078821</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="实体类外键的修正">
+      <created>1608100687917</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608100687917</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31408000" />
+    <option name="totallyTimeSpent" value="31583000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -1275,7 +1235,8 @@
     <MESSAGE value="service,mapper,Mappers中RD模块的修正" />
     <MESSAGE value="Mappers中RD模块的修正" />
     <MESSAGE value="model中sy业务实体类中，toString的添加" />
-    <option name="LAST_COMMIT_MESSAGE" value="model中sy业务实体类中，toString的添加" />
+    <MESSAGE value="实体类外键的修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="实体类外键的修正" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/mapper/RD/RD_MeterUserMapper.java">
@@ -1861,13 +1822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/service/RD/impl/RD_AuditServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/service/RD/RD_MeterUserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -2306,6 +2260,13 @@
             <element signature="e#3469#3470#0" expanded="true" />
             <element signature="e#3503#3504#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/service/RD/impl/RD_AuditServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
