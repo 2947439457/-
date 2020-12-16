@@ -7,7 +7,7 @@ public class BeOrderuser implements Serializable {
 
   private static final long serialVersionUID = -6150821001751957931L;
   private Integer id;
-  private String orderNo;
+  private BeOrder orderNo;
   private String userName;
   private String phone;
   private String address;
@@ -24,7 +24,6 @@ public class BeOrderuser implements Serializable {
   private String docNum;
   private String userNo;
 
-
   public Integer getId() {
     return id;
   }
@@ -33,15 +32,13 @@ public class BeOrderuser implements Serializable {
     this.id = id;
   }
 
-
-  public String getOrderNo() {
+  public BeOrder getOrderNo() {
     return orderNo;
   }
 
-  public void setOrderNo(String orderNo) {
+  public void setOrderNo(BeOrder orderNo) {
     this.orderNo = orderNo;
   }
-
 
   public String getUserName() {
     return userName;
@@ -51,7 +48,6 @@ public class BeOrderuser implements Serializable {
     this.userName = userName;
   }
 
-
   public String getPhone() {
     return phone;
   }
@@ -59,7 +55,6 @@ public class BeOrderuser implements Serializable {
   public void setPhone(String phone) {
     this.phone = phone;
   }
-
 
   public String getAddress() {
     return address;
@@ -69,7 +64,6 @@ public class BeOrderuser implements Serializable {
     this.address = address;
   }
 
-
   public Double getProjectMoney() {
     return projectMoney;
   }
@@ -77,7 +71,6 @@ public class BeOrderuser implements Serializable {
   public void setProjectMoney(Double projectMoney) {
     this.projectMoney = projectMoney;
   }
-
 
   public Double getRealMoney() {
     return realMoney;
@@ -87,7 +80,6 @@ public class BeOrderuser implements Serializable {
     this.realMoney = realMoney;
   }
 
-
   public String getInvoiceNo() {
     return invoiceNo;
   }
@@ -95,7 +87,6 @@ public class BeOrderuser implements Serializable {
   public void setInvoiceNo(String invoiceNo) {
     this.invoiceNo = invoiceNo;
   }
-
 
   public String getFormula() {
     return formula;
@@ -105,7 +96,6 @@ public class BeOrderuser implements Serializable {
     this.formula = formula;
   }
 
-
   public String getContractNum() {
     return contractNum;
   }
@@ -113,7 +103,6 @@ public class BeOrderuser implements Serializable {
   public void setContractNum(String contractNum) {
     this.contractNum = contractNum;
   }
-
 
   public Integer getMeterTypeId() {
     return meterTypeId;
@@ -123,7 +112,6 @@ public class BeOrderuser implements Serializable {
     this.meterTypeId = meterTypeId;
   }
 
-
   public String getMeterName() {
     return meterName;
   }
@@ -131,7 +119,6 @@ public class BeOrderuser implements Serializable {
   public void setMeterName(String meterName) {
     this.meterName = meterName;
   }
-
 
   public Integer getMaxValue() {
     return maxValue;
@@ -141,7 +128,6 @@ public class BeOrderuser implements Serializable {
     this.maxValue = maxValue;
   }
 
-
   public Integer getStartValue() {
     return startValue;
   }
@@ -149,7 +135,6 @@ public class BeOrderuser implements Serializable {
   public void setStartValue(Integer startValue) {
     this.startValue = startValue;
   }
-
 
   public String getMeterFactory() {
     return meterFactory;
@@ -159,7 +144,6 @@ public class BeOrderuser implements Serializable {
     this.meterFactory = meterFactory;
   }
 
-
   public String getDocNum() {
     return docNum;
   }
@@ -167,7 +151,6 @@ public class BeOrderuser implements Serializable {
   public void setDocNum(String docNum) {
     this.docNum = docNum;
   }
-
 
   public String getUserNo() {
     return userNo;
@@ -181,7 +164,7 @@ public class BeOrderuser implements Serializable {
   public String toString() {
     return "BeOrderuser{" +
             "id=" + id +
-            ", orderNo='" + orderNo + '\'' +
+            ", orderNo=" + orderNo +
             ", userName='" + userName + '\'' +
             ", phone='" + phone + '\'' +
             ", address='" + address + '\'' +

@@ -9,10 +9,9 @@ public class RdYearmonth implements Serializable {
   private Integer readYear;
   private Integer readMonth;
   private Boolean isCurrent;
-  private Integer initEmpId;
+  private SyEmp initEmpId;
   private Date initDate;
   private Date endDate;
-
 
   public Integer getId() {
     return id;
@@ -22,7 +21,6 @@ public class RdYearmonth implements Serializable {
     this.id = id;
   }
 
-
   public Integer getReadYear() {
     return readYear;
   }
@@ -30,7 +28,6 @@ public class RdYearmonth implements Serializable {
   public void setReadYear(Integer readYear) {
     this.readYear = readYear;
   }
-
 
   public Integer getReadMonth() {
     return readMonth;
@@ -40,24 +37,21 @@ public class RdYearmonth implements Serializable {
     this.readMonth = readMonth;
   }
 
-
-  public Boolean getIsCurrent() {
+  public Boolean getCurrent() {
     return isCurrent;
   }
 
-  public void setIsCurrent(Boolean isCurrent) {
-    this.isCurrent = isCurrent;
+  public void setCurrent(Boolean current) {
+    isCurrent = current;
   }
 
-
-  public Integer getInitEmpId() {
+  public SyEmp getInitEmpId() {
     return initEmpId;
   }
 
-  public void setInitEmpId(Integer initEmpId) {
+  public void setInitEmpId(SyEmp initEmpId) {
     this.initEmpId = initEmpId;
   }
-
 
   public Date getInitDate() {
     return initDate;
@@ -66,7 +60,6 @@ public class RdYearmonth implements Serializable {
   public void setInitDate(Date initDate) {
     this.initDate = initDate;
   }
-
 
   public Date getEndDate() {
     return endDate;

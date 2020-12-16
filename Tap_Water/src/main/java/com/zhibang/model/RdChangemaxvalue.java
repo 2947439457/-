@@ -10,12 +10,11 @@ public class RdChangemaxvalue implements Serializable {
   private Integer id;
   private Date datee;
   private Integer empId;
-  private String userNo;
-  private String meterNo;
+  private UsUser userNo;
+  private UsMeter meterNo;
   private Integer maxValue1;
   private Integer maxValue2;
   private String remark;
-
 
   public Integer getId() {
     return id;
@@ -25,7 +24,6 @@ public class RdChangemaxvalue implements Serializable {
     this.id = id;
   }
 
-
   public Date getDatee() {
     return datee;
   }
@@ -33,7 +31,6 @@ public class RdChangemaxvalue implements Serializable {
   public void setDatee(Date datee) {
     this.datee = datee;
   }
-
 
   public Integer getEmpId() {
     return empId;
@@ -43,24 +40,21 @@ public class RdChangemaxvalue implements Serializable {
     this.empId = empId;
   }
 
-
-  public String getUserNo() {
+  public UsUser getUserNo() {
     return userNo;
   }
 
-  public void setUserNo(String userNo) {
+  public void setUserNo(UsUser userNo) {
     this.userNo = userNo;
   }
 
-
-  public String getMeterNo() {
+  public UsMeter getMeterNo() {
     return meterNo;
   }
 
-  public void setMeterNo(String meterNo) {
+  public void setMeterNo(UsMeter meterNo) {
     this.meterNo = meterNo;
   }
-
 
   public Integer getMaxValue1() {
     return maxValue1;
@@ -70,7 +64,6 @@ public class RdChangemaxvalue implements Serializable {
     this.maxValue1 = maxValue1;
   }
 
-
   public Integer getMaxValue2() {
     return maxValue2;
   }
@@ -78,7 +71,6 @@ public class RdChangemaxvalue implements Serializable {
   public void setMaxValue2(Integer maxValue2) {
     this.maxValue2 = maxValue2;
   }
-
 
   public String getRemark() {
     return remark;
@@ -94,8 +86,8 @@ public class RdChangemaxvalue implements Serializable {
             "id=" + id +
             ", datee=" + datee +
             ", empId=" + empId +
-            ", userNo='" + userNo + '\'' +
-            ", meterNo='" + meterNo + '\'' +
+            ", userNo=" + userNo +
+            ", meterNo=" + meterNo +
             ", maxValue1=" + maxValue1 +
             ", maxValue2=" + maxValue2 +
             ", remark='" + remark + '\'' +
