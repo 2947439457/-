@@ -1,8 +1,10 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
+@Component
 public class BeFormula implements Serializable {
 
   private static final long serialVersionUID = -1020824390258308756L;

@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
+@Component
 public class RdTask implements Serializable {
 
   private static final long serialVersionUID = 2632365192207834537L;

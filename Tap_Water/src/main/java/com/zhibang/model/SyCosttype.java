@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
+@Component
 public class SyCosttype implements Serializable {
 
   private static final long serialVersionUID = 1313173732423230159L;

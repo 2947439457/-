@@ -1,14 +1,16 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.Date;
 
+@Component
 public class BeComment implements Serializable {
 
     private static final long serialVersionUID = 3612976991643067301L;
     private Integer id;
-    private String orderNo;
+    private BeOrder orderNo;
     private Date datee;
     private SyEmp empId;
     private String comment;
@@ -21,11 +23,11 @@ public class BeComment implements Serializable {
         this.id = id;
     }
 
-    public String getOrderNo() {
+    public BeOrder getOrderNo() {
         return orderNo;
     }
 
-    public void setOrderNo(String orderNo) {
+    public void setOrderNo(BeOrder orderNo) {
         this.orderNo = orderNo;
     }
 
@@ -57,7 +59,7 @@ public class BeComment implements Serializable {
     public String toString() {
         return "BeComment{" +
                 "id=" + id +
-                ", orderNo='" + orderNo + '\'' +
+                ", orderNo=" + orderNo +
                 ", datee=" + datee +
                 ", empId=" + empId +
                 ", comment='" + comment + '\'' +

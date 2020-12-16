@@ -1,8 +1,10 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
+@Component
 public class RdVolume implements Serializable {
 
   private static final long serialVersionUID = -6111071383753928798L;

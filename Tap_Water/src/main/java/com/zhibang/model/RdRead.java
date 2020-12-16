@@ -1,7 +1,11 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.Date;
+
+@Component
 public class RdRead implements Serializable {
 
   private static final long serialVersionUID = -7760181010395207682L;
