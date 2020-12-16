@@ -1,8 +1,10 @@
 package com.zhibang.model;
 
+import java.io.Serializable;
 
-public class SyArea {
+public class SyArea implements Serializable {
 //抄表辖区
+  private static final long serialVersionUID = -3137436602725817903L;
   private Integer id;
   private String areaName;//抄表辖区名称
   private String remark;//备注
@@ -43,5 +45,13 @@ public class SyArea {
   public void setDisabled(Integer disabled) {
     this.disabled = disabled;
   }
-
+    @Override
+    public String toString() {
+        return "SyArea{" +
+                "id=" + id +
+                ", areaName='" + areaName + '\'' +
+                ", remark='" + remark + '\'' +
+                ", disabled=" + disabled +
+                '}';
+    }
 }

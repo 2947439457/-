@@ -1,14 +1,18 @@
 package com.zhibang.model;
 
 
-public class BeHistory {
+import java.io.Serializable;
+import java.util.Date;
 
+public class BeHistory implements Serializable {
+
+  private static final long serialVersionUID = -8102240706018431495L;
   private Integer id;
   private String orderNo;
   private Integer stepId;
-  private java.sql.Timestamp datee;
+  private Date datee;
   private Integer empId;
-  private String isBack;
+  private Boolean isBack;
 
 
   public Integer getId() {
@@ -38,11 +42,11 @@ public class BeHistory {
   }
 
 
-  public java.sql.Timestamp getDatee() {
+  public Date getDatee() {
     return datee;
   }
 
-  public void setDatee(java.sql.Timestamp datee) {
+  public void setDatee(Date datee) {
     this.datee = datee;
   }
 
@@ -56,12 +60,23 @@ public class BeHistory {
   }
 
 
-  public String getIsBack() {
+  public Boolean getIsBack() {
     return isBack;
   }
 
-  public void setIsBack(String isBack) {
+  public void setIsBack(Boolean isBack) {
     this.isBack = isBack;
   }
 
+  @Override
+  public String toString() {
+    return "BeHistory{" +
+            "id=" + id +
+            ", orderNo='" + orderNo + '\'' +
+            ", stepId=" + stepId +
+            ", datee=" + datee +
+            ", empId=" + empId +
+            ", isBack=" + isBack +
+            '}';
+  }
 }

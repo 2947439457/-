@@ -1,10 +1,14 @@
 package com.zhibang.model;
 
 
-public class RdChangevalue {
+import java.io.Serializable;
+import java.util.Date;
 
+public class RdChangevalue implements Serializable {
+
+  private static final long serialVersionUID = 2686286519767983462L;
   private Integer id;
-  private java.sql.Timestamp datee;
+  private Date datee;
   private Integer empId;
   private String userNo;
   private Integer preValue1;
@@ -21,11 +25,11 @@ public class RdChangevalue {
   }
 
 
-  public java.sql.Timestamp getDatee() {
+  public Date getDatee() {
     return datee;
   }
 
-  public void setDatee(java.sql.Timestamp datee) {
+  public void setDatee(Date datee) {
     this.datee = datee;
   }
 
@@ -74,4 +78,16 @@ public class RdChangevalue {
     this.remark = remark;
   }
 
+  @Override
+  public String toString() {
+    return "RdChangevalue{" +
+            "id=" + id +
+            ", datee=" + datee +
+            ", empId=" + empId +
+            ", userNo='" + userNo + '\'' +
+            ", preValue1=" + preValue1 +
+            ", preValue2=" + preValue2 +
+            ", remark='" + remark + '\'' +
+            '}';
+  }
 }

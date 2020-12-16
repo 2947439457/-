@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyEmpmenupower {
+import java.io.Serializable;
+
+public class SyEmpmenupower implements Serializable {
 //员工菜单权限
+  private static final long serialVersionUID = -790659245149477400L;
   private Integer id;
   private Integer empId;//员工ID
   private Integer menuId;//菜单ID
@@ -33,4 +36,12 @@ public class SyEmpmenupower {
     this.menuId = menuId;
   }
 
+  @Override
+  public String toString() {
+    return "SyEmpmenupower{" +
+            "id=" + id +
+            ", empId=" + empId +
+            ", menuId=" + menuId +
+            '}';
+  }
 }

@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class RdTask {
+import java.io.Serializable;
 
+public class RdTask implements Serializable {
+
+  private static final long serialVersionUID = 2632365192207834537L;
   private Integer id;
   private Integer readYear;
   private Integer readMonth;
@@ -53,4 +56,14 @@ public class RdTask {
     this.empId = empId;
   }
 
+  @Override
+  public String toString() {
+    return "RdTask{" +
+            "id=" + id +
+            ", readYear=" + readYear +
+            ", readMonth=" + readMonth +
+            ", volumeId=" + volumeId +
+            ", empId=" + empId +
+            '}';
+  }
 }

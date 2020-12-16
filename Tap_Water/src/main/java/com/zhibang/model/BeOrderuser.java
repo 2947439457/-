@@ -1,8 +1,11 @@
 package com.zhibang.model;
 
 
-public class BeOrderuser {
+import java.io.Serializable;
 
+public class BeOrderuser implements Serializable {
+
+  private static final long serialVersionUID = -6150821001751957931L;
   private Integer id;
   private String orderNo;
   private String userName;
@@ -174,4 +177,26 @@ public class BeOrderuser {
     this.userNo = userNo;
   }
 
+  @Override
+  public String toString() {
+    return "BeOrderuser{" +
+            "id=" + id +
+            ", orderNo='" + orderNo + '\'' +
+            ", userName='" + userName + '\'' +
+            ", phone='" + phone + '\'' +
+            ", address='" + address + '\'' +
+            ", projectMoney=" + projectMoney +
+            ", realMoney=" + realMoney +
+            ", invoiceNo='" + invoiceNo + '\'' +
+            ", formula='" + formula + '\'' +
+            ", contractNum='" + contractNum + '\'' +
+            ", meterTypeId=" + meterTypeId +
+            ", meterName='" + meterName + '\'' +
+            ", maxValue=" + maxValue +
+            ", startValue=" + startValue +
+            ", meterFactory='" + meterFactory + '\'' +
+            ", docNum='" + docNum + '\'' +
+            ", userNo='" + userNo + '\'' +
+            '}';
+  }
 }

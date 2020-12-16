@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyEmp {
+import java.io.Serializable;
+
+public class SyEmp implements Serializable {
 //员工
+  private static final long serialVersionUID = 6320442346478126979L;
   private Integer id;
   private String empName;//员工姓名
   private String empNo;//工号

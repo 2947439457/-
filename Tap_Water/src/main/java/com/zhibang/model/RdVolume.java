@@ -1,14 +1,17 @@
 package com.zhibang.model;
 
 
-public class RdVolume {
+import java.io.Serializable;
 
+public class RdVolume implements Serializable {
+
+  private static final long serialVersionUID = -6111071383753928798L;
   private Integer id;
   private String volumeName;
   private Integer areaId;
   private Integer orderIndex;
   private String remark;
-  private String disabled;
+  private Boolean disabled;
 
 
   public Integer getId() {
@@ -56,12 +59,23 @@ public class RdVolume {
   }
 
 
-  public String getDisabled() {
+  public Boolean getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(String disabled) {
+  public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "RdVolume{" +
+            "id=" + id +
+            ", volumeName='" + volumeName + '\'' +
+            ", areaId=" + areaId +
+            ", orderIndex=" + orderIndex +
+            ", remark='" + remark + '\'' +
+            ", disabled=" + disabled +
+            '}';
+  }
 }

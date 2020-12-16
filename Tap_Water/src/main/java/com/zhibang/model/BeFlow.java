@@ -1,8 +1,11 @@
 package com.zhibang.model;
 
 
-public class BeFlow {
+import java.io.Serializable;
 
+public class BeFlow implements Serializable {
+
+  private static final long serialVersionUID = 4673211565866201983L;
   private Integer id;
   private String stepName;
   private Integer deptId;
@@ -104,4 +107,19 @@ public class BeFlow {
     this.type7 = type7;
   }
 
+  @Override
+  public String toString() {
+    return "BeFlow{" +
+            "id=" + id +
+            ", stepName='" + stepName + '\'' +
+            ", deptId=" + deptId +
+            ", type1=" + type1 +
+            ", type2=" + type2 +
+            ", type3=" + type3 +
+            ", type4=" + type4 +
+            ", type5=" + type5 +
+            ", type6=" + type6 +
+            ", type7=" + type7 +
+            '}';
+  }
 }

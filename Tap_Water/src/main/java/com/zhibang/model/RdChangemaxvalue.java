@@ -1,10 +1,14 @@
 package com.zhibang.model;
 
 
-public class RdChangemaxvalue {
+import java.io.Serializable;
+import java.util.Date;
 
+public class RdChangemaxvalue implements Serializable {
+
+  private static final long serialVersionUID = 7324073388324978617L;
   private Integer id;
-  private java.sql.Timestamp datee;
+  private Date datee;
   private Integer empId;
   private String userNo;
   private String meterNo;
@@ -22,11 +26,11 @@ public class RdChangemaxvalue {
   }
 
 
-  public java.sql.Timestamp getDatee() {
+  public Date getDatee() {
     return datee;
   }
 
-  public void setDatee(java.sql.Timestamp datee) {
+  public void setDatee(Date datee) {
     this.datee = datee;
   }
 
@@ -84,4 +88,17 @@ public class RdChangemaxvalue {
     this.remark = remark;
   }
 
+  @Override
+  public String toString() {
+    return "RdChangemaxvalue{" +
+            "id=" + id +
+            ", datee=" + datee +
+            ", empId=" + empId +
+            ", userNo='" + userNo + '\'' +
+            ", meterNo='" + meterNo + '\'' +
+            ", maxValue1=" + maxValue1 +
+            ", maxValue2=" + maxValue2 +
+            ", remark='" + remark + '\'' +
+            '}';
+  }
 }

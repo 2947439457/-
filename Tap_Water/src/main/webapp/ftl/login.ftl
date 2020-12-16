@@ -1,11 +1,11 @@
 <!DOCTYPE html>
  
-<html xmlns="http://www.w3.org/1999/xhtml"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
  
-<head> 
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<title>湖南省自来水公司营销管理信息系统 - 员工登陆</title> 
-	
+
 	<link rel="stylesheet" href="./css/reset.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="./css/text.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="./css/form.css" type="text/css" media="screen" title="no title" />

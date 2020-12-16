@@ -4,6 +4,7 @@
     <title>Title</title>
 </head>
 <body>
+<jsp:forward page="/be/request"></jsp:forward>
 <a href="/show">主页</a>
 <a href="/login">登录</a>
 </body>

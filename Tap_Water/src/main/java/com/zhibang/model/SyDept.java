@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyDept {
-//部门
+import java.io.Serializable;
+
+public class SyDept implements Serializable {
+    //部门
+  private static final long serialVersionUID = -9122905395861015118L;
   private Integer id;
   private String deptName;//部门名称
   private String remark;//备注
@@ -43,4 +46,13 @@ public class SyDept {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyDept{" +
+            "id=" + id +
+            ", deptName='" + deptName + '\'' +
+            ", remark='" + remark + '\'' +
+            ", disabled='" + disabled + '\'' +
+            '}';
+  }
 }

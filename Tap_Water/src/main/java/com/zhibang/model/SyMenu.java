@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyMenu {
+import java.io.Serializable;
+
+public class SyMenu implements Serializable {
 //菜单
+  private static final long serialVersionUID = -881596635153393790L;
   private Integer id;
   private String menuName;//菜单名称
   private String parent;//菜单上级ID
@@ -63,4 +66,15 @@ public class SyMenu {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyMenu{" +
+            "id=" + id +
+            ", menuName='" + menuName + '\'' +
+            ", parent='" + parent + '\'' +
+            ", orderIndex=" + orderIndex +
+            ", flowId=" + flowId +
+            ", disabled='" + disabled + '\'' +
+            '}';
+  }
 }

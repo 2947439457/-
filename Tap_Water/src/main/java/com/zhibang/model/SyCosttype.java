@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyCosttype {
+import java.io.Serializable;
+
+public class SyCosttype implements Serializable {
 //费用类型
+  private static final long serialVersionUID = 1313173732423230159L;
   private Integer id;
   private Integer kind;//类型
   private String code;//编码
@@ -93,4 +96,18 @@ public class SyCosttype {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyCosttype{" +
+            "id=" + id +
+            ", kind=" + kind +
+            ", code='" + code + '\'' +
+            ", costTypeName='" + costTypeName + '\'' +
+            ", fullName='" + fullName + '\'' +
+            ", peice=" + peice +
+            ", surchargeText='" + surchargeText + '\'' +
+            ", remark='" + remark + '\'' +
+            ", disabled='" + disabled + '\'' +
+            '}';
+  }
 }

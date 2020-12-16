@@ -1,8 +1,10 @@
 package com.zhibang.model;
 
+import java.io.Serializable;
+import java.util.Date;
+public class RdRead implements Serializable {
 
-public class RdRead {
-
+  private static final long serialVersionUID = -7760181010395207682L;
   private Integer id;
   private Integer readYear;
   private Integer readMonth;
@@ -12,16 +14,16 @@ public class RdRead {
   private Integer volumeId;
   private Integer volumeIndex;
   private Integer readEmpId;
-  private java.sql.Timestamp readDate;
+  private Date readDate;
   private Integer preValue;
-  private String enter;
+  private Boolean enter;
   private Integer curValue;
-  private String dial;
+  private Boolean dial;
   private Integer amount;
   private String formula;
   private String audit;
   private Integer auditEmpId;
-  private java.sql.Timestamp auditDate;
+  private Date auditDate;
 
 
   public Integer getId() {
@@ -105,11 +107,11 @@ public class RdRead {
   }
 
 
-  public java.sql.Timestamp getReadDate() {
+  public Date getReadDate() {
     return readDate;
   }
 
-  public void setReadDate(java.sql.Timestamp readDate) {
+  public void setReadDate(Date readDate) {
     this.readDate = readDate;
   }
 
@@ -123,11 +125,11 @@ public class RdRead {
   }
 
 
-  public String getEnter() {
+  public Boolean getEnter() {
     return enter;
   }
 
-  public void setEnter(String enter) {
+  public void setEnter(Boolean enter) {
     this.enter = enter;
   }
 
@@ -141,11 +143,11 @@ public class RdRead {
   }
 
 
-  public String getDial() {
+  public Boolean getDial() {
     return dial;
   }
 
-  public void setDial(String dial) {
+  public void setDial(Boolean dial) {
     this.dial = dial;
   }
 
@@ -186,12 +188,36 @@ public class RdRead {
   }
 
 
-  public java.sql.Timestamp getAuditDate() {
+  public Date getAuditDate() {
     return auditDate;
   }
 
-  public void setAuditDate(java.sql.Timestamp auditDate) {
+  public void setAuditDate(Date auditDate) {
     this.auditDate = auditDate;
   }
 
+  @Override
+  public String toString() {
+    return "RdRead{" +
+            "id=" + id +
+            ", readYear=" + readYear +
+            ", readMonth=" + readMonth +
+            ", userNo='" + userNo + '\'' +
+            ", meterNo='" + meterNo + '\'' +
+            ", maxValue=" + maxValue +
+            ", volumeId=" + volumeId +
+            ", volumeIndex=" + volumeIndex +
+            ", readEmpId=" + readEmpId +
+            ", readDate=" + readDate +
+            ", preValue=" + preValue +
+            ", enter=" + enter +
+            ", curValue=" + curValue +
+            ", dial=" + dial +
+            ", amount=" + amount +
+            ", formula='" + formula + '\'' +
+            ", audit='" + audit + '\'' +
+            ", auditEmpId=" + auditEmpId +
+            ", auditDate=" + auditDate +
+            '}';
+  }
 }

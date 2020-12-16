@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SySurcharge {
+import java.io.Serializable;
+
+public class SySurcharge implements Serializable {
 //附加费关联
+  private static final long serialVersionUID = 9037354444996853656L;
   private Integer id;
   private Integer surchargeId;//附加符ID
   private Integer waterTypeId;//用水类型ID
@@ -33,4 +36,12 @@ public class SySurcharge {
     this.waterTypeId = waterTypeId;
   }
 
+  @Override
+  public String toString() {
+    return "SySurcharge{" +
+            "id=" + id +
+            ", surchargeId=" + surchargeId +
+            ", waterTypeId=" + waterTypeId +
+            '}';
+  }
 }

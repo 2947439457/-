@@ -1,15 +1,17 @@
 package com.zhibang.model;
 
+import java.io.Serializable;
+import java.util.Date;
+public class RdYearmonth implements Serializable {
 
-public class RdYearmonth {
-
+  private static final long serialVersionUID = 3050014190925294717L;
   private Integer id;
   private Integer readYear;
   private Integer readMonth;
-  private String isCurrent;
+  private Boolean isCurrent;
   private Integer initEmpId;
-  private java.sql.Timestamp initDate;
-  private java.sql.Timestamp endDate;
+  private Date initDate;
+  private Date endDate;
 
 
   public Integer getId() {
@@ -39,11 +41,11 @@ public class RdYearmonth {
   }
 
 
-  public String getIsCurrent() {
+  public Boolean getIsCurrent() {
     return isCurrent;
   }
 
-  public void setIsCurrent(String isCurrent) {
+  public void setIsCurrent(Boolean isCurrent) {
     this.isCurrent = isCurrent;
   }
 
@@ -57,21 +59,33 @@ public class RdYearmonth {
   }
 
 
-  public java.sql.Timestamp getInitDate() {
+  public Date getInitDate() {
     return initDate;
   }
 
-  public void setInitDate(java.sql.Timestamp initDate) {
+  public void setInitDate(Date initDate) {
     this.initDate = initDate;
   }
 
 
-  public java.sql.Timestamp getEndDate() {
+  public Date getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(java.sql.Timestamp endDate) {
+  public void setEndDate(Date endDate) {
     this.endDate = endDate;
   }
 
+  @Override
+  public String toString() {
+    return "RdYearmonth{" +
+            "id=" + id +
+            ", readYear=" + readYear +
+            ", readMonth=" + readMonth +
+            ", isCurrent=" + isCurrent +
+            ", initEmpId=" + initEmpId +
+            ", initDate=" + initDate +
+            ", endDate=" + endDate +
+            '}';
+  }
 }

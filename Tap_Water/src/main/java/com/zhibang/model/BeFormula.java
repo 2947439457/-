@@ -1,8 +1,11 @@
 package com.zhibang.model;
 
 
-public class BeFormula {
+import java.io.Serializable;
 
+public class BeFormula implements Serializable {
+
+  private static final long serialVersionUID = -1020824390258308756L;
   private Integer id;
   private Integer orderUserId;
   private String waterTypeCode;
@@ -64,4 +67,15 @@ public class BeFormula {
     this.allotValue = allotValue;
   }
 
+  @Override
+  public String toString() {
+    return "BeFormula{" +
+            "id=" + id +
+            ", orderUserId=" + orderUserId +
+            ", waterTypeCode='" + waterTypeCode + '\'' +
+            ", allotText='" + allotText + '\'' +
+            ", allotType=" + allotType +
+            ", allotValue=" + allotValue +
+            '}';
+  }
 }

@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
-public class SyMetertype {
+import java.io.Serializable;
+
+public class SyMetertype implements Serializable {
 //水表型号
+  private static final long serialVersionUID = 3985071759069503545L;
   private Integer id;
   private String meterTypeName;//水表型号名称
   private Integer aperture;//口径
@@ -83,4 +86,17 @@ public class SyMetertype {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyMetertype{" +
+            "id=" + id +
+            ", meterTypeName='" + meterTypeName + '\'' +
+            ", aperture=" + aperture +
+            ", mavValue=" + mavValue +
+            ", minValue=" + minValue +
+            ", life=" + life +
+            ", remark='" + remark + '\'' +
+            ", disabled='" + disabled + '\'' +
+            '}';
+  }
 }

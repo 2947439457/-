@@ -1,11 +1,15 @@
 package com.zhibang.model;
 
-public class UsUser {
+import java.io.Serializable;
+import java.util.Date;
 
+public class UsUser implements Serializable {
+
+  private static final long serialVersionUID = 8248024855748530967L;
   private String userNo;
   private String userName;
   private String abc;
-  private java.sql.Timestamp createDate;
+  private Date createDate;
   private String address;
   private String phone;
   private Integer areaId;
@@ -18,10 +22,10 @@ public class UsUser {
   private Integer meterId;
   private String docNum;
   private String contractNum;
-  private java.sql.Timestamp contractDate;
+  private Date contractDate;
   private Integer volumeId;
   private Integer volumeOrderIndex;
-  private String disabled;
+  private Boolean disabled;
 
 
   public String getUserNo() {
@@ -51,11 +55,11 @@ public class UsUser {
   }
 
 
-  public java.sql.Timestamp getCreateDate() {
+  public Date getCreateDate() {
     return createDate;
   }
 
-  public void setCreateDate(java.sql.Timestamp createDate) {
+  public void setCreateDate(Date createDate) {
     this.createDate = createDate;
   }
 
@@ -168,11 +172,11 @@ public class UsUser {
   }
 
 
-  public java.sql.Timestamp getContractDate() {
+  public Date getContractDate() {
     return contractDate;
   }
 
-  public void setContractDate(java.sql.Timestamp contractDate) {
+  public void setContractDate(Date contractDate) {
     this.contractDate = contractDate;
   }
 
@@ -195,12 +199,37 @@ public class UsUser {
   }
 
 
-  public String getDisabled() {
+  public Boolean getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(String disabled) {
+  public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "UsUser{" +
+            "userNo='" + userNo + '\'' +
+            ", userName='" + userName + '\'' +
+            ", abc='" + abc + '\'' +
+            ", createDate=" + createDate +
+            ", address='" + address + '\'' +
+            ", phone='" + phone + '\'' +
+            ", areaId=" + areaId +
+            ", userType='" + userType + '\'' +
+            ", payType='" + payType + '\'' +
+            ", bankName='" + bankName + '\'' +
+            ", bankNum='" + bankNum + '\'' +
+            ", formula='" + formula + '\'' +
+            ", userMoney=" + userMoney +
+            ", meterId=" + meterId +
+            ", docNum='" + docNum + '\'' +
+            ", contractNum='" + contractNum + '\'' +
+            ", contractDate=" + contractDate +
+            ", volumeId=" + volumeId +
+            ", volumeOrderIndex=" + volumeOrderIndex +
+            ", disabled=" + disabled +
+            '}';
+  }
 }

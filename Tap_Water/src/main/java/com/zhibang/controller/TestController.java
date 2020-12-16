@@ -21,5 +21,10 @@ public class TestController {
     public String login(){
         return "login";
     }
+    //    @RequestMapping("/show")
+    //    public String show(){
+    //        return "page/be__request";
+    //    }
+
 
 }

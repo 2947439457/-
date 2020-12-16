@@ -1,16 +1,19 @@
 package com.zhibang.model;
+import java.io.Serializable;
+import java.util.Date;
 
-public class UsMeter {
+public class UsMeter implements Serializable {
 
+  private static final long serialVersionUID = -1888011757139819223L;
   private String meterNo;
   private String userNo;
   private String meterName;
   private Integer meterTypeId;
   private Integer maxValue;
   private Integer startValue;
-  private java.sql.Timestamp setupDate;
+  private Date setupDate;
   private String factory;
-  private String disabled;
+  private Boolean disabled;
 
 
   public String getMeterNo() {
@@ -67,11 +70,11 @@ public class UsMeter {
   }
 
 
-  public java.sql.Timestamp getSetupDate() {
+  public Date getSetupDate() {
     return setupDate;
   }
 
-  public void setSetupDate(java.sql.Timestamp setupDate) {
+  public void setSetupDate(Date setupDate) {
     this.setupDate = setupDate;
   }
 
@@ -85,12 +88,26 @@ public class UsMeter {
   }
 
 
-  public String getDisabled() {
+  public Boolean getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(String disabled) {
+  public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "UsMeter{" +
+            "meterNo='" + meterNo + '\'' +
+            ", userNo='" + userNo + '\'' +
+            ", meterName='" + meterName + '\'' +
+            ", meterTypeId=" + meterTypeId +
+            ", maxValue=" + maxValue +
+            ", startValue=" + startValue +
+            ", setupDate=" + setupDate +
+            ", factory='" + factory + '\'' +
+            ", disabled=" + disabled +
+            '}';
+  }
 }
