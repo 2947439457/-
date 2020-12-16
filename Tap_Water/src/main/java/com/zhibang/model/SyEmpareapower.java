@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
+@Component
 public class SyEmpareapower implements Serializable {
 //员工辖区权限
   private static final long serialVersionUID = -2247551956030742021L;

@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
+@Component
 public class SyDept implements Serializable {
     //部门
   private static final long serialVersionUID = -9122905395861015118L;

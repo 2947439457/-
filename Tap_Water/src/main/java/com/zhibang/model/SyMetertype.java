@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
+@Component
 public class SyMetertype implements Serializable {
 //水表型号
   private static final long serialVersionUID = 3985071759069503545L;

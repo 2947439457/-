@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
+@Component
 public class SySurcharge implements Serializable {
 //附加费关联
   private static final long serialVersionUID = 9037354444996853656L;
