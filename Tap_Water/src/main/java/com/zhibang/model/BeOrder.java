@@ -9,18 +9,18 @@ public class BeOrder implements Serializable {
     private static final long serialVersionUID = -1319190645632479513L;
     private String orderNo;
     private Integer orderType;
-    private Integer stepId;
-    private Integer createEmp;
+    private BeFlow stepId;
+    private SyEmp createEmp;
     private Date createDate;
-    private Integer completeEmp;
+    private SyEmp completeEmp;
     private Date completeDate;
-    private Integer lastEditEmp;
+    private SyEmp lastEditEmp;
     private Date lastEditDate;
     private String userNo;
     private String useTarget;
     private Integer houseHeight;
     private Integer maxAmount;
-    private Integer meterTypeId;
+    private SyMetertype meterTypeId;
     private Integer meterCount;
     private String userRemark;
     private String oldUserNo;
@@ -28,16 +28,15 @@ public class BeOrder implements Serializable {
     private String oldUserPhone;
     private String oldUserAddr;
     private String oldMeter;
-    private Integer auditEmpId;
+    private SyEmp auditEmpId;
     private String auditMessage;
     private Double projectMoney;
     private Double realMoney;
     private Date payDate;
     private Date projectDate1;
     private Date projectDate2;
-    private Integer areaId;
+    private SyArea areaId;
     private String abortCause;
-
 
     public String getOrderNo() {
         return orderNo;
@@ -47,7 +46,6 @@ public class BeOrder implements Serializable {
         this.orderNo = orderNo;
     }
 
-
     public Integer getOrderType() {
         return orderType;
     }
@@ -56,24 +54,21 @@ public class BeOrder implements Serializable {
         this.orderType = orderType;
     }
 
-
-    public Integer getStepId() {
+    public BeFlow getStepId() {
         return stepId;
     }
 
-    public void setStepId(Integer stepId) {
+    public void setStepId(BeFlow stepId) {
         this.stepId = stepId;
     }
 
-
-    public Integer getCreateEmp() {
+    public SyEmp getCreateEmp() {
         return createEmp;
     }
 
-    public void setCreateEmp(Integer createEmp) {
+    public void setCreateEmp(SyEmp createEmp) {
         this.createEmp = createEmp;
     }
-
 
     public Date getCreateDate() {
         return createDate;
@@ -83,15 +78,13 @@ public class BeOrder implements Serializable {
         this.createDate = createDate;
     }
 
-
-    public Integer getCompleteEmp() {
+    public SyEmp getCompleteEmp() {
         return completeEmp;
     }
 
-    public void setCompleteEmp(Integer completeEmp) {
+    public void setCompleteEmp(SyEmp completeEmp) {
         this.completeEmp = completeEmp;
     }
-
 
     public Date getCompleteDate() {
         return completeDate;
@@ -101,15 +94,13 @@ public class BeOrder implements Serializable {
         this.completeDate = completeDate;
     }
 
-
-    public Integer getLastEditEmp() {
+    public SyEmp getLastEditEmp() {
         return lastEditEmp;
     }
 
-    public void setLastEditEmp(Integer lastEditEmp) {
+    public void setLastEditEmp(SyEmp lastEditEmp) {
         this.lastEditEmp = lastEditEmp;
     }
-
 
     public Date getLastEditDate() {
         return lastEditDate;
@@ -119,7 +110,6 @@ public class BeOrder implements Serializable {
         this.lastEditDate = lastEditDate;
     }
 
-
     public String getUserNo() {
         return userNo;
     }
@@ -127,7 +117,6 @@ public class BeOrder implements Serializable {
     public void setUserNo(String userNo) {
         this.userNo = userNo;
     }
-
 
     public String getUseTarget() {
         return useTarget;
@@ -137,7 +126,6 @@ public class BeOrder implements Serializable {
         this.useTarget = useTarget;
     }
 
-
     public Integer getHouseHeight() {
         return houseHeight;
     }
@@ -145,7 +133,6 @@ public class BeOrder implements Serializable {
     public void setHouseHeight(Integer houseHeight) {
         this.houseHeight = houseHeight;
     }
-
 
     public Integer getMaxAmount() {
         return maxAmount;
@@ -155,15 +142,13 @@ public class BeOrder implements Serializable {
         this.maxAmount = maxAmount;
     }
 
-
-    public Integer getMeterTypeId() {
+    public SyMetertype getMeterTypeId() {
         return meterTypeId;
     }
 
-    public void setMeterTypeId(Integer meterTypeId) {
+    public void setMeterTypeId(SyMetertype meterTypeId) {
         this.meterTypeId = meterTypeId;
     }
-
 
     public Integer getMeterCount() {
         return meterCount;
@@ -173,7 +158,6 @@ public class BeOrder implements Serializable {
         this.meterCount = meterCount;
     }
 
-
     public String getUserRemark() {
         return userRemark;
     }
@@ -181,7 +165,6 @@ public class BeOrder implements Serializable {
     public void setUserRemark(String userRemark) {
         this.userRemark = userRemark;
     }
-
 
     public String getOldUserNo() {
         return oldUserNo;
@@ -191,7 +174,6 @@ public class BeOrder implements Serializable {
         this.oldUserNo = oldUserNo;
     }
 
-
     public String getOldUserName() {
         return oldUserName;
     }
@@ -199,7 +181,6 @@ public class BeOrder implements Serializable {
     public void setOldUserName(String oldUserName) {
         this.oldUserName = oldUserName;
     }
-
 
     public String getOldUserPhone() {
         return oldUserPhone;
@@ -209,7 +190,6 @@ public class BeOrder implements Serializable {
         this.oldUserPhone = oldUserPhone;
     }
 
-
     public String getOldUserAddr() {
         return oldUserAddr;
     }
@@ -217,7 +197,6 @@ public class BeOrder implements Serializable {
     public void setOldUserAddr(String oldUserAddr) {
         this.oldUserAddr = oldUserAddr;
     }
-
 
     public String getOldMeter() {
         return oldMeter;
@@ -227,15 +206,13 @@ public class BeOrder implements Serializable {
         this.oldMeter = oldMeter;
     }
 
-
-    public Integer getAuditEmpId() {
+    public SyEmp getAuditEmpId() {
         return auditEmpId;
     }
 
-    public void setAuditEmpId(Integer auditEmpId) {
+    public void setAuditEmpId(SyEmp auditEmpId) {
         this.auditEmpId = auditEmpId;
     }
-
 
     public String getAuditMessage() {
         return auditMessage;
@@ -245,7 +222,6 @@ public class BeOrder implements Serializable {
         this.auditMessage = auditMessage;
     }
 
-
     public Double getProjectMoney() {
         return projectMoney;
     }
@@ -253,7 +229,6 @@ public class BeOrder implements Serializable {
     public void setProjectMoney(Double projectMoney) {
         this.projectMoney = projectMoney;
     }
-
 
     public Double getRealMoney() {
         return realMoney;
@@ -263,7 +238,6 @@ public class BeOrder implements Serializable {
         this.realMoney = realMoney;
     }
 
-
     public Date getPayDate() {
         return payDate;
     }
@@ -271,7 +245,6 @@ public class BeOrder implements Serializable {
     public void setPayDate(Date payDate) {
         this.payDate = payDate;
     }
-
 
     public Date getProjectDate1() {
         return projectDate1;
@@ -281,7 +254,6 @@ public class BeOrder implements Serializable {
         this.projectDate1 = projectDate1;
     }
 
-
     public Date getProjectDate2() {
         return projectDate2;
     }
@@ -290,15 +262,13 @@ public class BeOrder implements Serializable {
         this.projectDate2 = projectDate2;
     }
 
-
-    public Integer getAreaId() {
+    public SyArea getAreaId() {
         return areaId;
     }
 
-    public void setAreaId(Integer areaId) {
+    public void setAreaId(SyArea areaId) {
         this.areaId = areaId;
     }
-
 
     public String getAbortCause() {
         return abortCause;

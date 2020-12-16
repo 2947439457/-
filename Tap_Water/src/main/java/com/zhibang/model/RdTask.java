@@ -8,9 +8,8 @@ public class RdTask implements Serializable {
   private Integer id;
   private Integer readYear;
   private Integer readMonth;
-  private Integer volumeId;
-  private Integer empId;
-
+  private RdVolume volumeId;
+  private SyEmp empId;
 
   public Integer getId() {
     return id;
@@ -20,7 +19,6 @@ public class RdTask implements Serializable {
     this.id = id;
   }
 
-
   public Integer getReadYear() {
     return readYear;
   }
@@ -28,7 +26,6 @@ public class RdTask implements Serializable {
   public void setReadYear(Integer readYear) {
     this.readYear = readYear;
   }
-
 
   public Integer getReadMonth() {
     return readMonth;
@@ -38,21 +35,19 @@ public class RdTask implements Serializable {
     this.readMonth = readMonth;
   }
 
-
-  public Integer getVolumeId() {
+  public RdVolume getVolumeId() {
     return volumeId;
   }
 
-  public void setVolumeId(Integer volumeId) {
+  public void setVolumeId(RdVolume volumeId) {
     this.volumeId = volumeId;
   }
 
-
-  public Integer getEmpId() {
+  public SyEmp getEmpId() {
     return empId;
   }
 
-  public void setEmpId(Integer empId) {
+  public void setEmpId(SyEmp empId) {
     this.empId = empId;
   }
 

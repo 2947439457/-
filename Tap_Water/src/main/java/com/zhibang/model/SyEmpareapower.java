@@ -6,9 +6,8 @@ public class SyEmpareapower implements Serializable {
 
   private static final long serialVersionUID = -2247551956030742021L;
   private Integer id;
-  private Integer empId;
-  private Integer areaId;
-
+  private SyEmp empId;
+  private SyArea areaId;
 
   public Integer getId() {
     return id;
@@ -18,21 +17,19 @@ public class SyEmpareapower implements Serializable {
     this.id = id;
   }
 
-
-  public Integer getEmpId() {
+  public SyEmp getEmpId() {
     return empId;
   }
 
-  public void setEmpId(Integer empId) {
+  public void setEmpId(SyEmp empId) {
     this.empId = empId;
   }
 
-
-  public Integer getAreaId() {
+  public SyArea getAreaId() {
     return areaId;
   }
 
-  public void setAreaId(Integer areaId) {
+  public void setAreaId(SyArea areaId) {
     this.areaId = areaId;
   }
 
