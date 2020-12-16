@@ -39,9 +39,9 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
+							<li><a href="/be/request">01 用户申请</a></li>
+							<li><a href="/be/audit">02 初步审核</a></li>
+							<li><a href="/be/pay">03 交施工费</a></li>
 							<li><a href="be__billclear.ftl">04 水费清算</a></li>
 							<li><a href="be__contract.ftl">05 供水协议</a></li>
 							<li><a href="be__working.ftl">06 施工竣工</a></li>
@@ -238,62 +238,6 @@
 	<tr class="odd">
 		<td>1</td>
 		<td>张三</td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="center" size="12" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>2</td>
-		<td>李四</td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="center" size="12" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>3</td>
-		<td>王五</td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="center" size="12" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>4</td>
-		<td>赵六</td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="center" size="12" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>5</td>
-		<td>钱七</td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="center" size="12" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>6</td>
-		<td>唐八</td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="center" size="12" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>7</td>
-		<td>何九</td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="center" size="12" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>8</td>
-		<td>布十</td>
 		<td><input class="right" size="12" value="" /></td>
 		<td><input class="right" size="12" value="" /></td>
 		<td><input class="center" size="12" value="" /></td>

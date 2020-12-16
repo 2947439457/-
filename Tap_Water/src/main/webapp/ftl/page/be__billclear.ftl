@@ -39,10 +39,10 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="../page/be__billclear.ftl">04 水费清算</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
 							<li><a href="be__contract.ftl">05 供水协议</a></li>
 							<li><a href="be__working.ftl">06 施工竣工</a></li>
 							<li><a href="be__open.ftl">07 通水停水</a></li>
@@ -203,88 +203,7 @@
 							<td>收费室</td>
 							<td>2014-02-18</td>
 							<td>许三多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__billclearForm.html';"><span></span>处理</button></td>
-						</tr>
-						<tr class="even">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140117-0002</a></td>
-							<td>分户</td>
-							<td>水费清算</td>
-							<td>收费室</td>
-							<td>2014-02-18</td>
-							<td>许四多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__billclearForm.html';"><span></span>处理</button></td>
-						</tr>
-						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0003</a></td>
-							<td>分户</td>
-							<td>水费清算</td>
-							<td>收费室</td>
-							<td>2014-02-18</td>
-							<td>许五多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__billclearForm.html';"><span></span>处理</button></td>
-						</tr>
-						<tr class="even">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0004</a></td>
-							<td>分户</td>
-							<td>水费清算</td>
-							<td>收费室</td>
-							<td>2014-02-18</td>
-							<td>中国农业银行解放路支行</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__billclearForm.html';"><span></span>处理</button></td>
-						</tr>
-						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0005</a></td>
-							<td>分户</td>
-							<td>水费清算</td>
-							<td>收费室</td>
-							<td>2014-02-18</td>
-							<td>中国联通广东路营业厅</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__billclearForm.html';"><span></span>处理</button></td>
-						</tr>
-						<tr class="even">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0006</a></td>
-							<td>分户</td>
-							<td>水费清算</td>
-							<td>收费室</td>
-							<td>2014-02-18</td>
-							<td>许八多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__billclearForm.html';"><span></span>处理</button></td>
-						</tr>
-						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0007</a></td>
-							<td>销户</td>
-							<td>水费清算</td>
-							<td>收费室</td>
-							<td>2014-02-18</td>
-							<td>许蛮多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__billclearForm.html';"><span></span>处理</button></td>
-						</tr>
-						<tr class="even">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0008</a></td>
-							<td>分户</td>
-							<td>水费清算</td>
-							<td>收费室</td>
-							<td>2014-02-18</td>
-							<td>新多国际商务大厦</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__billclearForm.html';"><span></span>处理</button></td>
-						</tr>
-						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0009</a></td>
-							<td>分户</td>
-							<td>水费清算</td>
-							<td>收费室</td>
-							<td>2014-02-18</td>
-							<td>许钱多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__billclearForm.html';"><span></span>处理</button></td>
-						</tr>
-						<tr class="even">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0010</a></td>
-							<td>分户</td>
-							<td>水费清算</td>
-							<td>收费室</td>
-							<td>2014-02-18</td>
-							<td>许翔多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__billclearForm.html';"><span></span>处理</button></td>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/billclearForm';"><span></span>处理</button></td>
 						</tr>
 					</tbody>
 				</table>

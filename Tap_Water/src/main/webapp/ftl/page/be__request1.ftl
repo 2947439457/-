@@ -383,7 +383,10 @@
             if (userRemark == ""){
                 userRemark = "无";
             }
-
+            if (!confirm("你确定提交吗？")) {
+                return false;
+            }
+            window.location.href = "";
         })
     })
 </script>

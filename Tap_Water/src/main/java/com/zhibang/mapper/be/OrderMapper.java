@@ -1,5 +1,6 @@
 package com.zhibang.mapper.be;
 
+import com.zhibang.model.BeOrder;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -10,5 +11,9 @@ import org.springframework.stereotype.Controller;
  * @createTime 2020年12月15日 19:58:00
  */
 @Controller
-public interface Order {
+public interface OrderMapper {
+
+    //添加业扩工单
+    public Integer addOrder(BeOrder beOrder);
+
 }

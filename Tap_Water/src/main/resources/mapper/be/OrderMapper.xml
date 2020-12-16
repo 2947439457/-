@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhibang.mapper.be.OrderMapper">
+
+    <insert id="addOrder">
+        INSERT INTO `tap_water`.`be_order` (
+          `OrderNo`,`OrderType`,`StepID`,`CreateEmp`, `CreateDate`,`LastEditEmp`,`LastEditDate`,
+          `UserNo`,`UseTarget`,`HouseHeight`,`MaxAmount`, `MeterTypeID`,`MeterCount`,`UserRemark`
+        )
+        VALUES (
+            #{orderNo}, #{orderType}, #{stepID}, #{createEmp}, NOW(), #{lastEditEmp},NOW(),
+            #{userNo}, #{useTarget}, #{houseHeight}, #{maxAmount}, #{meterTypeID}, #{meterCount}, #{userRemark}
+        ) ;
+    </insert>
+
+</mapper>
