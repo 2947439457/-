@@ -1,7 +1,10 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
+@Component
 public class SyEmpmenupower implements Serializable {
 
   private static final long serialVersionUID = -790659245149477400L;

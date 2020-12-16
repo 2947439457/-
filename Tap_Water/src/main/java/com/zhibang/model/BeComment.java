@@ -1,9 +1,11 @@
 package com.zhibang.model;
 
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.Date;
 
+@Component
 public class BeComment implements Serializable {
 
     private static final long serialVersionUID = 3612976991643067301L;
