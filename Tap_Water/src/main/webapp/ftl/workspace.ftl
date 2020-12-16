@@ -26,7 +26,7 @@
 <body> 
 
 <div id="wrapper">
-	
+	<div style="none">${s}</div>
 		
 	
 	<div id="header">
@@ -141,7 +141,7 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="page/sys_area.ftl">抄表辖区</a></li>
+							<li><a href="sys_area">抄表辖区</a></li>
 							<li><a href="page/sys_meterType.ftl">水表型号</a></li>
 							<li><a href="page/sys_dept.ftl">部门管理</a></li>
 							<li><a href="page/sys_emp.ftl">员工管理</a></li>
@@ -174,7 +174,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">我的工作台</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -182,7 +182,7 @@
 		
 		<div id="welcome" class="x4">			
 			
-			<p><strong><a href="./pages/text.html">欢迎回来, 马云</a></strong><br /></p>
+			<p><strong><a href="./pages/text.html">欢迎回来, ${s.empName}</a></strong><br /></p>
 			
 			<table class="data info_table">
 				<tbody>	

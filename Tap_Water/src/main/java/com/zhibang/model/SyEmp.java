@@ -1,14 +1,14 @@
 package com.zhibang.model;
 
 public class SyEmp {
-
+//员工
   private Integer id;
-  private String empName;
-  private String empNo;
-  private String pwd;
-  private Integer deptId;
-  private String remark;
-  private Integer disabled;
+  private String empName;//员工姓名
+  private String empNo;//工号
+  private String pwd;//密码
+  private Integer deptId;//部门ID
+  private String remark;//备注
+  private Boolean disabled;//是否禁用
 
 
   public Integer getId() {
@@ -65,12 +65,24 @@ public class SyEmp {
   }
 
 
-  public Integer getDisabled() {
+  public Boolean getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(Integer disabled) {
+  public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 
+  @Override
+  public String toString() {
+    return "SyEmp{" +
+            "id=" + id +
+            ", empName='" + empName + '\'' +
+            ", empNo='" + empNo + '\'' +
+            ", pwd='" + pwd + '\'' +
+            ", deptId=" + deptId +
+            ", remark='" + remark + '\'' +
+            ", disabled=" + disabled +
+            '}';
+  }
 }

@@ -17,5 +17,9 @@ public class TestController {
     public String show(){
         return "index";
     }
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
 
 }

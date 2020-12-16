@@ -16,19 +16,58 @@
 <body>
 <script src="js/jquery/jquery-1.5.2.min.js" type="text/javascript"></script>
 <script type="text/javascript" language="javascript">
-    $(document).ready(function(){
-        var gh=$("#email");
-        var mm=$("#password");
-        alert(gh.val());
-        alert(mm.val()); //html和text的区别在于,text只显示div中的文本,不包含HTML标记.html方法会显示div中其它的标记,你可以试着把<div id="mydiv"><font stle='color:red;'>aaaa</font></div> 可以体验一下就知道里面的区别了
+    // jQuery(document).ready(function($){
+    //     $("#email").mouseleave(function(){
+    //         var reg = /^X[1][3]..{4}/;
+    //         var sTr01 = $("#email").val();
+    //         if(reg.test(sTr01)&&sTr01!=""){
+    //             alert(sTr01+"有效的输入开头字母应为X长度应为5。");
+    //         }else{
+    //             alert(sTr01+"是无效的。");
+    //         }
+    //         alert(sTr01+"判断了。");
+    //     });
+    //
+    // });
+	<#--function saveDb() {-->
+	<#--var url = "saveCreateDb";-->
+	<#--var value = {-->
+	<#--"email":${"#email"}.val(),-->
+	<#--"password":${"#password"}.val()-->
+	<#--}-->
 
-    }) ;
+	// debugger;
+	// $.ajax({
+	// url: url,
+	// data: value,
+	// type: 'post',
+	// processData: false,
+	// contentType: false,
+	// success: function (data) {
+	// debugger;
+	// if (data.status == true) {
+	// alert("更新成功");
+	// window.location.reload();
+	// } else {
+	// alert(data.msg);
+	// }
+	// },
+	// error: function (data) {
+	// alert("连接超时");
+	// }
+	// });
+
+	// }
 </script>
 <div id="login_background">
 <div id="login">
 	<h1>员工登陆</h1>
+<#if asdgf??>
+${asdgf}
+<#else>
+</#if>
 	<div id="login_panel">
-		<form action="workspace.ftl" method="post" accept-charset="utf-8">
+		<form action="saveCreateDb" method="post" accept-charset="utf-8">
 			<div class="login_fields">
 				<div class="field">
 					<label for="email">员工工号：</label>

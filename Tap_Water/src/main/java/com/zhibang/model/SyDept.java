@@ -1,11 +1,11 @@
 package com.zhibang.model;
 
 public class SyDept {
-
+//部门
   private Integer id;
-  private String deptName;
-  private String remark;
-  private String disabled;
+  private String deptName;//部门名称
+  private String remark;//备注
+  private Boolean disabled;//禁用
 
 
   public Integer getId() {
@@ -35,11 +35,11 @@ public class SyDept {
   }
 
 
-  public String getDisabled() {
+  public Boolean getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(String disabled) {
+  public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 

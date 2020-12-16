@@ -1,10 +1,10 @@
 package com.zhibang.model;
 
 public class SyEmpmenupower {
-
+//员工菜单权限
   private Integer id;
-  private Integer empId;
-  private Integer menuId;
+  private Integer empId;//员工ID
+  private Integer menuId;//菜单ID
 
 
   public Integer getId() {

@@ -4,6 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/show">ssss</a>
+<a href="/show">主页</a>
+<a href="/login">登录</a>
 </body>
 </html>

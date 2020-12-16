@@ -1,10 +1,10 @@
 package com.zhibang.model;
 
 public class SyEmpareapower {
-
+//员工辖区权限
   private Integer id;
-  private Integer empId;
-  private Integer areaId;
+  private Integer empId;//员工ID
+  private Integer areaId;//抄表辖区ID
 
 
   public Integer getId() {

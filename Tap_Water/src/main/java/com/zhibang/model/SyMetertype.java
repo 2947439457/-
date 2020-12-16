@@ -1,15 +1,15 @@
 package com.zhibang.model;
 
 public class SyMetertype {
-
+//水表型号
   private Integer id;
-  private String meterTypeName;
-  private Integer aperture;
-  private Integer mavValue;
-  private Integer minValue;
-  private Integer life;
-  private String remark;
-  private String disabled;
+  private String meterTypeName;//水表型号名称
+  private Integer aperture;//口径
+  private Integer mavValue;//最大表码值
+  private Integer minValue;//最小表码值
+  private Integer life;//周捡年限
+  private String remark;//备注
+  private Boolean disabled;//是否禁用
 
 
   public Integer getId() {
@@ -75,11 +75,11 @@ public class SyMetertype {
   }
 
 
-  public String getDisabled() {
+  public Boolean getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(String disabled) {
+  public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 
