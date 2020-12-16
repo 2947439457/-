@@ -7,12 +7,11 @@ public class BeFormula implements Serializable {
 
   private static final long serialVersionUID = -1020824390258308756L;
   private Integer id;
-  private Integer orderUserId;
+  private BeOrderuser orderUserId;
   private String waterTypeCode;
   private String allotText;
   private Integer allotType;
   private Integer allotValue;
-
 
   public Integer getId() {
     return id;
@@ -22,15 +21,13 @@ public class BeFormula implements Serializable {
     this.id = id;
   }
 
-
-  public Integer getOrderUserId() {
+  public BeOrderuser getOrderUserId() {
     return orderUserId;
   }
 
-  public void setOrderUserId(Integer orderUserId) {
+  public void setOrderUserId(BeOrderuser orderUserId) {
     this.orderUserId = orderUserId;
   }
-
 
   public String getWaterTypeCode() {
     return waterTypeCode;
@@ -40,7 +37,6 @@ public class BeFormula implements Serializable {
     this.waterTypeCode = waterTypeCode;
   }
 
-
   public String getAllotText() {
     return allotText;
   }
@@ -49,7 +45,6 @@ public class BeFormula implements Serializable {
     this.allotText = allotText;
   }
 
-
   public Integer getAllotType() {
     return allotType;
   }
@@ -57,7 +52,6 @@ public class BeFormula implements Serializable {
   public void setAllotType(Integer allotType) {
     this.allotType = allotType;
   }
-
 
   public Integer getAllotValue() {
     return allotValue;

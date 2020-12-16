@@ -10,11 +10,10 @@ public class RdChangevalue implements Serializable {
   private Integer id;
   private Date datee;
   private Integer empId;
-  private String userNo;
+  private UsUser userNo;
   private Integer preValue1;
   private Integer preValue2;
   private String remark;
-
 
   public Integer getId() {
     return id;
@@ -24,7 +23,6 @@ public class RdChangevalue implements Serializable {
     this.id = id;
   }
 
-
   public Date getDatee() {
     return datee;
   }
@@ -32,7 +30,6 @@ public class RdChangevalue implements Serializable {
   public void setDatee(Date datee) {
     this.datee = datee;
   }
-
 
   public Integer getEmpId() {
     return empId;
@@ -42,15 +39,13 @@ public class RdChangevalue implements Serializable {
     this.empId = empId;
   }
 
-
-  public String getUserNo() {
+  public UsUser getUserNo() {
     return userNo;
   }
 
-  public void setUserNo(String userNo) {
+  public void setUserNo(UsUser userNo) {
     this.userNo = userNo;
   }
-
 
   public Integer getPreValue1() {
     return preValue1;
@@ -60,7 +55,6 @@ public class RdChangevalue implements Serializable {
     this.preValue1 = preValue1;
   }
 
-
   public Integer getPreValue2() {
     return preValue2;
   }
@@ -68,7 +62,6 @@ public class RdChangevalue implements Serializable {
   public void setPreValue2(Integer preValue2) {
     this.preValue2 = preValue2;
   }
-
 
   public String getRemark() {
     return remark;
@@ -84,7 +77,7 @@ public class RdChangevalue implements Serializable {
             "id=" + id +
             ", datee=" + datee +
             ", empId=" + empId +
-            ", userNo='" + userNo + '\'' +
+            ", userNo=" + userNo +
             ", preValue1=" + preValue1 +
             ", preValue2=" + preValue2 +
             ", remark='" + remark + '\'' +

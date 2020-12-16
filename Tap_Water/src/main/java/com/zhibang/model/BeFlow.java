@@ -8,7 +8,7 @@ public class BeFlow implements Serializable {
   private static final long serialVersionUID = 4673211565866201983L;
   private Integer id;
   private String stepName;
-  private Integer deptId;
+  private SyDept deptId;
   private Integer type1;
   private Integer type2;
   private Integer type3;
@@ -26,7 +26,6 @@ public class BeFlow implements Serializable {
     this.id = id;
   }
 
-
   public String getStepName() {
     return stepName;
   }
@@ -35,15 +34,13 @@ public class BeFlow implements Serializable {
     this.stepName = stepName;
   }
 
-
-  public Integer getDeptId() {
+  public SyDept getDeptId() {
     return deptId;
   }
 
-  public void setDeptId(Integer deptId) {
+  public void setDeptId(SyDept deptId) {
     this.deptId = deptId;
   }
-
 
   public Integer getType1() {
     return type1;
@@ -53,7 +50,6 @@ public class BeFlow implements Serializable {
     this.type1 = type1;
   }
 
-
   public Integer getType2() {
     return type2;
   }
@@ -61,7 +57,6 @@ public class BeFlow implements Serializable {
   public void setType2(Integer type2) {
     this.type2 = type2;
   }
-
 
   public Integer getType3() {
     return type3;
@@ -71,7 +66,6 @@ public class BeFlow implements Serializable {
     this.type3 = type3;
   }
 
-
   public Integer getType4() {
     return type4;
   }
@@ -79,7 +73,6 @@ public class BeFlow implements Serializable {
   public void setType4(Integer type4) {
     this.type4 = type4;
   }
-
 
   public Integer getType5() {
     return type5;
@@ -89,7 +82,6 @@ public class BeFlow implements Serializable {
     this.type5 = type5;
   }
 
-
   public Integer getType6() {
     return type6;
   }
@@ -97,7 +89,6 @@ public class BeFlow implements Serializable {
   public void setType6(Integer type6) {
     this.type6 = type6;
   }
-
 
   public Integer getType7() {
     return type7;

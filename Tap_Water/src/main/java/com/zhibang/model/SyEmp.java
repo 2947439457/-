@@ -9,10 +9,9 @@ public class SyEmp implements Serializable {
   private String empName;
   private String empNo;
   private String pwd;
-  private Integer deptId;
+  private SyDept deptId;
   private String remark;
   private Integer disabled;
-
 
   public Integer getId() {
     return id;
@@ -22,7 +21,6 @@ public class SyEmp implements Serializable {
     this.id = id;
   }
 
-
   public String getEmpName() {
     return empName;
   }
@@ -30,7 +28,6 @@ public class SyEmp implements Serializable {
   public void setEmpName(String empName) {
     this.empName = empName;
   }
-
 
   public String getEmpNo() {
     return empNo;
@@ -40,7 +37,6 @@ public class SyEmp implements Serializable {
     this.empNo = empNo;
   }
 
-
   public String getPwd() {
     return pwd;
   }
@@ -49,15 +45,13 @@ public class SyEmp implements Serializable {
     this.pwd = pwd;
   }
 
-
-  public Integer getDeptId() {
+  public SyDept getDeptId() {
     return deptId;
   }
 
-  public void setDeptId(Integer deptId) {
+  public void setDeptId(SyDept deptId) {
     this.deptId = deptId;
   }
-
 
   public String getRemark() {
     return remark;
@@ -66,7 +60,6 @@ public class SyEmp implements Serializable {
   public void setRemark(String remark) {
     this.remark = remark;
   }
-
 
   public Integer getDisabled() {
     return disabled;

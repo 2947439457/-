@@ -10,7 +10,7 @@ public class BeComment implements Serializable {
     private Integer id;
     private String orderNo;
     private Date datee;
-    private Integer empId;
+    private SyEmp empId;
     private String comment;
 
     public Integer getId() {
@@ -37,11 +37,11 @@ public class BeComment implements Serializable {
         this.datee = datee;
     }
 
-    public Integer getEmpId() {
+    public SyEmp getEmpId() {
         return empId;
     }
 
-    public void setEmpId(Integer empId) {
+    public void setEmpId(SyEmp empId) {
         this.empId = empId;
     }
 

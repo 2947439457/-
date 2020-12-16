@@ -8,12 +8,12 @@ public class RdRead implements Serializable {
   private Integer id;
   private Integer readYear;
   private Integer readMonth;
-  private String userNo;
-  private String meterNo;
+  private UsUser userNo;
+  private UsMeter meterNo;
   private Integer maxValue;
-  private Integer volumeId;
+  private RdVolume volumeId;
   private Integer volumeIndex;
-  private Integer readEmpId;
+  private SyEmp readEmpId;
   private Date readDate;
   private Integer preValue;
   private Boolean enter;
@@ -22,9 +22,8 @@ public class RdRead implements Serializable {
   private Integer amount;
   private String formula;
   private String audit;
-  private Integer auditEmpId;
+  private SyEmp auditEmpId;
   private Date auditDate;
-
 
   public Integer getId() {
     return id;
@@ -34,7 +33,6 @@ public class RdRead implements Serializable {
     this.id = id;
   }
 
-
   public Integer getReadYear() {
     return readYear;
   }
@@ -42,7 +40,6 @@ public class RdRead implements Serializable {
   public void setReadYear(Integer readYear) {
     this.readYear = readYear;
   }
-
 
   public Integer getReadMonth() {
     return readMonth;
@@ -52,24 +49,21 @@ public class RdRead implements Serializable {
     this.readMonth = readMonth;
   }
 
-
-  public String getUserNo() {
+  public UsUser getUserNo() {
     return userNo;
   }
 
-  public void setUserNo(String userNo) {
+  public void setUserNo(UsUser userNo) {
     this.userNo = userNo;
   }
 
-
-  public String getMeterNo() {
+  public UsMeter getMeterNo() {
     return meterNo;
   }
 
-  public void setMeterNo(String meterNo) {
+  public void setMeterNo(UsMeter meterNo) {
     this.meterNo = meterNo;
   }
-
 
   public Integer getMaxValue() {
     return maxValue;
@@ -79,15 +73,13 @@ public class RdRead implements Serializable {
     this.maxValue = maxValue;
   }
 
-
-  public Integer getVolumeId() {
+  public RdVolume getVolumeId() {
     return volumeId;
   }
 
-  public void setVolumeId(Integer volumeId) {
+  public void setVolumeId(RdVolume volumeId) {
     this.volumeId = volumeId;
   }
-
 
   public Integer getVolumeIndex() {
     return volumeIndex;
@@ -97,15 +89,13 @@ public class RdRead implements Serializable {
     this.volumeIndex = volumeIndex;
   }
 
-
-  public Integer getReadEmpId() {
+  public SyEmp getReadEmpId() {
     return readEmpId;
   }
 
-  public void setReadEmpId(Integer readEmpId) {
+  public void setReadEmpId(SyEmp readEmpId) {
     this.readEmpId = readEmpId;
   }
-
 
   public Date getReadDate() {
     return readDate;
@@ -115,7 +105,6 @@ public class RdRead implements Serializable {
     this.readDate = readDate;
   }
 
-
   public Integer getPreValue() {
     return preValue;
   }
@@ -123,7 +112,6 @@ public class RdRead implements Serializable {
   public void setPreValue(Integer preValue) {
     this.preValue = preValue;
   }
-
 
   public Boolean getEnter() {
     return enter;
@@ -133,7 +121,6 @@ public class RdRead implements Serializable {
     this.enter = enter;
   }
 
-
   public Integer getCurValue() {
     return curValue;
   }
@@ -141,7 +128,6 @@ public class RdRead implements Serializable {
   public void setCurValue(Integer curValue) {
     this.curValue = curValue;
   }
-
 
   public Boolean getDial() {
     return dial;
@@ -151,7 +137,6 @@ public class RdRead implements Serializable {
     this.dial = dial;
   }
 
-
   public Integer getAmount() {
     return amount;
   }
@@ -159,7 +144,6 @@ public class RdRead implements Serializable {
   public void setAmount(Integer amount) {
     this.amount = amount;
   }
-
 
   public String getFormula() {
     return formula;
@@ -169,7 +153,6 @@ public class RdRead implements Serializable {
     this.formula = formula;
   }
 
-
   public String getAudit() {
     return audit;
   }
@@ -178,15 +161,13 @@ public class RdRead implements Serializable {
     this.audit = audit;
   }
 
-
-  public Integer getAuditEmpId() {
+  public SyEmp getAuditEmpId() {
     return auditEmpId;
   }
 
-  public void setAuditEmpId(Integer auditEmpId) {
+  public void setAuditEmpId(SyEmp auditEmpId) {
     this.auditEmpId = auditEmpId;
   }
-
 
   public Date getAuditDate() {
     return auditDate;
@@ -202,8 +183,8 @@ public class RdRead implements Serializable {
             "id=" + id +
             ", readYear=" + readYear +
             ", readMonth=" + readMonth +
-            ", userNo='" + userNo + '\'' +
-            ", meterNo='" + meterNo + '\'' +
+            ", userNo=" + userNo +
+            ", meterNo=" + meterNo +
             ", maxValue=" + maxValue +
             ", volumeId=" + volumeId +
             ", volumeIndex=" + volumeIndex +
