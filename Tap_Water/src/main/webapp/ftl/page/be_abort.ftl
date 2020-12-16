@@ -50,9 +50,9 @@
 							<li><a href="be__open.ftl">07 通水停水</a></li>
 							<li><a href="be__save.ftl">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
-							<li><a href="../page/be_abort.ftl">终止工单</a></li>
-							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-							<li><a href="be_reportMoney.ftl">业扩收费报表</a></li>
+							<li><a href="/page/beabort">终止工单</a></li>
+							<li><a href="/page/reportProgress">业扩工程进度</a></li>
+							<li><a href="/reportProgress/beReportProgress">业扩收费报表</a></li>
 						</ul>
 						
 					</div>

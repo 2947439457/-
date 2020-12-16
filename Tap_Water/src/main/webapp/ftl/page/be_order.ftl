@@ -40,7 +40,7 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
+							<li><a href="/be/request">01 用户申请</a></li>
 							<li><a href="be__audit.ftl">02 初步审核</a></li>
 							<li><a href="be__pay.ftl">03 交施工费</a></li>
 							<li><a href="be__billclear.ftl">04 水费清算</a></li>
@@ -48,10 +48,10 @@
 							<li><a href="be__working.ftl">06 施工竣工</a></li>
 							<li><a href="be__open.ftl">07 通水停水</a></li>
 							<li><a href="be__save.ftl">08 档案存档</a></li>
-							<li><a href="../page/be_order.ftl">工单管理</a></li>
-							<li><a href="be_abort.ftl">终止工单</a></li>
-							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-							<li><a href="be_reportMoney.ftl">业扩收费报表</a></li>
+							<li><a href="/order/beOrder">工单管理</a></li>
+							<li><a href="/abort/beAbort">终止工单</a></li>
+							<li><a href="/reportProgress/beReportProgress">业扩工程进度</a></li>
+							<li><a href="/reportMoney/beReportMoney">业扩收费报表</a></li>
 						</ul>
 						
 					</div>
@@ -252,7 +252,7 @@
 							<td>生技室</td>
 							<td>2014-02-18</td>
 							<td>许五多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__auditForm.ftl';"><span></span>处理</button></td>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/order/auditForm';"><span></span>处理</button></td>
 						</tr>
 						<tr class="even">
 							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0004</a></td>
@@ -261,7 +261,7 @@
 							<td>生技室</td>
 							<td>2014-02-18</td>
 							<td>中国农业银行解放路支行</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__saveForm.ftl';"><span></span>处理</button></td>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/order/saveForm';"><span></span>处理</button></td>
 						</tr>
 						<tr class="odd">
 							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0005</a></td>
@@ -279,7 +279,7 @@
 							<td>生技室</td>
 							<td>2014-02-18</td>
 							<td>许八多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__contractForm.ftl';"><span></span>处理</button></td>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/order/beContractForm';"><span></span>处理</button></td>
 						</tr>
 						<tr class="odd">
 							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0007</a></td>
@@ -315,7 +315,7 @@
 							<td>生技室</td>
 							<td>2014-02-18</td>
 							<td>许翔多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = 'be__auditForm.ftl';"><span></span>处理</button></td>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/order/auditForm';"><span></span>处理</button></td>
 						</tr>
 					</tbody>
 				</table>
