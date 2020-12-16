@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Tap.iml" filepath="$PROJECT_DIR$/Tap.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tap_Water/Tap_Water.iml" filepath="$PROJECT_DIR$/Tap_Water/Tap_Water.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Tap_Water/Tap_Water.iml" filepath="$PROJECT_DIR$/Tap_Water/Tap_Water.iml" />
     </modules>
   </component>
 </project>
