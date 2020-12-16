@@ -1,6 +1,10 @@
 package com.zhibang.service.RD;
 
-import com.zhibang.mapper.RD.RD_StatisticsMapper;
-
-public interface RD_StatisticsService extends RD_StatisticsMapper {
+/**
+ * @Author 何岷鸿
+ * @ClassName RD_StatisticsService
+ * @Description 抄表情况统计报表
+ * @createTime 2020/12/12 18:04
+ **/
+public interface RD_StatisticsService {
 }

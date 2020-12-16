@@ -8,11 +8,10 @@ public class RdVolume implements Serializable {
   private static final long serialVersionUID = -6111071383753928798L;
   private Integer id;
   private String volumeName;
-  private Integer areaId;
+  private SyArea areaId;
   private Integer orderIndex;
   private String remark;
   private Boolean disabled;
-
 
   public Integer getId() {
     return id;
@@ -22,7 +21,6 @@ public class RdVolume implements Serializable {
     this.id = id;
   }
 
-
   public String getVolumeName() {
     return volumeName;
   }
@@ -31,15 +29,13 @@ public class RdVolume implements Serializable {
     this.volumeName = volumeName;
   }
 
-
-  public Integer getAreaId() {
+  public SyArea getAreaId() {
     return areaId;
   }
 
-  public void setAreaId(Integer areaId) {
+  public void setAreaId(SyArea areaId) {
     this.areaId = areaId;
   }
-
 
   public Integer getOrderIndex() {
     return orderIndex;
@@ -49,7 +45,6 @@ public class RdVolume implements Serializable {
     this.orderIndex = orderIndex;
   }
 
-
   public String getRemark() {
     return remark;
   }
@@ -57,7 +52,6 @@ public class RdVolume implements Serializable {
   public void setRemark(String remark) {
     this.remark = remark;
   }
-
 
   public Boolean getDisabled() {
     return disabled;

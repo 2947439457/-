@@ -3,16 +3,15 @@ package com.zhibang.model;
 import java.io.Serializable;
 
 public class SyEmp implements Serializable {
-//员工
+
   private static final long serialVersionUID = 6320442346478126979L;
   private Integer id;
-  private String empName;//员工姓名
-  private String empNo;//工号
-  private String pwd;//密码
-  private Integer deptId;//部门ID
-  private String remark;//备注
-  private Boolean disabled;//是否禁用
-
+  private String empName;
+  private String empNo;
+  private String pwd;
+  private SyDept deptId;
+  private String remark;
+  private Integer disabled;
 
   public Integer getId() {
     return id;
@@ -22,7 +21,6 @@ public class SyEmp implements Serializable {
     this.id = id;
   }
 
-
   public String getEmpName() {
     return empName;
   }
@@ -30,7 +28,6 @@ public class SyEmp implements Serializable {
   public void setEmpName(String empName) {
     this.empName = empName;
   }
-
 
   public String getEmpNo() {
     return empNo;
@@ -40,7 +37,6 @@ public class SyEmp implements Serializable {
     this.empNo = empNo;
   }
 
-
   public String getPwd() {
     return pwd;
   }
@@ -49,15 +45,13 @@ public class SyEmp implements Serializable {
     this.pwd = pwd;
   }
 
-
-  public Integer getDeptId() {
+  public SyDept getDeptId() {
     return deptId;
   }
 
-  public void setDeptId(Integer deptId) {
+  public void setDeptId(SyDept deptId) {
     this.deptId = deptId;
   }
-
 
   public String getRemark() {
     return remark;
@@ -67,12 +61,11 @@ public class SyEmp implements Serializable {
     this.remark = remark;
   }
 
-
-  public Boolean getDisabled() {
+  public Integer getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(Boolean disabled) {
+  public void setDisabled(Integer disabled) {
     this.disabled = disabled;
   }
 

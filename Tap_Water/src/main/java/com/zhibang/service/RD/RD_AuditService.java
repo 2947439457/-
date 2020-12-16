@@ -1,6 +1,10 @@
 package com.zhibang.service.RD;
 
-import com.zhibang.mapper.RD.RD_AuditMapper;
-
-public interface RD_AuditService extends RD_AuditMapper {
+/**
+ * @Author 何岷鸿
+ * @ClassName RD_AuditService
+ * @Description 抄表审核
+ * @createTime 2020/12/12 17:05
+ **/
+public interface RD_AuditService {
 }

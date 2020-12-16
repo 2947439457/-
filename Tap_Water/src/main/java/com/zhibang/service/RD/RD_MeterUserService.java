@@ -1,6 +1,10 @@
 package com.zhibang.service.RD;
 
-import com.zhibang.mapper.RD.RD_MeterUserMapper;
-
-public interface RD_MeterUserService extends RD_MeterUserMapper {
+/**
+ * @Author 何岷鸿
+ * @ClassName RD_MeterUserService
+ * @Description 水表周检报表
+ * @createTime 2020/12/12 18:03
+ **/
+public interface RD_MeterUserService {
 }

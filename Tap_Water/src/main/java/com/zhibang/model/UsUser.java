@@ -12,21 +12,20 @@ public class UsUser implements Serializable {
   private Date createDate;
   private String address;
   private String phone;
-  private Integer areaId;
+  private SyArea areaId;
   private String userType;
   private String payType;
   private String bankName;
   private String bankNum;
   private String formula;
   private Double userMoney;
-  private Integer meterId;
+  private SyMetertype meterId;
   private String docNum;
   private String contractNum;
   private Date contractDate;
-  private Integer volumeId;
+  private RdVolume volumeId;
   private Integer volumeOrderIndex;
   private Boolean disabled;
-
 
   public String getUserNo() {
     return userNo;
@@ -36,7 +35,6 @@ public class UsUser implements Serializable {
     this.userNo = userNo;
   }
 
-
   public String getUserName() {
     return userName;
   }
@@ -44,7 +42,6 @@ public class UsUser implements Serializable {
   public void setUserName(String userName) {
     this.userName = userName;
   }
-
 
   public String getAbc() {
     return abc;
@@ -54,7 +51,6 @@ public class UsUser implements Serializable {
     this.abc = abc;
   }
 
-
   public Date getCreateDate() {
     return createDate;
   }
@@ -62,7 +58,6 @@ public class UsUser implements Serializable {
   public void setCreateDate(Date createDate) {
     this.createDate = createDate;
   }
-
 
   public String getAddress() {
     return address;
@@ -72,7 +67,6 @@ public class UsUser implements Serializable {
     this.address = address;
   }
 
-
   public String getPhone() {
     return phone;
   }
@@ -81,15 +75,13 @@ public class UsUser implements Serializable {
     this.phone = phone;
   }
 
-
-  public Integer getAreaId() {
+  public SyArea getAreaId() {
     return areaId;
   }
 
-  public void setAreaId(Integer areaId) {
+  public void setAreaId(SyArea areaId) {
     this.areaId = areaId;
   }
-
 
   public String getUserType() {
     return userType;
@@ -99,7 +91,6 @@ public class UsUser implements Serializable {
     this.userType = userType;
   }
 
-
   public String getPayType() {
     return payType;
   }
@@ -107,7 +98,6 @@ public class UsUser implements Serializable {
   public void setPayType(String payType) {
     this.payType = payType;
   }
-
 
   public String getBankName() {
     return bankName;
@@ -117,7 +107,6 @@ public class UsUser implements Serializable {
     this.bankName = bankName;
   }
 
-
   public String getBankNum() {
     return bankNum;
   }
@@ -125,7 +114,6 @@ public class UsUser implements Serializable {
   public void setBankNum(String bankNum) {
     this.bankNum = bankNum;
   }
-
 
   public String getFormula() {
     return formula;
@@ -135,7 +123,6 @@ public class UsUser implements Serializable {
     this.formula = formula;
   }
 
-
   public Double getUserMoney() {
     return userMoney;
   }
@@ -144,15 +131,13 @@ public class UsUser implements Serializable {
     this.userMoney = userMoney;
   }
 
-
-  public Integer getMeterId() {
+  public SyMetertype getMeterId() {
     return meterId;
   }
 
-  public void setMeterId(Integer meterId) {
+  public void setMeterId(SyMetertype meterId) {
     this.meterId = meterId;
   }
-
 
   public String getDocNum() {
     return docNum;
@@ -162,7 +147,6 @@ public class UsUser implements Serializable {
     this.docNum = docNum;
   }
 
-
   public String getContractNum() {
     return contractNum;
   }
@@ -170,7 +154,6 @@ public class UsUser implements Serializable {
   public void setContractNum(String contractNum) {
     this.contractNum = contractNum;
   }
-
 
   public Date getContractDate() {
     return contractDate;
@@ -180,15 +163,13 @@ public class UsUser implements Serializable {
     this.contractDate = contractDate;
   }
 
-
-  public Integer getVolumeId() {
+  public RdVolume getVolumeId() {
     return volumeId;
   }
 
-  public void setVolumeId(Integer volumeId) {
+  public void setVolumeId(RdVolume volumeId) {
     this.volumeId = volumeId;
   }
-
 
   public Integer getVolumeOrderIndex() {
     return volumeOrderIndex;
@@ -197,7 +178,6 @@ public class UsUser implements Serializable {
   public void setVolumeOrderIndex(Integer volumeOrderIndex) {
     this.volumeOrderIndex = volumeOrderIndex;
   }
-
 
   public Boolean getDisabled() {
     return disabled;

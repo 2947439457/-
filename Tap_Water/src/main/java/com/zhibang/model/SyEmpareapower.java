@@ -6,8 +6,8 @@ public class SyEmpareapower implements Serializable {
 //员工辖区权限
   private static final long serialVersionUID = -2247551956030742021L;
   private Integer id;
-  private Integer empId;//员工ID
-  private Integer areaId;//抄表辖区ID
+  private SyEmp empId;//员工ID
+  private SyArea areaId;//抄表辖区ID
 
 
   public Integer getId() {
@@ -18,21 +18,19 @@ public class SyEmpareapower implements Serializable {
     this.id = id;
   }
 
-
-  public Integer getEmpId() {
+  public SyEmp getEmpId() {
     return empId;
   }
 
-  public void setEmpId(Integer empId) {
+  public void setEmpId(SyEmp empId) {
     this.empId = empId;
   }
 
-
-  public Integer getAreaId() {
+  public SyArea getAreaId() {
     return areaId;
   }
 
-  public void setAreaId(Integer areaId) {
+  public void setAreaId(SyArea areaId) {
     this.areaId = areaId;
   }
 

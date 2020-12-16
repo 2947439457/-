@@ -6,8 +6,8 @@ public class SySurcharge implements Serializable {
 //附加费关联
   private static final long serialVersionUID = 9037354444996853656L;
   private Integer id;
-  private Integer surchargeId;//附加符ID
-  private Integer waterTypeId;//用水类型ID
+  private SyCosttype surchargeId;//附加符ID
+  private SyCosttype waterTypeId;//用水类型ID
 
 
   public Integer getId() {
@@ -18,21 +18,19 @@ public class SySurcharge implements Serializable {
     this.id = id;
   }
 
-
-  public Integer getSurchargeId() {
+  public SyCosttype getSurchargeId() {
     return surchargeId;
   }
 
-  public void setSurchargeId(Integer surchargeId) {
+  public void setSurchargeId(SyCosttype surchargeId) {
     this.surchargeId = surchargeId;
   }
 
-
-  public Integer getWaterTypeId() {
+  public SyCosttype getWaterTypeId() {
     return waterTypeId;
   }
 
-  public void setWaterTypeId(Integer waterTypeId) {
+  public void setWaterTypeId(SyCosttype waterTypeId) {
     this.waterTypeId = waterTypeId;
   }
 

@@ -6,8 +6,8 @@ public class SyEmpmenupower implements Serializable {
 //员工菜单权限
   private static final long serialVersionUID = -790659245149477400L;
   private Integer id;
-  private Integer empId;//员工ID
-  private Integer menuId;//菜单ID
+  private SyEmp empId;//员工ID
+  private SyMenu menuId;//菜单ID
 
 
   public Integer getId() {
@@ -18,21 +18,19 @@ public class SyEmpmenupower implements Serializable {
     this.id = id;
   }
 
-
-  public Integer getEmpId() {
+  public SyEmp getEmpId() {
     return empId;
   }
 
-  public void setEmpId(Integer empId) {
+  public void setEmpId(SyEmp empId) {
     this.empId = empId;
   }
 
-
-  public Integer getMenuId() {
+  public SyMenu getMenuId() {
     return menuId;
   }
 
-  public void setMenuId(Integer menuId) {
+  public void setMenuId(SyMenu menuId) {
     this.menuId = menuId;
   }
 

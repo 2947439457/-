@@ -6,7 +6,7 @@ public class UsMeter implements Serializable {
 
   private static final long serialVersionUID = -1888011757139819223L;
   private String meterNo;
-  private String userNo;
+  private UsUser userNo;
   private String meterName;
   private Integer meterTypeId;
   private Integer maxValue;
@@ -14,7 +14,6 @@ public class UsMeter implements Serializable {
   private Date setupDate;
   private String factory;
   private Boolean disabled;
-
 
   public String getMeterNo() {
     return meterNo;
@@ -24,15 +23,13 @@ public class UsMeter implements Serializable {
     this.meterNo = meterNo;
   }
 
-
-  public String getUserNo() {
+  public UsUser getUserNo() {
     return userNo;
   }
 
-  public void setUserNo(String userNo) {
+  public void setUserNo(UsUser userNo) {
     this.userNo = userNo;
   }
-
 
   public String getMeterName() {
     return meterName;
@@ -42,7 +39,6 @@ public class UsMeter implements Serializable {
     this.meterName = meterName;
   }
 
-
   public Integer getMeterTypeId() {
     return meterTypeId;
   }
@@ -50,7 +46,6 @@ public class UsMeter implements Serializable {
   public void setMeterTypeId(Integer meterTypeId) {
     this.meterTypeId = meterTypeId;
   }
-
 
   public Integer getMaxValue() {
     return maxValue;
@@ -60,7 +55,6 @@ public class UsMeter implements Serializable {
     this.maxValue = maxValue;
   }
 
-
   public Integer getStartValue() {
     return startValue;
   }
@@ -68,7 +62,6 @@ public class UsMeter implements Serializable {
   public void setStartValue(Integer startValue) {
     this.startValue = startValue;
   }
-
 
   public Date getSetupDate() {
     return setupDate;
@@ -78,7 +71,6 @@ public class UsMeter implements Serializable {
     this.setupDate = setupDate;
   }
 
-
   public String getFactory() {
     return factory;
   }
@@ -86,7 +78,6 @@ public class UsMeter implements Serializable {
   public void setFactory(String factory) {
     this.factory = factory;
   }
-
 
   public Boolean getDisabled() {
     return disabled;
@@ -100,7 +91,7 @@ public class UsMeter implements Serializable {
   public String toString() {
     return "UsMeter{" +
             "meterNo='" + meterNo + '\'' +
-            ", userNo='" + userNo + '\'' +
+            ", userNo=" + userNo +
             ", meterName='" + meterName + '\'' +
             ", meterTypeId=" + meterTypeId +
             ", maxValue=" + maxValue +

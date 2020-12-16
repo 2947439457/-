@@ -1,6 +1,10 @@
 package com.zhibang.service.RD;
 
-import com.zhibang.mapper.RD.RD_ChangeValueMapper;
-
-public interface RD_ChangeValueService extends RD_ChangeValueMapper {
+/**
+ * @Author 何岷鸿
+ * @ClassName RD_ChangeValueService
+ * @Description 底码修正记录
+ * @createTime 2020/12/12 18:01
+ **/
+public interface RD_ChangeValueService {
 }

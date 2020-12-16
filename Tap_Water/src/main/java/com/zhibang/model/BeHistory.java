@@ -9,11 +9,10 @@ public class BeHistory implements Serializable {
   private static final long serialVersionUID = -8102240706018431495L;
   private Integer id;
   private String orderNo;
-  private Integer stepId;
+  private BeFlow stepId;
   private Date datee;
   private Integer empId;
   private Boolean isBack;
-
 
   public Integer getId() {
     return id;
@@ -23,7 +22,6 @@ public class BeHistory implements Serializable {
     this.id = id;
   }
 
-
   public String getOrderNo() {
     return orderNo;
   }
@@ -32,15 +30,13 @@ public class BeHistory implements Serializable {
     this.orderNo = orderNo;
   }
 
-
-  public Integer getStepId() {
+  public BeFlow getStepId() {
     return stepId;
   }
 
-  public void setStepId(Integer stepId) {
+  public void setStepId(BeFlow stepId) {
     this.stepId = stepId;
   }
-
 
   public Date getDatee() {
     return datee;
@@ -50,7 +46,6 @@ public class BeHistory implements Serializable {
     this.datee = datee;
   }
 
-
   public Integer getEmpId() {
     return empId;
   }
@@ -59,13 +54,12 @@ public class BeHistory implements Serializable {
     this.empId = empId;
   }
 
-
-  public Boolean getIsBack() {
+  public Boolean getBack() {
     return isBack;
   }
 
-  public void setIsBack(Boolean isBack) {
-    this.isBack = isBack;
+  public void setBack(Boolean back) {
+    isBack = back;
   }
 
   @Override
