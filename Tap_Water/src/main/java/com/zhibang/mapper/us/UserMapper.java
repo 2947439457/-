@@ -2,6 +2,7 @@ package com.zhibang.mapper.us;
 
 import com.zhibang.model.UsUser;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author admin
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Controller;
  * @Description TODO
  * @createTime 2020年12月15日 19:58:00
  */
-@Controller
+@Repository
 public interface UserMapper {
 
     //添加用户

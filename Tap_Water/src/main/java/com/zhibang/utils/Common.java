@@ -41,19 +41,21 @@ public class Common {
 
     //生成业扩工单
     public String OrderNo(Integer orderType){
-        String s = orderMapper.selectOrderNo("B" + orderType);
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("MM");
+        String format = formatter.format(date);
+        SimpleDateFormat formatter1 = new SimpleDateFormat("yyyyMMdd");
+        String format1 = formatter1.format(date);
+        String s = orderMapper.selectOrderNo("B" + orderType, format);
         Integer a = Integer.parseInt(s);
         a++;
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("ddddMMyyyy");
-        String format = formatter.format(date);
         String ss = "";
         if(a<=10){
-            ss = "B"+orderType+"-"+format+"-000"+a;
+            ss = "B"+orderType+"-"+format1+"-000"+a;
         }else if(a>=10 && a<=99){
-            ss = "B"+orderType+"-"+format+"-00"+a;
+            ss = "B"+orderType+"-"+format1+"-00"+a;
         }else if (a>=100 && a<=999){
-            ss = "B"+orderType+"-"+format+"-0"+a;
+            ss = "B"+orderType+"-"+format1+"-0"+a;
         }
         return ss;
     }
