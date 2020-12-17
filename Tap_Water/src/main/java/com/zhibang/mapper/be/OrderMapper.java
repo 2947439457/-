@@ -13,10 +13,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrderMapper {
 
-    //添加业扩工单
+    //添加业扩工单:yjh
     public Integer addOrder(BeOrder beOrder);
 
-    //查询业扩工单
+    //查询业扩工单:yjh
     public String selectOrderNo(String orderType, String month);
 
 }
