@@ -26,7 +26,7 @@
 <body> 
 
 <div id="wrapper">
-	<div style="none">${s}</div>
+	<#--<div style="none">${s}</div>-->
 		
 	
 	<div id="header">
@@ -142,9 +142,9 @@
 					<div class="nav_menu">			
 						<ul>
 							<li><a href="sys_area">抄表辖区</a></li>
-							<li><a href="page/sys_meterType.ftl">水表型号</a></li>
-							<li><a href="page/sys_dept.ftl">部门管理</a></li>
-							<li><a href="page/sys_emp.ftl">员工管理</a></li>
+							<li><a href="sys_meterType">水表型号</a></li>
+							<li><a href="sys_dept">部门管理</a></li>
+							<li><a href="sys_emp">员工管理</a></li>
 							<li><a href="page/sys_menupower.ftl">菜单权限设置</a></li>
 							<li><a href="page/sys_areapower.ftl">辖区权限设置</a></li>
 							<li><a href="page/sys_waterType.ftl">用水类型设定</a></li>
