@@ -3,6 +3,7 @@ package com.zhibang.model;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
@@ -39,6 +40,12 @@ public class BeOrder implements Serializable {
     private Date projectDate2;
     private SyArea areaId;
     private String abortCause;
+
+    //将最后修改日期转换“yyyy-MM-dd”:xxy
+    public String updateDate(){
+        SimpleDateFormat sdm = new SimpleDateFormat("yyyy-MM-dd");
+        return sdm.format(lastEditDate);
+    }
 
     public String getOrderNo() {
         return orderNo;

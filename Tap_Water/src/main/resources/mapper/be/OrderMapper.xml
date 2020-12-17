@@ -5,6 +5,22 @@
 
 <mapper namespace="com.zhibang.mapper.be.OrderMapper">
 
+    <!--工单管理：xxy-->
+    <resultMap id="orderAsFlowAsDeptAsUser" type="com.zhibang.model.BeOrder">
+        <id property="orderNo" column="orderNo"/>
+        <result property="orderType" column="orderType"/>
+        <result property="lastEditDate" column="lastEditDate"/>
+        <association property="stepId" javaType="BeFlow">
+            <result property="stepName" column="stepName"/>
+            <association property="deptId" javaType="SyDept">
+                <result property="deptName" column="deptName"/>
+            </association>
+        </association>
+        <association property="userNo" javaType="UsUser">
+            <result property="userName" column="userName"/>
+        </association>
+    </resultMap>
+
     <insert id="addOrder">
         INSERT INTO `tap_water`.`be_order` (
           `OrderNo`,`OrderType`,`StepID`,`CreateEmp`, `CreateDate`,`LastEditEmp`,`LastEditDate`,
@@ -18,6 +34,21 @@
 
     <select id="selectOrderNo" parameterType="String" resultType="String">
         SELECT MAX(RIGHT(orderNo, 4)) FROM be_order WHERE LEFT(orderNo, 2)=#{orderType};
+    </select>
+
+
+    <!--工单管理：xxy-->
+    <select id="queryAllOrder" resultMap="orderAsFlowAsDeptAsUser">
+        SELECT bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
+        FROM be_order AS bo,be_flow AS bf,sy_dept AS sd,us_user AS us
+        WHERE bo.`StepID` = bf.`ID`
+        AND bf.`DeptID` = sd.`ID`
+        AND bo.`UserNo` = us.`UserNo`
+    </select>
+
+    <!--查询工单进度：xxy-->
+    <select id="queryStepNameType" resultType="BeFlow">
+        SELECT `StepName` FROM `be_flow`;
     </select>
 
 </mapper>

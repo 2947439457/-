@@ -186,27 +186,18 @@
 			
 			<div class="height40">
 				工单类型 <select>
-					<option>所有</option>
-					<option>新户</option>
-					<option>分户</option>
-					<option>过户</option>
-					<option>代扣</option>
-					<option>换表</option>
-					<option>重签</option>
-					<option>销户</option>
-				</select>
+							<option>新户</option>
+							<option>分户</option>
+							<option>过户</option>
+							<option>代扣</option>
+							<option>换表</option>
+							<option>重签</option>
+							<option>销户</option>
+						</select>
 				工程进度 <select>
-					<option>所有</option>
-					<option>用户申请</option>
-					<option>初步审核</option>
-					<option>交施工费</option>
-					<option>水费清算</option>
-					<option>供水合同</option>
-					<option>施工竣工</option>
-					<option>通水停水</option>
-					<option>档案存档</option>
-					<option>完成</option>
-					<option>终止</option>
+					<#list bf as b>
+						<option>${b.stepName}</option>
+					</#list>
 				</select>
 				工单号 <input />
 				用户姓名 <input />
@@ -227,96 +218,57 @@
 						</tr>
 					</thead>
 					<tbody>
+					<#list user as u>
 						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0001</a></td>
-							<td>新户</td>
-							<td>交施工费</td>
-							<td>财务部</td>
-							<td>2014-02-18</td>
-							<td>许三多</td>
+                        <td><a href="/be/orderInfo?id=${u.orderNo}" target="orderInfo">${u.orderNo}</a></td>
+							<#if u.orderType == 1>
+								<td>新户</td>
+							<#elseif u.orderType == 2>
+								<td>分户</td>
+							<#elseif u.orderType == 3>
+								<td>过户</td>
+							<#elseif u.orderType == 4>
+								<td>代扣</td>
+							<#elseif u.orderType == 5>
+								<td>换表</td>
+							<#elseif u.orderType == 6>
+								<td>重签</td>
+							<#else>
+								<td>销户</td>
+							</#if>
+                        <td>${u.getStepId().getStepName()}</td>
+                        <td>${u.getStepId().getDeptId().getDeptName()}</td>
+                        <td>${u.updateDate()}</td>
+                        <td>${u.getUserNo().getUserName()}</td>
+
+
+						<#if u.getStepId().getStepName() == "初步审核">
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/auditForm?/id=${u.orderNo}';"><span></span>处理</button></td>
+						<#elseif u.getStepId().getStepName()== "供水合同">
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/beContractForm?/id=${u.orderNo}';"><span></span>处理</button></td>
+						<#elseif u.getStepId().getStepName() == "档案存档">
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/saveForm?/id=${u.orderNo}';"><span></span>处理</button>
+						<#elseif u.getStepId().getStepName() == "完成">
 							<td></td>
-						</tr>
-						<tr class="even">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140117-0002</a></td>
-							<td>分户</td>
-							<td>水费清算</td>
-							<td>收费室</td>
-							<td>2014-02-18</td>
-							<td>许四多</td>
+						<#elseif u.getStepId().getStepName() == "终止">
 							<td></td>
-						</tr>
-						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0003</a></td>
-							<td>过户</td>
-							<td>初步审核</td>
-							<td>生技室</td>
-							<td>2014-02-18</td>
-							<td>许五多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/order/auditForm';"><span></span>处理</button></td>
-						</tr>
-						<tr class="even">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0004</a></td>
-							<td>代扣</td>
-							<td>档案存档</td>
-							<td>生技室</td>
-							<td>2014-02-18</td>
-							<td>中国农业银行解放路支行</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/order/saveForm';"><span></span>处理</button></td>
-						</tr>
-						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0005</a></td>
-							<td>换表</td>
-							<td>施工竣工</td>
-							<td>安装队</td>
-							<td>2014-02-18</td>
-							<td>中国联通广东路营业厅</td>
-							<td></td>
-						</tr>
-						<tr class="even">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0006</a></td>
-							<td>重签</td>
-							<td>供水合同</td>
-							<td>生技室</td>
-							<td>2014-02-18</td>
-							<td>许八多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/order/beContractForm';"><span></span>处理</button></td>
-						</tr>
-						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0007</a></td>
-							<td>销户</td>
-							<td>通水停水</td>
-							<td>抄表班</td>
-							<td>2014-02-18</td>
-							<td>许蛮多</td>
-							<td></td>
-						</tr>
-						<tr class="even">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0008</a></td>
-							<td>分户</td>
-							<td>完成</td>
-							<td>&nbsp;</td>
-							<td>2014-02-18</td>
-							<td>新多国际商务大厦</td>
-							<td></td>
-						</tr>
-						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0009</a></td>
-							<td>新户</td>
-							<td>终止</td>
-							<td>&nbsp;</td>
-							<td>2014-02-18</td>
-							<td>许钱多</td>
-							<td></td>
-						</tr>
-						<tr class="even">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0010</a></td>
-							<td>重签</td>
-							<td>初步审核</td>
-							<td>生技室</td>
-							<td>2014-02-18</td>
-							<td>许翔多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/order/auditForm';"><span></span>处理</button></td>
-						</tr>
+						</#if>
+
+
+
+                    </tr>
+					</#list>
+
+						<#--<tr class="even">-->
+							<#--<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140117-0002</a></td>-->
+							<#--<td>分户</td>-->
+							<#--<td>水费清算</td>-->
+							<#--<td>收费室</td>-->
+							<#--<td>2014-02-18</td>-->
+							<#--<td>许四多</td>-->
+							<#--<td></td>-->
+						<#--</tr>-->
+
 					</tbody>
 				</table>
 				<div class="page">
