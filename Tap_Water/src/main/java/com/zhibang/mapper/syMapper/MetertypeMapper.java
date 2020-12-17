@@ -1,4 +1,4 @@
-package com.zhibang.mapper.sy;
+package com.zhibang.mapper.syMapper;
 
 import com.zhibang.model.SyMetertype;
 import org.springframework.stereotype.Repository;
@@ -15,7 +15,7 @@ import java.util.List;
 @Repository
 public interface MetertypeMapper {
 
-    //查询全部水表信息
+    //查询全部水表信息:yjh
     public List<SyMetertype> selectSyMetertype();
 
 }

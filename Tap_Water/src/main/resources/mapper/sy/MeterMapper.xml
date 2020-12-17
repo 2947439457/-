@@ -3,9 +3,9 @@
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zhibang.mapper.sy.MetertypeMapper">
+<mapper namespace="com.zhibang.mapper.syMapper.MetertypeMapper">
 
-    <!--查询全部水表信息-->
+    <!--查询全部水表信息:yjh-->
     <select id="selectSyMetertype" resultType="syMetertype">
       SELECT * FROM `sy_metertype`
     </select>

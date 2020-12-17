@@ -1,4 +1,4 @@
-package com.zhibang.service.sy;
+package com.zhibang.service.syService;
 
 import com.zhibang.model.SyMetertype;
 

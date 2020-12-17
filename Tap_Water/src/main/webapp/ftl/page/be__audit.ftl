@@ -203,7 +203,7 @@
 							<td>生技室</td>
 							<td>2014-02-18</td>
 							<td>许三多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/auditForm';"><span></span>处理</button></td>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/beMapper/auditForm';"><span></span>处理</button></td>
 						</tr>
 					</tbody>
 				</table>

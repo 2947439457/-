@@ -1,6 +1,6 @@
 package com.zhibang.service.impl;
 
-import com.zhibang.mapper.sy.MetertypeMapper;
+import com.zhibang.mapper.syMapper.MetertypeMapper;
 import com.zhibang.model.SyMetertype;
 import com.zhibang.service.InitService;
 import org.springframework.beans.factory.annotation.Autowired;

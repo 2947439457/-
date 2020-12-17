@@ -1,4 +1,4 @@
-package com.zhibang.controller.bes;
+package com.zhibang.controller.beController;
 
 import com.zhibang.model.BeFlow;
 import com.zhibang.model.BeOrder;
@@ -25,17 +25,12 @@ public class OrderController {
         //工单管理：xxy
         List<BeOrder> user = orderService.queryAllOrder();
         model.addAttribute("user",user);
-//        for (BeOrder order : user) {
-//            System.out.println(order.getOrderNo()+","+order.getOrderType()+","+order.getLastEditDate()+order.getStepId().getStepName()
-//                    +","+order.getStepId().getDeptId().getDeptName()+","+order.getUserNo().getUserName());
-//        }
         //查询工单进度：xxy
         List<BeFlow> bf = orderService.queryStepNameType();
         model.addAttribute("bf",bf);
         for (BeFlow flow : bf) {
             System.out.println(flow);
         }
-
         return "/page/be_order";
     }
 
@@ -45,19 +40,19 @@ public class OrderController {
         return "/page/be_orderInfo";
     }
 
-    //跳转到初步审核
+    //跳转到初步审核:yjh
     @RequestMapping("/auditForm")
     public String auditForm(){
         return "/page/be__auditForm";
     }
 
-    //跳转到档案存档
+    //跳转到档案存档:yjh
     @RequestMapping("/saveForm")
     public String saveForm(){
         return "/page/be__saveForm";
     }
 
-    //跳转到供水协议
+    //跳转到供水协议:yjh
     @RequestMapping("/beContractForm")
     public String contractForm(){
         return "/page/be__contractForm";

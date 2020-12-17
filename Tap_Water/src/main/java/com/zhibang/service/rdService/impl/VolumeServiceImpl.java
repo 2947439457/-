@@ -1,8 +1,8 @@
-package com.zhibang.service.rrd.impl;
+package com.zhibang.service.rdService.impl;
 
-import com.zhibang.mapper.rd.VolumeMapper;
+import com.zhibang.mapper.rdMapper.VolumeMapper;
 import com.zhibang.model.RdVolume;
-import com.zhibang.service.rrd.VolumeService;
+import com.zhibang.service.rdService.VolumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

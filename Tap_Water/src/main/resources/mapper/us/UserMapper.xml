@@ -3,17 +3,18 @@
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zhibang.mapper.us.UserMapper">
+<mapper namespace="com.zhibang.mapper.usMapper.UserMapper">
 
+    <!--yjh-->
     <insert id="addUser">
         INSERT INTO `tap_water`.`us_user`
           (`UserNo`, `UserName`, `CreateDate`, `Address`, `Phone`, `UserType`)
         VALUES
           (#{userNo}, #{userName}, NOW(), #{address}, #{phone}, #{userType}) ;
     </insert>
-
+    <!--yjh-->
     <select id="selectUserNo" parameterType="Integer" resultType="String">
-        SELECT MAX(RIGHT(UserNo, 8)) FROM us_user WHERE LEFT(UserNo, 2)=${orderType};
+        SELECT MAX(RIGHT(UserNo, 8)) FROM us_user WHERE RIGHT(LEFT(UserNo, 2),1) = #{orderType};
     </select>
 
 </mapper>

@@ -1,10 +1,10 @@
-package com.zhibang.service.us.impl;
+package com.zhibang.service.usService.impl;
 
-import com.zhibang.mapper.be.OrderMapper;
-import com.zhibang.mapper.us.UserMapper;
+import com.zhibang.mapper.beMapper.OrderMapper;
+import com.zhibang.mapper.usMapper.UserMapper;
 import com.zhibang.model.BeOrder;
 import com.zhibang.model.UsUser;
-import com.zhibang.service.us.UserService;
+import com.zhibang.service.usService.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

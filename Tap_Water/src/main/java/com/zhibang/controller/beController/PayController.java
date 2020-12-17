@@ -1,4 +1,4 @@
-package com.zhibang.controller.bes;
+package com.zhibang.controller.beController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/be")
 public class PayController {
 
-    //跳转交施工费页面
+    //跳转交施工费页面:yjh
     @GetMapping("/pay")
     public String pay(){
         return "/page/be__pay";
     }
 
-    //跳转交施工费处理页面
+    //跳转交施工费处理页面:yjh
     @GetMapping("/payForm")
     public String payForm(){
         return "/page/be__payForm";

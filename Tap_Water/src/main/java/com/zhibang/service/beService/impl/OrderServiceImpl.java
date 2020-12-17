@@ -1,6 +1,6 @@
 package com.zhibang.service.beService.impl;
 
-import com.zhibang.mapper.be.OrderMapper;
+import com.zhibang.mapper.beMapper.OrderMapper;
 import com.zhibang.model.BeFlow;
 import com.zhibang.model.BeOrder;
 import com.zhibang.service.beService.OrderService;

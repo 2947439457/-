@@ -1,8 +1,8 @@
-package com.zhibang.service.sy.impl;
+package com.zhibang.service.syService.impl;
 
-import com.zhibang.mapper.sy.MetertypeMapper;
+import com.zhibang.mapper.syMapper.MetertypeMapper;
 import com.zhibang.model.SyMetertype;
-import com.zhibang.service.sy.MetertypeService;
+import com.zhibang.service.syService.MetertypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

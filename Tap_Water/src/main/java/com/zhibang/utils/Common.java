@@ -1,7 +1,7 @@
 package com.zhibang.utils;
 
-import com.zhibang.mapper.be.OrderMapper;
-import com.zhibang.mapper.us.UserMapper;
+import com.zhibang.mapper.beMapper.OrderMapper;
+import com.zhibang.mapper.usMapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -42,11 +42,9 @@ public class Common {
     //生成业扩工单
     public String OrderNo(Integer orderType){
         Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("MM");
-        String format = formatter.format(date);
-        SimpleDateFormat formatter1 = new SimpleDateFormat("yyyyMMdd");
-        String format1 = formatter1.format(date);
-        String s = orderMapper.selectOrderNo("B" + orderType, format);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+        String format1 = formatter.format(date);
+        String s = orderMapper.selectOrderNo("B" + orderType);
         Integer a = Integer.parseInt(s);
         a++;
         String ss = "";

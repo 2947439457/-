@@ -1,4 +1,4 @@
-package com.zhibang.mapper.rd;
+package com.zhibang.mapper.rdMapper;
 
 import com.zhibang.model.RdVolume;
 import org.springframework.stereotype.Repository;
@@ -19,6 +19,6 @@ public interface VolumeMapper {
      * @Description 查询所有表册
      *@createTime 2020/12/17 14:52
      */
-        public List<RdVolume> QueryAllVolume() ;
+    public List<RdVolume> QueryAllVolume() ;
 
 }

@@ -1,4 +1,4 @@
-package com.zhibang.service.us;
+package com.zhibang.service.usService;
 
 import com.zhibang.model.BeOrder;
 import com.zhibang.model.UsUser;

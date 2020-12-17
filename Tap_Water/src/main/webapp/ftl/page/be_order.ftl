@@ -243,11 +243,11 @@
 
 
 						<#if u.getStepId().getStepName() == "初步审核">
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/auditForm?/id=${u.orderNo}';"><span></span>处理</button></td>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/beMapper/auditForm?/id=${u.orderNo}';"><span></span>处理</button></td>
 						<#elseif u.getStepId().getStepName()== "供水合同">
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/beContractForm?/id=${u.orderNo}';"><span></span>处理</button></td>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/beMapper/beContractForm?/id=${u.orderNo}';"><span></span>处理</button></td>
 						<#elseif u.getStepId().getStepName() == "档案存档">
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/saveForm?/id=${u.orderNo}';"><span></span>处理</button>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/beMapper/saveForm?/id=${u.orderNo}';"><span></span>处理</button>
 						<#elseif u.getStepId().getStepName() == "完成">
 							<td></td>
 						<#elseif u.getStepId().getStepName() == "终止">

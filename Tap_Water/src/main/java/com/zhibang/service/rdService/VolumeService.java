@@ -1,4 +1,4 @@
-package com.zhibang.service.rrd;
+package com.zhibang.service.rdService;
 
 import com.zhibang.model.RdVolume;
 

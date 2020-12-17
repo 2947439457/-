@@ -1,4 +1,4 @@
-package com.zhibang.controller.bes;
+package com.zhibang.controller.beController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/be")
 public class BillclearController {
 
-    //跳转水费清单界面
+    //跳转水费清单界面:yjh
     @GetMapping("/billclear")
     public String billclear(){
         return "/page/be__billclear";
     }
 
-    //跳转水费清单处理界面
+    //跳转水费清单处理界面:yjh
     @GetMapping("/billclearForm")
     public String billclearForm(){
         return "/page/be__billclearForm";

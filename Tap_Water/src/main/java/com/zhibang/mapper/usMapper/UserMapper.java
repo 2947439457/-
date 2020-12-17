@@ -1,7 +1,6 @@
-package com.zhibang.mapper.us;
+package com.zhibang.mapper.usMapper;
 
 import com.zhibang.model.UsUser;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 
 /**

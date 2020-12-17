@@ -1,4 +1,4 @@
-package com.zhibang.controller.bes;
+package com.zhibang.controller.beController;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/be")
 public class AuditController {
 
-    //跳转初步审核界面
+    //跳转初步审核界面:yjh
     @GetMapping("/audit")
     public String Audit(){
         return "/page/be__audit";
     }
 
-    //跳转初步审核处理界面
+    //跳转初步审核处理界面:yjh
     @GetMapping("/auditForm")
     public String auditForm(){
         return "/page/be__auditForm";

@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zhibang.mapper.be.OrderMapper">
+<mapper namespace="com.zhibang.mapper.beMapper.OrderMapper">
 
     <!--工单管理：xxy-->
     <resultMap id="orderAsFlowAsDeptAsUser" type="com.zhibang.model.BeOrder">
@@ -21,21 +21,21 @@
         </association>
     </resultMap>
 
+    <!--yjh-->
     <insert id="addOrder">
         INSERT INTO `tap_water`.`be_order` (
           `OrderNo`,`OrderType`,`StepID`,`CreateEmp`, `CreateDate`,`LastEditEmp`,`LastEditDate`,
           `UserNo`,`UseTarget`,`HouseHeight`,`MaxAmount`, `MeterTypeID`,`MeterCount`,`UserRemark`
         )
         VALUES (
-            #{orderNo}, #{orderType}, #{stepID}, #{createEmp}, NOW(), #{lastEditEmp},NOW(),
-            #{userNo}, #{useTarget}, #{houseHeight}, #{maxAmount}, #{meterTypeID}, #{meterCount}, #{userRemark}
+            #{orderNo}, #{orderType}, #{stepId.id}, #{createEmp.id}, NOW(), #{lastEditEmp.id},NOW(),
+            #{userNo.userNo}, #{useTarget}, #{houseHeight}, #{maxAmount}, #{meterTypeId.id}, #{meterCount}, #{userRemark}
         ) ;
     </insert>
-
+    <!--yjh-->
     <select id="selectOrderNo" parameterType="String" resultType="String">
-        SELECT MAX(RIGHT(orderNo, 4)) FROM be_order WHERE LEFT(orderNo, 2)=#{orderType};
+        SELECT MAX(RIGHT(orderNo, 4)) FROM be_order WHERE LEFT(orderNo, 2)=#{orderType} AND LEFT(RIGHT(OrderNo, 9), 2)=MONTH(CURDATE());
     </select>
-
 
     <!--工单管理：xxy-->
     <select id="queryAllOrder" resultMap="orderAsFlowAsDeptAsUser">
