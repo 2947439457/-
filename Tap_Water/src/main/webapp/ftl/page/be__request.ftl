@@ -51,9 +51,9 @@
 					<div class="nav_menu">			
 						<ul>
 							<li><a href="/be/request">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
+							<li><a href="/be/audit">02 初步审核</a></li>
+							<li><a href="/be/pay">03 交施工费</a></li>
+							<li><a href="/be/billclear">04 水费清算</a></li>
 							<li><a href="be__contract.ftl">05 供水协议</a></li>
 							<li><a href="be__working.ftl">06 施工竣工</a></li>
 							<li><a href="be__open.ftl">07 通水停水</a></li>
