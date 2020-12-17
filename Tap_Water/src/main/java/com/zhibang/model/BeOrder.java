@@ -18,7 +18,7 @@ public class BeOrder implements Serializable {
     private Date completeDate;
     private SyEmp lastEditEmp;
     private Date lastEditDate;
-    private String userNo;
+    private UsUser userNo;
     private String useTarget;
     private Integer houseHeight;
     private Integer maxAmount;
@@ -112,11 +112,11 @@ public class BeOrder implements Serializable {
         this.lastEditDate = lastEditDate;
     }
 
-    public String getUserNo() {
+    public UsUser getUserNo() {
         return userNo;
     }
 
-    public void setUserNo(String userNo) {
+    public void setUserNo(UsUser userNo) {
         this.userNo = userNo;
     }
 

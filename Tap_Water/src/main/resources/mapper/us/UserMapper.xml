@@ -12,4 +12,8 @@
           (#{userNo}, #{userName}, NOW(), #{address}, #{phone}, #{userType}) ;
     </insert>
 
+    <select id="selectUserNo" parameterType="Integer" resultType="String">
+        SELECT MAX(RIGHT(UserNo, 8)) FROM us_user WHERE LEFT(UserNo, 2)=${orderType};
+    </select>
+
 </mapper>

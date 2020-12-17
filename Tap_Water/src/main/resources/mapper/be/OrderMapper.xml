@@ -16,4 +16,8 @@
         ) ;
     </insert>
 
+    <select id="selectOrderNo" parameterType="String" resultType="String">
+        SELECT MAX(RIGHT(orderNo, 4)) FROM be_order WHERE LEFT(orderNo, 2)=#{orderType};
+    </select>
+
 </mapper>

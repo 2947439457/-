@@ -23,8 +23,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer addUserAndOrder(UsUser usUser, BeOrder beOrder) {
-        userMapper.addUser(usUser);
+        Integer integer = userMapper.addUser(usUser);
         orderMapper.addOrder(beOrder);
-        return null;
+        return integer;
     }
 }

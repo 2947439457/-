@@ -16,4 +16,7 @@ public interface OrderMapper {
     //添加业扩工单
     public Integer addOrder(BeOrder beOrder);
 
+    //查询业扩工单
+    public String selectOrderNo(String orderType);
+
 }

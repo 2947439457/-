@@ -16,4 +16,7 @@ public interface UserMapper {
     //添加用户
     public Integer addUser(UsUser usUser);
 
+    //查询用户编码
+    public String selectUserNo(Integer orderType);
+
 }

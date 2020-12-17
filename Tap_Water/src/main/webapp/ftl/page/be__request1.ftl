@@ -344,13 +344,15 @@
         $(".banLi").click(function () {
             var userName = $("#userName").val(); //用户名称
             if (userName == "") {
-                alert("请输入用户名称！")
+                alert("请输入用户名称！");
+                $("#userName").focus();
                 return false;
             }
             var userType = $("#userType").val(); //用户类型
             var phone = $("#phone").val(); //联系电话
             if (phone == "") {
                 alert("请填写手机号码！");
+                $("#phone").focus();
                 return false;
             }
             var phoneCodeVerification = /^[1][3,4,5,7,8,9][0-9]{9}$/;
@@ -386,7 +388,16 @@
             if (!confirm("你确定提交吗？")) {
                 return false;
             }
-            window.location.href = "";
+            $.ajax({
+                url:"/be/judge",
+                type:"post",
+                data:{"orderType":"01", "userName":userName, "userType":userType, "phone":phone, "address":address,
+                    "maxAmount":maxAmount, "houseHeight":houseHeight, "useTarget":useTarget, "userRemark":userRemark},
+                success:function(integer){
+                    var integer = integer;
+                    alert(integer);
+                }
+            });
         })
     })
 </script>
