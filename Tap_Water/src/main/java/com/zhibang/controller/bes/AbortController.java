@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/abort")
+@RequestMapping("/be")
 public class AbortController {
 
-    @RequestMapping("/beAbort")
+    @RequestMapping("/abort")
     public String beOrder(){
         return "/page/be_abort";
     }

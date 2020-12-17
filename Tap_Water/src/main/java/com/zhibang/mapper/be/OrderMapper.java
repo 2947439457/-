@@ -1,7 +1,11 @@
 package com.zhibang.mapper.be;
 
+import com.zhibang.model.BeFlow;
 import com.zhibang.model.BeOrder;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author admin
@@ -18,5 +22,14 @@ public interface OrderMapper {
 
     //查询业扩工单:yjh
     public String selectOrderNo(String orderType, String month);
+
+    //工单管理：xxy
+    public List<BeOrder> queryAllOrder();
+
+    //查询工单进度：xxy
+    public List<BeFlow> queryStepNameType();
+
+    //根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy
+    public List<BeOrder> queryTypeOrNameOrUserNo(int OrderType, String StepName, String OrderNo, String UserName);
 
 }
