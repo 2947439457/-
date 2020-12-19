@@ -5,7 +5,6 @@ import com.zhibang.service.rrd.VolumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -26,7 +25,8 @@ public class VolumeController {
     @RequestMapping("/volume")
     public String volume(Model model){
         List<RdVolume> rdVolumes = volumeService.QueryAllVolume();
-        System.out.println(rdVolumes);
+        System.out.println(rdVolumes+"lll");
+
         model.addAttribute("s",rdVolumes);
         return "/page/rd_volume";
     }
