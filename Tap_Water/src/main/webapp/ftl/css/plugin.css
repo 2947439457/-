@@ -276,7 +276,7 @@ td.details {
 #facebox table {
 	width: auto !important;
   border-collapse: collapse;
-  /* ie 6 hack -- if the global table width is set to anything it could cause us issues*/
+  /* ie 6 hack -- if the global table width is set to anything it could cause usService issues*/
   -width:0%;
   margin-bottom: 0;
 }

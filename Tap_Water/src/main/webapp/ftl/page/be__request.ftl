@@ -232,9 +232,9 @@
 
 <script type="text/javascript">
 	
-$(document).ready ( function () 
+$(document).ready ( function ()
 {
-	Dashboard.init ();		
+	Dashboard.init ();
 });
 
 </script>

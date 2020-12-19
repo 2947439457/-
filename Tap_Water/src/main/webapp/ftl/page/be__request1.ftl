@@ -385,17 +385,22 @@
             if (userRemark == ""){
                 userRemark = "无";
             }
+            var t_meterCount = $("#t_meterCount").val(); //水表数
             if (!confirm("你确定提交吗？")) {
                 return false;
             }
             $.ajax({
-                url:"/be/judge",
+                url:"/beMapper/judge",
                 type:"post",
-                data:{"orderType":"01", "userName":userName, "userType":userType, "phone":phone, "address":address,
-                    "maxAmount":maxAmount, "houseHeight":houseHeight, "useTarget":useTarget, "userRemark":userRemark},
+                data:{"orderType":"1", "userName":userName, "userType":userType, "phone":phone, "address":address,
+                    "maxAmount":maxAmount, "meterTypeName":meterTypeName,"meterCount":t_meterCount, "houseHeight":houseHeight, "useTarget":useTarget, "userRemark":userRemark},
                 success:function(integer){
                     var integer = integer;
-                    alert(integer);
+                    if (integer == 1){
+                        window.location.href = "/beMapper/success";
+                    }else {
+                        window.location.href = "/beMapper/error";
+                    }
                 }
             });
         })

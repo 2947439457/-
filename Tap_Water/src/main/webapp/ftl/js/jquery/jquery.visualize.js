@@ -390,7 +390,7 @@ $.fn.visualize = function(options, container){
 			.width(o.width)
 			.append(canvas);
 
-		//scrape table (this should bes cleaned up into an obj)
+		//scrape table (this should beController cleaned up into an obj)
 		var tableData = scrapeTable();
 		var dataGroups = tableData.dataGroups();
 		var allData = tableData.allData();
