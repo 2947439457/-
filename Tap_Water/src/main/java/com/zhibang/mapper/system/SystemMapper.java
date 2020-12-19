@@ -7,6 +7,7 @@ import com.zhibang.model.SyMetertype;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -18,9 +19,6 @@ public interface SystemMapper {
      * @return
      */
     @Select("SELECT * FROM sy_emp WHERE EmpNo=#{empNo} AND Pwd=#{pwd} AND Disabled=true")
-    @Results(id="dept", value={
-            @Result(column="id", property="deptId",many=@Many(select = "selectSyDept")),
-    })
     public SyEmp selectEepById(SyEmp syEmp);
 
     /**
@@ -49,5 +47,17 @@ public interface SystemMapper {
      * @return
      */
     @Select("SELECT * FROM sy_emp WHERE Disabled=1")
+    @Results(id="emp",value = {
+            @Result(id=true,column="id", property="id"),
+            @Result(column="id", property="deptId",many=@Many(select = "selectSyDept1")),
+    })
     public List<SyEmp> selectSyEmp();
+    @Select("SELECT * FROM sy_dept WHERE Disabled=true AND id in(select deptID from sy_emp where id=#{id})")
+    public SyDept selectSyDept1(Integer id);
+//    @Select("")
+//    public List<>
+
+//    @Select("SELECT * FROM sy_emp WHERE Disabled=1")
+//    @ResultMap("emp")
+//    public List<SyEmp> selectSyEmp1();
 }

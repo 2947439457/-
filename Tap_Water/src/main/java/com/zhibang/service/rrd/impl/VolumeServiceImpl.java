@@ -17,12 +17,12 @@ import java.util.List;
 @Service
 public class VolumeServiceImpl implements VolumeService {
 
-    @Autowired
-    public VolumeMapper volumeMapper;//表册表
-
-    @Override
-    public List<RdVolume> QueryAllVolume() {
-
-        return volumeMapper.QueryAllVolume();
-    }
+//    @Autowired
+//    public VolumeMapper volumeMapper;//表册表
+//
+//    @Override
+//    public List<RdVolume> QueryAllVolume() {
+//
+//        return volumeMapper.QueryAllVolume();
+//    }
 }

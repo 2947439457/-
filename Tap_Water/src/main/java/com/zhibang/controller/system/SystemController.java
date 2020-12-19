@@ -37,9 +37,7 @@ public class SystemController {
         syEmp.setEmpNo(email);
         syEmp.setPwd(password);
         SyEmp i = systemService.selectEepById(syEmp);
-        SyDept syDept = systemService.selectEepById(syEmp).getDeptId();
-        System.out.println(syDept);
-        i.setDeptId(syDept);
+
 
         System.out.println(i);
         if(i==null){
@@ -96,8 +94,29 @@ public class SystemController {
     @RequestMapping("/sys_emp")
     public String sys_emp(Model model){
         List<SyEmp> syEmp = systemService.selectSyEmp();
+        System.out.println(syEmp);
         model.addAttribute("syEmp",syEmp);
-        System.out.println();
         return "/page/sys_emp";
+    }
+    @RequestMapping("/sys_menupower")
+    public String sys_menupower(Model model){
+        List<SyEmp> syEmp = systemService.selectSyEmp();
+        System.out.println(syEmp);
+        model.addAttribute("syEmp",syEmp);
+        return "/page/sys_menupower";
+    }
+    @RequestMapping("/sys_areapower")
+    public String sys_areapower(Model model){
+        List<SyEmp> syEmp = systemService.selectSyEmp();
+        System.out.println(syEmp);
+        model.addAttribute("syEmp",syEmp);
+        return "/page/sys_areapower";
+    }
+    @RequestMapping("/sys_waterType")
+    public String sys_waterType(Model model){
+        List<SyEmp> syEmp = systemService.selectSyEmp();
+        System.out.println(syEmp);
+        model.addAttribute("syEmp",syEmp);
+        return "/page/sys_waterType";
     }
 }

@@ -174,7 +174,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">片区权限</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -231,127 +231,138 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="odd gradeX">
-						<td><input type="checkbox" /></td>
-						<td>1</td>
-						<td>X001</td>
-						<td>张三</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeC">
-						<td><input type="checkbox" /></td>
-						<td>2</td>
-						<td>X002</td>
-						<td>李四</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
-					<tr class="odd gradeA">
-						<td><input type="checkbox" /></td>
-						<td>3</td>
-						<td>X003</td>
-						<td>王五</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>4</td>
-						<td>X004</td>
-						<td>赵六</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
-					<tr class="odd gradeA">
-						<td><input type="checkbox" /></td>
-						<td>5</td>
-						<td>X005</td>
-						<td>钱七</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>6</td>
-						<td>X006</td>
-						<td>孙八</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>7</td>
-						<td>X007</td>
-						<td>何九</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>8</td>
-						<td>X008</td>
-						<td>布十</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>9</td>
-						<td>X009</td>
-						<td>十一郎</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>10</td>
-						<td>X010</td>
-						<td>张小明</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>11</td>
-						<td>X011</td>
-						<td>王小红</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>
-						</td>
-					</tr>
+				<#list syEmp as emp>
+						<tr class="odd gradeX">
+                            <td>${emp.id}</td>
+                            <td>${emp.empName}</td>
+                            <td>${emp.empNo}</td>
+                            <td>${emp.deptId.deptName}</td>
+                            <td>${emp.remark}</td>
+                            <td class="center">
+                                <button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>                            </td>
+                        </tr>
+				</#list>
+					<#--<tr class="odd gradeX">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>1</td>-->
+						<#--<td>X001</td>-->
+						<#--<td>张三</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeC">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>2</td>-->
+						<#--<td>X002</td>-->
+						<#--<td>李四</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="odd gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>3</td>-->
+						<#--<td>X003</td>-->
+						<#--<td>王五</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>4</td>-->
+						<#--<td>X004</td>-->
+						<#--<td>赵六</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="odd gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>5</td>-->
+						<#--<td>X005</td>-->
+						<#--<td>钱七</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>6</td>-->
+						<#--<td>X006</td>-->
+						<#--<td>孙八</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>7</td>-->
+						<#--<td>X007</td>-->
+						<#--<td>何九</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>8</td>-->
+						<#--<td>X008</td>-->
+						<#--<td>布十</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>9</td>-->
+						<#--<td>X009</td>-->
+						<#--<td>十一郎</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>10</td>-->
+						<#--<td>X010</td>-->
+						<#--<td>张小明</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>11</td>-->
+						<#--<td>X011</td>-->
+						<#--<td>王小红</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_areapower_set.html';"><span></span>设置片区权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
 				</tbody>
 			</table>
 			

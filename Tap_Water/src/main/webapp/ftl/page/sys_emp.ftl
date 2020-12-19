@@ -235,7 +235,7 @@
                             <td>${emp.id}</td>
                             <td>${emp.empName}</td>
                             <td>${emp.empNo}</td>
-                            <td>${emp.deptId}</td>
+                            <td>${emp.deptId.deptName}</td>
                             <td>${emp.remark}</td>
                             <td class="center">
                                 <button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_emp_add.html';"><span></span>修改</button>
