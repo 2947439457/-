@@ -5,9 +5,9 @@
 <mapper namespace="com.zhibang.mapper.rdMapper.VolumeMapper">
 
     <!--查询所有表册信息-->
-    <select id="queryAllVolume" resultMap="VolumeMapper">
+    <!--// resultMap="VolumeMapper"-->
+    <select id="QueryAllVolume">
         SELECT * FROM  `tap_water`.`rd_volume`
     </select>
-
 
 </mapper>

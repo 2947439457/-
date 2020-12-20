@@ -174,7 +174,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">流程配置</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	

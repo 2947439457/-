@@ -1,10 +1,7 @@
 package com.zhibang.service.system.impl;
 
 import com.zhibang.mapper.system.SystemMapper;
-import com.zhibang.model.SyArea;
-import com.zhibang.model.SyDept;
-import com.zhibang.model.SyEmp;
-import com.zhibang.model.SyMetertype;
+import com.zhibang.model.*;
 import com.zhibang.service.system.SystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,5 +52,16 @@ public class SystemServiceImpl implements SystemService {
      */
     @Override
     public List<SyEmp> selectSyEmp(){return systemMapper.selectSyEmp();}
+
+    /**
+     * 查询用水类型
+     * @param id
+     * @return
+     */
+    @Override
+    public List<SyCosttype> selectSyCosttype(Integer id){return systemMapper.selectSyCosttype(id);}
+
+    @Override
+    public List<BeFlow> selectBeFlow(){return systemMapper.selectBeFlow();}
 
 }

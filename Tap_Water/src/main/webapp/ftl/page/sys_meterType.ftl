@@ -174,7 +174,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">水表型号设置</a></span>
-			<span id="welcome_span">${s.empName}</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	

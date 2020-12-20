@@ -1,9 +1,6 @@
 package com.zhibang.mapper.system;
 
-import com.zhibang.model.SyArea;
-import com.zhibang.model.SyDept;
-import com.zhibang.model.SyEmp;
-import com.zhibang.model.SyMetertype;
+import com.zhibang.model.*;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 import org.springframework.stereotype.Repository;
@@ -18,7 +15,7 @@ public interface SystemMapper {
      * @param syEmp
      * @return
      */
-    @Select("SELECT * FROM sy_emp WHERE EmpNo=#{empNo} AND Pwd=#{pwd} AND Disabled=true")
+    @Select("SELECT * FROM sy_emp WHERE EmpNo=#{empNo} AND Pwd=#{pwd} AND Disabled=1")
     public SyEmp selectEepById(SyEmp syEmp);
 
     /**
@@ -52,11 +49,18 @@ public interface SystemMapper {
             @Result(column="id", property="deptId",many=@Many(select = "selectSyDept1")),
     })
     public List<SyEmp> selectSyEmp();
-    @Select("SELECT * FROM sy_dept WHERE Disabled=true AND id in(select deptID from sy_emp where id=#{id})")
+    @Select("SELECT * FROM sy_dept WHERE Disabled=1 AND id in(select deptID from sy_emp where id=#{id})")
     public SyDept selectSyDept1(Integer id);
-//    @Select("")
-//    public List<>
 
+    /**
+     * 水费查询
+     * @param id
+     * @return
+     */
+    @Select("SELECT * FROM sy_costtype WHERE Disabled=true AND Kind=${id}")
+    public List<SyCosttype> selectSyCosttype(Integer id);
+    @Select("SELECT * FROM be_flow")
+    public List<BeFlow> selectBeFlow();
 //    @Select("SELECT * FROM sy_emp WHERE Disabled=1")
 //    @ResultMap("emp")
 //    public List<SyEmp> selectSyEmp1();

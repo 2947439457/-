@@ -1,9 +1,6 @@
 package com.zhibang.controller.system;
 
-import com.zhibang.model.SyArea;
-import com.zhibang.model.SyDept;
-import com.zhibang.model.SyEmp;
-import com.zhibang.model.SyMetertype;
+import com.zhibang.model.*;
 import com.zhibang.service.system.SystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -91,6 +88,12 @@ public class SystemController {
         System.out.println(syDept);
         return "page/sys_dept";
     }
+
+    /**
+     * 查询所有员工
+     * @param model
+     * @return
+     */
     @RequestMapping("/sys_emp")
     public String sys_emp(Model model){
         List<SyEmp> syEmp = systemService.selectSyEmp();
@@ -98,6 +101,12 @@ public class SystemController {
         model.addAttribute("syEmp",syEmp);
         return "/page/sys_emp";
     }
+
+    /**
+     * 查询
+     * @param model
+     * @return
+     */
     @RequestMapping("/sys_menupower")
     public String sys_menupower(Model model){
         List<SyEmp> syEmp = systemService.selectSyEmp();
@@ -112,11 +121,36 @@ public class SystemController {
         model.addAttribute("syEmp",syEmp);
         return "/page/sys_areapower";
     }
+
+    /**
+     * 查询用水类型
+     * @param model
+     * @return
+     */
     @RequestMapping("/sys_waterType")
     public String sys_waterType(Model model){
-        List<SyEmp> syEmp = systemService.selectSyEmp();
-        System.out.println(syEmp);
-        model.addAttribute("syEmp",syEmp);
+        List<SyCosttype> syCosttypes = systemService.selectSyCosttype(0);
+        System.out.println(syCosttypes);
+        model.addAttribute("syCosttypes",syCosttypes);
         return "/page/sys_waterType";
     }
+    @RequestMapping("/sys_surcharge")
+    public String sys_surcharge(Model model){
+        List<SyCosttype> syCosttypes = systemService.selectSyCosttype(1);
+        System.out.println(syCosttypes);
+        model.addAttribute("syCosttypes",syCosttypes);
+        return "/page/sys_surcharge";
+    }
+    @RequestMapping("/sys_flow")
+    public String sys_flow(Model model){
+        List<BeFlow> beFlows = systemService.selectBeFlow();
+        System.out.println(beFlows);
+        model.addAttribute("beFlows",beFlows);
+        return  "/page/sys_flow";
+    }
+//    @RequestMapping("sys_waterType")
+//    public String sys_waterType(Model model){
+//        return "/page/sys_waterType";
+//    }
+
 }
