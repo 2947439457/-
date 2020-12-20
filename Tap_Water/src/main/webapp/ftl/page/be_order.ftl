@@ -48,12 +48,11 @@
 							<li><a href="be__working.ftl">06 施工竣工</a></li>
 							<li><a href="be__open.ftl">07 通水停水</a></li>
 							<li><a href="be__save.ftl">08 档案存档</a></li>
-							<li><a href="/order/beOrder">工单管理</a></li>
-							<li><a href="/abort/beAbort">终止工单</a></li>
-							<li><a href="/reportProgress/beReportProgress">业扩工程进度</a></li>
-							<li><a href="/reportMoney/beReportMoney">业扩收费报表</a></li>
+							<li><a href="/be/order">工单管理</a></li>
+							<li><a href="/be/abort">终止工单</a></li>
+							<li><a href="/be/reportProgress">业扩工程进度</a></li>
+							<li><a href="/be/reportMoney">业扩收费报表</a></li>
 						</ul>
-						
 					</div>
 				</li>
 
@@ -185,24 +184,24 @@
 			<h2>工单管理</h2>
 			
 			<div class="height40">
-				工单类型 <select>
-							<option>新户</option>
-							<option>分户</option>
-							<option>过户</option>
-							<option>代扣</option>
-							<option>换表</option>
-							<option>重签</option>
-							<option>销户</option>
+				工单类型 <select id="orderType">
+							<option value="1" selected="selected">新户</option>
+							<option value="2">分户</option>
+							<option value="3">过户</option>
+							<option value="4">代扣</option>
+							<option value="5">换表</option>
+							<option value="6">重签</option>
+							<option value="7">销户</option>
 						</select>
-				工程进度 <select>
+				工程进度 <select id="stepName">
 					<#list bf as b>
-						<option>${b.stepName}</option>
+						<option selected="selected">${b.stepName}</option>
 					</#list>
 				</select>
-				工单号 <input />
-				用户姓名 <input />
+				工单号 <input id="orderNo"/>
+				用户姓名 <input id="userName"/>
 				<label><input type="checkbox" style="vertical-align:middle;" />等待我处理</label>
-				<button class="btn btn-small btn-icon btn-find"><span></span>查询工单</button>
+				<button id="butOrder" class="btn btn-small btn-icon btn-find"><span></span>查询工单</button>
 			</div>
 			
 			<table class="data display">
@@ -243,11 +242,11 @@
 
 
 						<#if u.getStepId().getStepName() == "初步审核">
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/beMapper/auditForm?/id=${u.orderNo}';"><span></span>处理</button></td>
-						<#elseif u.getStepId().getStepName()== "供水合同">
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/beMapper/beContractForm?/id=${u.orderNo}';"><span></span>处理</button></td>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/auditForm?/id=${u.orderNo}';"><span></span>处理</button></td>
+						<#elseif u.getStepId().getStepName()== "供水协议">
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/beContractForm?/id=${u.orderNo}';"><span></span>处理</button></td>
 						<#elseif u.getStepId().getStepName() == "档案存档">
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/beMapper/saveForm?/id=${u.orderNo}';"><span></span>处理</button>
+							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/saveForm?/id=${u.orderNo}';"><span></span>处理</button>
 						<#elseif u.getStepId().getStepName() == "完成">
 							<td></td>
 						<#elseif u.getStepId().getStepName() == "终止">
@@ -310,6 +309,24 @@ $(document).ready ( function ()
 {
 	Dashboard.init ();		
 });
+
+$(function () {
+	$("#butOrder").click(function () {
+		var orderType = $("#orderType").val(); //工单类型
+		var stepName = $("#stepName").val(); //工程进度
+        var orderNo =$("#orderNo").val(); //工单号
+		var userName = $("#userName").val(); //用户姓名
+
+        $.ajax({
+            url:"/be/queryMany",
+            type:"post",
+            data:{"orderType":orderType,"stepName":stepName,"orderNo":orderNo,"userName":userName},
+            success:function f() {
+
+            }
+        })
+    })
+})
 
 </script>
 

@@ -3,10 +3,12 @@ package com.zhibang.controller.beController;
 import com.zhibang.model.BeFlow;
 import com.zhibang.model.BeOrder;
 import com.zhibang.service.beService.OrderService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -21,20 +23,29 @@ public class OrderController {
      * 跳转到工单管理:xxy
      */
     @RequestMapping("/order")
-    public String beOrder(Model model){
+    public String beOrder(Model model,Integer orderType, String stepName, String orderNo, String userName){
         //工单管理：xxy
         List<BeOrder> user = orderService.queryAllOrder();
         model.addAttribute("user",user);
         //查询工单进度：xxy
         List<BeFlow> bf = orderService.queryStepNameType();
         model.addAttribute("bf",bf);
-        for (BeFlow flow : bf) {
-            System.out.println(flow);
-        }
+        //根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy
         return "/page/be_order";
     }
 
-    //跳转到工单信息:xxy
+    //根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy
+    @RequestMapping("/queryMany")
+    public String queryMany(Model model, @Param("orderType") String orderType, @Param("stepName") String stepName, @Param("orderNo") String orderNo, @Param("userName") String userName) {
+        System.out.println(orderType+","+stepName+","+orderNo+","+userName);
+        List<BeOrder> user = orderService.queryTypeOrNameOrUserNo(orderType, stepName, orderNo, userName);
+        model.addAttribute("user",user);
+        for (BeOrder users : user) {
+            System.out.println(users);
+        }
+        return "/page/be_order";
+    }
+        //跳转到工单信息:xxy
     @RequestMapping("/orderInfo")
     public String orderInfo(){
         return "/page/be_orderInfo";

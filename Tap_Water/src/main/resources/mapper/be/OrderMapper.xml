@@ -51,4 +51,35 @@
         SELECT `StepName` FROM `be_flow`;
     </select>
 
+    <!--根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy-->
+    <select id="queryTypeOrNameOrUserNo" resultMap="orderAsFlowAsDeptAsUser">
+        SELECT
+         bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
+        FROM
+         be_order AS bo,
+         be_flow AS bf,
+         sy_dept AS sd,
+         us_user AS us
+        WHERE
+         bo.`StepID` = bf.`ID`
+         AND bf.`DeptID` = sd.`ID`
+         AND bo.`UserNo` = us.`UserNo`
+
+             <if test="orderType != null">
+                and bo.`OrderType` = #{orderType}
+             </if>
+
+             <if test="stepName != null">
+                 and bf.`StepName` = #{stepName}
+             </if>
+
+             <if test="orderNo != null">
+                 and bo.`OrderNo` LIKE "%${orderNo}%"
+             </if>
+
+             <if test="userName != null">
+                 and us.`UserName` LIKE "%${userName}%"
+             </if>
+    </select>
+
 </mapper>
