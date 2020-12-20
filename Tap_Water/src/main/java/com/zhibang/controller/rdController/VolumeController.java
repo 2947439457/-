@@ -19,16 +19,16 @@ import java.util.List;
 @RequestMapping("/rd")
 public class VolumeController {
 
-    @Autowired
-    public VolumeService volumeService;//表册
-    //跳转到表册
-    @RequestMapping("/volume")
-    public String volume(Model model){
-        List<RdVolume> rdVolumes = volumeService.QueryAllVolume();
-        System.out.println(rdVolumes);
-        model.addAttribute("s",rdVolumes);
-        return "/page/rd_volume";
-    }
+//    @Autowired
+//    public VolumeService volumeService;//表册
+//    //跳转到表册
+//    @RequestMapping("/volume")
+//    public String volume(Model model){
+//        List<RdVolume> rdVolumes = volumeService.QueryAllVolume();
+//        System.out.println(rdVolumes);
+//        model.addAttribute("s",rdVolumes);
+//        return "/page/rd_volume";
+//    }
 
 
 

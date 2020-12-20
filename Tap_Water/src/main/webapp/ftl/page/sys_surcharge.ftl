@@ -174,7 +174,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">附加费设定</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -215,45 +215,60 @@
 						</tr>
 					</thead>
 					<tbody>
+                    <#list syCosttypes as costtypes>
 						<tr class="odd">
-							<td>1</td>
-							<td>LJF</td>
-							<td>垃圾费</td>
-							<td>居民生活垃圾处理费</td>
-							<td>0.20</td>
-							<td>生活用水</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_surcharge_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
-							</td>
-						</tr>
-						<tr class="even">
-							<td>2</td>
-							<td>WSF</td>
-							<td>污水费</td>
-							<td>污水处理费</td>
-							<td>0.80</td>
-							<td>生活用水、商业用水、工业用水、行政用水、军区用水、特种用水</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_surcharge_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
-							</td>
-						</tr>
-						<tr class="odd">
-							<td>3</td>
-							<td>ZYF</td>
-							<td>资源费</td>
-							<td>大自然水资源费</td>
-							<td>0.02</td>
-							<td>生活用水、商业用水、工业用水、行政用水、军区用水、特种用水</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_surcharge_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
-							</td>
-						</tr>
+                            <td>${costtypes.id}</td>
+                            <td>${costtypes.code}</td>
+                            <td>${costtypes.costTypeName}</td>
+                            <td>${costtypes.fullName}</td>
+                            <td>${costtypes.peice}</td>
+                            <td>${costtypes.surchargeText}</td>
+                            <td>${costtypes.remark}</td>
+                            <td class="center">
+                                <button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_surcharge_add.html';"><span></span>修改</button>
+                                <a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
+                            </td>
+                        </tr>
+                    </#list>
+						<#--<tr class="odd">-->
+							<#--<td>1</td>-->
+							<#--<td>LJF</td>-->
+							<#--<td>垃圾费</td>-->
+							<#--<td>居民生活垃圾处理费</td>-->
+							<#--<td>0.20</td>-->
+							<#--<td>生活用水</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_surcharge_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="even">-->
+							<#--<td>2</td>-->
+							<#--<td>WSF</td>-->
+							<#--<td>污水费</td>-->
+							<#--<td>污水处理费</td>-->
+							<#--<td>0.80</td>-->
+							<#--<td>生活用水、商业用水、工业用水、行政用水、军区用水、特种用水</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_surcharge_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd">-->
+							<#--<td>3</td>-->
+							<#--<td>ZYF</td>-->
+							<#--<td>资源费</td>-->
+							<#--<td>大自然水资源费</td>-->
+							<#--<td>0.02</td>-->
+							<#--<td>生活用水、商业用水、工业用水、行政用水、军区用水、特种用水</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_surcharge_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>-->
+							<#--</td>-->
+						<#--</tr>-->
 					</tbody>
 				</table>
 			

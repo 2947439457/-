@@ -6,11 +6,12 @@ import java.io.Serializable;
 
 @Component
 public class SyEmpareapower implements Serializable {
-
+//员工辖区权限
   private static final long serialVersionUID = -2247551956030742021L;
   private Integer id;
-  private SyEmp empId;
-  private SyArea areaId;
+  private SyEmp empId;//员工ID
+  private SyArea areaId;//抄表辖区ID
+
 
   public Integer getId() {
     return id;

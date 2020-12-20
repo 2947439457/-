@@ -6,12 +6,12 @@ import java.io.Serializable;
 
 @Component
 public class SyArea implements Serializable {
-
+//抄表辖区
   private static final long serialVersionUID = -3137436602725817903L;
   private Integer id;
-  private String areaName;
-  private String remark;
-  private Integer disabled;
+  private String areaName;//抄表辖区名称
+  private String remark;//备注
+  private Integer disabled;//是否禁用
 
 
   public Integer getId() {
@@ -48,14 +48,13 @@ public class SyArea implements Serializable {
   public void setDisabled(Integer disabled) {
     this.disabled = disabled;
   }
-
-  @Override
-  public String toString() {
-    return "SyArea{" +
-            "id=" + id +
-            ", areaName='" + areaName + '\'' +
-            ", remark='" + remark + '\'' +
-            ", disabled=" + disabled +
-            '}';
-  }
+    @Override
+    public String toString() {
+        return "SyArea{" +
+                "id=" + id +
+                ", areaName='" + areaName + '\'' +
+                ", remark='" + remark + '\'' +
+                ", disabled=" + disabled +
+                '}';
+    }
 }

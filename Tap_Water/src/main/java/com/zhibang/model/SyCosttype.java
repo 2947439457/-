@@ -6,17 +6,17 @@ import java.io.Serializable;
 
 @Component
 public class SyCosttype implements Serializable {
-
+//费用类型
   private static final long serialVersionUID = 1313173732423230159L;
   private Integer id;
-  private Integer kind;
-  private String code;
-  private String costTypeName;
-  private String fullName;
-  private Double peice;
-  private String surchargeText;
-  private String remark;
-  private String disabled;
+  private Integer kind;//类型
+  private String code;//编码
+  private String costTypeName;//费用类型名称
+  private String fullName;//费用类型全称
+  private Double peice;//单价(元)
+  private String surchargeText;//附加费征收范围说明文字（缓存，仅有参考意义）
+  private String remark;//备注
+  private String disabled;//禁用
 
 
   public Integer getId() {

@@ -17,6 +17,6 @@ public interface VolumeService {
      * @Description 查询所有表册
      * @createTime 2020/12/17 14:52
      */
-    public List<RdVolume> QueryAllVolume() ;
+//    public List<RdVolume> QueryAllVolume() ;
 
 }
