@@ -13,10 +13,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
 
-    //添加用户
+    //添加用户:yjh
     public Integer addUser(UsUser usUser);
 
-    //查询用户编码
+    //查询用户编码:yjh
     public String selectUserNo(Integer orderType);
+
+    //通过用户编码查询用户信息：xxy
+    public UsUser selectUsUser(String userNo);
 
 }

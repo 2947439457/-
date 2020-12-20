@@ -32,4 +32,13 @@ public interface OrderMapper {
     //根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy
     public List<BeOrder> queryTypeOrNameOrUserNo(@Param("orderType") String orderType, @Param("stepName") String stepName, @Param("orderNo") String orderNo, @Param("userName") String userName);
 
+    //按流程查询工单：yjh
+    public List<BeOrder> selectBeOrderStepId(@Param("stepId")Integer stepId, @Param("orderType")String orderType);
+
+    //发送流程：yjh
+    public Integer senddateBeOrderStepId(BeOrder beOrder);
+
+    //撤回流程：yjh
+    public Integer recalldateBeOrderStepId(BeOrder beOrder);
+
 }

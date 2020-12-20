@@ -48,11 +48,11 @@
 				<li class="nav_dropdown nav_icon">
 					<a href="javascript:;"><span class="ui-icon ui-icon-wrench"></span>业扩工程</a>
 					
-					<div class="nav_menu">			
+					<div class="nav_menu">
 						<ul>
 							<li><a href="/be/request">01 用户申请</a></li>
-							<li><a href="/be/audit">02 初步审核</a></li>
-							<li><a href="/be/pay">03 交施工费</a></li>
+							<li><a href="/be/audit?stepId=2&orderType=1,2,3,4,5,6,7">02 初步审核</a></li>
+							<li><a href="/be/pay?stepId=3&orderType=1,2,5,6">03 交施工费</a></li>
 							<li><a href="/be/billclear">04 水费清算</a></li>
 							<li><a href="be__contract.ftl">05 供水协议</a></li>
 							<li><a href="be__working.ftl">06 施工竣工</a></li>
@@ -201,7 +201,7 @@
 			<a class="metro" href="/be/requestInt?rid=5">换表</a>
 			<a class="metro" href="/be/requestInt?rid=6">重签</a>
 			<a class="metro" href="/be/requestInt?rid=7">销户</a>
-			<a class="metro" href="be__requestOrder.ftl">工单</a>
+			<a class="metro" href="/be/requestOrder?stepId=1&orderType=1,2,3,4,5,6,7">工单</a>
 			
 			
 			

@@ -39,9 +39,8 @@
             if (rows.length < n) {//需增加行数
                 for (var i = rows.length; i < n; i++) {
                     $('table.data tbody').append('<tr><td>' + (i + 1) +
-                            '</td><td><input/></td><td><input/></td><td><input/></td><td><input/></td><td></td></tr>');
+                            '</td><td><input class="userName"/></td><td><input class="phone"/></td><td><input class="address"/></td></tr>');
                 }
-
             } else {//需减少行数
                 $('table.data tbody tr:gt(' + (n - 1) + ')').remove();
             }
@@ -288,9 +287,9 @@
                                 <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td><input/></td>
-                                    <td><input/></td>
-                                    <td><input/></td>
+                                    <td><input class="userName"/></td>
+                                    <td><input class="phone"/></td>
+                                    <td><input class="address"/></td>
                                     <td></td>
                                 </tr>
                                 </tbody>
@@ -342,6 +341,22 @@
     $(function () {
         // 办理按钮
         $(".banLi").click(function () {
+
+            var userNames = new Array();
+            $(".userName").each(function(){
+                userNames.push($(this).val())
+            })
+
+            var phones = new Array();
+            $(".phone").each(function(){
+                phones.push($(this).val())
+            })
+            var addresss = new Array();
+            $(".address").each(function(){
+                addresss.push($(this).val())
+            })
+
+
             var userName = $("#userName").val(); //用户名称
             if (userName == "") {
                 alert("请输入用户名称！");
@@ -390,10 +405,13 @@
                 return false;
             }
             $.ajax({
-                url:"/beMapper/judge",
+                url:"/be/judge",
                 type:"post",
-                data:{"orderType":"1", "userName":userName, "userType":userType, "phone":phone, "address":address,
-                    "maxAmount":maxAmount, "meterTypeName":meterTypeName,"meterCount":t_meterCount, "houseHeight":houseHeight, "useTarget":useTarget, "userRemark":userRemark},
+                data:{"orderType":"1", "userName":userName, "userType":userType, "phone":phone,
+                    "address":address, "userNames":userNames, "phones":phones, "addresss":addresss,
+                    "maxAmount":maxAmount, "meterTypeName":meterTypeName,"meterCount":t_meterCount,
+                    "houseHeight":houseHeight, "useTarget":useTarget, "userRemark":userRemark},
+                traditional: true,
                 success:function(integer){
                     var integer = integer;
                     if (integer == 1){

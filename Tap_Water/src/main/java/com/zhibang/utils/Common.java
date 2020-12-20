@@ -45,9 +45,15 @@ public class Common {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
         String format1 = formatter.format(date);
         String s = orderMapper.selectOrderNo("B" + orderType);
-        Integer a = Integer.parseInt(s);
-        a++;
+        Integer a ;
+        if(s != null){
+            a = Integer.parseInt(s);
+            a++;
+        }else {
+            a = 1;
+        }
         String ss = "";
+
         if(a<=10){
             ss = "B"+orderType+"-"+format1+"-000"+a;
         }else if(a>=10 && a<=99){

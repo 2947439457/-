@@ -196,15 +196,32 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0001</a></td>
-							<td>新户</td>
-							<td>交施工费</td>
-							<td>财务室</td>
-							<td>2014-02-18</td>
-							<td>许三多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/beMapper/payForm';"><span></span>处理</button></td>
-						</tr>
+						<#list beOrders as bo>
+                        <tr class="odd">
+                            <td><a href="/be/orderInfo?id=${bo.orderNo}" target="orderInfo">${bo.orderNo}</a></td>
+							<#if bo.orderType == 1>
+								<td>新户</td>
+							<#elseif bo.orderType == 2>
+								<td>分户</td>
+							<#elseif bo.orderType == 3>
+								<td>过户</td>
+							<#elseif bo.orderType == 4>
+								<td>代扣</td>
+							<#elseif bo.orderType == 5>
+								<td>换表</td>
+							<#elseif bo.orderType == 6>
+								<td>重签</td>
+							<#else>
+								<td>销户</td>
+							</#if>
+                            <td>${bo.getStepId().getStepName()}</td>
+                            <td>${bo.getStepId().getDeptId().getDeptName()}</td>
+                            <td>${bo.updateDate()}</td>
+                            <td>${bo.getUserNo().getUserName()}</td>
+                            <td><button class="btn-icon btn-small btn-blue btn-check"
+                                        onClick="location.href = '/be/payForm';"><span></span>处理</button></td>
+                        </tr>
+						</#list>
 					</tbody>
 				</table>
 				<div class="page">

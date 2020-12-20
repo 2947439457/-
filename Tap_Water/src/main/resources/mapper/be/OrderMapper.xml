@@ -51,6 +51,51 @@
         SELECT `StepName` FROM `be_flow`;
     </select>
 
+    <!--yjh-->
+    <select id="selectBeOrderStepId"  resultMap="orderAsFlowAsDeptAsUser">
+        SELECT
+        bo.`OrderNo`, bo.`OrderType`, bf.`StepName`, sd.`DeptName`, bo.`LastEditDate`, us.`UserName`
+        FROM
+        be_order AS bo, be_flow AS bf, sy_dept AS sd, us_user AS us
+        WHERE
+        bo.`StepID` = bf.`ID`
+        AND bf.`DeptID` = sd.`ID`
+        AND bo.`UserNo` = us.`UserNo`
+        AND bo.`OrderType` IN (#{orderType})
+        AND bo.`StepID` = #{stepId};
+    </select>
+
+    <!--发送yjh-->
+    <update id="senddateBeOrderStepId">
+        UPDATE
+        `tap_water`.`be_order`
+        SET
+        `StepID` = (SELECT id FROM be_flow WHERE `type${orderType}` = (SELECT `type${orderType}` FROM be_flow WHERE id = #{stepId.id})+1),
+        `LastEditEmp` = #{lastEditEmp.id},
+        `LastEditDate` = NOW()
+        <if test="auditEmpId != null">
+            ,`AuditEmpID` = #{auditEmpId.id}
+            ,`AuditMessage` = #{auditMessage}
+        </if>
+        WHERE `OrderNo` = #{orderNo};
+    </update>
+
+    <!--撤回yjh-->
+    <update id="recalldateBeOrderStepId">
+        UPDATE
+        `tap_water`.`be_order`
+        SET
+        `StepID` = (SELECT id FROM be_flow WHERE `type${orderType}` = (SELECT `type${orderType}` FROM be_flow WHERE id = #{stepId.id})-1),
+        `LastEditEmp` = #{lastEditEmp.id},
+        `LastEditDate` = NOW()
+        <if test="auditEmpId != null">
+            ,`AuditEmpID` = #{auditEmpId.id}
+            ,`AuditMessage` = #{auditMessage}
+        </if>
+        WHERE `OrderNo` = #{orderNo};
+    </update>
+
+
     <!--根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy-->
     <select id="queryTypeOrNameOrUserNo" resultMap="orderAsFlowAsDeptAsUser">
         SELECT

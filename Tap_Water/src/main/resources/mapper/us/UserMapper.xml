@@ -17,4 +17,8 @@
         SELECT MAX(RIGHT(UserNo, 8)) FROM us_user WHERE RIGHT(LEFT(UserNo, 2),1) = #{orderType};
     </select>
 
+    <select id="selectUsUser" parameterType="String" resultType="usUser">
+        select * from us_user where UserNo = #{userNo};
+    </select>
+
 </mapper>

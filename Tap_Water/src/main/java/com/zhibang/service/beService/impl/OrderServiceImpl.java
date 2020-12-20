@@ -42,4 +42,20 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.queryTypeOrNameOrUserNo(orderType, stepName, orderNo, userName);
     }
 
+    //yjh
+    @Override
+    public List<BeOrder> selBeOrderStepId(Integer stepId, String orderTypr) {
+        return orderMapper.selectBeOrderStepId(stepId, orderTypr);
+    }
+
+    //yjh
+    @Override
+    public Integer upBeOrderStepId(String stmt, BeOrder beOrder) {
+        if ("send".equals(stmt)){ //发送
+            return orderMapper.senddateBeOrderStepId(beOrder);
+        }else{ //撤回
+            return orderMapper.recalldateBeOrderStepId(beOrder);
+        }
+    }
+
 }

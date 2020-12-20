@@ -182,17 +182,15 @@
 		<div class="x12">
 			
 			<h2>
-				初步审核 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-201412-0003</a>
+				初步审核 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">${orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
 			
 			<div class="buttonrow">
-				<button class="btn-icon btn-arrow-left btn-red" 
-					onclick="showDialog('确认撤回吗？');"><span></span>撤回</button>
-				<button class="btn-icon btn-arrow-right btn-blue" 
-					onclick="showDialog('确认发送吗？');"><span></span>发送</button>
+				<button id="recall" class="btn-icon btn-arrow-left btn-red"><span></span>撤回</button>
+				<button id="send" class="btn-icon btn-arrow-right btn-blue"><span></span>发送</button>
 			</div>
-			
+
 			<table width="100%">
 			<thead>
 				<tr>
@@ -203,12 +201,12 @@
 			<tbody>
 				<tr>
 					<td>用户名称</td>
-					<td><input readonly="readonly" value="张三" /></td>
+					<td><input readonly="readonly" value="${userName}" /></td>
 				</tr>
 				<tr>
 					<td style="vertical-align:top;">审核意见</td>
 					<td>
-						<textarea rows="10" cols="100"></textarea>
+						<textarea id="aduit" rows="10" cols="100"></textarea>
 					</td>
 				</tr>
 			</tbody>
@@ -247,6 +245,29 @@ $(document).ready ( function ()
 {
 	Dashboard.init ();		
 });
+
+$(function () {
+    $("#send").click(function () {
+        if (!confirm("你确定要发送吗？")) {
+            return false;
+        }
+        var audit = $("#audit").val(); //审核意见
+        if (audit == null){
+            audit = "无";
+        }
+        window.location.href = "/be/disposeAudit?stmt=send&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audit;
+    })
+    $("#recall").click(function () {
+        if (!confirm("你确定要撤回吗？")) {
+            return false;
+        }
+        var audit = $("#audit").val(); //审核意见
+        if (audit == null){
+            audit = "无";
+        }
+        window.location.href = "/be/disposeAudit?stmt=recall&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audit;
+    })
+})
 
 </script>
 
