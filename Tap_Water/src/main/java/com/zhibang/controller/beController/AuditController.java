@@ -63,7 +63,7 @@ public class AuditController {
             upBeOrder.setLastEditEmp(lEmp);
             SyEmp aEmp = syEmp;
             aEmp.setId(lEmp.getId());
-            upBeOrder.setLastEditEmp(aEmp);
+            upBeOrder.setAuditEmpId(aEmp);
             upBeOrder.setAuditMessage(audit);
             integer = orderService.upBeOrderStepId(stmt, upBeOrder);
         }catch (Exception e){

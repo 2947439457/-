@@ -22,4 +22,6 @@ public interface OrderService {
     //流程处理yjh
     public Integer upBeOrderStepId(String stmt, BeOrder beOrder);
 
+    public BeOrder selBeOrderOrderNo(String orderNo);
+
 }

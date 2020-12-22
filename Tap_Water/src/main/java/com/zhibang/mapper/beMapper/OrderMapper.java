@@ -41,4 +41,7 @@ public interface OrderMapper {
     //撤回流程：yjh
     public Integer recalldateBeOrderStepId(BeOrder beOrder);
 
+    //通过业扩工单查询工单信息：yjh
+    public BeOrder selectBeOrderOrderNo(String orderNo);
+
 }

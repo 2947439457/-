@@ -58,4 +58,10 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
+    //yjh
+    @Override
+    public BeOrder selBeOrderOrderNo(String orderNo) {
+        return orderMapper.selectBeOrderOrderNo(orderNo);
+    }
+
 }

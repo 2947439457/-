@@ -206,7 +206,7 @@
 				<tr>
 					<td style="vertical-align:top;">审核意见</td>
 					<td>
-						<textarea id="aduit" rows="10" cols="100"></textarea>
+						<textarea id="audits" rows="10" cols="100"></textarea>
 					</td>
 				</tr>
 			</tbody>
@@ -251,21 +251,21 @@ $(function () {
         if (!confirm("你确定要发送吗？")) {
             return false;
         }
-        var audit = $("#audit").val(); //审核意见
-        if (audit == null){
+        var audits = $("#audits").val(); //审核意见
+        if (audit == ""){
             audit = "无";
         }
-        window.location.href = "/be/disposeAudit?stmt=send&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audit;
+        window.location.href = "/be/disposeAudit?stmt=send&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;
     })
     $("#recall").click(function () {
         if (!confirm("你确定要撤回吗？")) {
             return false;
         }
-        var audit = $("#audit").val(); //审核意见
-        if (audit == null){
+        var audits = $("#audits").val(); //审核意见
+        if (audit == ""){
             audit = "无";
         }
-        window.location.href = "/be/disposeAudit?stmt=recall&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audit;
+        window.location.href = "/be/disposeAudit?stmt=recall&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;
     })
 })
 

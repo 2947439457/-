@@ -27,7 +27,7 @@ public class Common {
         Integer a = Integer.parseInt(s);
         a++;
         String ss = "";
-        if(a<=10){
+        if(a<10){
             ss = "0"+orderType+"0000000"+a;
         }else if(a>=10 && a<=99){
             ss = "0"+orderType+"000000"+a;
@@ -54,7 +54,7 @@ public class Common {
         }
         String ss = "";
 
-        if(a<=10){
+        if(a<10){
             ss = "B"+orderType+"-"+format1+"-000"+a;
         }else if(a>=10 && a<=99){
             ss = "B"+orderType+"-"+format1+"-00"+a;

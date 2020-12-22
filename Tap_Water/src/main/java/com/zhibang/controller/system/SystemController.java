@@ -36,7 +36,6 @@ public class SystemController {
         SyEmp i = systemService.selectEepById(syEmp);
 
 
-        System.out.println(i);
         if(i==null){
             model.addAttribute("asdgf","账号密码不记得？");
             return "login";
@@ -46,7 +45,6 @@ public class SystemController {
         //将数据存储到session中
         session.setAttribute("s", i);
 //        request.setAttribute("s",i);
-        System.out.println(i);
         return "workspace";
     }
 
@@ -59,7 +57,6 @@ public class SystemController {
     public String sysarea(Model model){
         List<SyArea> syArea = systemService.selectSyarea();
         model.addAttribute("area",syArea);
-        System.out.println(syArea);
         return "page/sys_area";
     }
 
@@ -72,7 +69,6 @@ public class SystemController {
     public String sys_meterType(Model model){
         List<SyMetertype> syMetertype = systemService.selectSyMetertype();
         model.addAttribute("syMetertype",syMetertype);
-        System.out.println(syMetertype);
         return "page/sys_meterType";
     }
 
@@ -85,7 +81,6 @@ public class SystemController {
     public String sys_dept(Model model){
         List<SyDept> syDept = systemService.selectSyDept();
         model.addAttribute("syDept",syDept);
-        System.out.println(syDept);
         return "page/sys_dept";
     }
 
@@ -97,7 +92,6 @@ public class SystemController {
     @RequestMapping("/sys_emp")
     public String sys_emp(Model model){
         List<SyEmp> syEmp = systemService.selectSyEmp();
-        System.out.println(syEmp);
         model.addAttribute("syEmp",syEmp);
         return "/page/sys_emp";
     }
@@ -110,14 +104,12 @@ public class SystemController {
     @RequestMapping("/sys_menupower")
     public String sys_menupower(Model model){
         List<SyEmp> syEmp = systemService.selectSyEmp();
-        System.out.println(syEmp);
         model.addAttribute("syEmp",syEmp);
         return "/page/sys_menupower";
     }
     @RequestMapping("/sys_areapower")
     public String sys_areapower(Model model){
         List<SyEmp> syEmp = systemService.selectSyEmp();
-        System.out.println(syEmp);
         model.addAttribute("syEmp",syEmp);
         return "/page/sys_areapower";
     }
@@ -130,21 +122,18 @@ public class SystemController {
     @RequestMapping("/sys_waterType")
     public String sys_waterType(Model model){
         List<SyCosttype> syCosttypes = systemService.selectSyCosttype(0);
-        System.out.println(syCosttypes);
         model.addAttribute("syCosttypes",syCosttypes);
         return "/page/sys_waterType";
     }
     @RequestMapping("/sys_surcharge")
     public String sys_surcharge(Model model){
         List<SyCosttype> syCosttypes = systemService.selectSyCosttype(1);
-        System.out.println(syCosttypes);
         model.addAttribute("syCosttypes",syCosttypes);
         return "/page/sys_surcharge";
     }
     @RequestMapping("/sys_flow")
     public String sys_flow(Model model){
         List<BeFlow> beFlows = systemService.selectBeFlow();
-        System.out.println(beFlows);
         model.addAttribute("beFlows",beFlows);
         return  "/page/sys_flow";
     }

@@ -21,6 +21,22 @@
         </association>
     </resultMap>
 
+    <!--工单及用户信息：yjh-->
+    <!--<resultMap id="orderAsUser" type="com.zhibang.model.BeOrder">-->
+        <!--<id property="orderNo" column="orderNo"/>-->
+        <!--<result property="orderType" column="orderType"/>-->
+        <!--<result property="lastEditDate" column="lastEditDate"/>-->
+        <!--<association property="stepId" javaType="BeFlow">-->
+            <!--<result property="stepName" column="stepName"/>-->
+            <!--<association property="deptId" javaType="SyDept">-->
+                <!--<result property="deptName" column="deptName"/>-->
+            <!--</association>-->
+        <!--</association>-->
+        <!--<association property="userNo" javaType="UsUser">-->
+            <!--<result property="userName" column="userName"/>-->
+        <!--</association>-->
+    <!--</resultMap>-->
+
     <!--yjh-->
     <insert id="addOrder">
         INSERT INTO `tap_water`.`be_order` (
@@ -73,7 +89,7 @@
         `StepID` = (SELECT id FROM be_flow WHERE `type${orderType}` = (SELECT `type${orderType}` FROM be_flow WHERE id = #{stepId.id})+1),
         `LastEditEmp` = #{lastEditEmp.id},
         `LastEditDate` = NOW()
-        <if test="auditEmpId != null">
+        <if test="null != auditEmpId">
             ,`AuditEmpID` = #{auditEmpId.id}
             ,`AuditMessage` = #{auditMessage}
         </if>
@@ -125,6 +141,11 @@
              <if test="userName != null">
                  and us.`UserName` LIKE "%${userName}%"
              </if>
+    </select>
+
+    <!--通过工单号查询工单信息：yjh-->
+    <select id="selectBeOrderOrderNo" parameterType="String" resultType="beOrder">
+        SELECT * FROM be_order WHERE be_order.`OrderNo` = #{orderNo};
     </select>
 
 </mapper>

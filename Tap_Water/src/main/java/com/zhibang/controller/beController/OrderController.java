@@ -40,6 +40,8 @@ public class OrderController {
         System.out.println(orderType+","+stepName+","+orderNo+","+userName);
         List<BeOrder> user = orderService.queryTypeOrNameOrUserNo(orderType, stepName, orderNo, userName);
         model.addAttribute("user",user);
+        List<BeFlow> bf = orderService.queryStepNameType();
+        model.addAttribute("bf",bf);
         for (BeOrder users : user) {
             System.out.println(users);
         }

@@ -3,6 +3,7 @@ package com.zhibang.controller.beController;
 import com.zhibang.mapper.beMapper.OrderUserMapper;
 import com.zhibang.model.*;
 import com.zhibang.service.beService.OrderService;
+import com.zhibang.service.beService.OrderUserService;
 import com.zhibang.service.syService.MetertypeService;
 import com.zhibang.service.usService.UserService;
 import com.zhibang.utils.Common;
@@ -49,9 +50,8 @@ public class RequestController {
     public UserService userService;
     @Autowired
     public OrderService orderService;
-
     @Autowired
-    public OrderUserMapper orderUserMapper;
+    public OrderUserService orderUserService;
 
     //跳转用户申请界面:yjh
     @GetMapping(value = "/request")
@@ -76,7 +76,17 @@ public class RequestController {
         return "/page/be__requestOrder";
     }
 
-    //???????????????还没获得数组
+    //用户申请处理
+//    @RequestMapping(value = "/requestOrderJudge")
+//    public String requestOrderJudge(String orderNo, Model model){
+//        BeOrder beOrder = orderService.selBeOrderOrderNo(orderNo);
+//        Integer orderType = beOrder.getOrderType();
+//        model.addAttribute("beOrder", beOrder);
+//        beOrder.getUserNo()
+//        userService.selUsUser()
+//        return "/page/be__request"+orderType;
+//    }
+
     //点击办理，进行判断：yjh
     @RequestMapping("/judge")
     @ResponseBody
@@ -123,9 +133,10 @@ public class RequestController {
             addBeOrder.setMeterCount(meterCount); //水表数
             addBeOrder.setUserRemark(userRemark); //用户申请的备注说明
             //添加工单用户详情
+            BeOrderuser addbeOrderuser;
             List<BeOrderuser> beOrderusers = new ArrayList<>();
             for (int i = 0; i < meterCount; i++) {
-                BeOrderuser addbeOrderuser = beOrderuser;
+                addbeOrderuser = beOrderuser;
                 addbeOrderuser.setOrderNo(addBeOrder); //业扩工单
                 addbeOrderuser.setUserName(userNames[i]); //用户姓名
                 addbeOrderuser.setPhone(phones[i]); //用户电话
@@ -135,7 +146,7 @@ public class RequestController {
                 addbeOrderuser.setUserNo(userNo); //用户编码
                 beOrderusers.add(addbeOrderuser);
             }
-            orderUserMapper.addOrderUser(beOrderusers);
+
             //执行方法
             userService.addUserAndOrder(addUsUser, addBeOrder, beOrderusers);
             integer = 1;
@@ -143,7 +154,7 @@ public class RequestController {
             integer = 0;
             e.printStackTrace();
         }
-        return 1;
+        return integer;
     }
 
     //跳转成功界面：yjh

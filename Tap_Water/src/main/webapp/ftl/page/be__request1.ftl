@@ -215,7 +215,9 @@
                     <li><a href="#tab1">申请表</a></li>
                     <li><a href="#tab2">新户详细表</a></li>
                 </ul>
-                <div class="tab_content_container">
+                <#--<#if beOrder ?? >-->
+                <#if 1==1 >
+                    <div class="tab_content_container">
                     <div id="tab1" class="tab_content">
                         <table width="100%">
                             <thead>
@@ -297,6 +299,9 @@
                         </div>
                     </div>
                 </div>
+                <#else>
+                    aaaaaa
+                </#if>
             </div>
 
 
@@ -415,9 +420,9 @@
                 success:function(integer){
                     var integer = integer;
                     if (integer == 1){
-                        window.location.href = "/beMapper/success";
+                        window.location.href = "/be/success";
                     }else {
-                        window.location.href = "/beMapper/error";
+                        window.location.href = "/be/error";
                     }
                 }
             });
