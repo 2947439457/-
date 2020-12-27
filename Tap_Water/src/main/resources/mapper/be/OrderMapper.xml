@@ -54,13 +54,46 @@
     </select>
 
     <!--工单管理：xxy-->
-    <select id="queryAllOrder" resultMap="orderAsFlowAsDeptAsUser">
-        SELECT bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
-        FROM be_order AS bo,be_flow AS bf,sy_dept AS sd,us_user AS us
-        WHERE bo.`StepID` = bf.`ID`
+    <!--根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy-->
+    <select id="queryAllOrder" parameterType="String" resultMap="orderAsFlowAsDeptAsUser">
+        SELECT
+        bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
+        FROM
+        be_order AS bo,
+        be_flow AS bf,
+        sy_dept AS sd,
+        us_user AS us
+        WHERE
+        bo.`StepID` = bf.`ID`
         AND bf.`DeptID` = sd.`ID`
         AND bo.`UserNo` = us.`UserNo`
+
+        <if test="orderType != null">
+            and bo.`OrderType` = #{orderType}
+        </if>
+
+        <if test="stepName != null">
+            and bf.`StepName` = #{stepName}
+        </if>
+
+        <if test="orderNo != null">
+            and bo.`OrderNo` LIKE "%${orderNo}%"
+        </if>
+
+        <if test="userName != null">
+            and us.`UserName` LIKE "%${userName}%"
+        </if>
     </select>
+
+
+
+    <!--<select id="queryAllOrder" resultMap="orderAsFlowAsDeptAsUser">-->
+        <!--SELECT bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`-->
+        <!--FROM be_order AS bo,be_flow AS bf,sy_dept AS sd,us_user AS us-->
+        <!--WHERE bo.`StepID` = bf.`ID`-->
+        <!--AND bf.`DeptID` = sd.`ID`-->
+        <!--AND bo.`UserNo` = us.`UserNo`-->
+    <!--</select>-->
 
     <!--查询工单进度：xxy-->
     <select id="queryStepNameType" resultType="BeFlow">
@@ -89,7 +122,7 @@
         `StepID` = (SELECT id FROM be_flow WHERE `type${orderType}` = (SELECT `type${orderType}` FROM be_flow WHERE id = #{stepId.id})+1),
         `LastEditEmp` = #{lastEditEmp.id},
         `LastEditDate` = NOW()
-        <if test="null != auditEmpId">
+        <if test="auditEmpId != null">
             ,`AuditEmpID` = #{auditEmpId.id}
             ,`AuditMessage` = #{auditMessage}
         </if>
@@ -110,42 +143,5 @@
         </if>
         WHERE `OrderNo` = #{orderNo};
     </update>
-
-
-    <!--根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy-->
-    <select id="queryTypeOrNameOrUserNo" resultMap="orderAsFlowAsDeptAsUser">
-        SELECT
-         bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
-        FROM
-         be_order AS bo,
-         be_flow AS bf,
-         sy_dept AS sd,
-         us_user AS us
-        WHERE
-         bo.`StepID` = bf.`ID`
-         AND bf.`DeptID` = sd.`ID`
-         AND bo.`UserNo` = us.`UserNo`
-
-             <if test="orderType != null">
-                and bo.`OrderType` = #{orderType}
-             </if>
-
-             <if test="stepName != null">
-                 and bf.`StepName` = #{stepName}
-             </if>
-
-             <if test="orderNo != null">
-                 and bo.`OrderNo` LIKE "%${orderNo}%"
-             </if>
-
-             <if test="userName != null">
-                 and us.`UserName` LIKE "%${userName}%"
-             </if>
-    </select>
-
-    <!--通过工单号查询工单信息：yjh-->
-    <select id="selectBeOrderOrderNo" parameterType="String" resultType="beOrder">
-        SELECT * FROM be_order WHERE be_order.`OrderNo` = #{orderNo};
-    </select>
 
 </mapper>

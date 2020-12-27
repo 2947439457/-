@@ -4,6 +4,7 @@ import com.zhibang.mapper.beMapper.AbortMapper;
 import com.zhibang.model.BeOrder;
 import com.zhibang.service.beService.AbortService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,4 +18,11 @@ public class AbortServiceImpl implements AbortService {
     public BeOrder queryByOrder(String orderNo) {
         return abortMapper.queryByOrder(orderNo);
     }
+
+    @Override
+    public int upByOrder(BeOrder beOrder) {
+        return abortMapper.upByOrder(beOrder);
+    }
+
+
 }

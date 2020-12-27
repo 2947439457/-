@@ -207,10 +207,10 @@
                 <div class="field"><label for="id">已交费</label> <input id="userMoney" name="fname" size="50" type="text" class="medium" disabled="disabled" value="" /></div>
 
 
-                <div class="field"><label for="description">终止原因</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
+                <div class="field" ><label for="description">终止原因</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
 
                 <div class="buttonrow">
-                    <button class="btn">确认终止</button>
+                    <button id="yOver" class="btn">确认终止</button>
                     <button class="btn btn-grey" onClick="history.back(-1);">返回</button>
                 </div>
 
@@ -249,9 +249,9 @@
     });
     
     $(function () {
-        $("#abortBtn").click(function () {
+
+        $("#abortBtn").click("lis", function () {
             var orderNoText = $("#orderNoText").val();
-            
             $.ajax({
                 url:"/be/selAbort",
                 type:"post",
@@ -262,7 +262,8 @@
 
                     if (re.orderNo == null){
                         alert("你输入的工单不存在！")
-                    }else if(re.stepId.stepName == "完成" || re.stepId.stepName == "终止") {
+                    }
+                    else if(re.stepId.stepName == "完成" || re.stepId.stepName == "终止") {
                         alert("该工单号已终止！");
                     }else{
                         $("#orderNo").val(re.orderNo);
@@ -299,6 +300,49 @@
                 }
             })
         })
+
+        $("input").live("input orderNoText",function () {
+            var orderNoText = $("#orderNoText").val();
+            var orderNo = $("#orderNo").val();
+            if (orderNo != ""){
+                if (orderNoText != orderNo){
+                    $(".medium").val("");
+                }
+            }
+        })
+
+
+
+        $("#yOver").click(function () {
+
+            var orderNo = $("#orderNo").val();
+            if ($("#orderNo").val() == ""){
+                alert("你输入的工单不存在！");
+                return false;
+            }
+            var overBecause = $("#description").val();
+            if (overBecause == "") {
+                alert("请输入终止原因！");
+                return false;
+            }
+            if (!confirm("你确定要提交吗？")){
+                return false;
+            }
+            $.ajax({
+                url:"/be/because",
+                type:"post",
+                data:{"overBecause":overBecause, "orderNoText":orderNo},
+                success:function (result) {
+                    var re = result;
+                    if (re == 1){
+                        window.location.href = "/be/success";
+                    } else {
+                        window.location.href = "/be/error";
+                    }
+                }
+            })
+        })
+
     })
 
 </script>

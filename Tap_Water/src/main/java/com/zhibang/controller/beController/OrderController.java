@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -23,29 +24,19 @@ public class OrderController {
      * 跳转到工单管理:xxy
      */
     @RequestMapping("/order")
-    public String beOrder(Model model,Integer orderType, String stepName, String orderNo, String userName){
+    public String beOrder(Model model){
         //工单管理：xxy
-        List<BeOrder> user = orderService.queryAllOrder();
+        List<BeOrder> user = orderService.queryAllOrder(null, null, null, null);
         model.addAttribute("user",user);
-        //查询工单进度：xxy
-        List<BeFlow> bf = orderService.queryStepNameType();
-        model.addAttribute("bf",bf);
-        //根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy
         return "/page/be_order";
     }
 
-    //根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy
+//    根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy
+    @ResponseBody
     @RequestMapping("/queryMany")
-    public String queryMany(Model model, @Param("orderType") String orderType, @Param("stepName") String stepName, @Param("orderNo") String orderNo, @Param("userName") String userName) {
-        System.out.println(orderType+","+stepName+","+orderNo+","+userName);
-        List<BeOrder> user = orderService.queryTypeOrNameOrUserNo(orderType, stepName, orderNo, userName);
-        model.addAttribute("user",user);
-        List<BeFlow> bf = orderService.queryStepNameType();
-        model.addAttribute("bf",bf);
-        for (BeOrder users : user) {
-            System.out.println(users);
-        }
-        return "/page/be_order";
+    public List<BeOrder> queryMany(String orderType, String stepName, String orderNo, String userName) {
+        List<BeOrder> user = orderService.queryAllOrder(orderType, stepName, orderNo, userName);
+        return user;
     }
         //跳转到工单信息:xxy
     @RequestMapping("/orderInfo")

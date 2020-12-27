@@ -194,10 +194,17 @@
 							<option value="7">销户</option>
 						</select>
 				工程进度 <select id="stepName">
-					<#list bf as b>
-						<option selected="selected">${b.stepName}</option>
-					</#list>
-				</select>
+						<option value="用户申请">用户申请</option>
+						<option value="初步审核">初步审核</option>
+						<option value="交施工费">交施工费</option>
+						<option value="水费清算">水费清算</option>
+						<option value="供水协议">供水协议</option>
+						<option value="施工竣工">施工竣工</option>
+						<option value="通水停水">通水停水</option>
+						<option value="档案存档">档案存档</option>
+						<option value="完成">完成</option>
+						<option value="终止">终止</option>
+			</select>
 				工单号 <input id="orderNo"/>
 				用户姓名 <input id="userName"/>
 				<label><input type="checkbox" style="vertical-align:middle;" />等待我处理</label>
@@ -216,7 +223,8 @@
 							<th></th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="bd">
+
 					<#list user as u>
 						<tr class="odd">
                         <td><a href="/be/orderInfo?id=${u.orderNo}" target="orderInfo">${u.orderNo}</a></td>
@@ -239,21 +247,9 @@
                         <td>${u.getStepId().getDeptId().getDeptName()}</td>
                         <td>${u.updateDate()}</td>
                         <td>${u.getUserNo().getUserName()}</td>
-
-
-						<#if u.getStepId().getStepName() == "初步审核">
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/auditForm?/id=${u.orderNo}';"><span></span>处理</button></td>
-						<#elseif u.getStepId().getStepName()== "供水协议">
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/beContractForm?/id=${u.orderNo}';"><span></span>处理</button></td>
-						<#elseif u.getStepId().getStepName() == "档案存档">
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/saveForm?/id=${u.orderNo}';"><span></span>处理</button>
-						<#elseif u.getStepId().getStepName() == "完成">
-							<td></td>
-						<#elseif u.getStepId().getStepName() == "终止">
-							<td></td>
-						</#if>
-
-
+						<td>
+							<button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/auditForm?orderNo=${u.orderNo}&userName=${u.getUserNo().getUserName()}&orderType=${u.getOrderType()}';"><span></span>处理</button>
+						</td>
 
                     </tr>
 					</#list>
@@ -316,13 +312,43 @@ $(function () {
 		var stepName = $("#stepName").val(); //工程进度
         var orderNo =$("#orderNo").val(); //工单号
 		var userName = $("#userName").val(); //用户姓名
-
+		var bd = $("#bd tr");
         $.ajax({
             url:"/be/queryMany",
             type:"post",
             data:{"orderType":orderType,"stepName":stepName,"orderNo":orderNo,"userName":userName},
-            success:function f() {
+            success:function(resoult) {
+				var re = resoult;
+				bd.remove();
+				var oul;
+				for (var it in re){
+                    oul = "<tr class='odd'>"
+							+"<td><a href='/be/orderInfo?id="+re[it].orderNo+"' target='orderInfo'>"+re[it].orderNo+"</a></td>";
+                    if(re[it].orderType == 1){
+                    	oul = oul+"<td>新户</td>";
+					}else if(re[it].orderType == 2){
+                        oul = oul+"<td>分户</td>";
+					}else if(re[it].orderType == 3){
+                        oul = oul+"<td>过户</td>";
+					}else if(re[it].orderType == 4){
+                        oul = oul+"<td>代扣</td>";
+                    }else if(re[it].orderType == 5){
+                        oul = oul+"<td>换表</td>";
+                    }else if(re[it].orderType == 6){
+                        oul = oul+"<td>重签</td>";
+                    }else if(re[it].orderType == 7){
+                        oul = oul+"<td>销户</td>";
+                    }
+                	oul = oul+"<td>"+re[it].stepId.stepName+"</td><td>"
+							+re[it].stepId.deptId.deptName+"</td><td>"
+							+re[it].lastEditDate+"</td><td>"
+							+re[it].userNo.userName+"</td>";
 
+                    oul = oul+"<td><button class='btn-icon btn-small btn-blue btn-check' " +
+                            "onClick='location.href = '/be/auditForm?/id="+re[it].orderNo+"';'>" +
+                            "<span></span>处理</button></td></tr>";
+                    $("#bd").append(oul);
+				}
             }
         })
     })

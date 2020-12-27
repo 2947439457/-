@@ -21,6 +21,7 @@
         </association>
     </resultMap>
 
+    <!--根据工单号查询相关信息:xxy-->
     <select id="queryByOrder" resultMap="selBoAndUsAndBf">
         SELECT
           bo.`OrderNo`, bo.`OrderType`, bo.`LastEditDate`, se.`EmpName`,
@@ -38,4 +39,16 @@
          AND bo.`OrderNo` = #{orderNo}
     </select>
 
+    <!--终止工单：xxy-->
+    <update id="upByOrder">
+        UPDATE
+            `be_order` as bo
+        SET
+            bo.`LastEditEmp` = #{lastEditEmp.id},
+            bo.`AbortCause` = #{abortCause},
+            bo.`LastEditDate` = NOW(),
+            bo.`StepID` = -1
+        WHERE
+            bo.`OrderNo` = #{orderNo};
+    </update>
 </mapper>

@@ -21,8 +21,8 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public List<BeOrder> queryAllOrder() {
-        return orderMapper.queryAllOrder();
+    public List<BeOrder> queryAllOrder(@Param("orderType") String orderType, @Param("stepName") String stepName, @Param("orderNo") String orderNo, @Param("userName") String userName) {
+        return orderMapper.queryAllOrder(orderType,stepName,orderNo,userName);
     }
 
     /**
@@ -37,10 +37,10 @@ public class OrderServiceImpl implements OrderService {
     /**
      * 根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy
      */
-    @Override
-    public List<BeOrder> queryTypeOrNameOrUserNo(@Param("orderType") String orderType, @Param("stepName") String stepName, @Param("orderNo") String orderNo, @Param("userName") String userName) {
-        return orderMapper.queryTypeOrNameOrUserNo(orderType, stepName, orderNo, userName);
-    }
+//    @Override
+//    public List<BeOrder> queryTypeOrNameOrUserNo(@Param("orderType") String orderType, @Param("stepName") String stepName, @Param("orderNo") String orderNo, @Param("userName") String userName) {
+//        return orderMapper.queryTypeOrNameOrUserNo(orderType, stepName, orderNo, userName);
+//    }
 
     //yjh
     @Override
