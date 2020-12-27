@@ -1,12 +1,14 @@
 package com.zhibang.model;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @Component
+@Scope(value = "prototype")
 public class BeOrder implements Serializable {
 
     private static final long serialVersionUID = -1319190645632479513L;
@@ -14,11 +16,11 @@ public class BeOrder implements Serializable {
     private Integer orderType;
     private BeFlow stepId;
     private SyEmp createEmp;
-    private Date createDate;
+    private Timestamp createDate;
     private SyEmp completeEmp;
-    private Date completeDate;
+    private Timestamp completeDate;
     private SyEmp lastEditEmp;
-    private Date lastEditDate;
+    private Timestamp lastEditDate;
     private UsUser userNo;
     private String useTarget;
     private Integer houseHeight;
@@ -35,9 +37,9 @@ public class BeOrder implements Serializable {
     private String auditMessage;
     private Double projectMoney;
     private Double realMoney;
-    private Date payDate;
-    private Date projectDate1;
-    private Date projectDate2;
+    private Timestamp payDate;
+    private Timestamp projectDate1;
+    private Timestamp projectDate2;
     private SyArea areaId;
     private String abortCause;
 
@@ -79,11 +81,11 @@ public class BeOrder implements Serializable {
         this.createEmp = createEmp;
     }
 
-    public Date getCreateDate() {
+    public Timestamp getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(Timestamp createDate) {
         this.createDate = createDate;
     }
 
@@ -95,11 +97,11 @@ public class BeOrder implements Serializable {
         this.completeEmp = completeEmp;
     }
 
-    public Date getCompleteDate() {
+    public Timestamp getCompleteDate() {
         return completeDate;
     }
 
-    public void setCompleteDate(Date completeDate) {
+    public void setCompleteDate(Timestamp completeDate) {
         this.completeDate = completeDate;
     }
 
@@ -111,11 +113,11 @@ public class BeOrder implements Serializable {
         this.lastEditEmp = lastEditEmp;
     }
 
-    public Date getLastEditDate() {
+    public Timestamp getLastEditDate() {
         return lastEditDate;
     }
 
-    public void setLastEditDate(Date lastEditDate) {
+    public void setLastEditDate(Timestamp lastEditDate) {
         this.lastEditDate = lastEditDate;
     }
 
@@ -247,27 +249,27 @@ public class BeOrder implements Serializable {
         this.realMoney = realMoney;
     }
 
-    public Date getPayDate() {
+    public Timestamp getPayDate() {
         return payDate;
     }
 
-    public void setPayDate(Date payDate) {
+    public void setPayDate(Timestamp payDate) {
         this.payDate = payDate;
     }
 
-    public Date getProjectDate1() {
+    public Timestamp getProjectDate1() {
         return projectDate1;
     }
 
-    public void setProjectDate1(Date projectDate1) {
+    public void setProjectDate1(Timestamp projectDate1) {
         this.projectDate1 = projectDate1;
     }
 
-    public Date getProjectDate2() {
+    public Timestamp getProjectDate2() {
         return projectDate2;
     }
 
-    public void setProjectDate2(Date projectDate2) {
+    public void setProjectDate2(Timestamp projectDate2) {
         this.projectDate2 = projectDate2;
     }
 

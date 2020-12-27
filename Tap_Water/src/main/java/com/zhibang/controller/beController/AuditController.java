@@ -24,21 +24,20 @@ import java.util.List;
 @RequestMapping("/be")
 public class AuditController {
 
-    @Autowired public BeOrder beOrder;
-    @Autowired public BeFlow beFlow;
-    @Autowired public SyEmp syEmp;
-    @Autowired public OrderService orderService;
+    @Autowired public BeOrder beOrder; // 业扩工单-实体类
+    @Autowired public BeFlow beFlow; //业务流程-实体类
+    @Autowired public SyEmp syEmp; //员工-实体类
+    @Autowired public OrderService orderService; //工单-数据访问层
 
-    //跳转初步审核界面:yjh
+    //跳转初步审核界面-yjh
     @GetMapping(value = "/audit")
-    public String Audit(Integer stepId, String orderType, Model model){
-        List<BeOrder> beOrders = orderService.selBeOrderStepId(stepId, orderType);
+    public String Audit(Model model){
+        List<BeOrder> beOrders = orderService.selBeOrderStepId(2, "1,2,3,4,5,6,7");
         model.addAttribute("beOrders", beOrders);
         return "/page/be__audit";
     }
 
-    //跳转初步审核处理界面:yjh
-    @GetMapping(value = "/auditForm")
+    //初步审核处理界面-yjh
     public String auditForm(String orderNo, String userName,Integer orderType, Model model){
         model.addAttribute("orderNo", orderNo);
         model.addAttribute("userName", userName);
@@ -46,20 +45,18 @@ public class AuditController {
         return "/page/be__auditForm";
     }
 
-    //初步审核提交/撤回：yjh
+    //初步审核提交/撤回-yjh
     @RequestMapping(value = "/disposeAudit")
-    public String sendAudit(String stmt, Integer stepId, String orderNo, String audit, Integer orderType, HttpSession session){
+    public String sendAudit(String stmt, String orderNo, String audit, Integer orderType, HttpSession session){
         Integer integer;
         try {
             BeOrder upBeOrder = beOrder;
             upBeOrder.setOrderNo(orderNo);
             upBeOrder.setOrderType(orderType);
             BeFlow upstepId = beFlow;
-            upstepId.setId(stepId);
+            upstepId.setId(2);
             upBeOrder.setStepId(upstepId);
             SyEmp lEmp = (SyEmp) session.getAttribute("s"); //当前登录人员
-//            SyEmp lEmp = syEmp;
-//            lEmp.setId(4);
             upBeOrder.setLastEditEmp(lEmp);
             SyEmp aEmp = syEmp;
             aEmp.setId(lEmp.getId());
@@ -71,11 +68,10 @@ public class AuditController {
             e.printStackTrace();
         }
         if (integer == 1){
-            return "/page/success";
+            return "redirect:/success/be/audit/2/1,2,3,4,5,6,7";
         }else{
-            return "/page/error";
+            return "redirect:/error/be/audit/2/1,2,3,4,5,6,7";
         }
-
     }
 
 }

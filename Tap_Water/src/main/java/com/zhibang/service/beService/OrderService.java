@@ -21,7 +21,7 @@ public interface OrderService {
 
     //流程处理yjh
     public Integer upBeOrderStepId(String stmt, BeOrder beOrder);
-
+    //通过工单号查询工单详情信息-yjh
     public BeOrder selBeOrderOrderNo(String orderNo);
 
 }

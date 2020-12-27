@@ -22,4 +22,7 @@ public interface UserMapper {
     //通过用户编码查询用户信息：xxy
     public UsUser selectUsUser(String userNo);
 
+    //修改用户信息-yjh：可扩展
+    public Integer updateUsUserUserNo(UsUser usUser);
+
 }

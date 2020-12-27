@@ -1,17 +1,19 @@
 package com.zhibang.model;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Component
+@Scope(value = "prototype")
 public class BeComment implements Serializable {
 
     private static final long serialVersionUID = 3612976991643067301L;
     private Integer id;
     private BeOrder orderNo;
-    private Date datee;
+    private String datee;
     private SyEmp empId;
     private String comment;
 
@@ -31,11 +33,11 @@ public class BeComment implements Serializable {
         this.orderNo = orderNo;
     }
 
-    public Date getDatee() {
+    public String getDatee() {
         return datee;
     }
 
-    public void setDatee(Date datee) {
+    public void setDatee(String datee) {
         this.datee = datee;
     }
 

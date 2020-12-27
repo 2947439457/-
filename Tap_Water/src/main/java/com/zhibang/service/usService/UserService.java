@@ -17,7 +17,8 @@ public interface UserService {
 
 //    添加用户以及工单:yjh
     public Integer addUserAndOrder(UsUser usUser, BeOrder beOrder, List<BeOrderuser> beOrderusers);
-
+//    修改用户以及工单信息-yjh
+    public Integer updateUserAndOrder(UsUser usUser, BeOrder beOrder, List<BeOrderuser> beOrderusers);
 //    通过用户编码查询用户信息：xxy
     public UsUser selUsUser(String userNo);
 

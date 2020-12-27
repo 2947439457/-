@@ -13,6 +13,10 @@ import java.util.List;
  */
 public interface OrderUserService {
 
+    //添加工单用户详细信息
     public Integer addOrderUser(List<BeOrderuser> listOu);
+
+    //通过工单号查询全部工单详细信息
+    public List<BeOrderuser> selOrderuserOrderNo(String orderNo);
 
 }

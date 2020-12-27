@@ -1,7 +1,9 @@
 package com.zhibang.service.beService.impl;
 
+import com.zhibang.mapper.beMapper.HistoryMapper;
 import com.zhibang.mapper.beMapper.OrderMapper;
 import com.zhibang.model.BeFlow;
+import com.zhibang.model.BeHistory;
 import com.zhibang.model.BeOrder;
 import com.zhibang.service.beService.OrderService;
 import org.apache.ibatis.annotations.Param;
@@ -14,7 +16,11 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
+    public BeHistory beHistory;
+    @Autowired
     private OrderMapper orderMapper;
+    @Autowired
+    public HistoryMapper historyMapper;
 
     /**
      * 工单管理：xxy
@@ -51,9 +57,17 @@ public class OrderServiceImpl implements OrderService {
     //yjh
     @Override
     public Integer upBeOrderStepId(String stmt, BeOrder beOrder) {
+        BeHistory addbeHistory = beHistory;
+        addbeHistory.setOrderNo(beOrder);
+        addbeHistory.setStepId(beOrder.getStepId());
+        addbeHistory.setEmpId(beOrder.getLastEditEmp());
         if ("send".equals(stmt)){ //发送
+            addbeHistory.setBack(true);
+            historyMapper.addBeHistory(addbeHistory);
             return orderMapper.senddateBeOrderStepId(beOrder);
         }else{ //撤回
+            addbeHistory.setBack(false);
+            historyMapper.addBeHistory(addbeHistory);
             return orderMapper.recalldateBeOrderStepId(beOrder);
         }
     }

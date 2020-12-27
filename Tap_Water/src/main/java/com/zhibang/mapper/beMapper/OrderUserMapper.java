@@ -15,7 +15,13 @@ import java.util.List;
 @Repository
 public interface OrderUserMapper {
 
-    //添加数据到工单用户详情表：yjh
+    //添加数据到工单用户详情表-yjh
     public Integer addOrderUser(List<BeOrderuser> listOu);
+
+    //通关工单号查询工单信息详情
+    public List<BeOrderuser> selectBeOrderuserOrderNo(String orderNo);
+
+    //通过工单号删除对应的工单信息
+    public Integer deleteBeOrderuserOrderNo(String orderNo);
 
 }

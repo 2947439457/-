@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhibang.mapper.beMapper.HistoryMapper">
+
+    <resultMap id="historyAndFlowAndOrderAndSyemp" type="com.zhibang.model.BeHistory">
+        <id column="ID" property="id"/>
+        <result column="DATEE" property="datee"/>
+        <result column="ISBACK" property="isBack"/>
+        <association property="stepId" javaType="BeFlow">
+            <result column="STEPNAME" property="stepName"/>
+        </association>
+        <association property="empId" javaType="SyEmp">
+            <result column="EMPNAME" property="empName"/>
+        </association>
+    </resultMap>
+
+    <!--yjh-->
+    <insert id="addBeHistory">
+        INSERT INTO `tap_water`.`be_history` (
+          `OrderNo`, `StepID`, `Datee`, `EmpID`, `IsBack`
+        )
+        VALUES (
+          #{orderNo.orderNo}, #{stepId.id}, NOW(), #{empId.id}, #{isBack}
+        ) ;
+    </insert>
+
+    <!--yjh-->
+    <select id="selectBeHistoryOrderNo" parameterType="String" resultMap="historyAndFlowAndOrderAndSyemp">
+        SELECT
+         bh.`ID`, bh.`Datee`, bh.`IsBack`, bf.`StepName`, se.`EmpName`
+        FROM
+         be_history AS bh,
+         be_flow AS bf,
+         sy_emp AS se
+        WHERE
+         bh.`StepID` = bf.`ID`
+         AND bh.`EmpID` = se.`ID`
+         AND bh.`OrderNo` = #{orderNo};
+    </select>
+
+</mapper>

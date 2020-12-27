@@ -193,7 +193,7 @@
 			<div class="clear"></div>
 			
 			<div style="text-align:center;">
-				<button id="" class="btn" onClick="history.back(-1);">继续</button>
+                <button class="btn" onClick="window.location.href='${path}'">继续</button>
 			</div>
 				
 		</div> <!-- .x12 -->

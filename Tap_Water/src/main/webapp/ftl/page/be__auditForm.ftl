@@ -252,20 +252,20 @@ $(function () {
             return false;
         }
         var audits = $("#audits").val(); //审核意见
-        if (audit == ""){
-            audit = "无";
+        if (audits == ""){
+            audits = "无";
         }
-        window.location.href = "/be/disposeAudit?stmt=send&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;
+        window.location.href = "/be/disposeAudit?stmt=send&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;
     })
     $("#recall").click(function () {
         if (!confirm("你确定要撤回吗？")) {
             return false;
         }
         var audits = $("#audits").val(); //审核意见
-        if (audit == ""){
-            audit = "无";
+        if (audits == ""){
+            audits = "无";
         }
-        window.location.href = "/be/disposeAudit?stmt=recall&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;
+        window.location.href = "/be/disposeAudit?stmt=recall&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;
     })
 })
 

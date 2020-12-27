@@ -2,6 +2,7 @@ package com.zhibang.mapper.beMapper;
 
 import com.zhibang.model.BeFlow;
 import com.zhibang.model.BeOrder;
+import com.zhibang.model.BeOrderuser;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -43,5 +44,11 @@ public interface OrderMapper {
 
     //通过业扩工单查询工单信息：yjh
     public BeOrder selectBeOrderOrderNo(String orderNo);
+
+    //通过业扩工单查询工单用户详情信息：yjh
+    public List<BeOrderuser> selectBeOrderUserOrderNo(String orderNo);
+
+    //修改工单信息-yjh:可扩展
+    public Integer updateBeOrderOrderNo(BeOrder beOrder);
 
 }

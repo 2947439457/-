@@ -206,7 +206,11 @@
         <div class="x12">
 			
             <h2>
-                用户申请 - 办理新开户业务
+                <#if beOrder ?? >
+                    用户申请 - ${beOrder.orderNo} 新户 ${beOrder.userNo.userName}
+                <#else >
+                    用户申请 - 办理新开户业务
+                </#if>
                 <a style="float:right" href="javascript:history.back(-1);">返回</a>
             </h2>
 
@@ -215,8 +219,11 @@
                     <li><a href="#tab1">申请表</a></li>
                     <li><a href="#tab2">新户详细表</a></li>
                 </ul>
-                <#--<#if beOrder ?? >-->
-                <#if 1==1 >
+                <#if beOrder ?? >
+                <#--<#if 1==1 >-->
+                <input type="hidden" class="stat" value="${stat}"/>
+                <input type="hidden" class="orderNo" value="${beOrder.orderNo}"/>
+                <input type="hidden" class="userNo" value="${beOrder.userNo.userNo}"/>
                     <div class="tab_content_container">
                     <div id="tab1" class="tab_content">
                         <table width="100%">
@@ -231,25 +238,25 @@
                             <tbody>
                             <tr>
                                 <td>用户名称</td>
-                                <td><input id="userName"/></td>
+                                <td><input id="userName" value="${beOrder.userNo.userName}"/></td>
                                 <td>用户类型</td>
                                 <td><select id="userType" style="width:158px;">
                                     <option>公户</option>
-                                    <option selected="selected">私户</option>
+                                    <option>私户</option>
                                 </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>联系电话</td>
-                                <td><input id="phone"/></td>
+                                <td><input id="phone" value="${beOrder.userNo.phone}"/></td>
                             </tr>
                             <tr>
                                 <td>用户地址</td>
-                                <td colspan="3"><input id="address" size="68"/></td>
+                                <td colspan="3"><input id="address" size="68" value="${beOrder.userNo.address}"/></td>
                             </tr>
                             <tr>
                                 <td>用水量</td>
-                                <td><input id="maxAmount"/></td>
+                                <td><input id="maxAmount" value="${beOrder.maxAmount}"/></td>
                                 <td>申请表径</td>
                                 <td><select id="meterTypeName" style="width:158px;">
                                             <#list syMetertypes as sm>
@@ -260,19 +267,19 @@
                             </tr>
                             <tr>
                                 <td>房屋层次</td>
-                                <td><input id="houseHeight"/></td>
+                                <td><input id="houseHeight" value="${beOrder.houseHeight}"/></td>
                                 <td>接水用途</td>
-                                <td><input id="useTarget"/></td>
+                                <td><input id="useTarget" value="${beOrder.useTarget}"/></td>
                             </tr>
                             <tr>
                                 <td>备注说明</td>
-                                <td colspan="3"><input id="userRemark" size="68"/></td>
+                                <td colspan="3"><input id="userRemark" size="68" value="${beOrder.userRemark}"/></td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                     <div id="tab2" class="tab_content">
-                        申请装表表数 <input id="t_meterCount" value="1"/>
+                        申请装表表数 <input id="t_meterCount" value="${beOrder.meterCount}"/>
                         <button class="btn btn-small" onClick="setMeter();">确定</button>
 
                         <div id="meters">
@@ -287,20 +294,106 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><input class="userName"/></td>
-                                    <td><input class="phone"/></td>
-                                    <td><input class="address"/></td>
-                                    <td></td>
-                                </tr>
+                                <#list beOrderusers as bou>
+                                    <tr>
+                                        <td>${bou_index+1}</td>
+                                        <td><input class="userName" value="${bou.userName}"/></td>
+                                        <td><input class="phone" value="${bou.phone}"/></td>
+                                        <td><input class="address" value="${bou.address}"/></td>
+                                        <td></td>
+                                    </tr>
+                                </#list>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
                 <#else>
-                    aaaaaa
+                    <input type="hidden" class="stat" value="0"/>
+                    <input type="hidden" class="orderNo" value="0"/>
+                    <input type="hidden" class="userNo" value="0"/>
+                    <div class="tab_content_container">
+                        <div id="tab1" class="tab_content">
+                            <table width="100%">
+                                <thead>
+                                <tr>
+                                    <th width="60"></th>
+                                    <th width="220"></th>
+                                    <th width="60"></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>用户名称</td>
+                                    <td><input id="userName"/></td>
+                                    <td>用户类型</td>
+                                    <td><select id="userType" style="width:158px;">
+                                        <option>公户</option>
+                                        <option selected="selected">私户</option>
+                                    </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>联系电话</td>
+                                    <td><input id="phone"/></td>
+                                </tr>
+                                <tr>
+                                    <td>用户地址</td>
+                                    <td colspan="3"><input id="address" size="68"/></td>
+                                </tr>
+                                <tr>
+                                    <td>用水量</td>
+                                    <td><input id="maxAmount"/></td>
+                                    <td>申请表径</td>
+                                    <td><select id="meterTypeName" style="width:158px;">
+                                            <#list syMetertypes as sm>
+                                                <option>${sm.meterTypeName}</option>
+                                            </#list>
+                                    </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>房屋层次</td>
+                                    <td><input id="houseHeight"/></td>
+                                    <td>接水用途</td>
+                                    <td><input id="useTarget"/></td>
+                                </tr>
+                                <tr>
+                                    <td>备注说明</td>
+                                    <td colspan="3"><input id="userRemark" size="68"/></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tab2" class="tab_content">
+                            申请装表表数 <input id="t_meterCount" value="1"/>
+                            <button class="btn btn-small" onClick="setMeter();">确定</button>
+
+                            <div id="meters">
+                                <table class="data display">
+                                    <thead>
+                                    <tr>
+                                        <th width="30">序号</th>
+                                        <th width="160">姓名</th>
+                                        <th width="160">电话</th>
+                                        <th width="160">地址</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><input class="userName"/></td>
+                                        <td><input class="phone"/></td>
+                                        <td><input class="address"/></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </#if>
             </div>
 
@@ -346,7 +439,9 @@
     $(function () {
         // 办理按钮
         $(".banLi").click(function () {
-
+            var stat = $(".stat").val();
+            var orderNo = $(".orderNo").val();
+            var userNo = $(".userNo").val();
             var userNames = new Array();
             $(".userName").each(function(){
                 userNames.push($(this).val())
@@ -406,6 +501,25 @@
                 userRemark = "无";
             }
             var t_meterCount = $("#t_meterCount").val(); //水表数
+            if ($(".userName").val() == ""){
+                $(".userName").focus();
+                alert("请输入姓名！");
+                return false;
+            }
+            if ($(".phone").val() == "") {
+                alert("请填写手机号码！");
+                $(".phone").focus();
+                return false;
+            }
+            if ($(".address").val() == ""){
+                alert("请填写地址！");
+                return false;
+            }
+            var phoneCodeVerification = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+            if (!phoneCodeVerification.test($(".phone").val())) {
+                alert("请输入正确的手机号码！");
+                return false;
+            }
             if (!confirm("你确定提交吗？")) {
                 return false;
             }
@@ -415,14 +529,14 @@
                 data:{"orderType":"1", "userName":userName, "userType":userType, "phone":phone,
                     "address":address, "userNames":userNames, "phones":phones, "addresss":addresss,
                     "maxAmount":maxAmount, "meterTypeName":meterTypeName,"meterCount":t_meterCount,
-                    "houseHeight":houseHeight, "useTarget":useTarget, "userRemark":userRemark},
+                    "houseHeight":houseHeight, "useTarget":useTarget, "userRemark":userRemark,"stat":stat,"orderNo":orderNo,"userNo":userNo},
                 traditional: true,
                 success:function(integer){
                     var integer = integer;
                     if (integer == 1){
-                        window.location.href = "/be/success";
+                        window.location.href = "/success/be/request";
                     }else {
-                        window.location.href = "/be/error";
+                        window.location.href = "/error/be/request";
                     }
                 }
             });

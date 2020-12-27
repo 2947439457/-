@@ -198,7 +198,7 @@
 					<tbody>
 						<#list beOrders as bo>
                         <tr class="odd">
-                            <td><a href="/be/orderInfo?id=${bo.orderNo}" target="orderInfo">${bo.orderNo}</a></td>
+                            <td><a href="/be/orderInfo?orderNo=${bo.orderNo}" target="orderInfo">${bo.orderNo}</a></td>
 							<#if bo.orderType == 1>
 								<td>新户</td>
 							<#elseif bo.orderType == 2>
@@ -219,7 +219,7 @@
                             <td>${bo.updateDate()}</td>
                             <td>${bo.getUserNo().getUserName()}</td>
                             <td><button class="btn-icon btn-small btn-blue btn-check"
-                                        onClick="location.href = '/be/payForm';"><span></span>处理</button></td>
+                                        onClick="location.href = '/be/chuLi?stepName=${bo.getStepId().getStepName()}&orderNo=${bo.orderNo}&userName=${bo.getUserNo().getUserName()}&orderType=${bo.getOrderType()}';"><span></span>处理</button></td>
                         </tr>
 						</#list>
 					</tbody>

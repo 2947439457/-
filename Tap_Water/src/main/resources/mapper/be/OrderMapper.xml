@@ -21,22 +21,6 @@
         </association>
     </resultMap>
 
-    <!--工单及用户信息：yjh-->
-    <!--<resultMap id="orderAsUser" type="com.zhibang.model.BeOrder">-->
-        <!--<id property="orderNo" column="orderNo"/>-->
-        <!--<result property="orderType" column="orderType"/>-->
-        <!--<result property="lastEditDate" column="lastEditDate"/>-->
-        <!--<association property="stepId" javaType="BeFlow">-->
-            <!--<result property="stepName" column="stepName"/>-->
-            <!--<association property="deptId" javaType="SyDept">-->
-                <!--<result property="deptName" column="deptName"/>-->
-            <!--</association>-->
-        <!--</association>-->
-        <!--<association property="userNo" javaType="UsUser">-->
-            <!--<result property="userName" column="userName"/>-->
-        <!--</association>-->
-    <!--</resultMap>-->
-
     <!--yjh-->
     <insert id="addOrder">
         INSERT INTO `tap_water`.`be_order` (
@@ -54,46 +38,13 @@
     </select>
 
     <!--工单管理：xxy-->
-    <!--根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy-->
-    <select id="queryAllOrder" parameterType="String" resultMap="orderAsFlowAsDeptAsUser">
-        SELECT
-        bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
-        FROM
-        be_order AS bo,
-        be_flow AS bf,
-        sy_dept AS sd,
-        us_user AS us
-        WHERE
-        bo.`StepID` = bf.`ID`
+    <select id="queryAllOrder" resultMap="orderAsFlowAsDeptAsUser">
+        SELECT bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
+        FROM be_order AS bo,be_flow AS bf,sy_dept AS sd,us_user AS us
+        WHERE bo.`StepID` = bf.`ID`
         AND bf.`DeptID` = sd.`ID`
         AND bo.`UserNo` = us.`UserNo`
-
-        <if test="orderType != null">
-            and bo.`OrderType` = #{orderType}
-        </if>
-
-        <if test="stepName != null">
-            and bf.`StepName` = #{stepName}
-        </if>
-
-        <if test="orderNo != null">
-            and bo.`OrderNo` LIKE "%${orderNo}%"
-        </if>
-
-        <if test="userName != null">
-            and us.`UserName` LIKE "%${userName}%"
-        </if>
     </select>
-
-
-
-    <!--<select id="queryAllOrder" resultMap="orderAsFlowAsDeptAsUser">-->
-        <!--SELECT bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`-->
-        <!--FROM be_order AS bo,be_flow AS bf,sy_dept AS sd,us_user AS us-->
-        <!--WHERE bo.`StepID` = bf.`ID`-->
-        <!--AND bf.`DeptID` = sd.`ID`-->
-        <!--AND bo.`UserNo` = us.`UserNo`-->
-    <!--</select>-->
 
     <!--查询工单进度：xxy-->
     <select id="queryStepNameType" resultType="BeFlow">
@@ -122,7 +73,7 @@
         `StepID` = (SELECT id FROM be_flow WHERE `type${orderType}` = (SELECT `type${orderType}` FROM be_flow WHERE id = #{stepId.id})+1),
         `LastEditEmp` = #{lastEditEmp.id},
         `LastEditDate` = NOW()
-        <if test="auditEmpId != null">
+        <if test="null != auditEmpId">
             ,`AuditEmpID` = #{auditEmpId.id}
             ,`AuditMessage` = #{auditMessage}
         </if>
@@ -142,6 +93,119 @@
             ,`AuditMessage` = #{auditMessage}
         </if>
         WHERE `OrderNo` = #{orderNo};
+    </update>
+
+
+    <!--根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy-->
+    <select id="queryTypeOrNameOrUserNo" resultMap="orderAsFlowAsDeptAsUser">
+        SELECT
+         bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
+        FROM
+         be_order AS bo,
+         be_flow AS bf,
+         sy_dept AS sd,
+         us_user AS us
+        WHERE
+         bo.`StepID` = bf.`ID`
+         AND bf.`DeptID` = sd.`ID`
+         AND bo.`UserNo` = us.`UserNo`
+
+             <if test="orderType != null">
+                and bo.`OrderType` = #{orderType}
+             </if>
+
+             <if test="stepName != null">
+                 and bf.`StepName` = #{stepName}
+             </if>
+
+             <if test="orderNo != null">
+                 and bo.`OrderNo` LIKE "%${orderNo}%"
+             </if>
+
+             <if test="userName != null">
+                 and us.`UserName` LIKE "%${userName}%"
+             </if>
+    </select>
+
+    <!--工单信息以及用户详细：yjh-->
+    <resultMap id="beOrderAndUsUser" type="com.zhibang.model.BeOrder">
+        <id column="ORDERNO" property="orderNo"/>
+        <result column="ORDERTYPE" property="orderType"/>
+        <result column="CREATEDATE" property="createDate"/>
+        <result column="COMPLETEdATE" property="completeDate"/>
+        <result column="USETARGET" property="useTarget"/>
+        <result column="HOUSEHEIGHT" property="houseHeight"/>
+        <result column="MAXAMOUNT" property="maxAmount"/>
+        <result column="METERCOUNT" property="meterCount"/>
+        <result column="USERREMARK" property="userRemark"/>
+        <result column="PROJECTMONEY" property="projectMoney"/>
+        <result column="REALMONEY" property="realMoney"/>
+        <result column="OLDUSERNO" property="oldUserNo"/>
+        <result column="OLDUSERNAME" property="oldUserName"/>
+        <result column="OLDUSERPHONE" property="oldUserPhone"/>
+        <result column="OLDUSERADDR" property="oldUserAddr"/>
+        <result column="OLDMETER" property="oldMeter"/>
+        <result column="AUDITMESSAGE" property="auditMessage"/>
+        <result column="PROJECTDATE1" property="projectDate1"/>
+        <result column="PROJECTDATE2" property="projectDate2"/>
+        <association property="stepId" javaType="BeFlow">
+            <result column="STEPNAME" property="stepName"/>
+        </association>
+        <association property="userNo" javaType="UsUser">
+            <result column="USERNO" property="userNo"/>
+            <result column="USERNAME" property="userName"/>
+            <result column="ADDRESS" property="address"/>
+            <result column="PHONE" property="phone"/>
+            <result column="USERTYPE" property="userType"/>
+            <result column="USERMONEY" property="userMoney"/>
+            <result column="PAYTYPE" property="payType"/>
+            <result column="BANKNAME" property="bankName"/>
+            <result column="BANKNUM" property="bankNum"/>
+        </association>
+        <association property="meterTypeId" javaType="SyMetertype">
+            <result column="METERTYPEID" property="id"/>
+            <result column="METERTYPEnAME" property="meterTypeName"/>
+        </association>
+        <association property="auditEmpId" javaType="SyEmp">
+            <result column="AUDITEMPID" property="id"/>
+        </association>
+    </resultMap>
+
+    <!--通过工单号查询工单信息：yjh-->
+    <select id="selectBeOrderOrderNo" parameterType="String" resultMap="beOrderAndUsUser">
+        SELECT *
+        FROM
+        be_order AS bo,
+        us_user AS uu,
+        be_flow AS bf,
+        sy_metertype AS smt
+        WHERE
+        bo.`UserNo` = uu.`UserNo`
+        AND bo.`StepID` = bf.`ID`
+        AND bo.`MeterTypeID` = smt.`ID`
+        AND bo.`OrderNo` = #{orderNo};
+    </select>
+
+    <!--通过工单号查询工单用户详情信息：yjh-->
+    <select id="selectBeOrderUserOrderNo" parameterType="String" resultType="beOrderUser">
+        SELECT * FROM `be_orderuser` WHERE orderNo = #{orderNo};
+    </select>
+
+    <!--yjh-->
+    <update id="updateBeOrderOrderNo">
+        UPDATE
+        `tap_water`.`be_order`
+        SET
+        `StepID` = #{stepId.id},
+        `LastEditEmp` = #{lastEditEmp.id},
+        `LastEditDate` = NOW(),
+        `UseTarget` = #{useTarget},
+        `HouseHeight` = #{houseHeight},
+        `MaxAmount` = #{maxAmount},
+        `MeterTypeID` = #{meterTypeId.id},
+        `MeterCount` = #{meterCount},
+        `UserRemark` = #{userRemark}
+        WHERE `OrderNo` = #{orderNo} ;
     </update>
 
 </mapper>

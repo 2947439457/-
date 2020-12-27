@@ -185,13 +185,11 @@
 				交施工费 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-201412-0003</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
-			
-			<div class="buttonrow">
-				<button class="btn-icon btn-arrow-left btn-red" 
-					onclick="showDialog('确认撤回吗？');"><span></span>撤回</button>
-				<button class="btn-icon btn-arrow-right btn-blue" 
-					onclick="showDialog('确认发送吗？');"><span></span>发送</button>
-			</div>
+
+            <div class="buttonrow">
+                <button id="recall" class="btn-icon btn-arrow-left btn-red"><span></span>撤回</button>
+                <button id="send" class="btn-icon btn-arrow-right btn-blue"><span></span>发送</button>
+            </div>
 			
 <table width="100%">
 <thead>
@@ -207,7 +205,7 @@
 <tbody>
 	<tr>
 		<td>用户名称</td>
-		<td><input readonly="readonly" value="张三" /></td>
+		<td><input readonly="readonly" value="${beOrder.userNo.userName}" /></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -215,11 +213,29 @@
 	</tr>
 	<tr>
 		<td>总应收</td>
-		<td><input readonly="readonly" class="right" value="24000" /> 元</td>
+		<td>
+			<#if beOrder.projectMoney == 0.00>
+				<input type="number" readonly="readonly" class="yright" value="" />
+			<#else >
+				<input type="number" readonly="readonly" class="yright" value="${beOrder.projectMoney}" />
+			</#if>元
+		</td>
 		<td>总实收</td>
-		<td><input readonly="readonly" class="right" value="15000" /> 元</td>
+		<td>
+			<#if beOrder.projectMoney == 0.00>
+				<input type="number" readonly="readonly" class="sright" value="" />
+			<#else >
+				<input type="number" readonly="readonly" class="sright" value="${beOrder.realMoney}" />
+			</#if>元
+		</td>
 		<td>总欠缴</td>
-		<td><input readonly="readonly" class="right" value="9000" /> 元</td>
+		<td>
+			<#if beOrder.userNo.userMoney == 0.00>
+				<input type="number" readonly="readonly" class="qright" value="" />
+			<#else >
+				<input type="number" readonly="readonly" class="qright" value="${beOrder.userNo.userMoney}" />
+			</#if>元
+		</td>
 	</tr>
 </tbody>
 </table>
@@ -228,26 +244,38 @@
 	<tr>
 		<th width="30">序号</th>
 		<th width="80">姓名</th>
-		<th width="120">应交金额（元）</th>
-		<th width="120">实收金额（元）</th>
-		<th width="120">发票号</th>
+		<th width="200">应交金额（元）</th>
+		<th width="200">实收金额（元）</th>
 		<th></th>
 	</tr>
 </thead>
 <tbody>
+<#list beOrderusers as bos>
 	<tr class="odd">
-		<td>1</td>
-		<td>张三</td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="center" size="12" value="" /></td>
-		<td></td>
+		<td>${bos_index+1}</td>
+        <td>${bos.userName}</td>
+        <td>
+			<#if bos.projectMoney == 0.00>
+				<input type="number" class="right ymoneys" size="12" value="" />
+			<#else >
+				<input type="number" class="right ymoneys" size="12" value="${bos.projectMoney}" />
+			</#if>元
+		</td>
+        <td>
+			<#if bos.realMoney == 0.00>
+				<input type="number" class="right smoneys" size="12" value="" />
+			<#else >
+				<input type="number" class="right smoneys" size="12" value="${bos.realMoney}" />
+			</#if>元
+		</td>
+        <td></td>
 	</tr>
+</#list>
 </tbody>
 </table>
 
 <div class="centerButtons">
-	<button class="btn">保存不发送</button>
+	<button class="btn baoCun">保存不发送</button>
 </div>
 			
 			
@@ -282,6 +310,45 @@ $(document).ready ( function ()
 {
 	Dashboard.init ();		
 });
+
+$(function () {
+    // 保存不发送
+    $(".baoCun").click(function () {
+        var ynum = 0;
+        var snum = 0;
+        $('.ymoneys').each(function(i,n){
+            ynum = ynum + Number(n.value);
+        });
+        $('.smoneys').each(function(i,n){
+            snum = snum + Number(n.value);
+        });
+        $(".yright").val(ynum);
+        $(".sright").val(snum);
+        $(".qright").val(ynum-snum);
+    })
+
+    <#--$("#send").click(function () {-->
+        <#--if (!confirm("你确定要发送吗？")) {-->
+            <#--return false;-->
+        <#--}-->
+        <#--var audits = $("#audits").val(); //审核意见-->
+        <#--if (audits == ""){-->
+            <#--audits = "无";-->
+        <#--}-->
+        <#--window.location.href = "/be/disposeAudit?stmt=send&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;-->
+    <#--})-->
+    <#--$("#recall").click(function () {-->
+        <#--if (!confirm("你确定要撤回吗？")) {-->
+            <#--return false;-->
+        <#--}-->
+        <#--var audits = $("#audits").val(); //审核意见-->
+        <#--if (audits == ""){-->
+            <#--audits = "无";-->
+        <#--}-->
+        <#--window.location.href = "/be/disposeAudit?stmt=recall&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;-->
+    <#--})-->
+
+})
 
 </script>
 

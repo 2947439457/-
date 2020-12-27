@@ -24,4 +24,9 @@ public class OrderUserServiceImpl implements OrderUserService {
     public Integer addOrderUser(List<BeOrderuser> listOu) {
         return orderUserMapper.addOrderUser(listOu);
     }
+
+    @Override
+    public List<BeOrderuser> selOrderuserOrderNo(String orderNo) {
+        return orderUserMapper.selectBeOrderuserOrderNo(orderNo);
+    }
 }
