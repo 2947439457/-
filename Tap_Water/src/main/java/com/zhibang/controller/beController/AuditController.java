@@ -47,7 +47,7 @@ public class AuditController {
 
     //初步审核提交/撤回-yjh
     @RequestMapping(value = "/disposeAudit")
-    public String sendAudit(String stmt, String orderNo, String audit, Integer orderType, HttpSession session){
+    public String disposeAudit(String stmt, String orderNo, String audit, Integer orderType, HttpSession session){
         Integer integer;
         try {
             BeOrder upBeOrder = beOrder;

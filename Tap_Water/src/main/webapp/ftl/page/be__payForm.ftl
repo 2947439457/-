@@ -322,21 +322,32 @@ $(function () {
         $('.smoneys').each(function(i,n){
             snum = snum + Number(n.value);
         });
-        $(".yright").val(ynum);
-        $(".sright").val(snum);
-        $(".qright").val(ynum-snum);
+		var yright = $(".yright").val(ynum);
+        var sright = $(".sright").val(snum);
+        var qright = $(".qright").val(ynum-snum);
+        var orderUsers = new Array();
+        $('.odd').each(function (i, n) {
+			alert(i);
+			alert(n.text());
+        })
+        // orderUsers.push({name:""}, ymoneys:"", smoneys:"");
+        // $.ajax({
+		// 	url:"/be/nosendpay",
+		// 	type:"post",
+		// 	data:{},
+        //     traditional: true,
+		// 	success:function () {
+		//
+        //     }
+		// })
     })
 
-    <#--$("#send").click(function () {-->
-        <#--if (!confirm("你确定要发送吗？")) {-->
-            <#--return false;-->
-        <#--}-->
-        <#--var audits = $("#audits").val(); //审核意见-->
-        <#--if (audits == ""){-->
-            <#--audits = "无";-->
-        <#--}-->
-        <#--window.location.href = "/be/disposeAudit?stmt=send&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;-->
-    <#--})-->
+    // $("#send").click(function () {
+    //     if (!confirm("你确定要发送吗？")) {
+    //         return false;
+    //     }
+    //     window.location.href = ;
+    // })
     <#--$("#recall").click(function () {-->
         <#--if (!confirm("你确定要撤回吗？")) {-->
             <#--return false;-->

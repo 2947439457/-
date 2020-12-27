@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -32,8 +33,8 @@ public class PayController {
 
     //跳转交施工费页面:yjh
     @GetMapping("/pay")
-    public String pay(Integer stepId, String orderType, Model model){
-        List<BeOrder> beOrders = orderService.selBeOrderStepId(stepId, orderType);
+    public String pay(Model model){
+        List<BeOrder> beOrders = orderService.selBeOrderStepId(3, "1,2,5,6");
         model.addAttribute("beOrders", beOrders);
         return "/page/be__pay";
     }
@@ -47,33 +48,27 @@ public class PayController {
         return "/page/be__payForm";
     }
 
-//    //初步审核提交/撤回-yjh
-//    @RequestMapping(value = "/disposePay")
-//    public String sendpay(String stmt, String orderNo, String audit, Integer orderType, HttpSession session){
-//        Integer integer;
-//        try {
-//            BeOrder upBeOrder = beOrder;
-//            upBeOrder.setOrderNo(orderNo);
-//            upBeOrder.setOrderType(orderType);
-//            BeFlow upstepId = beFlow;
-//            upstepId.setId(2);
-//            upBeOrder.setStepId(upstepId);
-//            SyEmp lEmp = (SyEmp) session.getAttribute("s"); //当前登录人员
-//            upBeOrder.setLastEditEmp(lEmp);
-//            SyEmp aEmp = syEmp;
-//            aEmp.setId(lEmp.getId());
-//            upBeOrder.setAuditEmpId(aEmp);
-//            upBeOrder.setAuditMessage(audit);
-//            integer = orderService.upBeOrderStepId(stmt, upBeOrder);
-//        }catch (Exception e){
-//            integer = 0;
-//            e.printStackTrace();
-//        }
-//        if (integer == 1){
-//            return "redirect:/success/be/audit/2/1,2,3,4,5,6,7";
-//        }else{
-//            return "redirect:/error/be/audit/2/1,2,3,4,5,6,7";
-//        }
+//    //保存不发送-yjh
+//    @PostMapping(value = "/nosendpay")
+//    public Integer nosendpay(){
+//
 //    }
+
+    //交施工费提交/撤回-yjh
+    @RequestMapping(value = "/disposePay")
+    public String disposePay(String stmt, String orderNo, Integer orderType, HttpSession session){
+        Integer integer = 0;
+        try {
+
+        }catch (Exception e){
+            integer = 0;
+            e.printStackTrace();
+        }
+        if (integer == 1){
+            return "redirect:/success/be/pay/3/1,2,5,6";
+        }else{
+            return "redirect:/error/be/pay/3/1,2,5,6";
+        }
+    }
 
 }

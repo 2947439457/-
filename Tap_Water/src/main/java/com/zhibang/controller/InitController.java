@@ -1,6 +1,7 @@
 package com.zhibang.controller;
 
 import com.zhibang.controller.beController.AuditController;
+import com.zhibang.controller.beController.BillclearController;
 import com.zhibang.controller.beController.PayController;
 import com.zhibang.controller.beController.RequestController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class InitController {
     @Autowired public AuditController auditController;
     @Autowired public PayController payController;
     @Autowired public RequestController requestController;
+    @Autowired public BillclearController billclearController;
 
     //对业扩流程操作进行处理
     @RequestMapping("/chuLi")
@@ -35,6 +37,9 @@ public class InitController {
         }
         if("交施工费".equals(stepName)){
             path = payController.payForm(orderNo, model);
+        }
+        if("水费清算".equals(stepName)){
+//            path = billclearController.billclearForm(orderNo, model);
         }
         return path;
     }
