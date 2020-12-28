@@ -16,6 +16,7 @@ public interface SystemMapper {
      * @return
      */
     @Select("SELECT * FROM sy_emp WHERE EmpNo=#{empNo} AND Pwd=#{pwd} AND Disabled=1")
+    @ResultMap("emp")
     public SyEmp selectEepById(SyEmp syEmp);
 
     /**

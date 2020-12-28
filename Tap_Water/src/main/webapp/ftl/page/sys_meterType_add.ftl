@@ -204,7 +204,7 @@
                 <button class="btn btn-grey">
                     <a href="/sys_meterType" style="color: #FFFFFF">返回</a></button>
 
-			</div>
+			<#--</div>-->
 			<#else >
             <form action="/addmeterType" method="post">
                 <div class="field"><label for="id">水表型号ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>

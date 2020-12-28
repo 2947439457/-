@@ -7,27 +7,27 @@ import java.util.List;
 
 public interface MeterTypeService {
     /**
-     * 查询所有辖区YX
+     * 查询所有水表型号YX
      * @return
      */
     public List<SyMetertype> selectSyMeterType();
 
     /**
-     * 添加辖区方法YX
+     * 添加水表型号方法YX
      * @param syMetertype
      * @return
      */
     public Integer addSyMeterType(SyMetertype syMetertype);
 
     /**
-     * 修改辖区方法YX
+     * 修改水表型号方法YX
      * @param syMetertype
      * @return
      */
     public Integer updateSyMeterType(SyMetertype syMetertype);
 
     /**
-     * 删除辖区方法YX
+     * 删除水表型号方法YX
      * @param id
      * @return
      */

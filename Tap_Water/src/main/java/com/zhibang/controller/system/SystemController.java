@@ -41,7 +41,64 @@ public class SystemController {
             model.addAttribute("asdgf","账号密码不记得？");
             return "login";
         }
-//        model.addAttribute("s",i);
+        if(i.getDeptId().getId()==1){
+            model.addAttribute("s1","block");
+            model.addAttribute("s2","block");
+            model.addAttribute("s3","block");
+            model.addAttribute("s4","block");
+            model.addAttribute("s5","block");
+            model.addAttribute("s6","block");
+        }else if(i.getDeptId().getId()==2){
+            model.addAttribute("s1","block");
+            model.addAttribute("s2","none");
+            model.addAttribute("s3","none");
+            model.addAttribute("s4","none");
+            model.addAttribute("s5","none");
+            model.addAttribute("s6","none");
+        } else if(i.getDeptId().getId()==3){
+            model.addAttribute("s1","none");
+            model.addAttribute("s2","none");
+            model.addAttribute("s3","none");
+            model.addAttribute("s4","block");
+            model.addAttribute("s5","block");
+            model.addAttribute("s6","none");
+        } else if(i.getDeptId().getId()==4){
+            model.addAttribute("s1","none");
+            model.addAttribute("s2","none");
+            model.addAttribute("s3","none");
+            model.addAttribute("s4","block");
+            model.addAttribute("s5","block");
+            model.addAttribute("s6","none");
+        } else if(i.getDeptId().getId()==5){
+            model.addAttribute("s1","none");
+            model.addAttribute("s2","none");
+            model.addAttribute("s3","block");
+            model.addAttribute("s4","none");
+            model.addAttribute("s5","none");
+            model.addAttribute("s6","none");
+        } else if(i.getDeptId().getId()==6){
+            model.addAttribute("s1","block");
+            model.addAttribute("s2","none");
+            model.addAttribute("s3","block");
+            model.addAttribute("s4","block");
+            model.addAttribute("s5","block");
+            model.addAttribute("s6","none");
+        } else if(i.getDeptId().getId()==7){
+            model.addAttribute("s1","block");
+            model.addAttribute("s2","none");
+            model.addAttribute("s3","none");
+            model.addAttribute("s4","none");
+            model.addAttribute("s5","none");
+            model.addAttribute("s6","none");
+        }else {
+            model.addAttribute("s1","none");
+            model.addAttribute("s2","none");
+            model.addAttribute("s3","none");
+            model.addAttribute("s4","none");
+            model.addAttribute("s5","none");
+            model.addAttribute("s6","none");
+        }
+
         HttpSession session = request.getSession();
         //将数据存储到session中
         session.setAttribute("s", i);
