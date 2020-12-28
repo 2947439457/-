@@ -184,15 +184,13 @@
 				<img style="float:left; margin-top:80px;" src="../images/error.jpg" />
 				
 				<div style="padding-top:100px;padding-left:200px; color:red;">
-					这是一个出错演示页面。<br/>
-					不知道因为什么原因，出现了一个错误。<br/>
-					建议你点击返回后，刷新重试。
+					不知道因为什么原因，出现了一个错误。
 				</div>
 			</div>
 			<div class="clear"></div>
 			
 			<div style="text-align:center;">
-				<button class="btn" onClick="history.back(-1);">返回</button>
+                <button class="btn" onClick="window.location.href='${path}'">返回</button>
 			</div>
 				
 		</div> <!-- .x12 -->

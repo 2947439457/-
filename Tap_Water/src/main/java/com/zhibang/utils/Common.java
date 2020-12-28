@@ -24,10 +24,15 @@ public class Common {
     //生成用户编号
     public String UserNo(Integer orderType){
         String s = userMapper.selectUserNo(orderType);
-        Integer a = Integer.parseInt(s);
-        a++;
+        Integer a = 0;
+        if (s == null || s.equals(null) || s.equals("")){
+            a = 1;
+        }else{
+            a = Integer.parseInt(s);
+            a++;
+        }
         String ss = "";
-        if(a<=10){
+        if(a<10){
             ss = "0"+orderType+"0000000"+a;
         }else if(a>=10 && a<=99){
             ss = "0"+orderType+"000000"+a;
@@ -45,10 +50,15 @@ public class Common {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
         String format1 = formatter.format(date);
         String s = orderMapper.selectOrderNo("B" + orderType);
-        Integer a = Integer.parseInt(s);
-        a++;
+        Integer a ;
+        if (s == null || s.equals(null) || s.equals("")){
+            a = 1;
+        }else{
+            a = Integer.parseInt(s);
+            a++;
+        }
         String ss = "";
-        if(a<=10){
+        if(a<10){
             ss = "B"+orderType+"-"+format1+"-000"+a;
         }else if(a>=10 && a<=99){
             ss = "B"+orderType+"-"+format1+"-00"+a;

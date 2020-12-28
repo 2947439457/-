@@ -187,15 +187,13 @@
 				<img style="float:left; margin-top:80px;" src="../images/success.jpg" />
 				
 				<div style="padding-top:100px;padding-left:200px;" class="color">
-					这是一个操作成功演示页面。<br/>
-					不知道因为什么原因，你居然操作成功了。<br/>
-					建议你开香槟庆祝。
+					操作成功
 				</div>
 			</div>
 			<div class="clear"></div>
 			
 			<div style="text-align:center;">
-				<button class="btn" onClick="history.back(-1);">继续</button>
+                <button class="btn" onClick="window.location.href='${path}'">继续</button>
 			</div>
 				
 		</div> <!-- .x12 -->

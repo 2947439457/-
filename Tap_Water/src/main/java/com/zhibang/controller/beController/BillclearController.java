@@ -1,8 +1,14 @@
 package com.zhibang.controller.beController;
 
+import com.zhibang.model.BeOrder;
+import com.zhibang.service.beService.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * @author admin
@@ -15,9 +21,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/be")
 public class BillclearController {
 
+    @Autowired OrderService orderService;
+
     //跳转水费清单界面:yjh
     @GetMapping("/billclear")
-    public String billclear(){
+    public String billclear(Model model){
+        List<BeOrder> beOrders = orderService.selBeOrderStepId(4, "2,7");
+        model.addAttribute("beOrders", beOrders);
         return "/page/be__billclear";
     }
 

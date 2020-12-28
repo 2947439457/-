@@ -48,7 +48,7 @@
 				<li class="nav_dropdown nav_icon">
 					<a href="javascript:;"><span class="ui-icon ui-icon-wrench"></span>业扩工程</a>
 					
-					<div class="nav_menu">			
+					<div class="nav_menu">
 						<ul>
 							<li><a href="/be/request">01 用户申请</a></li>
 							<li><a href="/be/audit">02 初步审核</a></li>
@@ -194,14 +194,14 @@
 			
 			<h2>用户申请</h2>
 			
-			<a class="metro" href="/be/requestInt?rid=1">新户</a>
-			<a class="metro" href="/be/requestInt?rid=2">分户</a>
-			<a class="metro" href="/be/requestInt?rid=3">过户</a>
-			<a class="metro" href="/be/requestInt?rid=4">代扣</a>
-			<a class="metro" href="/be/requestInt?rid=5">换表</a>
-			<a class="metro" href="/be/requestInt?rid=6">重签</a>
-			<a class="metro" href="/be/requestInt?rid=7">销户</a>
-			<a class="metro" href="be__requestOrder.ftl">工单</a>
+			<a class="metro" href="/be/requestInt?orderType=1">新户</a>
+			<a class="metro" href="/be/requestInt?orderType=2">分户</a>
+			<a class="metro" href="/be/requestInt?orderType=3">过户</a>
+			<a class="metro" href="/be/requestInt?orderType=4">代扣</a>
+			<a class="metro" href="/be/requestInt?orderType=5">换表</a>
+			<a class="metro" href="/be/requestInt?orderType=6">重签</a>
+			<a class="metro" href="/be/requestInt?orderType=7">销户</a>
+			<a class="metro" href="/be/requestOrder">工单</a>
 			
 			
 			
