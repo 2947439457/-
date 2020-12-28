@@ -49,35 +49,67 @@ public class SystemController {
         System.out.println(i);
         return "workspace";
     }
+    @RequestMapping("/sys_pwd")
+    public String sys_pwd(){
 
-    /**
-     * 查询所有抄表辖区的方法
-     * @param model
-     * @return
-     */
-    @RequestMapping("/sys_area")
-    public String sysarea(Model model){
-        List<SyArea> syArea = systemService.selectSyarea();
-        model.addAttribute("area",syArea);
-        System.out.println(syArea);
-        return "page/sys_area";
+        return "page/sys_pwd";
+    }
+    @RequestMapping(value = "/sssd",produces = {"application/text;charset=UTF-8"})
+    public String sys_pwds(@RequestParam("fname") String name,
+                           @RequestParam("lname") String pas,
+                           @RequestParam("lname1") String pas1,
+                           @RequestParam("lname2") String pas2,Model model){
+        if((pas==null||pas.equals(""))
+                &&(pas1==null||pas.equals(""))){
+            model.addAttribute("banduan", "密码未输入,新密码未输入");
+            return "page/sys_pwd";
+        }else if(pas.equals(null)||pas.equals("")){
+            model.addAttribute("tishi", "密码未输入");
+            return "page/sys_pwd";
+        }else if(pas.length()<6||pas.length()>8){
+            model.addAttribute("tishi","密码长度应为6到8");
+            return "page/sys_pwd";
+        }else if (pas1==null||pas2==null) {
+            model.addAttribute("banduan", "新密码未输入");
+            return "page/sys_pwd";
+        }else if(pas1.length()<6||pas1.length()>8){
+            model.addAttribute("tishi","新密码长度应为6到8");
+            return "page/sys_pwd";
+        }else if (pas1.equals(pas2)!=true) {
+            model.addAttribute("banduan", "新密码输入出错");
+            return "page/sys_pwd";
+        }
+        SyEmp syEmp = new SyEmp();
+        syEmp.setEmpName(name);
+        syEmp.setPwd(pas);
+        System.out.println(syEmp);
+        SyEmp syEmps = systemService.selectSyEmps(syEmp);
+        if(syEmps!=null){
+        }else {
+            model.addAttribute("tishi","密码输入不正确");
+            return "page/sys_pwd";
+        }
+        System.out.println(pas);
+        System.out.println(pas1);
+        System.out.println(pas2);
+        System.out.println(syEmps);
+        SyEmp syEmp1 = new SyEmp();
+        syEmp1.setEmpName(syEmp.getEmpName());
+        syEmp1.setPwd(pas1);
+        Integer syEp1 = systemService.updateSyEmp(syEmp1);
+        System.out.println(syEmp1);
+        if(syEp1==0){
+
+        }else {
+            System.out.println("成功");
+        }
+
+        return "/login";
     }
 
-    /**
-     * 查询所有水表型号
-     * @param model
-     * @return
-     */
-    @RequestMapping("/sys_meterType")
-    public String sys_meterType(Model model){
-        List<SyMetertype> syMetertype = systemService.selectSyMetertype();
-        model.addAttribute("syMetertype",syMetertype);
-        System.out.println(syMetertype);
-        return "page/sys_meterType";
-    }
 
     /**
-     * 查询所有部门
+     * 查询所有部门YX
      * @param model
      * @return
      */
@@ -90,7 +122,7 @@ public class SystemController {
     }
 
     /**
-     * 查询所有员工
+     * 查询所有员工YX
      * @param model
      * @return
      */
@@ -123,7 +155,7 @@ public class SystemController {
     }
 
     /**
-     * 查询用水类型
+     * 查询用水类型YX
      * @param model
      * @return
      */
@@ -134,6 +166,12 @@ public class SystemController {
         model.addAttribute("syCosttypes",syCosttypes);
         return "/page/sys_waterType";
     }
+
+    /**
+     * 查询附加费YX
+     * @param model
+     * @return
+     */
     @RequestMapping("/sys_surcharge")
     public String sys_surcharge(Model model){
         List<SyCosttype> syCosttypes = systemService.selectSyCosttype(1);

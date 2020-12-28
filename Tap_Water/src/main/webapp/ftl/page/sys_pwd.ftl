@@ -20,7 +20,14 @@
 	<link rel="stylesheet" href="../css/plugin/dataTables.css" type="text/css" media="screen" title="no title" />
 	
 	<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" title="no title">
-
+	<style type="text/css">
+        .tishi{
+            height: 0px;
+            position: relative;
+            top: -25px;
+            left: 60%;
+        }
+	</style>
 </head> 
  
 <body> 
@@ -174,7 +181,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">修改密码</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -186,21 +193,32 @@
 			<h2>修改密码</h2>
 			
 			<div class="form label-inline uniform">
-	
-				<div class="field"><label for="id">员工姓名</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="马云" /></div>
-				
-				<div class="field"><label for="name">当前密码</label> <input id="name" name="lname" size="50" type="password" class="medium" /></div>
-				
-				<div class="field"><label for="name">新密码</label> <input id="name" name="lname" size="50" type="password" class="medium" /></div>
-				
-				<div class="field"><label for="name">确认新密码</label> <input id="name" name="lname" size="50" type="password" class="medium" /></div>
+				<form action="/sssd" method="post" accept-charset="utf-8">
+				<div class="field"><label for="id">员工姓名</label> <input id="id" name="fnam" size="50" type="text"  class="medium" disabled="disabled" value="${s.empName}" /></div>
+				<input type="hidden"name="fname" value="${s.empName}">
+					<div class="field"><label for="name">当前密码</label> <input id="name" name="lname" size="50" type="password" class="medium" />
+                        <div class="tishi" style="width: 200px">
+                        <#if tishi??>
+                        ${tishi}
+                        <#else>
+                        </#if>
+                        <#if banduan??>
+                         ${banduan}
+                         <#else>
+                         </#if>
+                        </div>
+                    </div>
+
+				<div class="field"><label for="name">新密码</label> <input id="name" name="lname1" size="50" type="password" class="medium" placeholder="6-8"/></div>
+
+				<div class="field"><label for="name">确认新密码</label> <input id="name" name="lname2" size="50" type="password" class="medium" /></div>
 
 
 				<div class="buttonrow">
-					<button class="btn">确定</button>  
+					<button class="btn"">确定</button>
 					<button class="btn btn-grey" onClick="history.back(-1);">返回</button>
 				</div>
-
+                </form>
 			</div>
 			
 		</div> <!-- .x12 -->

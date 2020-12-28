@@ -24,21 +24,18 @@ public class SystemServiceImpl implements SystemService {
     public SyEmp selectEepById(SyEmp syEmp){
         return systemMapper.selectEepById(syEmp);
     }
-
+    @Override
+    public SyEmp selectSyEmps(SyEmp syEmp){
+        return systemMapper.selectSyEmps(syEmp);
+    }
+    @Override
+    public Integer updateSyEmp(SyEmp syEmp){
+        return systemMapper.updateSyEmp(syEmp);
+    }
     /**
      * 查询所有辖区YX
      * @return
      */
-    @Override
-    public List<SyArea> selectSyarea(){return systemMapper.selectSyarea();}
-
-    /**
-     * 查询所有水表型号YX
-     * @return
-     */
-    @Override
-    public List<SyMetertype> selectSyMetertype(){return systemMapper.selectSyMetertype();}
-
     /**
      * 查询所有部门YX
      * @return
@@ -54,7 +51,7 @@ public class SystemServiceImpl implements SystemService {
     public List<SyEmp> selectSyEmp(){return systemMapper.selectSyEmp();}
 
     /**
-     * 查询用水类型
+     * 查询用水类型YX
      * @param id
      * @return
      */

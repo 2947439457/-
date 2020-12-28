@@ -19,18 +19,21 @@ public interface SystemMapper {
     public SyEmp selectEepById(SyEmp syEmp);
 
     /**
-     * 查询所有辖区YX
+     * 查询登录信息
+     * @param syEmp
      * @return
      */
-    @Select("SELECT * FROM sy_area WHERE Disabled=1")
-    public List<SyArea> selectSyarea();
+    @Select("SELECT * FROM sy_emp WHERE EmpName=#{empName} AND Pwd=#{pwd} AND Disabled=1")
+    public SyEmp selectSyEmps(SyEmp syEmp);
 
     /**
-     * 查询所有水表型号YX
+     * 修改登录密码
+     * @param syEmp
      * @return
      */
-    @Select("SELECT * FROM sy_metertype WHERE Disabled=true")
-    public List<SyMetertype> selectSyMetertype();
+    @Update("UPDATE `sy_emp` SET `Pwd`='${pwd}' WHERE `EmpName`='${empName}';")
+    public Integer updateSyEmp(SyEmp syEmp);
+
 
     /**
      * 查询所有部门YX
@@ -53,7 +56,7 @@ public interface SystemMapper {
     public SyDept selectSyDept1(Integer id);
 
     /**
-     * 水费查询
+     * 用水费查询YX
      * @param id
      * @return
      */

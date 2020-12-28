@@ -20,7 +20,30 @@
 	<link rel="stylesheet" href="../css/plugin/dataTables.css" type="text/css" media="screen" title="no title" />
 	
 	<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" title="no title">
-
+    <script src="js/jquery/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+        function del(i)
+        {$("input").remove();
+            var txt=$("<input type='hidden' name='deid' value="+i+"></input>");  // 以 jQuery 创建新元素
+            $("#bo").append(txt);        // 追加新元素
+        }
+    function sys_area_add(id){
+    $.ajax({
+    url:"sys_area_add", // 请求路径
+    type:"POST" , //请求方式
+    //data: "username=jack&age=23",//请求参数
+    data:{"id":id},
+    success:function (data) {  //响应成功后的回调函数
+    // alert(data);
+        sys_area_add.ftl(data);
+    },
+    error:function () {  //表示如果请求响应出现错误，会执行的回调函数
+    alert("出错啦...")
+    }
+    // dataType:"text"   //设置接受到的响应数据的格式
+    });
+    }
+    </script>
 </head> 
  
 <body> 
@@ -190,17 +213,21 @@
 				<div style="height:80px;text-align:center;padding-top:50px;">
 					确认删除吗？
 				</div>
-				
-				<div class="dialogbutton center">
-					<a class="btn" href="javascript:closeDialog();" style="width:60px;">是</a>  
-					<a class="btn btn-grey" href="javascript:closeDialog();" style="width:60px;">否</a>
+				<form action="/delArea">
+				<div class="dialogbutton center" id="bo">
+                    <#--<input type="text" value="${}">-->
+
+                       <button class="btn" style="width:92px;">是</button>
+
+					<button class="btn btn-grey" style="width:92px;">否</button>
 				</div>
+                </form>
 			</div>
 			
 			<h2>抄表辖区设置</h2>
-			
-			<p><button class="btn-icon btn-plus" onClick="location='sys_area_add.html';"><span></span>添加抄表辖区</button></p>
-				
+                 <form action="/sys_area_add" method="post" accept-charset="utf-8">
+			        <p><button class="btn-icon btn-plus" onClick="location='sys_area_add.html';"><span></span>添加抄表辖区</button></p>
+                 </form>
 			<table class="data display">
 					<thead>
 						<tr>
@@ -217,9 +244,12 @@
 							<td>${ar.areaName}</td>
 							<td>${ar.remark}</td>
 							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
+                                <form action="/sys_area_add" method="post" accept-charset="utf-8">
+                                    <input type="hidden" name="area" value="${ar.id}">
+                                    <button class="btn-icon btn-small btn-blue btn-star" "><span></span>修改</button>
+								    <a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross" onclick="del(${ar.id})"><span></span>删除</a>
+                                </form>
+                            </td>
 						</tr>
 					</#list>
 						<#--<tr class="even gradeC">-->

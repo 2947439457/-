@@ -21,8 +21,16 @@
 	
 	<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" title="no title">
 
-</head> 
- 
+</head>
+<script src="js/jquery/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+    function del(i)
+    {$("input").remove();
+        var txt=$("<input type='hidden' name='deid' value="+i+"></input>");  // 以 jQuery 创建新元素
+        $("#bo").append(txt);        // 追加新元素
+    }
+
+</script>
 <body> 
 
 <div id="wrapper">
@@ -187,17 +195,18 @@
 				<div style="height:80px;text-align:center;padding-top:50px;">
 					确认删除吗？
 				</div>
-				
-				<div class="dialogbutton center">
-					<a class="btn" href="javascript:closeDialog();" style="width:60px;">是</a>  
-					<a class="btn btn-grey" href="javascript:closeDialog();" style="width:60px;">否</a>
+                <form action="/delsyMetertype">
+				<div class="dialogbutton center" id="bo">
+                    <button class="btn" style="width:92px;">是</button>
+                    <button class="btn btn-grey" style="width:92px;">否</button>
 				</div>
+                </form>
 			</div>
 			
 			<h2>水表型号设置</h2>
-			
+            <form action="/sys_meterType_add" method="post" accept-charset="utf-8">
 			<p><button class="btn-icon btn-plus" onClick="location='sys_meterType_add.html';"><span></span>添加水表型号</button></p>
-				
+            </form>
 			<table class="data display">
 					<thead>
 						<tr>
@@ -223,8 +232,11 @@
                             <td>${syme.life}</td>
                             <td>${syme.remark}</td>
                             <td class="center">
+                                <form action="/sys_meterType_add" method="post" accept-charset="utf-8">
+                                    <input type="hidden" name="meterType" value="${syme.id}">
                                 <button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>
-                                <a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
+                                <a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross" onclick="del(${syme.id})"><span></span>删除</a>
+                                </form>
                             </td>
                         </tr>
 						</#list>

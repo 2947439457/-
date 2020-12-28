@@ -12,18 +12,8 @@ public interface SystemService {
      */
     public SyEmp selectEepById(SyEmp syEmp);
 
-    /**
-     * 查询所有辖区YX
-     * @return
-     */
-    public List<SyArea> selectSyarea();
-
-    /**
-     * 查询所有水表型号YX
-     * @return
-     */
-    public List<SyMetertype> selectSyMetertype();
-
+    public SyEmp selectSyEmps(SyEmp syEmp);
+    public Integer updateSyEmp(SyEmp syEmp);
     /**
      * 查询所有部门YX
      * @return

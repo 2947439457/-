@@ -196,118 +196,134 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="odd">
-					<td>1</td>
-					<td>用户申请</td>
-					<td><select>
-						<option>经理部</option>
-						<option>生技室</option>
-						<option>财务室</option>
-						<option selected="selected">收费室</option>
-						<option>抄表班</option>
-						<option>稽查队</option>
-						<option>安装队</option>
-					</select></td>
-					<td></td>
-				</tr>
-				<tr class="even">
-					<td>2</td>
-					<td>初步审核</td>
-					<td><select>
-						<option>经理部</option>
-						<option selected="selected">生技室</option>
-						<option>财务室</option>
-						<option>收费室</option>
-						<option>抄表班</option>
-						<option>稽查队</option>
-						<option>安装队</option>
-					</select></td>
-					<td></td>
-				</tr>
-				<tr class="odd">
-					<td>3</td>
-					<td>交施工费</td>
-					<td><select>
-						<option>经理部</option>
-						<option>生技室</option>
-						<option selected="selected">财务室</option>
-						<option>收费室</option>
-						<option>抄表班</option>
-						<option>稽查队</option>
-						<option>安装队</option>
-					</select></td>
-					<td></td>
-				</tr>
-				<tr class="even">
-					<td>4</td>
-					<td>水费清算</td>
-					<td><select>
-						<option>经理部</option>
-						<option>生技室</option>
-						<option>财务室</option>
-						<option selected="selected">收费室</option>
-						<option>抄表班</option>
-						<option>稽查队</option>
-						<option>安装队</option>
-					</select></td>
-					<td></td>
-				</tr>
-				<tr class="odd">
-					<td>5</td>
-					<td>供水协议</td>
-					<td><select>
-						<option>经理部</option>
-						<option selected="selected">生技室</option>
-						<option>财务室</option>
-						<option>收费室</option>
-						<option>抄表班</option>
-						<option>稽查队</option>
-						<option>安装队</option>
-					</select></td>
-					<td></td>
-				</tr>
-				<tr class="even">
-					<td>6</td>
-					<td>施工竣工</td>
-					<td><select>
-						<option>经理部</option>
-						<option>生技室</option>
-						<option>财务室</option>
-						<option>收费室</option>
-						<option>抄表班</option>
-						<option>稽查队</option>
-						<option selected="selected">安装队</option>
-					</select></td>
-					<td></td>
-				</tr>
-				<tr class="odd">
-					<td>7</td>
-					<td>通水停水</td>
-					<td><select>
-						<option>经理部</option>
-						<option>生技室</option>
-						<option>财务室</option>
-						<option>收费室</option>
-						<option selected="selected">抄表班</option>
-						<option>稽查队</option>
-						<option>安装队</option>
-					</select></td>
-					<td></td>
-				</tr>
-				<tr class="even">
-					<td>8</td>
-					<td>档案存档</td>
-					<td><select>
-						<option>经理部</option>
-						<option selected="selected">生技室</option>
-						<option>财务室</option>
-						<option>收费室</option>
-						<option>抄表班</option>
-						<option>稽查队</option>
-						<option>安装队</option>
-					</select></td>
-					<td></td>
-				</tr>
+			<#list beFlows as flows>
+					<tr class="odd">
+                        <td>${flows.id}</td>
+                        <td>${flows.stepName}</td>
+                        <td><select>
+                            <option>经理部</option>
+                            <option>生技室</option>
+                            <option>财务室</option>
+                            <option selected="selected">收费室</option>
+                            <option>抄表班</option>
+                            <option>稽查队</option>
+                            <option>安装队</option>
+                        </select></td>
+                        <td></td>
+                    </tr>
+			</#list>
+				<#--<tr class="odd">-->
+					<#--<td>1</td>-->
+					<#--<td>用户申请</td>-->
+					<#--<td><select>-->
+						<#--<option>经理部</option>-->
+						<#--<option>生技室</option>-->
+						<#--<option>财务室</option>-->
+						<#--<option selected="selected">收费室</option>-->
+						<#--<option>抄表班</option>-->
+						<#--<option>稽查队</option>-->
+						<#--<option>安装队</option>-->
+					<#--</select></td>-->
+					<#--<td></td>-->
+				<#--</tr>-->
+				<#--<tr class="even">-->
+					<#--<td>2</td>-->
+					<#--<td>初步审核</td>-->
+					<#--<td><select>-->
+						<#--<option>经理部</option>-->
+						<#--<option selected="selected">生技室</option>-->
+						<#--<option>财务室</option>-->
+						<#--<option>收费室</option>-->
+						<#--<option>抄表班</option>-->
+						<#--<option>稽查队</option>-->
+						<#--<option>安装队</option>-->
+					<#--</select></td>-->
+					<#--<td></td>-->
+				<#--</tr>-->
+				<#--<tr class="odd">-->
+					<#--<td>3</td>-->
+					<#--<td>交施工费</td>-->
+					<#--<td><select>-->
+						<#--<option>经理部</option>-->
+						<#--<option>生技室</option>-->
+						<#--<option selected="selected">财务室</option>-->
+						<#--<option>收费室</option>-->
+						<#--<option>抄表班</option>-->
+						<#--<option>稽查队</option>-->
+						<#--<option>安装队</option>-->
+					<#--</select></td>-->
+					<#--<td></td>-->
+				<#--</tr>-->
+				<#--<tr class="even">-->
+					<#--<td>4</td>-->
+					<#--<td>水费清算</td>-->
+					<#--<td><select>-->
+						<#--<option>经理部</option>-->
+						<#--<option>生技室</option>-->
+						<#--<option>财务室</option>-->
+						<#--<option selected="selected">收费室</option>-->
+						<#--<option>抄表班</option>-->
+						<#--<option>稽查队</option>-->
+						<#--<option>安装队</option>-->
+					<#--</select></td>-->
+					<#--<td></td>-->
+				<#--</tr>-->
+				<#--<tr class="odd">-->
+					<#--<td>5</td>-->
+					<#--<td>供水协议</td>-->
+					<#--<td><select>-->
+						<#--<option>经理部</option>-->
+						<#--<option selected="selected">生技室</option>-->
+						<#--<option>财务室</option>-->
+						<#--<option>收费室</option>-->
+						<#--<option>抄表班</option>-->
+						<#--<option>稽查队</option>-->
+						<#--<option>安装队</option>-->
+					<#--</select></td>-->
+					<#--<td></td>-->
+				<#--</tr>-->
+				<#--<tr class="even">-->
+					<#--<td>6</td>-->
+					<#--<td>施工竣工</td>-->
+					<#--<td><select>-->
+						<#--<option>经理部</option>-->
+						<#--<option>生技室</option>-->
+						<#--<option>财务室</option>-->
+						<#--<option>收费室</option>-->
+						<#--<option>抄表班</option>-->
+						<#--<option>稽查队</option>-->
+						<#--<option selected="selected">安装队</option>-->
+					<#--</select></td>-->
+					<#--<td></td>-->
+				<#--</tr>-->
+				<#--<tr class="odd">-->
+					<#--<td>7</td>-->
+					<#--<td>通水停水</td>-->
+					<#--<td><select>-->
+						<#--<option>经理部</option>-->
+						<#--<option>生技室</option>-->
+						<#--<option>财务室</option>-->
+						<#--<option>收费室</option>-->
+						<#--<option selected="selected">抄表班</option>-->
+						<#--<option>稽查队</option>-->
+						<#--<option>安装队</option>-->
+					<#--</select></td>-->
+					<#--<td></td>-->
+				<#--</tr>-->
+				<#--<tr class="even">-->
+					<#--<td>8</td>-->
+					<#--<td>档案存档</td>-->
+					<#--<td><select>-->
+						<#--<option>经理部</option>-->
+						<#--<option selected="selected">生技室</option>-->
+						<#--<option>财务室</option>-->
+						<#--<option>收费室</option>-->
+						<#--<option>抄表班</option>-->
+						<#--<option>稽查队</option>-->
+						<#--<option>安装队</option>-->
+					<#--</select></td>-->
+					<#--<td></td>-->
+				<#--</tr>-->
 			</tbody>
 			</table>
 			
