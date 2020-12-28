@@ -6,32 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d9beb61-c9f6-418f-ba13-211bc5b7aa85" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/controller/system/AreaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/controller/system/MeterTypeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/mapper/system/AreaMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/mapper/system/MeterTypeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/service/system/AreaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/service/system/MeterTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/service/system/impl/MeterTypeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/ftl/js/jquery/jquery-3.4.1.min.js" afterDir="false" />
+    <list default="true" id="3d9beb61-c9f6-418f-ba13-211bc5b7aa85" name="Default Changelist" comment="水表型号">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/service/system/impl/AreaServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/controller/system/SystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/controller/system/SystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/mapper/system/SystemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/mapper/system/SystemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/service/system/SystemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/service/system/SystemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhibang/service/system/impl/SystemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/service/system/impl/SystemServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ftl/css/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ftl/css/form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ftl/login.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ftl/login.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_area.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_area.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_area_add.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_area_add.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_flow.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_flow.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_meterType.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_meterType.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_meterType_add.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_meterType_add.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_pwd.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ftl/page/sys_pwd.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ftl/workspace.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ftl/workspace.ftl" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -242,7 +219,7 @@
           <entry key="java" value="6741" />
           <entry key="jsp" value="3" />
           <entry key="properties" value="9" />
-          <entry key="txt" value="14" />
+          <entry key="txt" value="21" />
           <entry key="xml" value="17" />
         </counts>
       </usages-collector>
@@ -252,7 +229,7 @@
           <entry key="FTL" value="1266" />
           <entry key="JAVA" value="6741" />
           <entry key="JSP" value="3" />
-          <entry key="PLAIN_TEXT" value="43" />
+          <entry key="PLAIN_TEXT" value="50" />
           <entry key="Properties" value="9" />
           <entry key="XML" value="17" />
         </counts>
@@ -267,8 +244,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+            <state relative-caret-position="247">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -277,7 +254,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/service/system/impl/SystemServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -286,7 +263,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/service/system/SystemService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="158">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -298,7 +275,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/service/system/impl/MeterTypeServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
-              <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+              <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -310,7 +287,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/controller/system/MeterTypeController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="64">
-              <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+              <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -340,7 +317,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/ftl/page/sys_area_add.ftl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
-              <caret line="186" column="22" lean-forward="true" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
+              <caret line="186" column="22" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -349,7 +326,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/mapper/system/MeterTypeMapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -872,14 +849,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="directory" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1608981921522" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1609121910646" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1050,7 +1028,7 @@
       <workItem from="1608097226528" duration="3558000" />
       <workItem from="1608100846219" duration="4053000" />
       <workItem from="1608106440708" duration="134508000" />
-      <workItem from="1609115389692" duration="4779000" />
+      <workItem from="1609115389692" duration="6919000" />
     </task>
     <task id="LOCAL-00001" summary="完成ApplicationContext的配置与Web.xml">
       <created>1607590445506</created>
@@ -1199,7 +1177,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608424349791</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="水表型号">
+      <created>1609120226223</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1609120226223</updated>
+    </task>
+    <task id="LOCAL-00023" summary="水表型号">
+      <created>1609121896491</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1609121896491</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1214,11 +1206,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174923000" />
+    <option name="totallyTimeSpent" value="177063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49840257" visible="true" weight="0.18910742" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1231,7 +1222,7 @@
       <window_info id="Web" order="8" sideWeight="0.50159746" side_tool="true" weight="0.29425114" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290735" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33546326" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33546326" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1243,7 +1234,7 @@
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="JRebel Console" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Application Servers" order="13" weight="0.3290735" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.49924356" weight="0.3290735" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="14" sideWeight="0.49924356" visible="true" weight="0.3290735" />
       <window_info anchor="bottom" id="Messages" order="15" weight="0.3290735" />
       <window_info anchor="bottom" id="JRebel Executor" order="16" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" />
@@ -1318,7 +1309,8 @@
     <MESSAGE value="实体类的二次修正" />
     <MESSAGE value="出错代码上传" />
     <MESSAGE value="出错代码上传中" />
-    <option name="LAST_COMMIT_MESSAGE" value="出错代码上传中" />
+    <MESSAGE value="水表型号" />
+    <option name="LAST_COMMIT_MESSAGE" value="水表型号" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1508,6 +1500,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
           <caret line="215" lean-forward="true" selection-start-line="215" selection-end-line="215" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1547,6 +1542,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="43" column="74" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="43" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1610,14 +1608,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/service/system/impl/SystemServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/service/system/SystemService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1641,7 +1639,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/mapper/system/MeterTypeMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1651,14 +1649,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/ftl/page/sys_area_add.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
-          <caret line="186" column="22" lean-forward="true" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
+          <caret line="186" column="22" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/service/system/impl/MeterTypeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
-          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1682,7 +1680,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhibang/controller/system/MeterTypeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
-          <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1691,8 +1689,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+        <state relative-caret-position="247">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
