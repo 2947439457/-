@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d9beb61-c9f6-418f-ba13-211bc5b7aa85" name="Default Changelist" comment="水表型号">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhibang/service/system/impl/AreaServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -857,7 +856,7 @@
     <property name="ChangesTree.GroupingKeys" value="directory" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1609121910646" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1609122799035" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1028,7 +1027,7 @@
       <workItem from="1608097226528" duration="3558000" />
       <workItem from="1608100846219" duration="4053000" />
       <workItem from="1608106440708" duration="134508000" />
-      <workItem from="1609115389692" duration="6919000" />
+      <workItem from="1609115389692" duration="7173000" />
     </task>
     <task id="LOCAL-00001" summary="完成ApplicationContext的配置与Web.xml">
       <created>1607590445506</created>
@@ -1191,7 +1190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609121896491</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="水表型号">
+      <created>1609122606883</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1609122606883</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1206,7 +1212,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177063000" />
+    <option name="totallyTimeSpent" value="177317000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
