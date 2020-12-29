@@ -24,13 +24,18 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired public OrderMapper orderMapper;
-    @Autowired public UserMapper userMapper;
-    @Autowired public OrderUserMapper orderUserMapper;
-    @Autowired public HistoryMapper historyMapper;
-    @Autowired public BeHistory beHistory;
+    @Autowired
+    public OrderMapper orderMapper;
+    @Autowired
+    public UserMapper userMapper;
+    @Autowired
+    public OrderUserMapper orderUserMapper;
+    @Autowired
+    public HistoryMapper historyMapper;
+    @Autowired
+    public BeHistory beHistory;
 
-//    yjh
+    //    yjh
     @Override
     public Integer addUserAndOrder(UsUser usUser, BeOrder beOrder, List<BeOrderuser> beOrderusers) {
         BeHistory addbeHistory = beHistory;

@@ -2,9 +2,11 @@ package com.zhibang.service.beService.impl;
 
 import com.zhibang.mapper.beMapper.HistoryMapper;
 import com.zhibang.mapper.beMapper.OrderMapper;
+import com.zhibang.mapper.usMapper.UserMapper;
 import com.zhibang.model.BeFlow;
 import com.zhibang.model.BeHistory;
 import com.zhibang.model.BeOrder;
+import com.zhibang.model.UsUser;
 import com.zhibang.service.beService.OrderService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper orderMapper;
     @Autowired
     public HistoryMapper historyMapper;
+    @Autowired
+    public UserMapper userMapper;
 
     /**
      * 工单管理：xxy
@@ -76,6 +80,13 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public BeOrder selBeOrderOrderNo(String orderNo) {
         return orderMapper.selectBeOrderOrderNo(orderNo);
+    }
+
+    @Override
+    public Integer upOrderAndUserMoney(BeOrder beOrder, UsUser usUser) {
+        orderMapper.updateBeOrderOrderNo(beOrder);
+        Integer integer = userMapper.updateUsUserUserNo(usUser);
+        return integer;
     }
 
 }

@@ -107,14 +107,14 @@
 
                     <div class="nav_menu">
                         <ul>
-                            <li><a href="be__request.ftl">01 用户申请</a></li>
-                            <li><a href="be__audit.ftl">02 初步审核</a></li>
-                            <li><a href="be__pay.ftl">03 交施工费</a></li>
-                            <li><a href="be__billclear.ftl">04 水费清算</a></li>
-                            <li><a href="be__contract.ftl">05 供水协议</a></li>
-                            <li><a href="be__working.ftl">06 施工竣工</a></li>
-                            <li><a href="be__open.ftl">07 通水停水</a></li>
-                            <li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
                             <li><a href="be_order.ftl">工单管理</a></li>
                             <li><a href="be_abort.ftl">终止工单</a></li>
                             <li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -322,11 +322,7 @@
                                             <tr class="odd">
                                                 <td>
                                                     <b>
-                                            <#list syEmps as se>
-                                                <#if bc.empId == se.empName>
-                                                    ${se.empName}
-                                                </#if>
-                                            </#list>
+                                                    ${bc.empId.empName}
                                                 </b><br/>${bc.datee}<br/>
                                                     <a href="javascript:;" onClick="editTag(34);">改</a>
                                                     <a href="javascript:;" onClick="showDialog('确认删除吗？');">删</a>
@@ -567,6 +563,7 @@
                                 <th width="30">序号</th>
                                 <th width="80">姓名</th>
                                 <th width="80">表径</th>
+                                <th width="80">身表码</th>
                                 <th width="80">最大表码值</th>
                                 <th width="80">起始码</th>
                                 <th width="100">水表厂家</th>
@@ -579,6 +576,7 @@
         <td>${bou_index}</td>
         <td>${bou.userName}</td>
         <td>${bou.meterName}</td>
+        <td></td>
         <td>${bou.maxValue}</td>
         <td>${bou.startValue}</td>
         <td>

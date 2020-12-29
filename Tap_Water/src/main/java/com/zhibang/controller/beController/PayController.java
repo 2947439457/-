@@ -1,17 +1,15 @@
 package com.zhibang.controller.beController;
 
-import com.zhibang.mapper.beMapper.OrderMapper;
-import com.zhibang.model.BeFlow;
-import com.zhibang.model.BeOrder;
-import com.zhibang.model.BeOrderuser;
-import com.zhibang.model.SyEmp;
+import com.alibaba.fastjson.JSONObject;
+import com.zhibang.model.*;
 import com.zhibang.service.beService.OrderService;
+import com.zhibang.service.beService.OrderUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -27,9 +25,11 @@ import java.util.List;
 @RequestMapping("/be")
 public class PayController {
 
-    @Autowired
-    public OrderService orderService;
-    @Autowired public OrderMapper orderMapper;
+    @Autowired private OrderService orderService;
+    @Autowired private OrderUserService orderUserService;
+    @Autowired private BeOrder beOrder;
+    @Autowired private UsUser usUser;
+    @Autowired private BeFlow beFlow;
 
     //跳转交施工费页面:yjh
     @GetMapping("/pay")
@@ -41,34 +41,51 @@ public class PayController {
 
     //跳转交施工费处理页面:yjh
     public String payForm(String orderNo, Model model){
-        BeOrder beOrder = orderMapper.selectBeOrderOrderNo(orderNo);
-        List<BeOrderuser> beOrderusers = orderMapper.selectBeOrderUserOrderNo(orderNo);
+        BeOrder beOrder = orderService.selBeOrderOrderNo(orderNo);
+        List<BeOrderuser> beOrderusers = orderUserService.selOrderuserOrderNo(orderNo);
         model.addAttribute("beOrder", beOrder);
         model.addAttribute("beOrderusers", beOrderusers);
         return "/page/be__payForm";
     }
 
-//    //保存不发送-yjh
-//    @PostMapping(value = "/nosendpay")
-//    public Integer nosendpay(){
-//
-//    }
-
-    //交施工费提交/撤回-yjh
+    //保存不发送-yjh
+    @ResponseBody
     @RequestMapping(value = "/disposePay")
-    public String disposePay(String stmt, String orderNo, Integer orderType, HttpSession session){
+    public Integer nosendpay(String stmt, String orderNo, Integer orderType, Double projectMoney, Double realMoney,
+        Double userMoney,String userNo, String orderUserMoney, HttpSession httpSession){
         Integer integer = 0;
         try {
+            BeOrder upBeOrder = beOrder;
+            upBeOrder.setOrderNo(orderNo);
+            upBeOrder.setOrderType(orderType);
+            SyEmp upSyEmp = (SyEmp) httpSession.getAttribute("s");
+            upBeOrder.setLastEditEmp(upSyEmp);
+            upBeOrder.setProjectMoney(projectMoney);
+            upBeOrder.setRealMoney(realMoney);
 
+            UsUser upUsUser = usUser;
+            upUsUser.setUserNo(userNo);
+            upUsUser.setUserMoney(userMoney);
+            Integer i1 = orderService.upOrderAndUserMoney(upBeOrder, upUsUser);
+
+            List<BeOrderuser> list = JSONObject.parseArray(orderUserMoney, BeOrderuser.class);
+            for (BeOrderuser beOrderuser : list) {
+                beOrderuser.setOrderNo(upBeOrder);
+                Integer i = orderUserService.upOrderuserMoney(beOrderuser);
+            }
+            BeFlow upstepId = beFlow;
+            upstepId.setId(3);
+            upBeOrder.setStepId(upstepId);
+            integer = 1;
+            if ("send".equals(stmt) || "recall".equals(stmt)){
+                orderService.upBeOrderStepId(stmt, upBeOrder);
+                integer = 2;
+            }
         }catch (Exception e){
-            integer = 0;
+            integer = 3;
             e.printStackTrace();
         }
-        if (integer == 1){
-            return "redirect:/success/be/pay/3/1,2,5,6";
-        }else{
-            return "redirect:/error/be/pay/3/1,2,5,6";
-        }
+        return integer;
     }
 
 }

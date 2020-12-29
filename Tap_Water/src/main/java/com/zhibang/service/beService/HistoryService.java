@@ -9,6 +9,5 @@ package com.zhibang.service.beService;
  */
 public interface HistoryService {
 
-//    public L
 
 }

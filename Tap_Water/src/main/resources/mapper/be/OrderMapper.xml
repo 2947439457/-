@@ -196,15 +196,21 @@
         UPDATE
         `tap_water`.`be_order`
         SET
-        `StepID` = #{stepId.id},
-        `LastEditEmp` = #{lastEditEmp.id},
-        `LastEditDate` = NOW(),
-        `UseTarget` = #{useTarget},
-        `HouseHeight` = #{houseHeight},
-        `MaxAmount` = #{maxAmount},
-        `MeterTypeID` = #{meterTypeId.id},
-        `MeterCount` = #{meterCount},
-        `UserRemark` = #{userRemark}
+        `LastEditEmp` = #{lastEditEmp.id}
+        ,`LastEditDate` = NOW()
+        <if test="useTarget != null || houseHeight != null || maxAmount != null || meterCount != null || userRemark != null">
+            ,`UseTarget` = #{useTarget}
+            ,`HouseHeight` = #{houseHeight}
+            ,`MaxAmount` = #{maxAmount}
+            ,`MeterTypeID` = #{meterTypeId.id}
+            ,`MeterCount` = #{meterCount}
+            ,`UserRemark` = #{userRemark}
+        </if>
+        <if test="projectMoney != null || realMoney != null">
+            ,`ProjectMoney` = #{projectMoney}
+            ,`RealMoney` = #{realMoney}
+            ,`PayDate` = NOW()
+        </if>
         WHERE `OrderNo` = #{orderNo} ;
     </update>
 

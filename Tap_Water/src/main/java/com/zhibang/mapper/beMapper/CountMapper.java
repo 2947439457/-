@@ -11,7 +11,6 @@ public interface CountMapper {
 
     //获得流程表中所有的数据
     public List<BeFlow> selectIdBeFlow();
-
     //
     public String countOrderNo(@Param("stepId") Integer stepId, @Param("orderType") Integer orderType);
 

@@ -23,21 +23,22 @@ import java.util.List;
  * @author admin
  * @version 1.0.0
  * @ClassName OrderInfoController.java
- * @Description TODO
+ * @Description TODO 工单用户详细
  * @createTime 2020年12月23日 19:17:00
  */
 @Controller
 @RequestMapping("/be")
 public class OrderInfoController {
-    @Autowired public HistoryMapper historyMapper;
-    @Autowired public OrderService orderService;
-    @Autowired public CommentService commentService;
-    @Autowired public OrderUserService orderUserService;
-    @Autowired public EmpMapper empMapper;
-    @Autowired public BeComment beComment;
-    @Autowired public BeOrder beOrder;
 
-    //跳转工单详情详细页面
+    @Autowired private HistoryMapper historyMapper;
+    @Autowired private OrderService orderService;
+    @Autowired private CommentService commentService;
+    @Autowired private OrderUserService orderUserService;
+    @Autowired private EmpMapper empMapper;
+    @Autowired private BeComment beComment;
+    @Autowired private BeOrder beOrder;
+
+    //跳转工单用户详细页面
     @GetMapping("/orderInfo")
     public String orderInfo(String orderNo, Model model){
         BeOrder beOrder = orderService.selBeOrderOrderNo(orderNo);

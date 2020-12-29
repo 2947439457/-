@@ -2,6 +2,7 @@ package com.zhibang.controller.beController;
 
 import com.zhibang.model.BeOrder;
 import com.zhibang.service.beService.OrderService;
+import com.zhibang.service.beService.OrderUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,28 +14,28 @@ import java.util.List;
 /**
  * @author admin
  * @version 1.0.0
- * @ClassName BillclearController.java
- * @Description TODO 水费清单
- * @createTime 2020年12月16日 01:36:00
+ * @ClassName WorkingController.java
+ * @Description TODO 施工竣工
+ * @createTime 2020年12月29日 23:11:00
  */
 @Controller
 @RequestMapping("/be")
-public class BillclearController {
+public class WorkingController {
 
     @Autowired private OrderService orderService;
+    @Autowired private OrderUserService orderUserService;
 
-    //跳转水费清单界面:yjh
-    @GetMapping("/billclear")
-    public String billclear(Model model){
-        List<BeOrder> beOrders = orderService.selBeOrderStepId(4, "2,7");
+    //跳转施工竣工页面:yjh
+    @GetMapping("/working")
+    public String working(Model model){
+        List<BeOrder> beOrders = orderService.selBeOrderStepId(6, "1,2,5,6");
         model.addAttribute("beOrders", beOrders);
-        return "/page/be__billclear";
+        return "/page/be__working";
     }
 
-    //跳转水费清单处理界面:yjh
-    @GetMapping("/billclearForm")
-    public String billclearForm(){
-        return "/page/be__billclearForm";
+    //跳转施工竣工处理页面:yjh
+    public String workingForm(String orderNo, Model model){
+        return "/page/be__workingForm";
     }
 
 }

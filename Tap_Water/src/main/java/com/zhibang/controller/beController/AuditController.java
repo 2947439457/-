@@ -24,10 +24,10 @@ import java.util.List;
 @RequestMapping("/be")
 public class AuditController {
 
-    @Autowired public BeOrder beOrder; // 业扩工单-实体类
-    @Autowired public BeFlow beFlow; //业务流程-实体类
-    @Autowired public SyEmp syEmp; //员工-实体类
-    @Autowired public OrderService orderService; //工单-数据访问层
+    @Autowired private BeOrder beOrder; // 业扩工单-实体类
+    @Autowired private BeFlow beFlow; //业务流程-实体类
+    @Autowired private SyEmp syEmp; //员工-实体类
+    @Autowired private OrderService orderService; //工单-数据访问层
 
     //跳转初步审核界面-yjh
     @GetMapping(value = "/audit")
@@ -68,9 +68,9 @@ public class AuditController {
             e.printStackTrace();
         }
         if (integer == 1){
-            return "redirect:/success/be/audit/2/1,2,3,4,5,6,7";
+            return "redirect:/success/be/audit";
         }else{
-            return "redirect:/error/be/audit/2/1,2,3,4,5,6,7";
+            return "redirect:/error/be/audit";
         }
     }
 

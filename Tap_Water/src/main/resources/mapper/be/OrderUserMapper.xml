@@ -29,4 +29,24 @@
         WHERE `OrderNo` = #{orderNo} ;
     </delete>
 
+    <!--修改工单信息详情表：可扩展-->
+    <update id="upBeOrderuserMoney">
+        UPDATE
+          `tap_water`.`be_orderuser`
+        SET
+          `OrderNo` = #{orderNo.orderNo}
+        <if test="projectMoney != null">
+            ,`ProjectMoney` = #{projectMoney}
+        </if>
+        <if test="realMoney != null">
+            ,`RealMoney` = #{realMoney}
+        </if>
+        WHERE
+          `OrderNo` = #{orderNo.orderNo}
+        <if test="userName != null">
+            AND `UserName` = #{userName}
+        </if>
+        ;
+    </update>
+
 </mapper>

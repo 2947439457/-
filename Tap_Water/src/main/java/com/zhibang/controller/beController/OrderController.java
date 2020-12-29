@@ -17,8 +17,7 @@ import java.util.List;
 @RequestMapping("/be")
 public class OrderController {
 
-    @Autowired
-    private OrderService orderService;
+    @Autowired private OrderService orderService;
 
     /**
      * 跳转到工单管理:xxy

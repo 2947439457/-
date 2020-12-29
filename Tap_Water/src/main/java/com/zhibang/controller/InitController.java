@@ -1,9 +1,6 @@
 package com.zhibang.controller;
 
-import com.zhibang.controller.beController.AuditController;
-import com.zhibang.controller.beController.BillclearController;
-import com.zhibang.controller.beController.PayController;
-import com.zhibang.controller.beController.RequestController;
+import com.zhibang.controller.beController.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,10 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/be")
 public class InitController {
 
-    @Autowired public AuditController auditController;
-    @Autowired public PayController payController;
-    @Autowired public RequestController requestController;
-    @Autowired public BillclearController billclearController;
+    @Autowired private AuditController auditController;
+    @Autowired private PayController payController;
+    @Autowired private RequestController requestController;
+    @Autowired private BillclearController billclearController;
+    @Autowired private ContractController contractController;
+    @Autowired private WorkingController workingController;
+    @Autowired private OpenController openController;
+    @Autowired private SaveContorller saveContorller;
 
     //对业扩流程操作进行处理
     @RequestMapping("/chuLi")
@@ -40,6 +41,18 @@ public class InitController {
         }
         if("水费清算".equals(stepName)){
 //            path = billclearController.billclearForm(orderNo, model);
+        }
+        if ("供水协议".equals(stepName)){
+            path = contractController.contarctForm(orderNo, model);
+        }
+        if ("施工竣工".equals(stepName)){
+            path = workingController.workingForm(orderNo, model);
+        }
+        if ("通水停水".equals(stepName)){
+            path = openController.openForm(orderNo, model);
+        }
+        if ("档案存档".equals(stepName)){
+            path = saveContorller.saveForm(orderNo, model);
         }
         return path;
     }

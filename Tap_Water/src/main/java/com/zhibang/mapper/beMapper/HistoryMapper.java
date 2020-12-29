@@ -15,7 +15,6 @@ public interface HistoryMapper {
 
     //添加记录流程表
     public Integer addBeHistory(BeHistory beHistory);
-
     //按照工单号查询流程信息：yjh
     public List<BeHistory> selectBeHistoryOrderNo(String orderNo);
 
