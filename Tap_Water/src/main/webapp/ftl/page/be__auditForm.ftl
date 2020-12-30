@@ -182,7 +182,7 @@
 		<div class="x12">
 			
 			<h2>
-				初步审核 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">${orderNo}</a>
+				初步审核 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">${beOrder.orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
 			
@@ -201,7 +201,7 @@
 			<tbody>
 				<tr>
 					<td>用户名称</td>
-					<td><input readonly="readonly" value="${userName}" /></td>
+					<td><input readonly="readonly" value="${beOrder.userNo.userName}" /></td>
 				</tr>
 				<tr>
 					<td style="vertical-align:top;">审核意见</td>
@@ -255,7 +255,7 @@ $(function () {
         if (audits == ""){
             audits = "无";
         }
-        window.location.href = "/be/disposeAudit?stmt=send&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;
+        window.location.href = "/be/disposeAudit?stmt=send&orderNo=${beOrder.orderNo}&orderType=${beOrder.orderType}&audit="+audits;
     })
     $("#recall").click(function () {
         if (!confirm("你确定要撤回吗？")) {
@@ -265,7 +265,7 @@ $(function () {
         if (audits == ""){
             audits = "无";
         }
-        window.location.href = "/be/disposeAudit?stmt=recall&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;
+        window.location.href = "/be/disposeAudit?stmt=recall&orderNo=${beOrder.orderNo}&orderType=${beOrder.orderType}&audit="+audits;
     })
 })
 

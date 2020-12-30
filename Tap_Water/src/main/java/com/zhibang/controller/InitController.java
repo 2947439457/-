@@ -31,10 +31,10 @@ public class InitController {
     public String chuLi(String stepName, String orderNo, Integer orderType, String userName, Model model){
         String path = "";
         if("用户申请".equals(stepName)){
-            path = requestController.requestOrderJudge(orderNo, orderType, model);
+            path = requestController.requestOrderJudge(orderNo, model);
         }
         if("初步审核".equals(stepName)){
-            path = auditController.auditForm(orderNo, userName, orderType, model);
+            path = auditController.auditForm(orderNo, model);
         }
         if("交施工费".equals(stepName)){
             path = payController.payForm(orderNo, model);

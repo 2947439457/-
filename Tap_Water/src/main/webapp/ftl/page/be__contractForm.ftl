@@ -190,12 +190,11 @@
 			</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
-			
+            <input type="hidden" id="userNo" value="${beOrder.userNo.userNo}">
+            <input type="hidden" id="orderType" value="${beOrder.orderType}">
 			<div class="buttonrow">
-				<button class="btn-icon btn-arrow-left btn-red" 
-					onclick="showDialog('确认撤回吗？');"><span></span>撤回</button>
-				<button class="btn-icon btn-arrow-right btn-blue" 
-					onclick="showDialog('确认发送吗？');"><span></span>发送</button>
+                <button id="recall" class="btn-icon btn-arrow-left btn-red"><span></span>撤回</button>
+                <button id="send" class="btn-icon btn-arrow-right btn-blue"><span></span>发送</button>
 			</div>
 			
 <table width="100%">
@@ -210,13 +209,22 @@
 		<td>用户名称</td>
 		<td><input readonly="readonly" value="${beOrder.userNo.userName}" /></td>
 		<td><span class="text_button">
-			<input id="batchTibi" 
-				style="width:200px;" readonly="readonly" value="[SH:80%][SY:10%][GY:10%]" />
+			<#if beOrder.userNo.formula ??>
+				<input id="formula" style="width:200px;" readonly="readonly" value="${beOrder.userNo.formula}" />
+			<#else >
+				<input id="formula" style="width:200px;" readonly="readonly" value="[SH:80%][SY:10%][GY:10%]" />
+			</#if>
 			<button onClick="setTibi();">设定</button></span>
-			<button onClick="$('input.tibi').val($('#batchTibi').val());">
+			<button onClick="$('input.formula').val($('#formula').val());">
 				批量设定提比提量值</button></td>
-		<td><input id="batchContract" value="HT201402035838" /><button 
-			onclick="$('input.contract').val($('#batchContract').val());">批量设定合同编号</button></td>
+		<td>
+			<#if beOrder.userNo.contractNum ??>
+				<input id="contractNum" value="${beOrder.userNo.contractNum}" />
+			<#else >
+				<input id="contractNum" value="HT201402035838" />
+			</#if>
+			<button
+			onclick="$('input.contractNum').val($('#contractNum').val());">批量设定合同编号</button></td>
 	</tr>
 </tbody>
 </table>
@@ -238,18 +246,18 @@
 		<td>${bou.userName}</td>
 		<td><span class="text_button">
 			<#if bou.formula ??>
-			<input class="tibi" style="width:200px;"
+			<input class="formula" style="width:200px;"
                    readonly="readonly" value="${bou.formula}" />
 			<#else >
-			<input class="tibi" style="width:200px;"
+			<input class="formula" style="width:200px;"
                    readonly="readonly" value="" />
 			</#if>
 			<button onClick="setTibi();">设定</button></span></td>
 		<td>
 			<#if bou.contractNum ??>
-                <input class="contract" value="${bou.contractNum}" />
+                <input class="contractNum" value="${bou.contractNum}" />
 			<#else >
-				<input class="contract" value="" />
+				<input class="contractNum" value="" />
 			</#if>
 		</td>
 		<td></td>
@@ -259,7 +267,7 @@
 </table>
 			
 <div class="centerButtons">
-	<button class="btn">保存不发送</button>
+    <button class="btn baoCun">保存不发送</button>
 </div>			
 			
 		</div> <!-- .x12 -->
@@ -293,6 +301,70 @@ $(document).ready ( function ()
 {
 	Dashboard.init ();		
 });
+
+$(function () {
+
+    // 保存不发送
+    $(".baoCun").click(function () {
+        aa("baoCun");
+    })
+
+    $("#send").click(function () {
+        if (!confirm("你确定要发送吗？")) {
+            return false;
+        }
+        aa("send");
+    })
+
+    $("#recall").click(function () {
+        if (!confirm("你确定要撤回吗？")) {
+            return false;
+        }
+        aa("recall");
+    })
+
+    var aa = function(stmt){
+        var orderNo = $("#orderNo").val();
+        var orderType = $("#orderType").val();
+        var userNo = $("#userNo").val();
+        var formula = $("#formula").val();
+        var contractNum = $("#contractNum").val();
+        var orderUser = new Array();
+        $(".odd").each(function (i, n) {
+            var userName = $(".odd:eq("+i+") td:eq("+1+")").text();
+            var formulas = $(".odd:eq("+i+") td:eq("+2+") .formula").val();
+            var contractNums = $(".odd:eq("+i+") td:eq("+3+") .contractNum").val();
+            orderUser.push({"userName":userName, "formula":formulas, "contractNum":contractNums});
+        })
+        $.ajax({
+            url:"/be/disposeContract",
+            type:"post",
+            data:{
+                "stmt":stmt
+                ,"orderNo":orderNo
+                ,"orderType":orderType
+                ,"userNo":userNo
+				,"formula":formula
+				,"contractNum":contractNum
+                ,"orderUser":JSON.stringify(orderUser)
+            },
+            success:function (integer) {
+                if (integer == 0){
+                    alert("保存失败：请检查数据的准确性！")
+                }
+                if (integer == 1){
+                    alert("保存成功！");
+                }
+                if (integer == 2){
+                    window.location.href="/success/be/contarct";
+                }
+                if (integer == 3){
+                    window.location.href="/error/be/contarct";
+                }
+            }
+        });
+    }
+})
 
 </script>
 

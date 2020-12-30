@@ -38,10 +38,9 @@ public class AuditController {
     }
 
     //初步审核处理界面-yjh
-    public String auditForm(String orderNo, String userName,Integer orderType, Model model){
-        model.addAttribute("orderNo", orderNo);
-        model.addAttribute("userName", userName);
-        model.addAttribute("orderType", orderType);
+    public String auditForm(String orderNo, Model model){
+        BeOrder beOrder = orderService.selBeOrderOrderNo(orderNo);
+        model.addAttribute("beOrder", beOrder);
         return "/page/be__auditForm";
     }
 

@@ -161,6 +161,8 @@
             <result column="PAYTYPE" property="payType"/>
             <result column="BANKNAME" property="bankName"/>
             <result column="BANKNUM" property="bankNum"/>
+            <result column="FORMULA" property="formula"/>
+            <result column="CONTRACTNUM" property="contractNum"/>
         </association>
         <association property="meterTypeId" javaType="SyMetertype">
             <result column="METERTYPEID" property="id"/>

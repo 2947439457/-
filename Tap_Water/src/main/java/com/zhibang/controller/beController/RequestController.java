@@ -43,10 +43,7 @@ public class RequestController {
 
     //跳转用户申请界面-yjh
     @GetMapping(value = "/request")
-    public String request(HttpSession httpSession) {
-        //获得全部水表型号
-        List<SyMetertype> syMetertypes = metertypeService.selSyMetertype();
-        httpSession.setAttribute("syMetertypes", syMetertypes);
+    public String request() {
         return "/page/be__request";
     }
 
@@ -68,13 +65,13 @@ public class RequestController {
 
     //用户申请处理-yjh
     @RequestMapping(value = "/requestOrderJudge")
-    public String requestOrderJudge(String orderNo, Integer orderType, Model model){
+    public String requestOrderJudge(String orderNo, Model model){
         BeOrder beOrder = orderService.selBeOrderOrderNo(orderNo);
         List<BeOrderuser> beOrderusers = orderUserService.selOrderuserOrderNo(orderNo);
         model.addAttribute("beOrder", beOrder);
         model.addAttribute("beOrderusers", beOrderusers);
         model.addAttribute("stat", "update");
-        return "/page/be__request"+orderType;
+        return "/page/be__request"+beOrder.getOrderType();
     }
 
     //点击办理，进行判断-yjh

@@ -182,7 +182,7 @@
 		<div class="x12">
 			
 			<h2>
-				通水停水 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-201412-0003</a>
+				通水停水 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
 			
@@ -203,7 +203,7 @@
 			<tbody>
 				<tr>
 					<td>用户名称</td>
-					<td><input readonly="readonly" value="张三" /></td>
+					<td><input readonly="readonly" value="${beOrder.userNo.userName}" /></td>
 				</tr>
 				<tr>
 					<td colspan="2" style="line-height:260px;

@@ -248,7 +248,7 @@
                         <td>${u.updateDate()}</td>
                         <td>${u.getUserNo().getUserName()}</td>
 						<td>
-							<button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/auditForm?orderNo=${u.orderNo}&userName=${u.getUserNo().getUserName()}&orderType=${u.getOrderType()}';"><span></span>处理</button>
+							<button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '';"><span></span>处理</button>
 						</td>
 
                     </tr>

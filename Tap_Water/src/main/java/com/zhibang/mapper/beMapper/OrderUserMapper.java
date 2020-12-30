@@ -21,7 +21,7 @@ public interface OrderUserMapper {
     public List<BeOrderuser> selectBeOrderuserOrderNo(String orderNo);
     //通过工单号删除对应的工单信息
     public Integer deleteBeOrderuserOrderNo(String orderNo);
-    //修改工单用户详情信息的金额
-    public Integer upBeOrderuserMoney(BeOrderuser beOrderuser);
+    //修改工单用户详情信息的金额-可扩展
+    public Integer upBeOrderuser(BeOrderuser beOrderuser);
 
 }

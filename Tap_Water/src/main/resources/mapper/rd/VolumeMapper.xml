@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhibang.mapper.rd.VolumeMapper">
+<mapper namespace="com.zhibang.mapper.rdMapper.VolumeMapper">
 <!--LHH-->
     <!--配置表册，所用表：UsMeter 与 UsUser-->
     <resultMap id="usMeter" type="com.zhibang.model.UsMeter">
@@ -67,9 +67,9 @@
         FROM us_user AS a
         JOIN us_meter AS b
         ON a.`UserNo`=b.`UserNo`
-        <if test="">
+        <!--<if test="">-->
 
-        </if>
+        <!--</if>-->
         WHERE a.`VolumeID` IS NULL;
     </select>
 

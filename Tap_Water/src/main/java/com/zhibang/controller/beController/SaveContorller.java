@@ -36,6 +36,10 @@ public class SaveContorller {
 
     //跳转供水协议处理页面:yjh
     public String saveForm(String orderNo, Model model){
+        BeOrder beOrder = orderService.selBeOrderOrderNo(orderNo);
+        List<BeOrderuser> beOrderusers = orderUserService.selOrderuserOrderNo(orderNo);
+        model.addAttribute("beOrder", beOrder);
+        model.addAttribute("beOrderusers", beOrderusers);
         return "/page/be__saveForm";
     }
 

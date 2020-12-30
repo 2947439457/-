@@ -182,7 +182,7 @@
 		<div class="x12">
 			
 			<h2>
-				档案存档 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-201412-0003</a>
+				档案存档 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
 			
@@ -203,7 +203,7 @@
 <tbody>
 	<tr>
 		<td>用户名称</td>
-		<td><input readonly="readonly" value="张三" /></td>
+		<td><input readonly="readonly" value="${beOrder.userNo.userName}" /></td>
 	</tr>
 </tbody>
 </table>
@@ -218,54 +218,20 @@
 	</tr>
 </thead>
 <tbody>
+<#list beOrderusers as bou>
 	<tr class="odd">
-		<td>1</td>
-		<td>张三</td>
-		<td><input value="" /></td>
+		<td>${bou_index+1}</td>
+		<td>${bou.userName}</td>
+		<td>
+			<#if bou.docNum ??>
+                <input value="${bou.docNum}" />
+			<#else >
+				<input value="" />
+			</#if>
+		</td>
 		<td></td>
 	</tr>
-	<tr class="even">
-		<td>2</td>
-		<td>李四</td>
-		<td><input value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>3</td>
-		<td>王五</td>
-		<td><input value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>4</td>
-		<td>赵六</td>
-		<td><input value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>5</td>
-		<td>钱七</td>
-		<td><input value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>6</td>
-		<td>唐八</td>
-		<td><input value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>7</td>
-		<td>何九</td>
-		<td><input value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>8</td>
-		<td>布十</td>
-		<td><input value="" /></td>
-		<td></td>
-	</tr>
+</#list>
 </tbody>
 </table>
 

@@ -48,7 +48,7 @@ public class PayController {
         return "/page/be__payForm";
     }
 
-    //保存不发送-yjh
+    //处理
     @ResponseBody
     @RequestMapping(value = "/disposePay")
     public Integer nosendpay(String stmt, String orderNo, Integer orderType, Double projectMoney, Double realMoney,

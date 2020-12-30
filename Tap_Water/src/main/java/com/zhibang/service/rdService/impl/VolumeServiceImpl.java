@@ -1,6 +1,6 @@
-package com.zhibang.service.rrd.impl;
+package com.zhibang.service.rdService.impl;
 
-import com.zhibang.mapper.rd.VolumeMapper;
+import com.zhibang.mapper.rdMapper.VolumeMapper;
 import com.zhibang.model.RdVolume;
 import com.zhibang.model.SyArea;
 import com.zhibang.model.UsMeter;

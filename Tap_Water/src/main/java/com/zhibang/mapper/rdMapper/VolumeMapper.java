@@ -1,4 +1,4 @@
-package com.zhibang.mapper.rd;
+package com.zhibang.mapper.rdMapper;
 
 import com.zhibang.model.RdVolume;
 import com.zhibang.model.SyArea;
