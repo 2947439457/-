@@ -20,5 +20,7 @@ public interface OrderService {
     public BeOrder selBeOrderOrderNo(String orderNo);
     //修改费用-yjh
     public Integer upOrderAndUserMoney(BeOrder beOrder, UsUser usUser);
+    //签订用水协议-yjh
+    public Integer upOrderAndUserFormula(BeOrder beOrder, UsUser usUser);
 
 }

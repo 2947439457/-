@@ -186,7 +186,7 @@
 		<div class="x12">
 			
 			<h2>
-				供水协议 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" target="orderInfo">${beOrder.orderNo}
+				供水协议 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}
 			</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
@@ -324,7 +324,7 @@ $(function () {
     })
 
     var aa = function(stmt){
-        var orderNo = $("#orderNo").val();
+        var orderNo = $("#orderNo").text();
         var orderType = $("#orderType").val();
         var userNo = $("#userNo").val();
         var formula = $("#formula").val();

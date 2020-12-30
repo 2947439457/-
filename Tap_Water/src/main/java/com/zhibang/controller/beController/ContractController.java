@@ -51,7 +51,8 @@ public class ContractController {
     //处理
     @ResponseBody
     @RequestMapping(value = "/disposeContract")
-    public Integer nosendpay(String stmt, String orderNo, Integer orderType, String userNo, HttpSession httpSession){
+    public Integer nosendpay(String stmt, String orderNo, Integer orderType, String userNo,
+                             String formula, String contractNum, String orderUser, HttpSession httpSession){
         Integer integer = 0;
         try {
             BeOrder upBeOrder = beOrder;
@@ -62,11 +63,16 @@ public class ContractController {
 
             UsUser upUsUser = usUser;
             upUsUser.setUserNo(userNo);
+            upUsUser.setFormula(formula);
+            upUsUser.setContractNum(contractNum);
 
+//            orderService.upOrderAndUserFormula(upBeOrder, upUsUser);
 
-            List<BeOrderuser> list = JSONObject.parseArray("", BeOrderuser.class);
+            List<BeOrderuser> list = JSONObject.parseArray(orderUser, BeOrderuser.class);
             for (BeOrderuser beOrderuser : list) {
                 beOrderuser.setOrderNo(upBeOrder);
+                System.out.println(beOrderuser);
+                orderUserService.upOrderuserFormula(beOrderuser);
             }
 
             BeFlow upstepId = beFlow;

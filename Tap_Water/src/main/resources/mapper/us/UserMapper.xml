@@ -35,7 +35,12 @@
         <if test="userMoney != null">
             ,`UserMoney` = #{userMoney}
         </if>
-
+        <if test="formula != null">
+            ,`Formula` = #{formula}
+        </if>
+        <if test="contractNum != null">
+            ,`ContractNum` = #{contractNum}
+        </if>
         WHERE `UserNo` = #{userNo} ;
     </update>
 

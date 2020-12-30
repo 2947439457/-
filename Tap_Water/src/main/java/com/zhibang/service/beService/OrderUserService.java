@@ -16,7 +16,9 @@ public interface OrderUserService {
     public Integer addOrderUser(List<BeOrderuser> listOu);
     //通过工单号查询全部工单详细信息
     public List<BeOrderuser> selOrderuserOrderNo(String orderNo);
-    //修改工单信息详情表
+    //修改工单信息详情金额
     public Integer upOrderuserMoney(BeOrderuser beOrderuser);
+    //修改供水合同
+    public Integer upOrderuserFormula(BeOrderuser beOrderuser);
 
 }

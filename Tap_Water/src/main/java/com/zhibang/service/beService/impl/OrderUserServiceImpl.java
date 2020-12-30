@@ -34,4 +34,9 @@ public class OrderUserServiceImpl implements OrderUserService {
     public Integer upOrderuserMoney(BeOrderuser beOrderuser) {
         return orderUserMapper.upBeOrderuser(beOrderuser);
     }
+
+    @Override
+    public Integer upOrderuserFormula(BeOrderuser beOrderuser) {
+        return orderUserMapper.upBeOrderuser(beOrderuser);
+    }
 }
