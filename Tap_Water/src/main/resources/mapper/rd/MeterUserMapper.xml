@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhibang.mapper.rdMapper.MeterUserMapper">
+    <!--RD：水表周检-->
+    <resultMap id="meter" type="com.zhibang.model.UsMeter">
+        <id column="MeterNo" property="meterNo" ></id>
+        <result column="MeterName" property="meterName" ></result>
+        <result column="SetupDate" property="setupDate" ></result>
+        <result column="Factory" property="factory" ></result>
+
+        <association property="userNo" javaType="UsUser">
+            <result column="UserNo" property="userNo" ></result>
+            <result column="UserName" property="userName" ></result>
+        </association>
+
+        <association property="meterTypeId" javaType="SyMetertype">
+            <result column="MeterTypeName" property="meterTypeName" ></result>
+            <result column="Aperture" property="aperture" ></result>
+        </association>
+
+    </resultMap>
+
+    <!--查询周检表数据-->
+    <select id="selectMeterUser" resultType="java.util.HashMap">
+        SELECT
+        b.`UserNo`,b.`UserName`,a.`MeterName`,c.`MeterTypeName`,c.`Aperture`,
+        a.`SetupDate`,a.`Factory`
+        FROM
+        US_Meter AS a
+        JOIN
+        us_user AS b ON a.`UserNo`=b.`UserNo`
+        JOIN
+        sy_metertype AS c ON a.`MeterTypeID`=c.`ID`
+        WHERE
+        1=1
+    </select>
+
+    <!--查询周检数据总条数-->
+    <select id="stMuAge" resultType="int">
+         SELECT
+         COUNT(*)
+         FROM
+         US_Meter AS a
+         JOIN
+         us_user AS b ON a.`UserNo`=b.`UserNo`
+         JOIN
+         sy_metertype AS c ON a.`MeterTypeID`=c.`ID`
+         WHERE
+         1=1
+    </select>
+
+</mapper>

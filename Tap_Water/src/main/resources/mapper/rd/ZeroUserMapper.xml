@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhibang.mapper.rdMapper.ZeroUserMapper">
+
+    <!--RD：零吨位用户-->
+    <resultMap id="read" type="com.zhibang.model.RdRead">
+        <id column="ID" property="id" ></id>
+        <result column="PreValue" property="preValue" ></result>
+        <result column="CurValue" property="curValue" ></result>
+        <result column="Amount" property="amount" ></result>
+        <result column="Audit" property="audit" ></result>
+
+        <association property="userNo" javaType="UsUser">
+            <id column="UserNo" property="userNo" ></id>
+            <result column="UserName" property="userName" ></result>
+        </association>
+
+    </resultMap>
+
+    <!--查询零吨位用户-->
+    <select id="selectZeroUser" resultType="java.util.Map">
+        SELECT
+        b.`UserNo`,b.`UserName`,a.`PreValue`,a.`CurValue`,a.`Amount`,a.`Audit`
+        FROM
+        RD_Read AS a
+        JOIN
+        us_user AS b ON a.`UserNo`=b.`UserNo`
+        WHERE
+        1=1
+    </select>
+
+
+</mapper>
