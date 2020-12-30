@@ -41,14 +41,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -187,15 +187,13 @@
 				<img style="float:left; margin-top:80px;" src="../images/success.jpg" />
 				
 				<div style="padding-top:100px;padding-left:200px;" class="color">
-					这是一个操作成功演示页面。<br/>
-					不知道因为什么原因，你居然操作成功了。<br/>
-					建议你开香槟庆祝。
+					操作成功
 				</div>
 			</div>
 			<div class="clear"></div>
 			
 			<div style="text-align:center;">
-				<button class="btn" onClick="history.back(-1);">继续</button>
+                <button class="btn" onClick="window.location.href='${path}'">继续</button>
 			</div>
 				
 		</div> <!-- .x12 -->

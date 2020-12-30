@@ -41,14 +41,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -184,31 +184,46 @@
 		<div class="x12">
 			
 			<h2>添加/修改水表型号</h2>
-			
-			<div class="form label-inline uniform">
-	
-				<div class="field"><label for="id">水表型号ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>
-				
-				<div class="field"><label for="name">水表型号</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
-				
-				<div class="field"><label for="name">设置口径</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
-				
-				<div class="field"><label for="name">最大表码</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
-				
-				<div class="field"><label for="name">下限设置</label> <input id="name" name="lname" size="50" type="text" class="medium" /> 吨</div>
-				
-				<div class="field"><label for="name">周检年限</label> <input id="name" name="lname" size="50" type="text" class="medium" /> 年</div>
+			 <#if id??>
 
-							
+			<div class="form label-inline uniform">
+                <form action="/updatemeterType" method="post">
+				<div class="field"><label for="id">水表型号ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="${id}" /></div>
+                <input type="hidden" name="meterid" value="${id}">
+				<div class="field"><label for="name">水表型号</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
+				<div class="field"><label for="name">设置口径</label> <input id="name" name="lname1" size="50" type="text" class="medium" /></div>
+				<div class="field"><label for="name">最大表码</label> <input id="name" name="lname2" size="50" type="text" class="medium" /></div>
+				<div class="field"><label for="name">下限设置</label> <input id="name" name="lname3" size="50" type="text" class="medium" /> 吨</div>
+				<div class="field"><label for="name">周检年限</label> <input id="name" name="lname4" size="50" type="text" class="medium" /> 年</div>
 				<div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
 
-				<div class="buttonrow">
-					<button class="btn">保存</button>  
-					<button class="btn btn-grey" onClick="history.back(-1);">返回</button>
-				</div>
+				<#--<div class="buttonrow">-->
+				<#--</div>-->
+                <button class="btn">保存</button>
+            </form>
+                <button class="btn btn-grey">
+                    <a href="/sys_meterType" style="color: #FFFFFF">返回</a></button>
 
 			</div>
-			
+			<#else >
+            <form action="/addmeterType" method="post">
+                <div class="field"><label for="id">水表型号ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>
+                <div class="field"><label for="name">水表型号</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
+                <div class="field"><label for="name">设置口径</label> <input id="name" name="lname1" size="50" type="text" class="medium" /></div>
+                <div class="field"><label for="name">最大表码</label> <input id="name" name="lname2" size="50" type="text" class="medium" /></div>
+                <div class="field"><label for="name">下限设置</label> <input id="name" name="lname3" size="50" type="text" class="medium" /> 吨</div>
+                <div class="field"><label for="name">周检年限</label> <input id="name" name="lname4" size="50" type="text" class="medium" /> 年</div>
+                <div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
+
+            <#--<div class="buttonrow">-->
+            <#--</div>-->
+                <button class="btn">保存</button>
+            </form>
+                <button class="btn btn-grey">
+                    <a href="/sys_meterType" style="color: #FFFFFF">返回</a></button>
+
+			</div>
+            </#if>
 		</div> <!-- .x12 -->
 		
 	</div> <!-- #content -->

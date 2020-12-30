@@ -41,14 +41,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -174,7 +174,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">菜单权限</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -231,127 +231,139 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="odd gradeX">
-						<td><input type="checkbox" /></td>
-						<td>1</td>
-						<td>X001</td>
-						<td>张三</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeC">
-						<td><input type="checkbox" /></td>
-						<td>2</td>
-						<td>X002</td>
-						<td>李四</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
-					<tr class="odd gradeA">
-						<td><input type="checkbox" /></td>
-						<td>3</td>
-						<td>X003</td>
-						<td>王五</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>4</td>
-						<td>X004</td>
-						<td>赵六</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
-					<tr class="odd gradeA">
-						<td><input type="checkbox" /></td>
-						<td>5</td>
-						<td>X005</td>
-						<td>钱七</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>6</td>
-						<td>X006</td>
-						<td>孙八</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>7</td>
-						<td>X007</td>
-						<td>何九</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>8</td>
-						<td>X008</td>
-						<td>布十</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>9</td>
-						<td>X009</td>
-						<td>十一郎</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>10</td>
-						<td>X010</td>
-						<td>张小明</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
-					<tr class="even gradeA">
-						<td><input type="checkbox" /></td>
-						<td>11</td>
-						<td>X011</td>
-						<td>王小红</td>
-						<td>收费室</td>
-						<td>&nbsp;</td>
-						<td class="center">
-							<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
-						</td>
-					</tr>
+                <#list syEmp as emp>
+						<tr class="odd gradeX">
+                            <td>${emp.id}</td>
+                            <td>${emp.empName}</td>
+                            <td>${emp.empNo}</td>
+                            <td>${emp.deptId.deptName}</td>
+                            <td>${emp.remark}</td>
+                            <td class="center">
+								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>
+                            </td>
+                        </tr>
+                </#list>
+					<#--<tr class="odd gradeX">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>1</td>-->
+						<#--<td>X001</td>-->
+						<#--<td>张三</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeC">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>2</td>-->
+						<#--<td>X002</td>-->
+						<#--<td>李四</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="odd gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>3</td>-->
+						<#--<td>X003</td>-->
+						<#--<td>王五</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>4</td>-->
+						<#--<td>X004</td>-->
+						<#--<td>赵六</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="odd gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>5</td>-->
+						<#--<td>X005</td>-->
+						<#--<td>钱七</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>6</td>-->
+						<#--<td>X006</td>-->
+						<#--<td>孙八</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>7</td>-->
+						<#--<td>X007</td>-->
+						<#--<td>何九</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>8</td>-->
+						<#--<td>X008</td>-->
+						<#--<td>布十</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>9</td>-->
+						<#--<td>X009</td>-->
+						<#--<td>十一郎</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>10</td>-->
+						<#--<td>X010</td>-->
+						<#--<td>张小明</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
+					<#--<tr class="even gradeA">-->
+						<#--<td><input type="checkbox" /></td>-->
+						<#--<td>11</td>-->
+						<#--<td>X011</td>-->
+						<#--<td>王小红</td>-->
+						<#--<td>收费室</td>-->
+						<#--<td>&nbsp;</td>-->
+						<#--<td class="center">-->
+							<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_menupower_set.html';"><span></span>设置菜单权限</button>-->
+						<#--</td>-->
+					<#--</tr>-->
 				</tbody>
 			</table>
 			

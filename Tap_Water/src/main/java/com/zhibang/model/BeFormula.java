@@ -1,10 +1,12 @@
 package com.zhibang.model;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
 @Component
+@Scope(value = "prototype")
 public class BeFormula implements Serializable {
 
   private static final long serialVersionUID = -1020824390258308756L;

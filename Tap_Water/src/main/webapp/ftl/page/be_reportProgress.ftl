@@ -47,14 +47,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="../page/be_reportProgress.ftl">业扩工程进度</a></li>
@@ -194,7 +194,6 @@
 			<table class="report">
 				<thead>
 					<tr>
-						
 						<th>进度</th>
 						<th width="100">新户</th>
 						<th width="100">分户</th>
@@ -207,128 +206,130 @@
 					</tr>
 				</thead>
 				<tbody>
+				<#list count as c>
+				<#if c.stepId != -1 && c.stepId !=9>
 					<tr>
-						<td class="center item">01 用户申请</td>
-						<td class="center num">16</td>
-						<td class="center num">2</td>
-						<td class="center num">15</td>
-						<td class="center num">14</td>
-						<td class="center num">31</td>
-						<td class="center num">13</td>
-						<td class="center num">15</td>
-						<td class="center cnt num">106</td>
-					</tr>
+                        <td class="center item">
+							<#if c.stepId == 1>
+								${c.stepId}用户申请
+							<#elseif c.stepId == 2>
+								${c.stepId}初步审核
+							<#elseif c.stepId == 3>
+								${c.stepId}交施工费
+							<#elseif c.stepId == 4>
+								${c.stepId}水费清算
+							<#elseif c.stepId == 5>
+								${c.stepId}供水协议
+							<#elseif c.stepId == 6>
+								${c.stepId}施工竣工
+							<#elseif c.stepId == 7>
+								${c.stepId}通水停水
+							<#elseif c.stepId == 8>
+								${c.stepId}档案存档
+							</#if>
+                        </td>
+                        <td class="center num1">
+							<#if c.type1 == '0'>
+
+							<#else >
+								${c.type1}
+							</#if></td>
+                        <td class="center num2">
+							<#if c.type2 == '0'>
+							<#else >
+								${c.type2}
+							</#if></td>
+                        <td class="center num3">
+							<#if c.type3 == '0'>
+							<#else >
+								${c.type3}
+							</#if></td>
+                        <td class="center num4">
+							<#if c.type4 == '0'>
+							<#else >
+								${c.type4}
+							</#if></td>
+                        <td class="center num5">
+							<#if c.type5 == '0'>
+							<#else >
+								${c.type5}
+							</#if></td>
+                        <td class="center num6">
+							<#if c.type6 == '0'>
+							<#else >
+								${c.type6}
+							</#if></td>
+                        <td class="center num7">
+							<#if c.type7 == '0'>
+							<#else >
+								${c.type7}
+							</#if></td>
+                        <td class="center cnt num">${c.sun}</td>
+                    </tr>
+				</#if>
+				</#list>
+                <tr class="todo">
+                    <td class="center item">　 待办总数</td>
+                    <td class="center num">366</td>
+                    <td class="center num">331</td>
+                    <td class="center num">174</td>
+                    <td class="center num">182</td>
+                    <td class="center num">134</td>
+                    <td class="center num">164</td>
+                    <td class="center num">100</td>
+                    <td class="center cnt num">1451</td>
+                </tr>
+				<#list count as c>
+					<#if c.stepId == -1 || c.stepId ==9>
 					<tr>
-						<td class="center item">02 初步审核</td>
-						<td class="center num">45</td>
-						<td class="center num">45</td>
-						<td class="center num">145</td>
-						<td class="center num">12</td>
-						<td class="center num">4</td>
-						<td class="center num">56</td>
-						<td class="center num">1</td>
-						<td class="center cnt num">308</td>
-					</tr>
-					<tr>
-						<td class="center item">03 交施工费</td>
-						<td class="center num">14</td>
-						<td class="center num">91</td>
-						<td class="center num"></td>
-						<td class="center num"></td>
-						<td class="center num">19</td>
-						<td class="center num"></td>
-						<td class="center num"></td>
-						<td class="center cnt num">124</td>
-					</tr>
-					<tr>
-						<td class="center item">04 水费清算</td>
-						<td class="center num"></td>
-						<td class="center num">33</td>
-						<td class="center num"></td>
-						<td class="center num"></td>
-						<td class="center num"></td>
-						<td class="center num"></td>
-						<td class="center num">17</td>
-						<td class="center cnt num">50</td>
-					</tr>
-					<tr>
-						<td class="center item">05 供水协议</td>
-						<td class="center num">41</td>
-						<td class="center num">78</td>
-						<td class="center num"></td>
-						<td class="center num"></td>
-						<td class="center num"></td>
-						<td class="center num">40</td>
-						<td class="center num"></td>
-						<td class="center cnt num">159</td>
-					</tr>
-					<tr>
-						<td class="center item">06 施工竣工</td>
-						<td class="center num">188</td>
-						<td class="center num">12</td>
-						<td class="center num"></td>
-						<td class="center num"></td>
-						<td class="center num">10</td>
-						<td class="center num"></td>
-						<td class="center num"></td>
-						<td class="center cnt num">210</td>
-					</tr>
-					<tr>
-						<td class="center item">07 通水停水</td>
-						<td class="center num">31</td>
-						<td class="center num">9</td>
-						<td class="center num"></td>
-						<td class="center num"></td>
-						<td class="center num">54</td>
-						<td class="center num"></td>
-						<td class="center num">48</td>
-						<td class="center cnt num">142</td>
-					</tr>
-					<tr>
-						<td class="center item">08 档案存档</td>
-						<td class="center num">31</td>
-						<td class="center num">61</td>
-						<td class="center num">14</td>
-						<td class="center num">156</td>
-						<td class="center num">16</td>
-						<td class="center num">55</td>
-						<td class="center num">19</td>
-						<td class="center cnt num">352</td>
-					</tr>
-					<tr class="todo">
-						<td class="center item">　 待办总数</td>
-						<td class="center num">366</td>
-						<td class="center num">331</td>
-						<td class="center num">174</td>
-						<td class="center num">182</td>
-						<td class="center num">134</td>
-						<td class="center num">164</td>
-						<td class="center num">100</td>
-						<td class="center cnt num">1451</td>
-					</tr>
-					<tr>
-						<td class="center item">　 工单完成</td>
-						<td class="center num">29384</td>
-						<td class="center num">19485</td>
-						<td class="center num">8548</td>
-						<td class="center num">1240</td>
-						<td class="center num">6231</td>
-						<td class="center num">19485</td>
-						<td class="center num">1589</td>
-						<td class="center cnt num">85962</td>
-					</tr>
-					<tr>
-						<td class="center item">　 工单终止</td>
-						<td class="center num">2495</td>
-						<td class="center num">1947</td>
-						<td class="center num">156</td>
-						<td class="center num">153</td>
-						<td class="center num">345</td>
-						<td class="center num">389</td>
-						<td class="center num">49</td>
-						<td class="center cnt num">5534</td>
-					</tr>
-					</tbody>
+                        <td class="center item">
+							<#if c.stepId == 9>
+								完成
+							<#elseif c.stepId == -1>
+								终止
+							</#if>
+                        </td>
+                        <td class="center num1">
+							<#if c.type1 == '0'>
+
+							<#else >
+								${c.type1}
+							</#if></td>
+                        <td class="center num2">
+							<#if c.type2 == '0'>
+							<#else >
+								${c.type2}
+							</#if></td>
+                        <td class="center num3">
+							<#if c.type3 == '0'>
+							<#else >
+								${c.type3}
+							</#if></td>
+                        <td class="center num4">
+							<#if c.type4 == '0'>
+							<#else >
+								${c.type4}
+							</#if></td>
+                        <td class="center num5">
+							<#if c.type5 == '0'>
+							<#else >
+								${c.type5}
+							</#if></td>
+                        <td class="center num6">
+							<#if c.type6 == '0'>
+							<#else >
+								${c.type6}
+							</#if></td>
+                        <td class="center num7">
+							<#if c.type7 == '0'>
+							<#else >
+								${c.type7}
+							</#if></td>
+                        <td class="center cnt num">${c.sun}</td>
+                    </tr>
+					</#if>
+				</#list>
+				</tbody>
 				</table>
 				
 		</div> <!-- .x12 -->

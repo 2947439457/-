@@ -41,14 +41,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -174,7 +174,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">部门设置</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -211,69 +211,80 @@
 						</tr>
 					</thead>
 					<tbody>
+					<#list syDept as dept>
 						<tr class="odd gradeX">
-							<td>1</td>
-							<td>经理部</td>
-							<td>总经理办公室</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="even gradeC">
-							<td>2</td>
-							<td>生技室</td>
-							<td>生产技术部</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="odd gradeA">
-							<td>3</td>
-							<td>财务室</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="even gradeA">
-							<td>4</td>
-							<td>收费室</td>
-							<td>营业厅收费室</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="odd gradeA">
-							<td>5</td>
-							<td>抄表班</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="even gradeA">
-							<td>6</td>
-							<td>稽查队</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="odd gradeA">
-							<td>7</td>
-							<td>安装队</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
+                            <td>${dept.id}</td>
+                            <td>${dept.deptName}</td>
+                            <td>${dept.remark}</td>
+                            <td class="center">
+                                <button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>
+                                <a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
+                            </td>
+                        </tr>
+					</#list>
+						<#--<tr class="odd gradeX">-->
+							<#--<td>1</td>-->
+							<#--<td>经理部</td>-->
+							<#--<td>总经理办公室</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>-->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="even gradeC">-->
+							<#--<td>2</td>-->
+							<#--<td>生技室</td>-->
+							<#--<td>生产技术部</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd gradeA">-->
+							<#--<td>3</td>-->
+							<#--<td>财务室</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="even gradeA">-->
+							<#--<td>4</td>-->
+							<#--<td>收费室</td>-->
+							<#--<td>营业厅收费室</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd gradeA">-->
+							<#--<td>5</td>-->
+							<#--<td>抄表班</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="even gradeA">-->
+							<#--<td>6</td>-->
+							<#--<td>稽查队</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd gradeA">-->
+							<#--<td>7</td>-->
+							<#--<td>安装队</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
 						</tbody>
 					</table>
 			

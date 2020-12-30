@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zhibang.mapper.be.OrderMapper">
+<mapper namespace="com.zhibang.mapper.beMapper.OrderMapper">
 
     <!--工单管理：xxy-->
     <resultMap id="orderAsFlowAsDeptAsUser" type="com.zhibang.model.BeOrder">
@@ -21,21 +21,21 @@
         </association>
     </resultMap>
 
+    <!--yjh-->
     <insert id="addOrder">
         INSERT INTO `tap_water`.`be_order` (
           `OrderNo`,`OrderType`,`StepID`,`CreateEmp`, `CreateDate`,`LastEditEmp`,`LastEditDate`,
           `UserNo`,`UseTarget`,`HouseHeight`,`MaxAmount`, `MeterTypeID`,`MeterCount`,`UserRemark`
         )
         VALUES (
-            #{orderNo}, #{orderType}, #{stepID}, #{createEmp}, NOW(), #{lastEditEmp},NOW(),
-            #{userNo}, #{useTarget}, #{houseHeight}, #{maxAmount}, #{meterTypeID}, #{meterCount}, #{userRemark}
+            #{orderNo}, #{orderType}, #{stepId.id}, #{createEmp.id}, NOW(), #{lastEditEmp.id},NOW(),
+            #{userNo.userNo}, #{useTarget}, #{houseHeight}, #{maxAmount}, #{meterTypeId.id}, #{meterCount}, #{userRemark}
         ) ;
     </insert>
-
+    <!--yjh-->
     <select id="selectOrderNo" parameterType="String" resultType="String">
-        SELECT MAX(RIGHT(orderNo, 4)) FROM be_order WHERE LEFT(orderNo, 2)=#{orderType};
+        SELECT MAX(RIGHT(orderNo, 4)) FROM be_order WHERE LEFT(orderNo, 2)=#{orderType} AND LEFT(RIGHT(OrderNo, 9), 2)=MONTH(CURDATE());
     </select>
-
 
     <!--工单管理：xxy-->
     <select id="queryAllOrder" resultMap="orderAsFlowAsDeptAsUser">
@@ -50,5 +50,168 @@
     <select id="queryStepNameType" resultType="BeFlow">
         SELECT `StepName` FROM `be_flow`;
     </select>
+
+    <!--yjh-->
+    <select id="selectBeOrderStepId"  resultMap="orderAsFlowAsDeptAsUser">
+        SELECT
+        bo.`OrderNo`, bo.`OrderType`, bf.`StepName`, sd.`DeptName`, bo.`LastEditDate`, us.`UserName`
+        FROM
+        be_order AS bo, be_flow AS bf, sy_dept AS sd, us_user AS us
+        WHERE
+        bo.`StepID` = bf.`ID`
+        AND bf.`DeptID` = sd.`ID`
+        AND bo.`UserNo` = us.`UserNo`
+        AND bo.`OrderType` IN (#{orderType})
+        AND bo.`StepID` = #{stepId};
+    </select>
+
+    <!--发送yjh-->
+    <update id="senddateBeOrderStepId">
+        UPDATE
+        `tap_water`.`be_order`
+        SET
+        `StepID` = (SELECT id FROM be_flow WHERE `type${orderType}` = (SELECT `type${orderType}` FROM be_flow WHERE id = #{stepId.id})+1),
+        `LastEditEmp` = #{lastEditEmp.id},
+        `LastEditDate` = NOW()
+        <if test="null != auditEmpId">
+            ,`AuditEmpID` = #{auditEmpId.id}
+            ,`AuditMessage` = #{auditMessage}
+        </if>
+        WHERE `OrderNo` = #{orderNo};
+    </update>
+
+    <!--撤回yjh-->
+    <update id="recalldateBeOrderStepId">
+        UPDATE
+        `tap_water`.`be_order`
+        SET
+        `StepID` = (SELECT id FROM be_flow WHERE `type${orderType}` = (SELECT `type${orderType}` FROM be_flow WHERE id = #{stepId.id})-1),
+        `LastEditEmp` = #{lastEditEmp.id},
+        `LastEditDate` = NOW()
+        <if test="auditEmpId != null">
+            ,`AuditEmpID` = #{auditEmpId.id}
+            ,`AuditMessage` = #{auditMessage}
+        </if>
+        WHERE `OrderNo` = #{orderNo};
+    </update>
+
+
+    <!--根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy-->
+    <select id="queryTypeOrNameOrUserNo" resultMap="orderAsFlowAsDeptAsUser">
+        SELECT
+         bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
+        FROM
+         be_order AS bo,
+         be_flow AS bf,
+         sy_dept AS sd,
+         us_user AS us
+        WHERE
+         bo.`StepID` = bf.`ID`
+         AND bf.`DeptID` = sd.`ID`
+         AND bo.`UserNo` = us.`UserNo`
+
+             <if test="orderType != null">
+                and bo.`OrderType` = #{orderType}
+             </if>
+
+             <if test="stepName != null">
+                 and bf.`StepName` = #{stepName}
+             </if>
+
+             <if test="orderNo != null">
+                 and bo.`OrderNo` LIKE "%${orderNo}%"
+             </if>
+
+             <if test="userName != null">
+                 and us.`UserName` LIKE "%${userName}%"
+             </if>
+    </select>
+
+    <!--工单信息以及用户详细：yjh-->
+    <resultMap id="beOrderAndUsUser" type="com.zhibang.model.BeOrder">
+        <id column="ORDERNO" property="orderNo"/>
+        <result column="ORDERTYPE" property="orderType"/>
+        <result column="CREATEDATE" property="createDate"/>
+        <result column="COMPLETEdATE" property="completeDate"/>
+        <result column="USETARGET" property="useTarget"/>
+        <result column="HOUSEHEIGHT" property="houseHeight"/>
+        <result column="MAXAMOUNT" property="maxAmount"/>
+        <result column="METERCOUNT" property="meterCount"/>
+        <result column="USERREMARK" property="userRemark"/>
+        <result column="PROJECTMONEY" property="projectMoney"/>
+        <result column="REALMONEY" property="realMoney"/>
+        <result column="OLDUSERNO" property="oldUserNo"/>
+        <result column="OLDUSERNAME" property="oldUserName"/>
+        <result column="OLDUSERPHONE" property="oldUserPhone"/>
+        <result column="OLDUSERADDR" property="oldUserAddr"/>
+        <result column="OLDMETER" property="oldMeter"/>
+        <result column="AUDITMESSAGE" property="auditMessage"/>
+        <result column="PROJECTDATE1" property="projectDate1"/>
+        <result column="PROJECTDATE2" property="projectDate2"/>
+        <association property="stepId" javaType="BeFlow">
+            <result column="STEPNAME" property="stepName"/>
+        </association>
+        <association property="userNo" javaType="UsUser">
+            <result column="USERNO" property="userNo"/>
+            <result column="USERNAME" property="userName"/>
+            <result column="ADDRESS" property="address"/>
+            <result column="PHONE" property="phone"/>
+            <result column="USERTYPE" property="userType"/>
+            <result column="USERMONEY" property="userMoney"/>
+            <result column="PAYTYPE" property="payType"/>
+            <result column="BANKNAME" property="bankName"/>
+            <result column="BANKNUM" property="bankNum"/>
+        </association>
+        <association property="meterTypeId" javaType="SyMetertype">
+            <result column="METERTYPEID" property="id"/>
+            <result column="METERTYPEnAME" property="meterTypeName"/>
+        </association>
+        <association property="auditEmpId" javaType="SyEmp">
+            <result column="AUDITEMPID" property="id"/>
+        </association>
+    </resultMap>
+
+    <!--通过工单号查询工单信息：yjh-->
+    <select id="selectBeOrderOrderNo" parameterType="String" resultMap="beOrderAndUsUser">
+        SELECT *
+        FROM
+        be_order AS bo,
+        us_user AS uu,
+        be_flow AS bf,
+        sy_metertype AS smt
+        WHERE
+        bo.`UserNo` = uu.`UserNo`
+        AND bo.`StepID` = bf.`ID`
+        AND bo.`MeterTypeID` = smt.`ID`
+        AND bo.`OrderNo` = #{orderNo};
+    </select>
+
+    <!--通过工单号查询工单用户详情信息：yjh-->
+    <select id="selectBeOrderUserOrderNo" parameterType="String" resultType="beOrderUser">
+        SELECT * FROM `be_orderuser` WHERE orderNo = #{orderNo};
+    </select>
+
+    <!--yjh-->
+    <update id="updateBeOrderOrderNo">
+        UPDATE
+        `tap_water`.`be_order`
+        SET
+        `LastEditEmp` = #{lastEditEmp.id}
+        ,`LastEditDate` = NOW()
+        <if test="useTarget != null || houseHeight != null || maxAmount != null || meterCount != null || userRemark != null">
+            ,`UseTarget` = #{useTarget}
+            ,`HouseHeight` = #{houseHeight}
+            ,`MaxAmount` = #{maxAmount}
+            ,`MeterTypeID` = #{meterTypeId.id}
+            ,`MeterCount` = #{meterCount}
+            ,`UserRemark` = #{userRemark}
+        </if>
+        <if test="projectMoney != null || realMoney != null">
+            ,`ProjectMoney` = #{projectMoney}
+            ,`RealMoney` = #{realMoney}
+            ,`PayDate` = NOW()
+        </if>
+        WHERE `OrderNo` = #{orderNo} ;
+    </update>
 
 </mapper>

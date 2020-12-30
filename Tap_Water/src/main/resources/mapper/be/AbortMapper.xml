@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhibang.mapper.beMapper.AbortMapper">
+
+    <resultMap id="selBoAndUsAndBf" type="com.zhibang.model.BeOrder">
+        <id property="orderNo" column="orderNo"/>
+        <result property="orderType" column="orderType"/>
+        <result property="lastEditDate" column="lastEditDate"/>
+        <association property="lastEditEmp" javaType="syEmp">
+            <result property="empName" column="EmpName"/>
+        </association>
+        <association property="userNo" javaType="UsUser">
+            <result property="userName" column="userName"/>
+            <result property="address" column="address"/>
+            <result property="phone" column="phone"/>
+            <result property="userMoney" column="userMoney"/>
+        </association>
+        <association property="stepId" javaType="BeFlow">
+            <result property="stepName" column="stepName"/>
+        </association>
+    </resultMap>
+    <!--根据工单号查询相关信息:xxy-->
+    <select id="queryByOrder" resultMap="selBoAndUsAndBf">
+        SELECT
+          bo.`OrderNo`, bo.`OrderType`, bo.`LastEditDate`, se.`EmpName`,
+          us.`UserName`, us.`Address`, us.`Phone`, us.`UserMoney`,
+          bf.`StepName`
+        FROM
+         `be_order` AS bo,
+         `us_user` AS us,
+         `be_flow` AS bf,
+         `sy_emp` AS se
+        WHERE
+         bo.`UserNo`=us.`UserNo`
+         AND bo.`StepID` = bf.`ID`
+         AND bo.`LastEditEmp` = se.`ID`
+         AND bo.`OrderNo` = #{orderNo}
+    </select>
+
+    <!--终止工单：xxy-->
+    <update id="upByOrder">
+        UPDATE
+            `be_order` as bo
+        SET
+            bo.`LastEditEmp` = #{lastEditEmp.id},
+            bo.`AbortCause` = #{abortCause},
+            bo.`LastEditDate` = NOW(),
+            bo.`StepID` = -1
+        WHERE
+            bo.`OrderNo` = #{orderNo};
+    </update>
+</mapper>

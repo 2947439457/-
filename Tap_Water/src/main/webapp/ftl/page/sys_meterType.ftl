@@ -21,8 +21,16 @@
 	
 	<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" title="no title">
 
-</head> 
- 
+</head>
+<script src="js/jquery/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+    function del(i)
+    {$("input").remove();
+        var txt=$("<input type='hidden' name='deid' value="+i+"></input>");  // 以 jQuery 创建新元素
+        $("#bo").append(txt);        // 追加新元素
+    }
+
+</script>
 <body> 
 
 <div id="wrapper">
@@ -41,14 +49,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -174,7 +182,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">水表型号设置</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -187,17 +195,18 @@
 				<div style="height:80px;text-align:center;padding-top:50px;">
 					确认删除吗？
 				</div>
-				
-				<div class="dialogbutton center">
-					<a class="btn" href="javascript:closeDialog();" style="width:60px;">是</a>  
-					<a class="btn btn-grey" href="javascript:closeDialog();" style="width:60px;">否</a>
+                <form action="/delsyMetertype">
+				<div class="dialogbutton center" id="bo">
+                    <button class="btn" style="width:92px;">是</button>
+                    <button class="btn btn-grey" style="width:92px;">否</button>
 				</div>
+                </form>
 			</div>
 			
 			<h2>水表型号设置</h2>
-			
+            <form action="/sys_meterType_add" method="post" accept-charset="utf-8">
 			<p><button class="btn-icon btn-plus" onClick="location='sys_meterType_add.html';"><span></span>添加水表型号</button></p>
-				
+            </form>
 			<table class="data display">
 					<thead>
 						<tr>
@@ -212,97 +221,116 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="odd gradeX">
-							<td>1</td>
-							<td>DN10</td>
-							<td>10</td>
-							<td>999</td>
-							<td>2</td>
-							<td>5</td>
-							<td>&nbsp;</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="even gradeC">
-							<td>1</td>
-							<td>DN20</td>
-							<td>20</td>
-							<td>999</td>
-							<td>2</td>
-							<td>5</td>
-							<td>&nbsp;</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="odd gradeA">
-							<td>1</td>
-							<td>DN40</td>
-							<td>40</td>
-							<td>9999</td>
-							<td>2</td>
-							<td>5</td>
-							<td>&nbsp;</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="even gradeA">
-							<td>1</td>
-							<td>DN100</td>
-							<td>100</td>
-							<td>9999</td>
-							<td>2</td>
-							<td>5</td>
-							<td>&nbsp;</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="odd gradeA">
-							<td>1</td>
-							<td>DN200</td>
-							<td>200</td>
-							<td>9999</td>
-							<td>2</td>
-							<td>5</td>
-							<td>&nbsp;</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="even gradeA">
-							<td>1</td>
-							<td>DN250</td>
-							<td>250</td>
-							<td>9999</td>
-							<td>2</td>
-							<td>5</td>
-							<td>&nbsp;</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="odd gradeA">
-							<td>1</td>
-							<td>DN500</td>
-							<td>500</td>
-							<td>99999</td>
-							<td>2</td>
-							<td>5</td>
-							<td>&nbsp;</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
+
+                        <#list syMetertype as syme>
+                        <tr class="odd gradeX">
+                            <td>${syme.id}</td>
+                            <td>${syme.meterTypeName}</td>
+                            <td>${syme.aperture}</td>
+                            <td>${syme.mavValue}</td>
+                            <td>${syme.minValue}</td>
+                            <td>${syme.life}</td>
+                            <td>${syme.remark}</td>
+                            <td class="center">
+                                <form action="/sys_meterType_add" method="post" accept-charset="utf-8">
+                                    <input type="hidden" name="meterType" value="${syme.id}">
+                                <button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>
+                                <a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross" onclick="del(${syme.id})"><span></span>删除</a>
+                                </form>
+                            </td>
+                        </tr>
+						</#list>
+                        <#--<tr class="odd gradeX">-->
+                            <#--<td>1</td>-->
+                            <#--<td>DN10</td>-->
+                            <#--<td>10</td>-->
+                            <#--<td>999</td>-->
+                            <#--<td>2</td>-->
+                            <#--<td>5</td>-->
+                            <#--<td>&nbsp;</td>-->
+                            <#--<td class="center">-->
+                                <#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>-->
+                                <#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+                            <#--</td>-->
+                        <#--</tr>-->
+						<#--<tr class="even gradeC">-->
+							<#--<td>1</td>-->
+							<#--<td>DN20</td>-->
+							<#--<td>20</td>-->
+							<#--<td>999</td>-->
+							<#--<td>2</td>-->
+							<#--<td>5</td>-->
+							<#--<td>&nbsp;</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd gradeA">-->
+							<#--<td>1</td>-->
+							<#--<td>DN40</td>-->
+							<#--<td>40</td>-->
+							<#--<td>9999</td>-->
+							<#--<td>2</td>-->
+							<#--<td>5</td>-->
+							<#--<td>&nbsp;</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>-->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="even gradeA">-->
+							<#--<td>1</td>-->
+							<#--<td>DN100</td>-->
+							<#--<td>100</td>-->
+							<#--<td>9999</td>-->
+							<#--<td>2</td>-->
+							<#--<td>5</td>-->
+							<#--<td>&nbsp;</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>-->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd gradeA">-->
+							<#--<td>1</td>-->
+							<#--<td>DN200</td>-->
+							<#--<td>200</td>-->
+							<#--<td>9999</td>-->
+							<#--<td>2</td>-->
+							<#--<td>5</td>-->
+							<#--<td>&nbsp;</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>-->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="even gradeA">-->
+							<#--<td>1</td>-->
+							<#--<td>DN250</td>-->
+							<#--<td>250</td>-->
+							<#--<td>9999</td>-->
+							<#--<td>2</td>-->
+							<#--<td>5</td>-->
+							<#--<td>&nbsp;</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>-->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd gradeA">-->
+							<#--<td>1</td>-->
+							<#--<td>DN500</td>-->
+							<#--<td>500</td>-->
+							<#--<td>99999</td>-->
+							<#--<td>2</td>-->
+							<#--<td>5</td>-->
+							<#--<td>&nbsp;</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_meterType_add.html';"><span></span>修改</button>-->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
 						</tbody>
 					</table>
 			

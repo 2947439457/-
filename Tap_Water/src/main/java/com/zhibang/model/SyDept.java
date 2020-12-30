@@ -6,12 +6,12 @@ import java.io.Serializable;
 
 @Component
 public class SyDept implements Serializable {
-
+    //部门
   private static final long serialVersionUID = -9122905395861015118L;
   private Integer id;
-  private String deptName;
-  private String remark;
-  private String disabled;
+  private String deptName;//部门名称
+  private String remark;//备注
+  private Boolean disabled;//禁用
 
 
   public Integer getId() {
@@ -41,11 +41,11 @@ public class SyDept implements Serializable {
   }
 
 
-  public String getDisabled() {
+  public Boolean getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(String disabled) {
+  public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 

@@ -41,14 +41,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -174,7 +174,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">抄表辖区设置</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -184,23 +184,37 @@
 		<div class="x12">
 			
 			<h2>添加/修改抄表辖区</h2>
-			
+            <#if id??>
 			<div class="form label-inline uniform">
-	
-				<div class="field"><label for="id">抄表辖区ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>
-				
-				<div class="field"><label for="name">抄表辖区名称</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
+            <form action="/updateArea" method="post">
+            <div class="field"><label for="id">抄表辖区ID</label> <input id="isd" name="fname" size="50" type="text" class="medium" disabled="disabled" value="${id}" /></div>
+            <input type="hidden" name="arid" value="${id}">
+                <div class="field"><label for="name">抄表辖区名称</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
+                <div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
+                <button type="submit" style="margin-left: 145px" class="btn">保存</button>
+            <#--<div class="buttonrow">-->
+            <#--</div>-->
+            </form>
+                <button class="btn btn-grey" style="margin-left: 263px">
+                    <a href="/sys_area" style="color: #FFFFFF">返回</a></button>
+            </div>
+		<#else>
+			<div class="form label-inline uniform">
+        <form action="/addArea" method="post">
+            <div class="field"><label for="id">抄表辖区ID</label> <input id="isd" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>
+                <div class="field"><label for="name">抄表辖区名称</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
+                <div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
+                <button type="submit" style="margin-left: 145px" class="btn">保存</button>
+            <#--<div class="buttonrow">-->
+            <#--</div>-->
+            </form>
+           <button class="btn btn-grey" style="margin-left: 263px" >
+               <a href="/sys_area" style="color: #FFFFFF">返回</a></button>
+            </#if>
 
-							
-				<div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
-
-				<div class="buttonrow">
-					<button class="btn">保存</button>  
-					<button class="btn btn-grey" onClick="history.back(-1);">返回</button>
-				</div>
 
 			</div>
-			
+
 		</div> <!-- .x12 -->
 		
 	</div> <!-- #content -->

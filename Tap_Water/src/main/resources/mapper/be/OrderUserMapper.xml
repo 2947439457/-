@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhibang.mapper.beMapper.OrderUserMapper">
+<!--yjh-->
+    <insert id="addOrderUser">
+        INSERT INTO `tap_water`.`be_orderuser` (
+          `OrderNo`,`UserName`,`Phone`,`Address`,`MeterTypeID`,`MeterName`,`MaxValue`,`StartValue`,`UserNo`
+        )
+        VALUES
+      <foreach collection="list" item="ou" separator="," >
+        (#{ou.orderNo.orderNo},#{ou.userName},#{ou.phone},#{ou.address},#{ou.meterTypeId}, #{ou.meterName}, #{ou.maxValue},#{ou.startValue},#{ou.userNo.userNo})
+      </foreach>
+        ;
+    </insert>
+<!--yjh:查询工单用户详细-->
+    <select id="selectBeOrderuserOrderNo" parameterType="String" resultType="beOrderuser">
+        SELECT *
+        FROM be_orderuser AS bou
+        WHERE bou.`OrderNo` = #{orderNo};
+    </select>
+<!--yjh-->
+    <delete id="deleteBeOrderuserOrderNo">
+        DELETE
+        FROM
+          `tap_water`.`be_orderuser`
+        WHERE `OrderNo` = #{orderNo} ;
+    </delete>
+
+    <!--修改工单信息详情表：可扩展-->
+    <update id="upBeOrderuserMoney">
+        UPDATE
+          `tap_water`.`be_orderuser`
+        SET
+          `OrderNo` = #{orderNo.orderNo}
+        <if test="projectMoney != null">
+            ,`ProjectMoney` = #{projectMoney}
+        </if>
+        <if test="realMoney != null">
+            ,`RealMoney` = #{realMoney}
+        </if>
+        WHERE
+          `OrderNo` = #{orderNo.orderNo}
+        <if test="userName != null">
+            AND `UserName` = #{userName}
+        </if>
+        ;
+    </update>
+
+</mapper>

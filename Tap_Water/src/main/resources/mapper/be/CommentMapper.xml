@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhibang.mapper.beMapper.CommentMapper">
+
+    <insert id="addBeComment">
+        INSERT INTO `tap_water`.`be_comment` (
+          `OrderNo`, `Datee`, `EmpID`, `Comment`
+        )
+        VALUES (
+          #{orderNo.orderNo}, NOW(), #{empId.id}, #{comment}
+        ) ;
+    </insert>
+
+    <resultMap id="comment" type="com.zhibang.model.BeComment">
+        <id column="ID" property="id"/>
+        <result column="DATEE" property="datee"/>
+        <result column="COMMENT" property="comment"/>
+        <association property="empId" javaType="SyEmp">
+            <result column="EMPID" property="id"/>
+            <result column="EMPNAME" property="empName"/>
+        </association>
+    </resultMap>
+
+    <select id="selectBeCommentOrderNo" parameterType="String" resultMap="comment">
+        SELECT * FROM be_comment AS bc, sy_emp AS se WHERE bc.`EmpID` = se.`ID` AND bc.`OrderNo`= #{orderNo};
+    </select>
+
+</mapper>

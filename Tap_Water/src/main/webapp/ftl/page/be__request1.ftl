@@ -39,9 +39,8 @@
             if (rows.length < n) {//需增加行数
                 for (var i = rows.length; i < n; i++) {
                     $('table.data tbody').append('<tr><td>' + (i + 1) +
-                            '</td><td><input/></td><td><input/></td><td><input/></td><td><input/></td><td></td></tr>');
+                            '</td><td><input class="userName"/></td><td><input class="phone"/></td><td><input class="address"/></td></tr>');
                 }
-
             } else {//需减少行数
                 $('table.data tbody tr:gt(' + (n - 1) + ')').remove();
             }
@@ -65,13 +64,13 @@
                     <div class="nav_menu">
                         <ul>
                             <li><a href="/be/request">01 用户申请</a></li>
-                            <li><a href="be__audit.ftl">02 初步审核</a></li>
-                            <li><a href="be__pay.ftl">03 交施工费</a></li>
-                            <li><a href="be__billclear.ftl">04 水费清算</a></li>
-                            <li><a href="be__contract.ftl">05 供水协议</a></li>
-                            <li><a href="be__working.ftl">06 施工竣工</a></li>
-                            <li><a href="be__open.ftl">07 通水停水</a></li>
-                            <li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
                             <li><a href="be_order.ftl">工单管理</a></li>
                             <li><a href="be_abort.ftl">终止工单</a></li>
                             <li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -207,7 +206,11 @@
         <div class="x12">
 			
             <h2>
-                用户申请 - 办理新开户业务
+                <#if beOrder ?? >
+                    用户申请 - ${beOrder.orderNo} 新户 ${beOrder.userNo.userName}
+                <#else >
+                    用户申请 - 办理新开户业务
+                </#if>
                 <a style="float:right" href="javascript:history.back(-1);">返回</a>
             </h2>
 
@@ -216,7 +219,12 @@
                     <li><a href="#tab1">申请表</a></li>
                     <li><a href="#tab2">新户详细表</a></li>
                 </ul>
-                <div class="tab_content_container">
+                <#if beOrder ?? >
+                <#--<#if 1==1 >-->
+                <input type="hidden" class="stat" value="${stat}"/>
+                <input type="hidden" class="orderNo" value="${beOrder.orderNo}"/>
+                <input type="hidden" class="userNo" value="${beOrder.userNo.userNo}"/>
+                    <div class="tab_content_container">
                     <div id="tab1" class="tab_content">
                         <table width="100%">
                             <thead>
@@ -230,25 +238,25 @@
                             <tbody>
                             <tr>
                                 <td>用户名称</td>
-                                <td><input id="userName"/></td>
+                                <td><input id="userName" value="${beOrder.userNo.userName}"/></td>
                                 <td>用户类型</td>
                                 <td><select id="userType" style="width:158px;">
                                     <option>公户</option>
-                                    <option selected="selected">私户</option>
+                                    <option>私户</option>
                                 </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>联系电话</td>
-                                <td><input id="phone"/></td>
+                                <td><input id="phone" value="${beOrder.userNo.phone}"/></td>
                             </tr>
                             <tr>
                                 <td>用户地址</td>
-                                <td colspan="3"><input id="address" size="68"/></td>
+                                <td colspan="3"><input id="address" size="68" value="${beOrder.userNo.address}"/></td>
                             </tr>
                             <tr>
                                 <td>用水量</td>
-                                <td><input id="maxAmount"/></td>
+                                <td><input id="maxAmount" value="${beOrder.maxAmount}"/></td>
                                 <td>申请表径</td>
                                 <td><select id="meterTypeName" style="width:158px;">
                                             <#list syMetertypes as sm>
@@ -259,19 +267,19 @@
                             </tr>
                             <tr>
                                 <td>房屋层次</td>
-                                <td><input id="houseHeight"/></td>
+                                <td><input id="houseHeight" value="${beOrder.houseHeight}"/></td>
                                 <td>接水用途</td>
-                                <td><input id="useTarget"/></td>
+                                <td><input id="useTarget" value="${beOrder.useTarget}"/></td>
                             </tr>
                             <tr>
                                 <td>备注说明</td>
-                                <td colspan="3"><input id="userRemark" size="68"/></td>
+                                <td colspan="3"><input id="userRemark" size="68" value="${beOrder.userRemark}"/></td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
                     <div id="tab2" class="tab_content">
-                        申请装表表数 <input id="t_meterCount" value="1"/>
+                        申请装表表数 <input id="t_meterCount" value="${beOrder.meterCount}"/>
                         <button class="btn btn-small" onClick="setMeter();">确定</button>
 
                         <div id="meters">
@@ -286,18 +294,107 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td><input/></td>
-                                    <td><input/></td>
-                                    <td><input/></td>
-                                    <td></td>
-                                </tr>
+                                <#list beOrderusers as bou>
+                                    <tr>
+                                        <td>${bou_index+1}</td>
+                                        <td><input class="userName" value="${bou.userName}"/></td>
+                                        <td><input class="phone" value="${bou.phone}"/></td>
+                                        <td><input class="address" value="${bou.address}"/></td>
+                                        <td></td>
+                                    </tr>
+                                </#list>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+                <#else>
+                    <input type="hidden" class="stat" value="0"/>
+                    <input type="hidden" class="orderNo" value="0"/>
+                    <input type="hidden" class="userNo" value="0"/>
+                    <div class="tab_content_container">
+                        <div id="tab1" class="tab_content">
+                            <table width="100%">
+                                <thead>
+                                <tr>
+                                    <th width="60"></th>
+                                    <th width="220"></th>
+                                    <th width="60"></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>用户名称</td>
+                                    <td><input id="userName"/></td>
+                                    <td>用户类型</td>
+                                    <td><select id="userType" style="width:158px;">
+                                        <option>公户</option>
+                                        <option selected="selected">私户</option>
+                                    </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>联系电话</td>
+                                    <td><input id="phone"/></td>
+                                </tr>
+                                <tr>
+                                    <td>用户地址</td>
+                                    <td colspan="3"><input id="address" size="68"/></td>
+                                </tr>
+                                <tr>
+                                    <td>用水量</td>
+                                    <td><input id="maxAmount"/></td>
+                                    <td>申请表径</td>
+                                    <td><select id="meterTypeName" style="width:158px;">
+                                            <#list syMetertypes as sm>
+                                                <option>${sm.meterTypeName}</option>
+                                            </#list>
+                                    </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>房屋层次</td>
+                                    <td><input id="houseHeight"/></td>
+                                    <td>接水用途</td>
+                                    <td><input id="useTarget"/></td>
+                                </tr>
+                                <tr>
+                                    <td>备注说明</td>
+                                    <td colspan="3"><input id="userRemark" size="68"/></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="tab2" class="tab_content">
+                            申请装表表数 <input id="t_meterCount" value="1"/>
+                            <button class="btn btn-small" onClick="setMeter();">确定</button>
+
+                            <div id="meters">
+                                <table class="data display">
+                                    <thead>
+                                    <tr>
+                                        <th width="30">序号</th>
+                                        <th width="160">姓名</th>
+                                        <th width="160">电话</th>
+                                        <th width="160">地址</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><input class="userName"/></td>
+                                        <td><input class="phone"/></td>
+                                        <td><input class="address"/></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </#if>
             </div>
 
 
@@ -342,6 +439,24 @@
     $(function () {
         // 办理按钮
         $(".banLi").click(function () {
+            var stat = $(".stat").val();
+            var orderNo = $(".orderNo").val();
+            var userNo = $(".userNo").val();
+            var userNames = new Array();
+            $(".userName").each(function(){
+                userNames.push($(this).val())
+            })
+
+            var phones = new Array();
+            $(".phone").each(function(){
+                phones.push($(this).val())
+            })
+            var addresss = new Array();
+            $(".address").each(function(){
+                addresss.push($(this).val())
+            })
+
+
             var userName = $("#userName").val(); //用户名称
             if (userName == "") {
                 alert("请输入用户名称！");
@@ -385,17 +500,44 @@
             if (userRemark == ""){
                 userRemark = "无";
             }
+            var t_meterCount = $("#t_meterCount").val(); //水表数
+            if ($(".userName").val() == ""){
+                $(".userName").focus();
+                alert("请输入姓名！");
+                return false;
+            }
+            if ($(".phone").val() == "") {
+                alert("请填写手机号码！");
+                $(".phone").focus();
+                return false;
+            }
+            if ($(".address").val() == ""){
+                alert("请填写地址！");
+                return false;
+            }
+            var phoneCodeVerification = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+            if (!phoneCodeVerification.test($(".phone").val())) {
+                alert("请输入正确的手机号码！");
+                return false;
+            }
             if (!confirm("你确定提交吗？")) {
                 return false;
             }
             $.ajax({
                 url:"/be/judge",
                 type:"post",
-                data:{"orderType":"01", "userName":userName, "userType":userType, "phone":phone, "address":address,
-                    "maxAmount":maxAmount, "houseHeight":houseHeight, "useTarget":useTarget, "userRemark":userRemark},
+                data:{"orderType":"1", "userName":userName, "userType":userType, "phone":phone,
+                    "address":address, "userNames":userNames, "phones":phones, "addresss":addresss,
+                    "maxAmount":maxAmount, "meterTypeName":meterTypeName,"meterCount":t_meterCount,
+                    "houseHeight":houseHeight, "useTarget":useTarget, "userRemark":userRemark,"stat":stat,"orderNo":orderNo,"userNo":userNo},
+                traditional: true,
                 success:function(integer){
                     var integer = integer;
-                    alert(integer);
+                    if (integer == 1){
+                        window.location.href = "/success/be/request";
+                    }else {
+                        window.location.href = "/error/be/request";
+                    }
                 }
             });
         })

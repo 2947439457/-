@@ -6,14 +6,14 @@ import java.io.Serializable;
 
 @Component
 public class SyMenu implements Serializable {
-
+//菜单
   private static final long serialVersionUID = -881596635153393790L;
   private Integer id;
-  private String menuName;
-  private String parent;
-  private Integer orderIndex;
-  private Integer flowId;
-  private String disabled;
+  private String menuName;//菜单名称
+  private String parent;//菜单上级ID
+  private Integer orderIndex;//菜单链接的URL
+  private Integer flowId;//此菜单项对应业扩流程中的流程ID
+  private Boolean disabled;//是否禁用
 
 
   public Integer getId() {
@@ -61,11 +61,11 @@ public class SyMenu implements Serializable {
   }
 
 
-  public String getDisabled() {
+  public Boolean getDisabled() {
     return disabled;
   }
 
-  public void setDisabled(String disabled) {
+  public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
 

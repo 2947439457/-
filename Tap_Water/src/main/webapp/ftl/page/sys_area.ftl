@@ -20,7 +20,30 @@
 	<link rel="stylesheet" href="../css/plugin/dataTables.css" type="text/css" media="screen" title="no title" />
 	
 	<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" title="no title">
-
+    <script src="js/jquery/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+        function del(i)
+        {$("input").remove();
+            var txt=$("<input type='hidden' name='deid' value="+i+"></input>");  // 以 jQuery 创建新元素
+            $("#bo").append(txt);        // 追加新元素
+        }
+    function sys_area_add(id){
+    $.ajax({
+    url:"sys_area_add", // 请求路径
+    type:"POST" , //请求方式
+    //data: "username=jack&age=23",//请求参数
+    data:{"id":id},
+    success:function (data) {  //响应成功后的回调函数
+    // alert(data);
+        sys_area_add.ftl(data);
+    },
+    error:function () {  //表示如果请求响应出现错误，会执行的回调函数
+    alert("出错啦...")
+    }
+    // dataType:"text"   //设置接受到的响应数据的格式
+    });
+    }
+    </script>
 </head> 
  
 <body> 
@@ -41,14 +64,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -174,7 +197,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">抄表辖区设置</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来,${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -190,17 +213,21 @@
 				<div style="height:80px;text-align:center;padding-top:50px;">
 					确认删除吗？
 				</div>
-				
-				<div class="dialogbutton center">
-					<a class="btn" href="javascript:closeDialog();" style="width:60px;">是</a>  
-					<a class="btn btn-grey" href="javascript:closeDialog();" style="width:60px;">否</a>
+				<form action="/delArea">
+				<div class="dialogbutton center" id="bo">
+                    <#--<input type="text" value="${}">-->
+
+                       <button class="btn" style="width:92px;">是</button>
+
+					<button class="btn btn-grey" style="width:92px;">否</button>
 				</div>
+                </form>
 			</div>
 			
 			<h2>抄表辖区设置</h2>
-			
-			<p><button class="btn-icon btn-plus" onClick="location='sys_area_add.html';"><span></span>添加抄表辖区</button></p>
-				
+                 <form action="/sys_area_add" method="post" accept-charset="utf-8">
+			        <p><button class="btn-icon btn-plus" onClick="location='sys_area_add.html';"><span></span>添加抄表辖区</button></p>
+                 </form>
 			<table class="data display">
 					<thead>
 						<tr>
@@ -211,69 +238,74 @@
 						</tr>
 					</thead>
 					<tbody>
+					<#list area as ar>
 						<tr class="odd gradeX">
-							<td>1</td>
-							<td>城东区</td>
-							<td>复兴路口以东</td>
+							<td>${ar.id}</td>
+							<td>${ar.areaName}</td>
+							<td>${ar.remark}</td>
 							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
+                                <form action="/sys_area_add" method="post" accept-charset="utf-8">
+                                    <input type="hidden" name="area" value="${ar.id}">
+                                    <button class="btn-icon btn-small btn-blue btn-star" "><span></span>修改</button>
+								    <a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross" onclick="del(${ar.id})"><span></span>删除</a>
+                                </form>
+                            </td>
 						</tr>
-						<tr class="even gradeC">
-							<td>2</td>
-							<td>城南区</td>
-							<td>四合大夏以南（含阳光巷子、添光巷子）</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="odd gradeA">
-							<td>3</td>
-							<td>城西区</td>
-							<td>复兴路口以西</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="even gradeA">
-							<td>4</td>
-							<td>城北区</td>
-							<td>市政府以北</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="odd gradeA">
-							<td>5</td>
-							<td>新开发区</td>
-							<td>富书开发区</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="even gradeA">
-							<td>6</td>
-							<td>旧城区</td>
-							<td>马驱旧城所属区域</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
-						<tr class="odd gradeA">
-							<td>7</td>
-							<td>特别商户</td>
-							<td>需要单独抄表的特类用水户所属</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
-							</td>
-						</tr>
+					</#list>
+						<#--<tr class="even gradeC">-->
+							<#--<td>2</td>-->
+							<#--<td>城南区</td>-->
+							<#--<td>四合大夏以南（含阳光巷子、添光巷子）</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd gradeA">-->
+							<#--<td>3</td>-->
+							<#--<td>城西区</td>-->
+							<#--<td>复兴路口以西</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="even gradeA">-->
+							<#--<td>4</td>-->
+							<#--<td>城北区</td>-->
+							<#--<td>市政府以北</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd gradeA">-->
+							<#--<td>5</td>-->
+							<#--<td>新开发区</td>-->
+							<#--<td>富书开发区</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="even gradeA">-->
+							<#--<td>6</td>-->
+							<#--<td>旧城区</td>-->
+							<#--<td>马驱旧城所属区域</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd gradeA">-->
+							<#--<td>7</td>-->
+							<#--<td>特别商户</td>-->
+							<#--<td>需要单独抄表的特类用水户所属</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_area_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>-->
+							<#--</td>-->
+						<#--</tr>-->
 						</tbody>
 					</table>
 			

@@ -39,14 +39,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="/be/request">01 用户申请</a></li>
-							<li><a href="/be/audit">02 初步审核</a></li>
-							<li><a href="/be/pay">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -196,15 +196,32 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="odd">
-							<td><a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-20140105-0001</a></td>
-							<td>新户</td>
-							<td>交施工费</td>
-							<td>财务室</td>
-							<td>2014-02-18</td>
-							<td>许三多</td>
-							<td><button class="btn-icon btn-small btn-blue btn-check" onClick="location.href = '/be/payForm';"><span></span>处理</button></td>
-						</tr>
+						<#list beOrders as bo>
+                        <tr class="odd">
+                            <td><a href="/be/orderInfo?orderNo=${bo.orderNo}" target="orderInfo">${bo.orderNo}</a></td>
+							<#if bo.orderType == 1>
+								<td>新户</td>
+							<#elseif bo.orderType == 2>
+								<td>分户</td>
+							<#elseif bo.orderType == 3>
+								<td>过户</td>
+							<#elseif bo.orderType == 4>
+								<td>代扣</td>
+							<#elseif bo.orderType == 5>
+								<td>换表</td>
+							<#elseif bo.orderType == 6>
+								<td>重签</td>
+							<#else>
+								<td>销户</td>
+							</#if>
+                            <td>${bo.getStepId().getStepName()}</td>
+                            <td>${bo.getStepId().getDeptId().getDeptName()}</td>
+                            <td>${bo.updateDate()}</td>
+                            <td>${bo.getUserNo().getUserName()}</td>
+                            <td><button class="btn-icon btn-small btn-blue btn-check"
+                                        onClick="location.href = '/be/chuLi?stepName=${bo.getStepId().getStepName()}&orderNo=${bo.orderNo}&userName=${bo.getUserNo().getUserName()}&orderType=${bo.getOrderType()}';"><span></span>处理</button></td>
+                        </tr>
+						</#list>
 					</tbody>
 				</table>
 				<div class="page">

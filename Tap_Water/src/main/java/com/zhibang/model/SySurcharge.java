@@ -6,11 +6,12 @@ import java.io.Serializable;
 
 @Component
 public class SySurcharge implements Serializable {
-
+//附加费关联
   private static final long serialVersionUID = 9037354444996853656L;
   private Integer id;
-  private SyCosttype surchargeId;
-  private SyCosttype waterTypeId;
+  private SyCosttype surchargeId;//附加符ID
+  private SyCosttype waterTypeId;//用水类型ID
+
 
   public Integer getId() {
     return id;

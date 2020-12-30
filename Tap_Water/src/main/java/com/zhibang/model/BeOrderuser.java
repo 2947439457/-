@@ -1,10 +1,12 @@
 package com.zhibang.model;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
 @Component
+@Scope("prototype")
 public class BeOrderuser implements Serializable {
 
   private static final long serialVersionUID = -6150821001751957931L;
@@ -24,7 +26,7 @@ public class BeOrderuser implements Serializable {
   private Integer startValue;
   private String meterFactory;
   private String docNum;
-  private String userNo;
+  private UsUser userNo;
 
   public Integer getId() {
     return id;
@@ -154,11 +156,11 @@ public class BeOrderuser implements Serializable {
     this.docNum = docNum;
   }
 
-  public String getUserNo() {
+  public UsUser getUserNo() {
     return userNo;
   }
 
-  public void setUserNo(String userNo) {
+  public void setUserNo(UsUser userNo) {
     this.userNo = userNo;
   }
 

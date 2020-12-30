@@ -39,14 +39,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="/be/request">01 用户申请</a></li>
-							<li><a href="/be/audit">02 初步审核</a></li>
-							<li><a href="/be/pay">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -182,16 +182,15 @@
 		<div class="x12">
 			
 			<h2>
-				交施工费 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-201412-0003</a>
+				交施工费 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
-			
-			<div class="buttonrow">
-				<button class="btn-icon btn-arrow-left btn-red" 
-					onclick="showDialog('确认撤回吗？');"><span></span>撤回</button>
-				<button class="btn-icon btn-arrow-right btn-blue" 
-					onclick="showDialog('确认发送吗？');"><span></span>发送</button>
-			</div>
+			<input type="hidden" id="userNo" value="${beOrder.userNo.userNo}">
+            <input type="hidden" id="orderType" value="${beOrder.orderType}">
+            <div class="buttonrow">
+                <button id="recall" class="btn-icon btn-arrow-left btn-red"><span></span>撤回</button>
+                <button id="send" class="btn-icon btn-arrow-right btn-blue"><span></span>发送</button>
+            </div>
 			
 <table width="100%">
 <thead>
@@ -207,7 +206,7 @@
 <tbody>
 	<tr>
 		<td>用户名称</td>
-		<td><input readonly="readonly" value="张三" /></td>
+		<td><input readonly="readonly" value="${beOrder.userNo.userName}" /></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -215,11 +214,29 @@
 	</tr>
 	<tr>
 		<td>总应收</td>
-		<td><input readonly="readonly" class="right" value="24000" /> 元</td>
+		<td>
+			<#if beOrder.projectMoney == 0.00>
+				<input readonly="readonly" class="yright" value="" />
+			<#else >
+				<input readonly="readonly" class="yright" value="${beOrder.projectMoney}" />
+			</#if>元
+		</td>
 		<td>总实收</td>
-		<td><input readonly="readonly" class="right" value="15000" /> 元</td>
+		<td>
+			<#if beOrder.realMoney == 0.00>
+				<input readonly="readonly" class="sright" value="" />
+			<#else >
+				<input readonly="readonly" class="sright" value="${beOrder.realMoney}" />
+			</#if>元
+		</td>
 		<td>总欠缴</td>
-		<td><input readonly="readonly" class="right" value="9000" /> 元</td>
+		<td>
+			<#if beOrder.userNo.userMoney == 0.00>
+				<input readonly="readonly" class="qright" value="" />
+			<#else >
+				<input readonly="readonly" class="qright" value="${beOrder.userNo.userMoney}" />
+			</#if>元
+		</td>
 	</tr>
 </tbody>
 </table>
@@ -228,26 +245,38 @@
 	<tr>
 		<th width="30">序号</th>
 		<th width="80">姓名</th>
-		<th width="120">应交金额（元）</th>
-		<th width="120">实收金额（元）</th>
-		<th width="120">发票号</th>
+		<th width="200">应交金额（元）</th>
+		<th width="200">实收金额（元）</th>
 		<th></th>
 	</tr>
 </thead>
 <tbody>
+<#list beOrderusers as bos>
 	<tr class="odd">
-		<td>1</td>
-		<td>张三</td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="right" size="12" value="" /></td>
-		<td><input class="center" size="12" value="" /></td>
-		<td></td>
+		<td>${bos_index+1}</td>
+        <td>${bos.userName}</td>
+        <td>
+			<#if bos.projectMoney == 0.00>
+				<input type="number" class="right ymoneys" size="12" value="" />
+			<#else >
+				<input type="number" class="right ymoneys" size="12" value="${bos.projectMoney}" />
+			</#if>元
+		</td>
+        <td>
+			<#if bos.realMoney == 0.00>
+				<input type="number" class="right smoneys" size="12" value="" />
+			<#else >
+				<input type="number" class="right smoneys" size="12" value="${bos.realMoney}" />
+			</#if>元
+		</td>
+        <td></td>
 	</tr>
+</#list>
 </tbody>
 </table>
 
 <div class="centerButtons">
-	<button class="btn">保存不发送</button>
+	<button class="btn baoCun">保存不发送</button>
 </div>
 			
 			
@@ -282,6 +311,88 @@ $(document).ready ( function ()
 {
 	Dashboard.init ();		
 });
+
+$(function () {
+
+    // 保存不发送
+    $(".baoCun").click(function () {
+		aa("baoCun");
+    })
+
+    $("#send").click(function () {
+        if (!confirm("你确定要发送吗？")) {
+            return false;
+        }
+        aa("send");
+    })
+
+    $("#recall").click(function () {
+        if (!confirm("你确定要撤回吗？")) {
+            return false;
+        }
+        aa("recall");
+    })
+
+     var aa = function(stmt){
+         var ynum = 0;
+         var snum = 0;
+         $('.ymoneys').each(function(i,n){
+             ynum = ynum + Number(n.value);
+         });
+         $('.smoneys').each(function(i,n){
+             snum = snum + Number(n.value);
+         });
+         $(".yright").val(ynum); //总应收金额
+         $(".sright").val(snum); //总实收金额
+         $(".qright").val(ynum-snum); //欠缴金额
+         $('.ymoneys').each(function(i,n){
+             if (n.value == ""){
+                 n.value = 0;
+             }
+         });
+         $('.smoneys').each(function(i,n){
+             if (n.value == ""){
+                 n.value = 0;
+             }
+         });
+         var orderNo = $("#orderNo").text(); //工单号
+         var orderUserMoney = new Array();
+         $('.odd').each(function (i, n) {
+             var userName = $(".odd:eq("+i+") td:eq("+1+")").text();
+             var ymoneys = $(".odd:eq("+i+") td:eq("+2+") .ymoneys").val();
+             var smoneys = $(".odd:eq("+i+") td:eq("+3+") .smoneys").val();
+             orderUserMoney.push({"userName":userName, "projectMoney":ymoneys, "realMoney":smoneys});
+         })
+         $.ajax({
+             url:"/be/disposePay",
+             type:"post",
+             data:{
+                 "stmt":stmt
+                 ,"orderNo":orderNo
+				 ,"orderType":$("#orderType").val()
+                 ,"projectMoney":$(".yright").val()
+                 ,"realMoney":$(".sright").val()
+                 ,"userMoney":$(".qright").val()
+                 ,"userNo":$("#userNo").val()
+                 ,"orderUserMoney":JSON.stringify(orderUserMoney)
+             },
+             success:function (integer) {
+                 if (integer == 0){
+                     alert("保存失败：请检查数据的准确性！")
+                 }
+                 if (integer==1){
+                     alert("保存成功！");
+                 }
+                 if (integer==2){
+                     window.location.href="/success/be/pay";
+                 }
+                 if (integer==3){
+                     window.location.href="/error/be/pay";
+                 }
+             }
+         });
+    }
+})
 
 </script>
 

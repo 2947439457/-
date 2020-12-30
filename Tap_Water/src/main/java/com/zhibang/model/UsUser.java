@@ -1,11 +1,13 @@
 package com.zhibang.model;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Component
+@Scope(value = "prototype")
 public class UsUser implements Serializable {
 
   private static final long serialVersionUID = 8248024855748530967L;

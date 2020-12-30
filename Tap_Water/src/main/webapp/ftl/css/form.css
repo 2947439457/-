@@ -16,7 +16,7 @@ FORM
 .form .buttonrow { float: left; margin-top: 1em; margin-bottom: 2.5em; margin-left: 145px; display: block; }
 .form .buttonrow .btn,.form .buttonrow .btn-icon { margin-right:10px; }
 .form .cancel { font-size: 11px; color: #C00; padding-left: 10px; }
-.form .field { margin-bottom: 1.5em; }
+.form from .field { margin-bottom: 1.5em; }
 .form .uploader { margin-bottom: .5em !important; }
 
 

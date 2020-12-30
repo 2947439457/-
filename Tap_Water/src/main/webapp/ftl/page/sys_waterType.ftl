@@ -41,14 +41,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -174,7 +174,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">用水类型设定</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -213,72 +213,85 @@
 						</tr>
 					</thead>
 					<tbody>
+					<#list syCosttypes as costtypes>
 						<tr class="odd">
-							<td>1</td>
-							<td>SH</td>
-							<td>生活用水</td>
-							<td>1.69</td>
-							<td>居民生活用水</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
-							</td>
-						</tr>
-						<tr class="even">
-							<td>2</td>
-							<td>SY</td>
-							<td>商业用水</td>
-							<td>2.41</td>
-							<td>商业经营用水</td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
-							</td>
-						</tr>
-						<tr class="odd">
-							<td>3</td>
-							<td>GY</td>
-							<td>工业用水</td>
-							<td>1.47</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
-							</td>
-						</tr>
-						<tr class="even">
-							<td>4</td>
-							<td>XZ</td>
-							<td>行政用水</td>
-							<td>1.34</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
-							</td>
-						</tr>
-						<tr class="odd">
-							<td>5</td>
-							<td>JQ</td>
-							<td>军区用水</td>
-							<td>1.12</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
-							</td>
-						</tr>
-						<tr class="even">
-							<td>6</td>
-							<td>TZ</td>
-							<td>特种用水</td>
-							<td>6.77</td>
-							<td></td>
-							<td class="center">
-								<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  
-								<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
-							</td>
-						</tr>
+                            <td>${costtypes.id}</td>
+                            <td>${costtypes.code}</td>
+                            <td>${costtypes.costTypeName}</td>
+                            <td>${costtypes.peice}</td>
+                            <td>${costtypes.remark}</td>
+                            <td class="center">
+                                <button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>
+                                <a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>
+                            </td>
+                        </tr>
+					</#list>
+                    <#--<tr class="odd">-->
+                        <#--<td>1</td>-->
+                        <#--<td>SH</td>-->
+                        <#--<td>生活用水</td>-->
+                        <#--<td>1.69</td>-->
+                        <#--<td>居民生活用水</td>-->
+                        <#--<td class="center">-->
+                            <#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>-->
+                            <#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>-->
+                        <#--</td>-->
+                    <#--</tr>-->
+						<#--<tr class="even">-->
+							<#--<td>2</td>-->
+							<#--<td>SY</td>-->
+							<#--<td>商业用水</td>-->
+							<#--<td>2.41</td>-->
+							<#--<td>商业经营用水</td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd">-->
+							<#--<td>3</td>-->
+							<#--<td>GY</td>-->
+							<#--<td>工业用水</td>-->
+							<#--<td>1.47</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="even">-->
+							<#--<td>4</td>-->
+							<#--<td>XZ</td>-->
+							<#--<td>行政用水</td>-->
+							<#--<td>1.34</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="odd">-->
+							<#--<td>5</td>-->
+							<#--<td>JQ</td>-->
+							<#--<td>军区用水</td>-->
+							<#--<td>1.12</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>-->
+							<#--</td>-->
+						<#--</tr>-->
+						<#--<tr class="even">-->
+							<#--<td>6</td>-->
+							<#--<td>TZ</td>-->
+							<#--<td>特种用水</td>-->
+							<#--<td>6.77</td>-->
+							<#--<td></td>-->
+							<#--<td class="center">-->
+								<#--<button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_waterType_add.html';"><span></span>修改</button>  -->
+								<#--<a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>禁用</a>-->
+							<#--</td>-->
+						<#--</tr>-->
 					
 					</tbody>
 				</table>

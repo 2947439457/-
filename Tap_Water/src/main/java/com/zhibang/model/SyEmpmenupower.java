@@ -6,11 +6,12 @@ import java.io.Serializable;
 
 @Component
 public class SyEmpmenupower implements Serializable {
-
+//员工菜单权限
   private static final long serialVersionUID = -790659245149477400L;
   private Integer id;
-  private SyEmp empId;
-  private SyMenu menuId;
+  private SyEmp empId;//员工ID
+  private SyMenu menuId;//菜单ID
+
 
   public Integer getId() {
     return id;

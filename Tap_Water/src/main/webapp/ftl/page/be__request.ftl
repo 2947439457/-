@@ -48,16 +48,16 @@
 				<li class="nav_dropdown nav_icon">
 					<a href="javascript:;"><span class="ui-icon ui-icon-wrench"></span>业扩工程</a>
 					
-					<div class="nav_menu">			
+					<div class="nav_menu">
 						<ul>
 							<li><a href="/be/request">01 用户申请</a></li>
 							<li><a href="/be/audit">02 初步审核</a></li>
 							<li><a href="/be/pay">03 交施工费</a></li>
 							<li><a href="/be/billclear">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
+							<li><a href="/be/contarct">05 供水协议</a></li>
+							<li><a href="/be/working">06 施工竣工</a></li>
+							<li><a href="/be/open">07 通水停水</a></li>
+							<li><a href="/be/save">08 档案存档</a></li>
 							<li><a href="be_order.ftl">工单管理</a></li>
 							<li><a href="be_abort.ftl">终止工单</a></li>
 							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
@@ -194,14 +194,14 @@
 			
 			<h2>用户申请</h2>
 			
-			<a class="metro" href="/be/requestInt?rid=1">新户</a>
-			<a class="metro" href="/be/requestInt?rid=2">分户</a>
-			<a class="metro" href="/be/requestInt?rid=3">过户</a>
-			<a class="metro" href="/be/requestInt?rid=4">代扣</a>
-			<a class="metro" href="/be/requestInt?rid=5">换表</a>
-			<a class="metro" href="/be/requestInt?rid=6">重签</a>
-			<a class="metro" href="/be/requestInt?rid=7">销户</a>
-			<a class="metro" href="be__requestOrder.ftl">工单</a>
+			<a class="metro" href="/be/requestInt?orderType=1">新户</a>
+			<a class="metro" href="/be/requestInt?orderType=2">分户</a>
+			<a class="metro" href="/be/requestInt?orderType=3">过户</a>
+			<a class="metro" href="/be/requestInt?orderType=4">代扣</a>
+			<a class="metro" href="/be/requestInt?orderType=5">换表</a>
+			<a class="metro" href="/be/requestInt?orderType=6">重签</a>
+			<a class="metro" href="/be/requestInt?orderType=7">销户</a>
+			<a class="metro" href="/be/requestOrder">工单</a>
 			
 			
 			
@@ -232,9 +232,9 @@
 
 <script type="text/javascript">
 	
-$(document).ready ( function () 
+$(document).ready ( function ()
 {
-	Dashboard.init ();		
+	Dashboard.init ();
 });
 
 </script>

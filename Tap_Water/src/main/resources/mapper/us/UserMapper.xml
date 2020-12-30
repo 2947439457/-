@@ -3,17 +3,40 @@
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.zhibang.mapper.us.UserMapper">
+<mapper namespace="com.zhibang.mapper.usMapper.UserMapper">
 
+    <!--yjh-->
     <insert id="addUser">
         INSERT INTO `tap_water`.`us_user`
-          (`UserNo`, `UserName`, `CreateDate`, `Address`, `Phone`, `UserType`)
+          (`UserNo`, `UserName`, `CreateDate`, `Address`, `Phone`, `UserType`, `MeterID`)
         VALUES
-          (#{userNo}, #{userName}, NOW(), #{address}, #{phone}, #{userType}) ;
+          (#{userNo}, #{userName}, NOW(), #{address}, #{phone}, #{userType}, #{meterId.id}) ;
     </insert>
-
+    <!--yjh-->
     <select id="selectUserNo" parameterType="Integer" resultType="String">
-        SELECT MAX(RIGHT(UserNo, 8)) FROM us_user WHERE LEFT(UserNo, 2)=${orderType};
+        SELECT MAX(RIGHT(UserNo, 8)) FROM us_user WHERE RIGHT(LEFT(UserNo, 2),1) = #{orderType};
     </select>
+
+    <select id="selectUsUser" parameterType="String" resultType="usUser">
+        select * from us_user where UserNo = #{userNo};
+    </select>
+    <!--yjh:可扩展-->
+    <update id="updateUsUserUserNo">
+        UPDATE
+          `tap_water`.`us_user`
+        SET
+            `UserNo` = #{userNo}
+        <if test="userName != null || address != null || phone != null || userType != null">
+            ,`UserName` = #{userName}
+            ,`Address` = #{address}
+            ,`Phone` = #{phone}
+            ,`UserType` = #{userType}
+        </if>
+        <if test="userMoney != null">
+            ,`UserMoney` = #{userMoney}
+        </if>
+
+        WHERE `UserNo` = #{userNo} ;
+    </update>
 
 </mapper>
