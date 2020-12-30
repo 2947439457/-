@@ -69,7 +69,7 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="user_search.ftl">用户查询</a></li>
+                            <li><a href="/rd/volume_default">表册管理</a></li>
 							<li><a href="user_add.ftl">快捷新户</a></li>
 							<li><a href="user_changeName.ftl">快捷过户</a></li>
 							<li><a href="user_changeBank.ftl">快捷代扣</a></li>

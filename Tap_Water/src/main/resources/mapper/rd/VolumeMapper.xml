@@ -3,25 +3,99 @@
         PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhibang.mapper.rd.VolumeMapper">
+<!--LHH-->
+    <!--配置表册，所用表：UsMeter 与 UsUser-->
+    <resultMap id="usMeter" type="com.zhibang.model.UsMeter">
+        <id column="MeterNo" property="meterNo"></id>
+        <result column="MeterName" property="meterName"></result>
 
-    <!--RD：表册-->
-    <resultMap id="volume" type="com.zhibang.model.RdVolume">
-        <id property="ID" column="id"></id>
-        <result property="volumeName" column="volumeName"></result>
-        <result property="orderIndex" column="orderIndex"></result>
-        <result property="remark" column="remark"></result>
-        <result property="disabled" column="disabled"></result>
+        <association property="userNo" javaType="UsUser">
+            <result column="UserNo" property="userNo"></result>
+            <result column="UserName" property="userName"></result>
+            <result column="Address" property="address"></result>
+            <result column="VolumeOrderIndex" property="volumeOrderIndex"></result>
+        </association>
+    </resultMap>
 
-        <association property="AreaID" javaType="SyArea">
-            <id property="ID" column="id"></id>
-            <result property="AreaName" column="areaName"></result>
-            <result property="Remark" column="remark"></result>
-            <result property="Disabled" column="disabled"></result>
+    <!--配置表册,所用表：us_meter、us_user、sy_area、rd_volume -->
+    <resultMap id="usUser" type="com.zhibang.model.UsUser">
+        <id column="UserNo" property="userNo"></id>
+        <result column="UserName" property="userName"></result>
+        <result column="Address" property="address"></result>
+        <result column="VolumeOrderIndex" property="volumeOrderIndex"></result>
+
+
+        <association property="usMeter" javaType="UsMeter">
+            <id column="MeterNo" property="meterNo"></id>
+            <result column="MeterName" property="meterName"></result>
+        </association>
+
+        <association property="rdVolume" javaType="RdVolume">
+            <id column="VolumeID" property="id"></id>
+
+        </association>
+        
+        <association property="syArea" javaType="SyArea">
+            <result column="AreaName" property="areaName"></result>
         </association>
 
     </resultMap>
-    <!--查询所有表册信息-->
-    <select id="QueryAllVolume" resultMap="volume">
-        SELECT * FROM  `tap_water`.`rd_volume`
+
+    <!--配置辖区，所用表：SyArea-->
+    <resultMap id="syArea" type="com.zhibang.model.SyArea">
+        <id column="Id" property="id"></id>
+        <result column="AreaName" property="areaName"></result>
+    </resultMap>
+
+    <!--配置表册：所用表RdVolume、SyArea-->
+       <resultMap id="rdVolume" type="com.zhibang.model.RdVolume">
+           <id column="Id" property="id"></id>
+           <result column="VolumeName" property="volumeName"></result>
+
+           <association property="areaId" javaType="SyArea">
+               <id column="Id" property="id"></id>
+               <result column="AreaName" property="areaName"></result>
+           </association>
+
+       </resultMap>
+
+
+
+       <!--查询所有表册信息：（默认）显示未分配用户-->
+    <select id="queryAllVolume_Default" resultMap="usUser">
+        SELECT a.`VolumeID`,a.`UserNo`,b.`MeterName`,a.`UserName`,a.`Address`
+        FROM us_user AS a
+        JOIN us_meter AS b
+        ON a.`UserNo`=b.`UserNo`
+        <if test="">
+
+        </if>
+        WHERE a.`VolumeID` IS NULL;
     </select>
+
+    <!--查询辖区名称-->
+    <select id="queryAllArea" resultMap="syArea">
+
+    SELECT sy_area.`AreaName` FROM sy_area
+
+    </select>
+
+    <!--查询辖区中的表册名-->
+    <select id="queryAllVolumeName" resultMap="rdVolume">
+        SELECT a.`ID`,a.`VolumeName`,b.`ID`,b.`AreaName`
+        FROM rd_volume AS a
+        JOIN sy_area   AS b
+        ON a.`AreaID`=b.`ID`;
+    </select>
+
+    <select id="queryAllVolume_Param" parameterType="String" resultMap="usUser">
+        SELECT a.`VolumeOrderIndex`,a.`UserNo`,b.`MeterName`,a.`UserName`,a.`Address`
+        FROM us_user   AS a
+        JOIN us_meter  AS b
+        JOIN rd_volume AS c
+        ON a.`UserNo`=b.`UserNo`
+        WHERE c.`VolumeName`="城东#1" AND a.`VolumeID` IS NOT NULL
+        GROUP BY a.`UserNo`;
+    </select>
+
 </mapper>

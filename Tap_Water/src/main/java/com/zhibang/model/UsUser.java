@@ -15,7 +15,7 @@ public class UsUser implements Serializable {
   private Date createDate;
   private String address;
   private String phone;
-  private SyArea areaId;
+  private SyArea syArea;
   private String userType;
   private String payType;
   private String bankName;
@@ -26,9 +26,10 @@ public class UsUser implements Serializable {
   private String docNum;
   private String contractNum;
   private Date contractDate;
-  private RdVolume volumeId;
+  private RdVolume rdVolume;
   private Integer volumeOrderIndex;
   private Boolean disabled;
+  private UsMeter usMeter;
 
   public String getUserNo() {
     return userNo;
@@ -78,12 +79,12 @@ public class UsUser implements Serializable {
     this.phone = phone;
   }
 
-  public SyArea getAreaId() {
-    return areaId;
+  public SyArea getSyArea() {
+    return syArea;
   }
 
-  public void setAreaId(SyArea areaId) {
-    this.areaId = areaId;
+  public void setSyArea(SyArea syArea) {
+    this.syArea = syArea;
   }
 
   public String getUserType() {
@@ -166,12 +167,12 @@ public class UsUser implements Serializable {
     this.contractDate = contractDate;
   }
 
-  public RdVolume getVolumeId() {
-    return volumeId;
+  public RdVolume getRdVolume() {
+    return rdVolume;
   }
 
-  public void setVolumeId(RdVolume volumeId) {
-    this.volumeId = volumeId;
+  public void setRdVolume(RdVolume rdVolume) {
+    this.rdVolume = rdVolume;
   }
 
   public Integer getVolumeOrderIndex() {
@@ -190,6 +191,14 @@ public class UsUser implements Serializable {
     this.disabled = disabled;
   }
 
+  public UsMeter getUsMeter() {
+    return usMeter;
+  }
+
+  public void setUsMeter(UsMeter usMeter) {
+    this.usMeter = usMeter;
+  }
+
   @Override
   public String toString() {
     return "UsUser{" +
@@ -199,7 +208,7 @@ public class UsUser implements Serializable {
             ", createDate=" + createDate +
             ", address='" + address + '\'' +
             ", phone='" + phone + '\'' +
-            ", areaId=" + areaId +
+            ", syArea=" + syArea +
             ", userType='" + userType + '\'' +
             ", payType='" + payType + '\'' +
             ", bankName='" + bankName + '\'' +
@@ -210,9 +219,10 @@ public class UsUser implements Serializable {
             ", docNum='" + docNum + '\'' +
             ", contractNum='" + contractNum + '\'' +
             ", contractDate=" + contractDate +
-            ", volumeId=" + volumeId +
+            ", rdVolume=" + rdVolume +
             ", volumeOrderIndex=" + volumeOrderIndex +
             ", disabled=" + disabled +
+            ", usMeter=" + usMeter +
             '}';
   }
 }

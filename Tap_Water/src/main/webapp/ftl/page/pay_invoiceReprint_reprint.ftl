@@ -104,7 +104,7 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="rd_volume.ftl">表册管理</a></li>
+                            <li><a href="/rd/volume_default">表册管理</a></li>
 							<li><a href="rd_init.ftl">抄表初始化</a></li>
 							<li><a href="rd_task.ftl">任务分配</a></li>
 							<li><a href="rd_enter.ftl">抄表录入</a></li>
