@@ -52,8 +52,8 @@
                             <li><a href="/be/save">08 档案存档</a></li>
                             <li><a href="/be/order">工单管理</a></li>
                             <li><a href="/be/abort">终止工单</a></li>
-                            <li><a href="../page/be_reportProgress.html">业扩工程进度</a></li>
-                            <li><a href="../page/be_reportMoney.html">业扩收费报表</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
                         </ul>
 
                     </div>

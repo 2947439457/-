@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
@@ -37,7 +38,7 @@ public class BeOrder implements Serializable {
     private String auditMessage;
     private Double projectMoney;
     private Double realMoney;
-    private Timestamp payDate;
+    private Date payDate;
     private Timestamp projectDate1;
     private Timestamp projectDate2;
     private SyArea areaId;
@@ -249,11 +250,11 @@ public class BeOrder implements Serializable {
         this.realMoney = realMoney;
     }
 
-    public Timestamp getPayDate() {
+    public Date getPayDate() {
         return payDate;
     }
 
-    public void setPayDate(Timestamp payDate) {
+    public void setPayDate(Date payDate) {
         this.payDate = payDate;
     }
 

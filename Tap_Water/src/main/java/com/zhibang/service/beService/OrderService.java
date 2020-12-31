@@ -10,8 +10,13 @@ import java.util.List;
 public interface OrderService {
     //工单管理：xxy
     public List<BeOrder> queryAllOrder(@Param("orderType") String orderType, @Param("stepName") String stepName, @Param("orderNo") String orderNo, @Param("userName") String userName);
-    //查询工单进度：xxy
-    public List<BeFlow> queryStepNameType();
+
+    //业扩收费报表查询：xxy
+    public List<BeOrder> selAllOrder(@Param("orderType") String orderType, @Param("time1") String time1, @Param("time2") String time2);
+
+    //业扩收费查询总交费:xxy
+    public Double selSumMoney(@Param("orderType") String orderType, @Param("time1") String time1, @Param("time2") String time2);
+
     //yjh
     public List<BeOrder> selBeOrderStepId(Integer stepId, String orderType);
     //流程处理-yjh

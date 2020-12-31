@@ -10,6 +10,8 @@
         <id property="orderNo" column="orderNo"/>
         <result property="orderType" column="orderType"/>
         <result property="lastEditDate" column="lastEditDate"/>
+        <result property="payDate" column="payDate"/>
+        <result property="realMoney" column="realMoney"/>
         <association property="stepId" javaType="BeFlow">
             <result property="stepName" column="stepName"/>
             <association property="deptId" javaType="SyDept">
@@ -20,6 +22,48 @@
             <result property="userName" column="userName"/>
         </association>
     </resultMap>
+
+
+    <!--业扩收费报表查询：xxy-->
+    <select id="selAllOrder" resultMap="orderAsFlowAsDeptAsUser">
+        SELECT bo.`OrderNo`,bo.`OrderType`, bo.`PayDate`, bo.`RealMoney`,
+        bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
+        FROM be_order AS bo,be_flow AS bf,sy_dept AS sd,us_user AS us
+        WHERE bo.`StepID` = bf.`ID`
+        AND bf.`DeptID` = sd.`ID`
+        AND bo.`UserNo` = us.`UserNo`
+        <if test="orderType != ''">
+            AND bo.`OrderType` in (${orderType})
+        </if>
+        <if test="time1 != ''">
+            AND bo.`PayDate` &gt;= #{time1}
+        </if>
+
+        <if test="time2 != ''">
+            AND bo.`PayDate` &lt;= #{time2}
+        </if>
+
+    </select>
+
+    <!--业扩收费查询总交费:xxy-->
+    <select id="selSumMoney" resultType="Double">
+        SELECT SUM(bo.`RealMoney`)
+        FROM be_order AS bo,be_flow AS bf,sy_dept AS sd,us_user AS us
+        WHERE bo.`StepID` = bf.`ID`
+        AND bf.`DeptID` = sd.`ID`
+        AND bo.`UserNo` = us.`UserNo`
+        <if test="orderType != ''">
+            AND bo.`OrderType` in (${orderType})
+        </if>
+        <if test="time1 != ''">
+            AND bo.`PayDate` &gt;= #{time1}
+        </if>
+
+        <if test="time2 != ''">
+            AND bo.`PayDate` &lt;= #{time2}
+        </if>
+
+    </select>
 
     <!--yjh-->
     <insert id="addOrder">
@@ -37,18 +81,35 @@
         SELECT MAX(RIGHT(orderNo, 4)) FROM be_order WHERE LEFT(orderNo, 2)=#{orderType} AND LEFT(RIGHT(OrderNo, 9), 2)=MONTH(CURDATE());
     </select>
 
-    <!--工单管理：xxy-->
+    <!--根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy-->
     <select id="queryAllOrder" resultMap="orderAsFlowAsDeptAsUser">
-        SELECT bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
-        FROM be_order AS bo,be_flow AS bf,sy_dept AS sd,us_user AS us
-        WHERE bo.`StepID` = bf.`ID`
+        SELECT
+        bo.`OrderNo`,bo.`OrderType`, bo.`payDate`, bo.`RealMoney`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
+        FROM
+        be_order AS bo,
+        be_flow AS bf,
+        sy_dept AS sd,
+        us_user AS us
+        WHERE
+        bo.`StepID` = bf.`ID`
         AND bf.`DeptID` = sd.`ID`
         AND bo.`UserNo` = us.`UserNo`
-    </select>
 
-    <!--查询工单进度：xxy-->
-    <select id="queryStepNameType" resultType="BeFlow">
-        SELECT `StepName` FROM `be_flow`;
+        <if test="orderType != null">
+            and bo.`OrderType` = #{orderType}
+        </if>
+
+        <if test="stepName != null">
+            and bf.`StepName` = #{stepName}
+        </if>
+
+        <if test="orderNo != null">
+            and bo.`OrderNo` LIKE "%${orderNo}%"
+        </if>
+
+        <if test="userName != null">
+            and us.`UserName` LIKE "%${userName}%"
+        </if>
     </select>
 
     <!--yjh-->
@@ -95,37 +156,6 @@
         WHERE `OrderNo` = #{orderNo};
     </update>
 
-
-    <!--根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy-->
-    <select id="queryTypeOrNameOrUserNo" resultMap="orderAsFlowAsDeptAsUser">
-        SELECT
-         bo.`OrderNo`,bo.`OrderType`,bf.`StepName`,sd.`DeptName`,bo.`LastEditDate`,us.`UserName`
-        FROM
-         be_order AS bo,
-         be_flow AS bf,
-         sy_dept AS sd,
-         us_user AS us
-        WHERE
-         bo.`StepID` = bf.`ID`
-         AND bf.`DeptID` = sd.`ID`
-         AND bo.`UserNo` = us.`UserNo`
-
-             <if test="orderType != null">
-                and bo.`OrderType` = #{orderType}
-             </if>
-
-             <if test="stepName != null">
-                 and bf.`StepName` = #{stepName}
-             </if>
-
-             <if test="orderNo != null">
-                 and bo.`OrderNo` LIKE "%${orderNo}%"
-             </if>
-
-             <if test="userName != null">
-                 and us.`UserName` LIKE "%${userName}%"
-             </if>
-    </select>
 
     <!--工单信息以及用户详细：yjh-->
     <resultMap id="beOrderAndUsUser" type="com.zhibang.model.BeOrder">

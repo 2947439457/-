@@ -49,10 +49,10 @@
                             <li><a href="/be/working">06 施工竣工</a></li>
                             <li><a href="/be/open">07 通水停水</a></li>
                             <li><a href="/be/save">08 档案存档</a></li>
-							<li><a href="be_order.ftl">工单管理</a></li>
-							<li><a href="be_abort.ftl">终止工单</a></li>
-							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-							<li><a href="../page/be_reportMoney.ftl">业扩收费报表</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
 						</ul>
 						
 					</div>
@@ -186,14 +186,14 @@
 			
 			<div class="searchDiv">
 				业扩类型 &nbsp;&nbsp;
-						 <label><input type="checkbox" class="chk" checked="checked" />新户</label>
-				         <label><input type="checkbox" class="chk" checked="checked" />分户</label>
-						 <label><input type="checkbox" class="chk" checked="checked" />换表</label>
+						 <label><input type="checkbox" class="chk" value="1" checked="checked"/>新户</label>
+				         <label><input type="checkbox" class="chk" value="2" />分户</label>
+						 <label><input type="checkbox" class="chk" value="3" />换表</label>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				交费日期 <span class="between">
-							<input onClick="WdatePicker();" /> - <input onClick="WdatePicker();" />
+							<input type="date" id="time1"/> - <input type="date" id="time2"/>
 						</span>
-				<button class="btn btn-small btn-icon btn-find"><span></span>查询</button>
+				<button id="choose" class="btn btn-small btn-icon btn-find"><span></span>查询</button>
 			</div>
 			
 			
@@ -201,111 +201,44 @@
 				业扩收费报表
 			</div>	
 			<div class="height24">
-				<div style="float:left;width:200px;">收费总金额：239434.00 元</div>
+                <div style="float:left;width:200px;">收费总金额：<span id="summ">${sumMoney}</span>元</div>
 			</div>
 			<table class="report">
 				<thead>
 					<tr>
-						<th width="140">工单号</th>
+						<th width="120">工单号</th>
 						<th width="60">类型</th>
-						<th>工单户名</th>
-						<th width="120">用户姓名</th>
+						<th width="100">工单户名</th>
+						<th width="100">用户姓名</th>
 						<th width="120">交费日期</th>
-						<th width="120">交费金额</th>
-						<th width="120">发票号码</th>
+						<th width="100">交费金额</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td class="center">B1-20140105-0001</td>
-						<td class="center">新户</td>
-						<td class="left">中国电信家属区A楼</td>
-						<td class="left">张三</td>
-						<td class="center">2014年01月27日</td>
-						<td class="right">3000.00 元</td>
-						<td class="center">48549933</td>
-					</tr>
-					<tr>
-						<td class="center">B1-20140105-0001</td>
-						<td class="center">新户</td>
-						<td class="left">中国电信家属区A楼</td>
-						<td class="left">李四</td>
-						<td class="center">2014年01月27日</td>
-						<td class="right">3000.00 元</td>
-						<td class="center">48549933</td>
-					</tr>
-					<tr>
-						<td class="center">B1-20140105-0001</td>
-						<td class="center">新户</td>
-						<td class="left">中国电信家属区A楼</td>
-						<td class="left">王五</td>
-						<td class="center">2014年01月27日</td>
-						<td class="right">3000.00 元</td>
-						<td class="center">48549933</td>
-					</tr>
-					<tr>
-						<td class="center">B1-20140105-0001</td>
-						<td class="center">新户</td>
-						<td class="left">中国电信家属区A楼</td>
-						<td class="left">赵六</td>
-						<td class="center">2014年01月27日</td>
-						<td class="right">3000.00 元</td>
-						<td class="center">48549933</td>
-					</tr>
-					<tr>
-						<td class="center">B1-20140105-0001</td>
-						<td class="center">新户</td>
-						<td class="left">中国电信家属区A楼</td>
-						<td class="left">钱七</td>
-						<td class="center">2014年01月27日</td>
-						<td class="right">3000.00 元</td>
-						<td class="center">48549933</td>
-					</tr>
-					<tr>
-						<td class="center">B1-20140105-0001</td>
-						<td class="center">新户</td>
-						<td class="left">中国电信家属区A楼</td>
-						<td class="left">唐八</td>
-						<td class="center">2014年01月27日</td>
-						<td class="right">3000.00 元</td>
-						<td class="center">48549933</td>
-					</tr>
-					<tr>
-						<td class="center">B1-20140105-0001</td>
-						<td class="center">新户</td>
-						<td class="left">中国电信家属区A楼</td>
-						<td class="left">何九</td>
-						<td class="center">2014年01月27日</td>
-						<td class="right">3000.00 元</td>
-						<td class="center">48549933</td>
-					</tr>
-					<tr>
-						<td class="center">B1-20140105-0001</td>
-						<td class="center">新户</td>
-						<td class="left">中国电信家属区A楼</td>
-						<td class="left">布十</td>
-						<td class="center">2014年01月27日</td>
-						<td class="right">3000.00 元</td>
-						<td class="center">48549933</td>
-					</tr>
-					<tr>
-						<td class="center">B1-20140105-0374</td>
-						<td class="center">新户</td>
-						<td class="left">许文强</td>
-						<td class="left">许文强</td>
-						<td class="center">2014年01月27日</td>
-						<td class="right">3000.00 元</td>
-						<td class="center">48549933</td>
-					</tr>
-					<tr>
-						<td class="center">B1-20140105-0291</td>
-						<td class="center">换表</td>
-						<td class="left">丁力</td>
-						<td class="left">丁力</td>
-						<td class="center">2014年01月27日</td>
-						<td class="right">3000.00 元</td>
-						<td class="center">48549933</td>
-					</tr>
+				<tbody id="td">
+					<#list user as u>
+						<tr>
+							<td class="center">${u.orderNo}</td>
+							<#if u.orderType == 1>
+								<td class="center">新户</td>
+							<#elseif u.orderType == 2>
+								<td class="center">分户</td>
+							<#elseif u.orderType == 3>
+								<td class="center">过户</td>
+							<#elseif u.orderType == 4>
+								<td class="center">代扣</td>
+							<#elseif u.orderType == 5>
+								<td class="center">换表</td>
+							<#elseif u.orderType == 6>
+								<td class="center">重签</td>
+							<#elseif u.orderType == 7>
+								<td class="center">销户</td>
+							</#if>
+							<td class="center">${u.getUserNo().getUserName()}</td>
+							<td class="center">${u.getUserNo().getUserName()}</td>
+							<td class="center">${u.payDate}</td>
+							<td class="center">${u.realMoney}</td>
+						</tr>
+					</#list>
 				</tbody>
 				</table>
 				<div class="page">
@@ -349,6 +282,64 @@ $(document).ready ( function ()
 	Dashboard.init ();
 	
 });
+
+
+$(function () {
+	$("#choose").click(function () {
+	    var chk = "";
+	    $(".chk").each(function (i, n) {
+	        if ($(this).attr("checked")){
+	            chk = chk + n.value + ",";
+			}
+        });
+
+	    //去掉字符串最后一个逗号
+        var lastIndex = chk.lastIndexOf(',');
+        if (lastIndex > -1) {
+            chk = chk.substring(0, lastIndex) + chk.substring(lastIndex + 1, chk.length);
+        }
+
+        var time1 = $("#time1").val();
+        var time2 = $("#time2").val();
+		var table = $("#td tr");
+		$.ajax({
+			url:"/be/ordMon",
+			type:"post",
+			data:{"orderType":chk, "time1":time1, "time2":time2},
+			success:function (result) {
+                var re = result;
+			    table.remove();
+			    console.log(re);
+                $("#summ").text(re.sumMoney);
+                var tb;
+                for(var it in re.user){
+                    tb = "<tr>"+
+                    "<td class='center'>"+re.user[it].orderNo+"</td>";
+							if (re.user[it].orderType == 1) {
+                                tb = tb + "<td class='center'>新户</td>";
+                            }else if (re.user[it].orderType == 2) {
+                                tb = tb + "<td class='center'>分户</td>";
+                            }else if (re.user[it].orderType == 3) {
+                                tb = tb + "<td class='center'>过户</td>";
+                            }else if (re.user[it].orderType == 4){
+								tb = tb + "<td class='center'>代扣</td>";
+                            }else if (re.user[it].orderType == 5){
+								tb = tb + "<td class='center'>换表</td>";
+                			}else if (re.user[it].orderType == 6){
+								tb = tb + "<td class='center'>重签</td>";
+							}else if (re.user[it].orderType == 7) {
+                                tb = tb + "<td class='center'>销户</td>";
+                            }
+                        tb = tb + "<td class='center'>"+re.user[it].userNo.userName+"</td>"+
+                            "<td class='center'>"+re.user[it].userNo.userName+"</td>"+
+                            "<td class='center'>"+re.user[it].payDate+"</td>"+
+                            "<td class='center'>"+re.user[it].realMoney+"</td></tr>";
+                    $("#td").append(tb);
+				}
+            }
+		})
+    })
+})
 
 
 </script>
