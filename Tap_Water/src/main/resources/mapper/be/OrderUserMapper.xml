@@ -30,7 +30,7 @@
     </delete>
 
     <!--修改工单信息详情表：可扩展-->
-    <update id="upBeOrderuserMoney">
+    <update id="upBeOrderuser">
         UPDATE
           `tap_water`.`be_orderuser`
         SET
@@ -40,6 +40,12 @@
         </if>
         <if test="realMoney != null">
             ,`RealMoney` = #{realMoney}
+        </if>
+        <if test="formula != null">
+            ,`Formula` = #{formula}
+        </if>
+        <if test="contractNum != null">
+            ,`ContractNum` = #{contractNum}
         </if>
         WHERE
           `OrderNo` = #{orderNo.orderNo}

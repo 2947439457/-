@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhibang.mapper.rdMapper.ChangeValueMapper">
+
+    <!--RD：查询底码-->
+    <resultMap id="Changevalue" type="com.zhibang.model.RdChangevalue">
+        <id column="ID" property="id" ></id>
+        <result column="Datee" property="datee" ></result>
+        <result column="PraValue1" property="preValue1" ></result>
+        <result column="PraValue2" property="preValue2" ></result>
+        <result column="EmpID" property="empID" ></result>
+
+        <association property="userNo" javaType="UsUser">
+            <id column="UserNo" property="userNo" ></id>
+            <!--<result column="UserNo" property="userNo" ></result>-->
+            <result column="UserName" property="userName" ></result>
+        </association>
+
+        <association property="EmpID" javaType="SyEmp">
+            <result column="EmpName" property="empName" ></result>
+        </association>
+
+    </resultMap>
+
+    <!--查询底码-->
+    <select id="selectValue" resultType="java.util.HashMap">
+        SELECT
+        a.`datee`,b.`UserNo`,b.`UserName`,a.`PreValue1`,a.`PreValue2`,c.`EmpName`,a.`Remark`
+        FROM
+        rd_changevalue as a
+        LEFT JOIN
+        us_user AS b ON a.`UserNo`=b.`UserNo`
+        JOIN
+        sy_emp AS c ON a.`EmpID`=c.`ID`
+        WHERE
+        1=1
+    </select>
+
+</mapper>

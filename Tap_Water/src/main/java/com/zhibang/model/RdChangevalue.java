@@ -11,7 +11,7 @@ public class RdChangevalue implements Serializable {
   private static final long serialVersionUID = 2686286519767983462L;
   private Integer id;
   private Date datee;
-  private Integer empId;
+  private SyEmp empId;
   private UsUser userNo;
   private Integer preValue1;
   private Integer preValue2;
@@ -33,11 +33,11 @@ public class RdChangevalue implements Serializable {
     this.datee = datee;
   }
 
-  public Integer getEmpId() {
+  public SyEmp getEmpId() {
     return empId;
   }
 
-  public void setEmpId(Integer empId) {
+  public void setEmpId(SyEmp empId) {
     this.empId = empId;
   }
 

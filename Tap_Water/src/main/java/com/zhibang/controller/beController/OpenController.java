@@ -36,6 +36,8 @@ public class OpenController {
 
     //跳转通水停水处理页面:yjh
     public String openForm(String orderNo, Model model){
+        BeOrder beOrder = orderService.selBeOrderOrderNo(orderNo);
+        model.addAttribute("beOrder", beOrder);
         return "/page/be__openForm";
     }
 

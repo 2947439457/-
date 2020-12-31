@@ -81,17 +81,17 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="rd_volume.ftl">表册管理</a></li>
+                            <li><a href="/rd/volume_default">表册管理</a></li>
 							<li><a href="rd_init.ftl">抄表初始化</a></li>
 							<li><a href="rd_task.ftl">任务分配</a></li>
 							<li><a href="rd_enter.ftl">抄表录入</a></li>
 							<li><a href="rd_audit.ftl">抄表审核</a></li>
 							<li><a href="rd_reportReading.ftl">抄表情况查询</a></li>
 							<li><a href="rd_reportVolumeReading.ftl">抄表统计报表</a></li>
-							<li><a href="rd_reportZero.ftl">零吨位用户查询</a></li>
-							<li><a href="rd_reportMaxValue.ftl">最大码值修正记录</a></li>
-							<li><a href="rd_reportCPreAmount.ftl">底码修正记录</a></li>
-							<li><a href="rd_reportMeterCheck.ftl">水表周检报表</a></li>
+                            <li><a href="/rd/zeroUser">零吨位用户查询</a></li>
+                            <li><a href="/rd/changeMaxValue">最大码值修正记录</a></li>
+                            <li><a href="/rd/changeValue">底码修正记录</a></li>
+                            <li><a href="/rd/meteUser">水表周检报表</a></li>
 						</ul>
 						
 					</div>
@@ -182,7 +182,7 @@
 		<div class="x12">
 			
 			<h2>
-				施工竣工 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-201412-0003</a>
+				施工竣工 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
 			
@@ -207,16 +207,12 @@
 <tbody>
 	<tr>
 		<td>用户名称</td>
-		<td><input readonly="readonly" value="张三" /></td>
+		<td><input readonly="readonly" value="${beOrder.userNo.userName}" /></td>
 		<td>所属辖区</td>
 		<td><select style="width:156px;">
-			<option>城东区</option>
-			<option>城南区</option>
-			<option>城西区</option>
-			<option>城北区</option>
-			<option>新开发区</option>
-			<option>旧城区</option>
-			<option>特别商户区</option>
+			<#list syAreas as sa>
+				<option>${sa.areaName}</option>
+			</#list>
 		</select></td>
 		<td></td>
 		<td></td>
@@ -246,166 +242,46 @@
 	</tr>
 </thead>
 <tbody>
+<#list beOrderusers as bou>
 	<tr class="odd">
-		<td>1</td>
-		<td>张三</td>
+		<td>${bou_index+1}</td>
+		<td>${bou.userName}</td>
 		<td><select style="width:100px;">
-				<option>DN10</option>
-				<option selected="selected">DN15</option>
-				<option>DN20</option>
-				<option>DN40</option>
-				<option>DN80</option>
-				<option>DN100</option>
-				<option>DN200</option>
-				<option>DN500</option>
-				<option>DN1000</option>
+			<#list syMetertypes as sm>
+				<option>${sm.meterTypeName}</option>
+			</#list>
 			</select></td>
-		<td><input size="15" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" value="" /></td>
+		<td>
+			<#if bou.meterName ??>
+                <input size="15" class="meterName" value="${bou.meterName}" />
+			<#else >
+				<input size="15" class="meterName" value="" />
+			</#if>
+		</td>
+		<td>
+			<#if bou.maxValue ??>
+                <input size="15" class="maxValue" value="${bou.maxValue}" />
+			<#else >
+				<input size="15" class="maxValue" value="" />
+			</#if>
+		</td>
+		<td>
+			<#if bou.startValue ??>
+                <input size="15" class="startValue" value="${bou.startValue}" />
+			<#else >
+				<input size="15" class="startValue" value="" />
+			</#if>
+		</td>
+		<td>
+			<#if bou.meterFactory ??>
+                <input size="15" class="meterFactory" value="${bou.meterFactory}" />
+			<#else >
+				<input size="15" class="meterFactory" value="" />
+			</#if>
+		</td>
 		<td></td>
 	</tr>
-	<tr class="even">
-		<td>2</td>
-		<td>李四</td>
-		<td><select style="width:100px;">
-				<option>DN10</option>
-				<option selected="selected">DN15</option>
-				<option>DN20</option>
-				<option>DN40</option>
-				<option>DN80</option>
-				<option>DN100</option>
-				<option>DN200</option>
-				<option>DN500</option>
-				<option>DN1000</option>
-			</select></td>
-		<td><input size="15" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>3</td>
-		<td>王五</td>
-		<td><select style="width:100px;">
-				<option>DN10</option>
-				<option selected="selected">DN15</option>
-				<option>DN20</option>
-				<option>DN40</option>
-				<option>DN80</option>
-				<option>DN100</option>
-				<option>DN200</option>
-				<option>DN500</option>
-				<option>DN1000</option>
-			</select></td>
-		<td><input size="15" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>4</td>
-		<td>赵六</td>
-		<td><select style="width:100px;">
-				<option>DN10</option>
-				<option selected="selected">DN15</option>
-				<option>DN20</option>
-				<option>DN40</option>
-				<option>DN80</option>
-				<option>DN100</option>
-				<option>DN200</option>
-				<option>DN500</option>
-				<option>DN1000</option>
-			</select></td>
-		<td><input size="15" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>5</td>
-		<td>钱七</td>
-		<td><select style="width:100px;">
-				<option>DN10</option>
-				<option selected="selected">DN15</option>
-				<option>DN20</option>
-				<option>DN40</option>
-				<option>DN80</option>
-				<option>DN100</option>
-				<option>DN200</option>
-				<option>DN500</option>
-				<option>DN1000</option>
-			</select></td>
-		<td><input size="15" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>6</td>
-		<td>唐八</td>
-		<td><select style="width:100px;">
-				<option>DN10</option>
-				<option selected="selected">DN15</option>
-				<option>DN20</option>
-				<option>DN40</option>
-				<option>DN80</option>
-				<option>DN100</option>
-				<option>DN200</option>
-				<option>DN500</option>
-				<option>DN1000</option>
-			</select></td>
-		<td><input size="15" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>7</td>
-		<td>何九</td>
-		<td><select style="width:100px;">
-				<option>DN10</option>
-				<option selected="selected">DN15</option>
-				<option>DN20</option>
-				<option>DN40</option>
-				<option>DN80</option>
-				<option>DN100</option>
-				<option>DN200</option>
-				<option>DN500</option>
-				<option>DN1000</option>
-			</select></td>
-		<td><input size="15" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>8</td>
-		<td>布十</td>
-		<td><select style="width:100px;">
-				<option>DN10</option>
-				<option selected="selected">DN15</option>
-				<option>DN20</option>
-				<option>DN40</option>
-				<option>DN80</option>
-				<option>DN100</option>
-				<option>DN200</option>
-				<option>DN500</option>
-				<option>DN1000</option>
-			</select></td>
-		<td><input size="15" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" class="right" value="" /></td>
-		<td><input size="15" value="" /></td>
-		<td></td>
-	</tr>
+</#list>
 </tbody>
 </table>
 

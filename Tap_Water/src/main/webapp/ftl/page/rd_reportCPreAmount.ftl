@@ -80,17 +80,17 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="rd_volume.ftl">表册管理</a></li>
+                            <li><a href="/rd/volume_default">表册管理</a></li>
 							<li><a href="rd_init.ftl">抄表初始化</a></li>
 							<li><a href="rd_task.ftl">任务分配</a></li>
 							<li><a href="rd_enter.ftl">抄表录入</a></li>
 							<li><a href="rd_audit.ftl">抄表审核</a></li>
 							<li><a href="rd_reportReading.ftl">抄表情况查询</a></li>
 							<li><a href="rd_reportVolumeReading.ftl">抄表统计报表</a></li>
-							<li><a href="rd_reportZero.ftl">零吨位用户查询</a></li>
-							<li><a href="rd_reportMaxValue.ftl">最大码值修正记录</a></li>
-							<li><a href="../page/rd_reportCPreAmount.ftl">底码修正记录</a></li>
-							<li><a href="rd_reportMeterCheck.ftl">水表周检报表</a></li>
+                            <li><a href="/rd/zeroUser">零吨位用户查询</a></li>
+                            <li><a href="/rd/changeMaxValue">最大码值修正记录</a></li>
+                            <li><a href="/rd/changeValue">底码修正记录</a></li>
+                            <li><a href="/rd/meteUser">水表周检报表</a></li>
 						</ul>
 						
 					</div>
@@ -240,134 +240,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">983</td>
-						<td class="right">1034</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的底码数是 1034</td>
-					</tr>
-					</tbody>
-				</table>
+					<#list changeValue as cv>
+						<tr>
+							<td class="center">${cv.datee}</td>
+							<td class="center">${cv.UserNo}</td>
+							<td>${cv.UserName}</td>
+							<td class="right">${cv.PreValue1}</td>
+							<td class="right">${cv.PreValue2}</td>
+							<td class="center">${cv.EmpName}</td>
+							<td>${cv.Remark}</td>
+						</tr>
+					</#list>
+				</tbody>
+			</table>
 				<div class="page">
 					<a href="#">第一页</a>
 					<a href="#">上一页</a>

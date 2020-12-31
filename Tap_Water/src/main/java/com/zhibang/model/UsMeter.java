@@ -12,7 +12,7 @@ public class UsMeter implements Serializable {
   private String meterNo;
   private UsUser userNo;
   private String meterName;
-  private Integer meterTypeId;
+  private SyMetertype meterTypeId;
   private Integer maxValue;
   private Integer startValue;
   private Date setupDate;
@@ -43,11 +43,11 @@ public class UsMeter implements Serializable {
     this.meterName = meterName;
   }
 
-  public Integer getMeterTypeId() {
+  public SyMetertype getMeterTypeId() {
     return meterTypeId;
   }
 
-  public void setMeterTypeId(Integer meterTypeId) {
+  public void setMeterTypeId(SyMetertype meterTypeId) {
     this.meterTypeId = meterTypeId;
   }
 
