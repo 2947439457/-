@@ -25,7 +25,12 @@ public interface MeterTypeMapper {
     @Insert("INSERT INTO `sy_metertype` VALUES(" +
             "DEFAULT,${meterTypeName},${aperture},${mavValue},${minValue},${life},${remark},true)")
     public Integer addSyMetertype(SyMetertype syMetertype);
-
+    /**
+     * 查询单个水表型号YX
+     * @return
+     */
+    @Select("SELECT * FROM sy_metertype WHERE `ID`=${id} AND Disabled=1")
+    public SyMetertype selectSyMetertypeID(Integer id);
     /**
      * 修改水表型号YX
      * @param syMetertype

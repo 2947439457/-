@@ -216,12 +216,11 @@
 				<form action="/delArea">
 				<div class="dialogbutton center" id="bo">
                     <#--<input type="text" value="${}">-->
-
                        <button class="btn" style="width:92px;">是</button>
-
-					<button class="btn btn-grey" style="width:92px;">否</button>
 				</div>
                 </form>
+                <button class="btn btn-grey" style="position: relative;top: -32px;right: -250px;width:92px;">
+                    <a href="/sys_area" style="width:92px;color: #FFFFFF">否</a></button>
 			</div>
 			
 			<h2>抄表辖区设置</h2>

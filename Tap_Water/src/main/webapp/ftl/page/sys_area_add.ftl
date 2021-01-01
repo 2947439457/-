@@ -184,18 +184,18 @@
 		<div class="x12">
 			
 			<h2>添加/修改抄表辖区</h2>
-            <#if id??>
+            <#if syArea??>
 			<div class="form label-inline uniform">
             <form action="/updateArea" method="post">
-            <div class="field"><label for="id">抄表辖区ID</label> <input id="isd" name="fname" size="50" type="text" class="medium" disabled="disabled" value="${id}" /></div>
-            <input type="hidden" name="arid" value="${id}">
-                <div class="field"><label for="name">抄表辖区名称</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
-                <div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
+            <div class="field"><label for="id">抄表辖区ID</label> <input id="isd" name="fname" size="50" type="text" class="medium" disabled="disabled" value="${syArea.id}" /></div>
+            <input type="hidden" name="arid" value="${syArea.id}">
+                <div class="field"><label for="name">抄表辖区名称</label> <input id="name" name="lname" size="50" type="text" class="medium" value="${syArea.areaName}" /></div>
+                <div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description">${syArea.remark}</textarea></div>
                 <button type="submit" style="margin-left: 145px" class="btn">保存</button>
             <#--<div class="buttonrow">-->
             <#--</div>-->
             </form>
-                <button class="btn btn-grey" style="margin-left: 263px">
+                <button class="btn btn-grey" style="margin-left: 263px;position: relative;top: -32px;">
                     <a href="/sys_area" style="color: #FFFFFF">返回</a></button>
             </div>
 		<#else>
@@ -204,11 +204,11 @@
             <div class="field"><label for="id">抄表辖区ID</label> <input id="isd" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>
                 <div class="field"><label for="name">抄表辖区名称</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
                 <div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
-                <button type="submit" style="margin-left: 145px" class="btn">保存</button>
+                <button type="submit" style="margin-left: 145px;" class="btn">保存</button>
             <#--<div class="buttonrow">-->
             <#--</div>-->
             </form>
-           <button class="btn btn-grey" style="margin-left: 263px" >
+           <button class="btn btn-grey" style="margin-left: 263px;position: relative;top: -32px;" >
                <a href="/sys_area" style="color: #FFFFFF">返回</a></button>
             </#if>
 

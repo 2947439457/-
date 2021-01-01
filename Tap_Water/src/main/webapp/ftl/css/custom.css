@@ -17,7 +17,7 @@
 .fleft { float:left; }
 .fright { float:right; }
 .visualize { top: 10px; }
-.dialogbutton .btn,.dialogbutton .btn-icon { margin-left:10px;margin-right:10px; }
+.dialogbutton .btn,.dialogbutton .btn-icon { margin-left:-190px;margin-right:10px; }
 
 .searchDiv { height:40px; }
 .searchDiv input {width:80px;}

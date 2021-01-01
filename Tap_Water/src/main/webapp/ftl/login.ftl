@@ -12,6 +12,15 @@
 	<link rel="stylesheet" href="./css/buttons.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="./css/login.css" type="text/css" media="screen" title="no title" />
     <script type="text/javascript" src="js/jquery/jquery-1.5.2.min.js"></script>
+    <style type="text/css">
+        #tishi{
+            height: 0px;
+            position: relative;
+            top: 210px;
+            left: 30%;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
 <script src="js/jquery/jquery-1.5.2.min.js" type="text/javascript"></script>
@@ -64,7 +73,9 @@
 <div id="login">
 	<h1>员工登陆</h1>
 <#if asdgf??>
-${asdgf}
+	<div id="tishi">
+	${asdgf}
+    </div>
 <#else>
 </#if>
 	<div id="login_panel">

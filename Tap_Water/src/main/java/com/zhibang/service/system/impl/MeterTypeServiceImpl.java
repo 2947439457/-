@@ -31,7 +31,12 @@ public class MeterTypeServiceImpl implements MeterTypeService {
      */
     @Override
     public Integer addSyMeterType(SyMetertype syMeterType){return meterMapper.addSyMetertype(syMeterType);}
-
+    /**
+     * 查询单个水表型号YX
+     * @return
+     */
+    @Override
+    public SyMetertype selectSyMetertypeID(Integer id){return meterMapper.selectSyMetertypeID(id);}
     /**
      * 修改水表型号信息YX
      * @param syMeterType

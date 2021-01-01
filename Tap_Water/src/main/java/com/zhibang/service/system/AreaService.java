@@ -17,7 +17,11 @@ public interface AreaService {
      * @return
      */
     public Integer addSyArea(SyArea syArea);
-
+    /**
+     * 查询单个辖区YX
+     * @return
+     */
+    public SyArea selectSyAreaID(Integer id);
     /**
      * 修改辖区方法YX
      * @param syArea

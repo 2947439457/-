@@ -20,6 +20,7 @@
 .x10 				{ width: 780px; }
 .x11 				{ width: 860px; }
 .x12 				{ width: 940px; }
+.x12 .field 		{ margin-top: 10px}
 
 	.a1			{ padding-right: 80px; }
 	.a2			{ padding-right: 160px; }

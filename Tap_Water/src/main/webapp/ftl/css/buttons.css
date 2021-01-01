@@ -44,7 +44,7 @@
 
 /* Set default button colors */
 .btn, .btn-icon, .btn-mini,
-.btn:visited, .btn-icon:visited, .btn-mini:visited {  background-image: url(../images/bg-lite.png); background-color: #F90; border-color: #D58000; color: #FFF; }
+.btn:visited, .btn-icon:visited, .btn-mini:visited {  background-image: url(../images/bg-lite.png); background-color: #F90; border-color: #D58000; color: #FFF; margin-left: 100px;}
 
 .btn:hover, .btn-icon:hover, .btn-mini:hover { background-color: #D58000; color: #FFF; }
 

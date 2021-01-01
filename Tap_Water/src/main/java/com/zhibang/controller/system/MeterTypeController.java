@@ -53,7 +53,8 @@ public class MeterTypeController {
             System.out.println("进入增加界面");
             return "page/sys_meterType_add";
         }
-        model.addAttribute("id",id);
+        SyMetertype SyMetertype = meterTypeService.selectSyMetertypeID(id);
+        model.addAttribute("SyMetertype",SyMetertype);
         return "page/sys_meterType_add";
     }
 

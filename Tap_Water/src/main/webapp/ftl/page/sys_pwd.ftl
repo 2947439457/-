@@ -216,8 +216,12 @@
 
 				<div class="buttonrow">
 					<button class="btn"">确定</button>
-					<button class="btn btn-grey" onClick="history.back(-1);">返回</button>
 				</div>
+                </form>
+                <form action="/saveCreateDb" method="post">
+                    <input type="hidden" name="email" value="${s.empNo}"/>
+                    <input type="hidden" name="password" value="${s.pwd}"/>
+                    <button class="btn btn-grey" style="position: relative;top: 11px;">返回</button>
                 </form>
 			</div>
 			

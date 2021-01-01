@@ -26,7 +26,12 @@ public class AreaServiceImpl implements AreaService {
      */
     @Override
     public Integer addSyArea(SyArea syArea){return areaMapper.addSyArea(syArea);}
-
+    /**
+     * 查询单个辖区YX
+     * @return
+     */
+    @Override
+    public SyArea selectSyAreaID(Integer id){return areaMapper.selectSyAreaID(id);}
     /**
      * 修改辖区信息YX
      * @param syArea

@@ -184,24 +184,24 @@
 		<div class="x12">
 			
 			<h2>添加/修改水表型号</h2>
-			 <#if id??>
+			 <#if SyMetertype??>
 
 			<div class="form label-inline uniform">
                 <form action="/updatemeterType" method="post">
-				<div class="field"><label for="id">水表型号ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="${id}" /></div>
-                <input type="hidden" name="meterid" value="${id}">
-				<div class="field"><label for="name">水表型号</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
-				<div class="field"><label for="name">设置口径</label> <input id="name" name="lname1" size="50" type="text" class="medium" /></div>
-				<div class="field"><label for="name">最大表码</label> <input id="name" name="lname2" size="50" type="text" class="medium" /></div>
-				<div class="field"><label for="name">下限设置</label> <input id="name" name="lname3" size="50" type="text" class="medium" /> 吨</div>
-				<div class="field"><label for="name">周检年限</label> <input id="name" name="lname4" size="50" type="text" class="medium" /> 年</div>
-				<div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
+				<div class="field"><label for="id">水表型号ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="${SyMetertype.id}" /></div>
+                <input type="hidden" name="meterid" value="${SyMetertype.id}">
+				<div class="field"><label for="name">水表型号</label> <input id="name" name="lname" size="50" type="text" class="medium" value="${SyMetertype.meterTypeName}"/></div>
+				<div class="field"><label for="name">设置口径</label> <input id="name" name="lname1" size="50" type="text" class="medium" value="${SyMetertype.aperture}" /></div>
+				<div class="field"><label for="name">最大表码</label> <input id="name" name="lname2" size="50" type="text" class="medium" value="${SyMetertype.mavValue}" /></div>
+				<div class="field"><label for="name">下限设置</label> <input id="name" name="lname3" size="50" type="text" class="medium" value="${SyMetertype.minValue}"/> 吨</div>
+				<div class="field"><label for="name">周检年限</label> <input id="name" name="lname4" size="50" type="text" class="medium" value="${SyMetertype.life}" /> 年</div>
+				<div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description">${SyMetertype.remark}</textarea></div>
 
 				<#--<div class="buttonrow">-->
 				<#--</div>-->
                 <button class="btn">保存</button>
             </form>
-                <button class="btn btn-grey">
+                <button class="btn btn-grey" style="position: relative;top: -32px;left: 100px;">
                     <a href="/sys_meterType" style="color: #FFFFFF">返回</a></button>
 
 			<#--</div>-->

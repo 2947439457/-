@@ -108,8 +108,11 @@ public class SystemController {
     }
     @RequestMapping("/sys_pwd")
     public String sys_pwd(){
-
         return "page/sys_pwd";
+    }
+    @RequestMapping("work")
+    public String work(){
+        return "workspace";
     }
     @RequestMapping(value = "/sssd",produces = {"application/text;charset=UTF-8"})
     public String sys_pwds(@RequestParam("fname") String name,

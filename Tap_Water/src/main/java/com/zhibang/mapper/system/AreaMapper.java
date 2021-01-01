@@ -24,7 +24,12 @@ public interface AreaMapper {
      */
     @Insert("INSERT INTO `sy_area` VALUES(DEFAULT,'${areaName}','${remark}',1)")
     public Integer addSyArea(SyArea syArea);
-
+    /**
+     * 查询单个辖区YX
+     * @return
+     */
+    @Select("SELECT * FROM sy_area WHERE `ID`=${id} AND Disabled=1")
+    public SyArea selectSyAreaID(Integer id);
     /**
      * 修改辖区信息YX
      * @param syArea

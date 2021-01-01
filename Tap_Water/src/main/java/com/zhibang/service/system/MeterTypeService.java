@@ -18,6 +18,11 @@ public interface MeterTypeService {
      * @return
      */
     public Integer addSyMeterType(SyMetertype syMetertype);
+    /**
+     * 查询单个水表型号YX
+     * @return
+     */
+    public SyMetertype selectSyMetertypeID(Integer id);
 
     /**
      * 修改水表型号方法YX
