@@ -10,10 +10,10 @@ public class RdVolume implements Serializable {
   private static final long serialVersionUID = -6111071383753928798L;
   private Integer id;
   private String volumeName;
-  private SyArea areaId;
-  private Integer orderIndex;
-  private String remark;
-  private Boolean disabled;
+  private SyArea areaId;//辖区对象
+  private Integer orderIndex;//排列序号
+  private String remark;//备注
+  private Boolean disabled;//状态：FALSE表示可用  TRUE表示禁用
 
   public Integer getId() {
     return id;

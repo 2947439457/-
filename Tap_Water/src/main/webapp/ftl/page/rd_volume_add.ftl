@@ -177,45 +177,83 @@
 			<span id="welcome_span">欢迎回来，马云</span>
 		</div>
 	</div> <!-- #masthead -->	
-	
-	<div id="content" class="xgrid">
-		
- 		
-		<div class="x12">
-			
-			<h2>添加/修改表册信息</h2>
-			
-			<div class="form label-inline uniform">
-	
-				<div class="field"><label for="id">表册ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>
-				
-				<div class="field"><label for="name">表册名称</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
-				
-				<div class="field"><label for="name">所属辖区</label> 
-					<select id="select_area" class="medium" >
-							<option>城东区</option>
-							<option>城南区</option>
-							<option>城西区</option>
-							<option>城北区</option>
-							<option>新开发区</option>
-							<option>旧城区</option>
-							<option>特别商户</option>
-					</select>
-				</div>
-							
-				<div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
 
-				<div class="buttonrow">
-					<button class="btn">保存</button>  
-					<button class="btn btn-grey" onClick="history.back(-1);">返回</button>
-				</div>
 
-			</div>
-			
-		</div> <!-- .x12 -->
-		
-	</div> <!-- #content -->
-	
+		<div id="content" class="xgrid">
+
+			<div class="x12">
+
+				<h2>${stat}表册信息</h2>
+				<script>
+                    function validateForm(){
+                        var volumeName=document.forms["myForm"]["volumeName"].value;
+                        var remark=document.forms["myForm"]["remark"].value;
+                        if (volumeName==null || volumeName==""){
+                            alert("表册名称必须填写");
+                            return false;
+                        }
+                        if (remark==null || remark==""){
+                            alert("备注必须填写");
+                            return false;
+                        }else {
+                            <#if stat =="添加">
+								alert('添加成功')
+								<#else >
+									alert('修改成功')
+							</#if>
+                            return ture;
+						}
+                    }
+
+
+				</script>
+<#if stat=="添加">
+				<#--添加-->
+                <form name="myForm" action="/rd/volume_add_insert" method="post" onsubmit="return validateForm()">
+<#else >
+				<#--修改-->
+				<form action="/rd/volume_add_update" method="post" onsubmit="return validateForm()">
+					<input type="hidden" name="ID" value="${rd_Volume_update.id}"/>
+</#if>
+					<div class="form label-inline uniform">
+
+						<div class="field"><label for="id">表册ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>
+
+						<div class="field"><label for="name">表册名称</label> <input id="name" name="volumeName" size="50" type="text" class="medium" value="<#if rd_Volume_update ??>${rd_Volume_update.volumeName}</#if>"/></div>
+
+						<div class="field"><label for="name">所属辖区</label>
+							<select id="select_area" name="areaId" class="medium" >
+
+									<#list rd_AreaName as an>
+										<#if rd_Volume_update ??>
+											<option value="${an.id}" <#if rd_Volume_update.areaId.areaName== an.areaName>selected</#if>>${an.areaName}</option>
+										<#else >
+										<option value="${an.id}">${an.areaName}</option>
+										</#if>
+
+									</#list>
+
+							</select>
+						</div>
+
+						<div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="remark"><#if rd_Volume_update ??>${rd_Volume_update.remark}</#if></textarea></div>
+
+						<div class="buttonrow">
+                            <input type="submit" value="保存" class="btn">
+							<#--<button class="btn">保存</button>-->
+							<div class="btn btn-grey" style="height: 32px;" onclick="window.location.href='/rd/volume_default';">返回</div>
+						</div>
+
+
+					</div>
+                </form>
+
+			</div> <!-- .x12 -->
+
+		</div> <!-- #content -->
+
+
+
 	<div id="footer">		
 		<div class="content_pad">			
 			<p>&copy; 2013-11 版权所有 <a href="#">湖南省自来水公司</a>.   技术支持 <a href="#">华瑞教育</a>.</p>

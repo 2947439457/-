@@ -190,7 +190,7 @@
 				</div>
 				
 				<div class="dialogbutton center">
-					<a class="btn" href="javascript:closeDialog();" style="width:60px;">是</a>  
+					<a class="btn" href="/rd/rd_volume_update_stat?id=" style="width:60px;">是</a>
 					<a class="btn btn-grey" href="javascript:closeDialog();" style="width:60px;">否</a>
 				</div>
 			</div>
@@ -214,7 +214,7 @@
 						<p>
 							<br/>
 							<div style="float:left;height:42px;">
-								<button class="btn-icon btn-plus" onClick="location='rd_volume_add.html';"><span></span>添加表册</button>
+								<button class="btn-icon btn-plus" onClick="location='/rd/volume_add';"><span></span>添加表册</button>
 							</div>
 						</p>
 										
@@ -248,14 +248,16 @@
 									<#if vname.areaId.areaName == an.areaName>
 										<tr class="odd gradeX">
 												<#--辖区中的表册名-->
-											<td><a href="rd_volume_1.ftl">${vname.volumeName}</a></td>
+											<td><a href="/rd/volume_parm?ID=${vname.id}&stat=${vname.volumeName}">${vname.volumeName}</a></td>
 											<td class="right">
-												<a href="rd_volume_add.ftl">[修改]</a>
-												<a href="#facebox_delete"  rel="facebox">[删除]</a>
+												<a href="/rd/rd_volume_query_Id?id=${vname.id}">[修改]</a>
+                                                <a href="javascript:if(confirm('确实要删除吗?'))location='/rd/rd_volume_update_stat?id=${vname.id}'">[删除]</a>
+
 											</td>
 										</tr>
 									</#if>
-								</#list>
+								</#list
+								>
 							</tbody>
 						</table>
 					</#list>
@@ -263,11 +265,11 @@
 					</td>
 					<td width="1%">&nbsp;</td>
 					<td width="69%">
-						<h2>未分配表册的用户</h2>
+						<h2><#if Volume_stat??>${Volume_stat}<#else >未分配</#if>的表册用户</h2>
 					
 						<div style="float:right;">
 							分配至 
-							<select id="select_area" class="medium" onChange="setVolume();" >
+							<select id="select_area" class="medium" onclick="openNewPage(this)" >
 								<option selected="selected"> </option>
 								<option>未分配</option>
 								<#list rd_AreaName as an>
@@ -277,7 +279,7 @@
 
 											<#if an.areaName == vname.areaId.areaName>
 												<#--表册名-->
-												<option>${vname.volumeName}</option>
+												<option value="${vname.id}">${vname.volumeName}</option>
 											</#if>
 										</#list>
 									</optgroup>
@@ -297,14 +299,73 @@
 								</tr>
 							</thead>
 							<tbody>
+
+                            <script type="text/javascript">
+                                var isSelect=true;
+
+                                function openNewPage(value){
+
+                                    var optionSelect= value.options[value.selectedIndex];
+
+                                    if(value.value == optionSelect.value){
+
+                                        isSelect = !isSelect
+
+                                    } else {
+
+                                        isSelect = true;
+
+                                    }
+
+                                    if(isSelect == true){
+                                       var ID=optionSelect.value;
+                                       var stat=optionSelect.text;
+                                        alert("11");
+                                        var userids = []; //申明数组保存所有被选中checkbox背后的值
+                                        var str="";
+                                        var users = document.getElementsByName("username"); //得到所有的checkbox
+                                        console.log(users);
+                                        for(var i=0; i<users.length; i++){
+                                            if(users[i].checked){ //如果checkbox被选中
+
+                                                console.log(users[i].value);
+
+                                                str=str+users[i].value.trim()+","; //将被选中checkbox背后的值添加到数组中
+
+                                            }
+
+                                        }
+                                        str=str.substring(0,str.length-1);
+                                        alert(str);
+                                        console.log(str);
+
+                                        window.location.href='/rd/volume_area?ID='+ID+'&str='+str+'&stat='+stat;
+
+                                    }
+
+                                }
+                                function checkboxAll(){
+
+
+                                }
+
+                            </script>
 							<#list rd_Volume_Default as v>
 								<tr class="odd gradeX">
-									<td><input type="checkbox" /></td>
+									<td><input type="checkbox" name="username"
+									   value="
+											<#if v.userNo??>
+											${v.userNo}
+                                            <#else >
+                                               未分配
+                                          	</#if>
+                                          "/>
+									</td>
 									<#--排序号-->
 									<td>
 										<#--判断是否为非空-->
-                                        <#if v.rdVolume??>
-											${v.rdVolume.id}
+                                        <#if v.volumeOrderIndex??>
+											${v.volumeOrderIndex}
                                             <#else >
                                                未分配
                                         </#if>

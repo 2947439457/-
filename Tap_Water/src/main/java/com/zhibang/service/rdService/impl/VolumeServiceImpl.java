@@ -5,7 +5,7 @@ import com.zhibang.model.RdVolume;
 import com.zhibang.model.SyArea;
 import com.zhibang.model.UsMeter;
 import com.zhibang.model.UsUser;
-import com.zhibang.service.rrd.VolumeService;
+import com.zhibang.service.rdService.VolumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +35,7 @@ public class VolumeServiceImpl implements VolumeService{
 
     //查询所有表册信息：依据所属辖区查询用户
     @Override
-    public List<UsUser> queryAllVolume_Param(String volumeID) {
+    public List<UsUser> queryAllVolume_Param(int volumeID) {
         List<UsUser> usMeters = volumeMapper.queryAllVolume_Param(volumeID);
         return usMeters;
     }
@@ -52,5 +52,29 @@ public class VolumeServiceImpl implements VolumeService{
     public List<RdVolume> queryAllVolumeName() {
         List<RdVolume> rdVolumes = volumeMapper.queryAllVolumeName();
         return rdVolumes;
+    }
+
+    @Override
+    public int insertVoulme(String volumeName, Integer areaId, String remark) {
+        return volumeMapper.insertVoulme(volumeName,areaId,remark);
+    }
+    @Override
+    public int updateVolume_stat(Integer id) {
+        return volumeMapper.updateVolume_stat(id);
+    }
+
+    @Override
+    public int updateVolume(String VolumeName,Integer AreaID,String Remark,Integer id) {
+        return volumeMapper.updateVolume(VolumeName,AreaID,Remark,id);
+    }
+
+    @Override
+    public RdVolume queryByIDRdVolume(Integer id) {
+        return volumeMapper.queryByIDRdVolume(id);
+    }
+
+    @Override
+    public int updateVolume_area(Integer id,String str) {
+        return volumeMapper.updateVolume_area(id,str);
     }
 }

@@ -51,11 +51,12 @@
        <resultMap id="rdVolume" type="com.zhibang.model.RdVolume">
            <id column="Id" property="id"></id>
            <result column="VolumeName" property="volumeName"></result>
-
+           <result column="Remark" property="remark"></result>
            <association property="areaId" javaType="SyArea">
                <id column="Id" property="id"></id>
                <result column="AreaName" property="areaName"></result>
            </association>
+
 
        </resultMap>
 
@@ -67,35 +68,70 @@
         FROM us_user AS a
         JOIN us_meter AS b
         ON a.`UserNo`=b.`UserNo`
-        <!--<if test="">-->
-
-        <!--</if>-->
         WHERE a.`VolumeID` IS NULL;
     </select>
 
     <!--查询辖区名称-->
     <select id="queryAllArea" resultMap="syArea">
 
-    SELECT sy_area.`AreaName` FROM sy_area
+SELECT sy_area.`AreaName`,sy_area.`ID` FROM sy_area ;
 
     </select>
 
-    <!--查询辖区中的表册名-->
+    <!--查询辖区中的表册名:FALSE表示可用  TRUE表示不可用-->
     <select id="queryAllVolumeName" resultMap="rdVolume">
         SELECT a.`ID`,a.`VolumeName`,b.`ID`,b.`AreaName`
         FROM rd_volume AS a
         JOIN sy_area   AS b
-        ON a.`AreaID`=b.`ID`;
+        ON a.`AreaID`=b.`ID`
+        WHERE a.`Disabled`=FALSE;
     </select>
 
-    <select id="queryAllVolume_Param" parameterType="String" resultMap="usUser">
-        SELECT a.`VolumeOrderIndex`,a.`UserNo`,b.`MeterName`,a.`UserName`,a.`Address`
+    <!--依据所属辖区查询用户-->
+    <select id="queryAllVolume_Param"  resultMap="usUser">
+        SELECT a.`VolumeID`,a.`UserNo`,b.`MeterName`,a.`UserName`,a.`Address`,c.`VolumeName`,a.`VolumeOrderIndex`
         FROM us_user   AS a
         JOIN us_meter  AS b
         JOIN rd_volume AS c
-        ON a.`UserNo`=b.`UserNo`
-        WHERE c.`VolumeName`="城东#1" AND a.`VolumeID` IS NOT NULL
-        GROUP BY a.`UserNo`;
+        ON a.`UserNo`=b.`UserNo` AND c.`ID`=a.`VolumeID`
+        WHERE a.`VolumeID`=#{arg0}
     </select>
+
+    <!--添加表册-->
+    <insert id="insertVoulme">
+        INSERT INTO rd_volume(VolumeName,AreaID,OrderIndex,Remark)
+        VALUES(#{arg0},#{arg1},1,#{arg2});
+    </insert>
+
+    <!--删除表册：状态改变-->
+    <update id="updateVolume_stat">
+        UPDATE rd_volume
+        SET Disabled=TRUE
+        WHERE id=#{arg0}
+    </update>
+
+    <!--&lt;!&ndash;修改表册&ndash;&gt;-->
+    <update id="updateVolume">
+        UPDATE rd_volume
+        SET VolumeName=#{arg0} ,AreaID=#{arg1}, Remark=#{arg2}
+        WHERE id = #{arg3};
+    </update>
+
+    <!--根据ID查询表册信息-->
+    <select id="queryByIDRdVolume"  resultMap="rdVolume">
+    SELECT a.`ID`,a.`VolumeName`,a.`AreaID`,a.`Remark`,b.`AreaName`
+    FROM rd_volume AS a
+    JOIN sy_area AS b
+    ON a.`AreaID`=b.`ID`
+    WHERE a.`ID`=#{arg0}
+
+    </select>
+
+    <!--修改用户所属辖区-->
+    <update id="updateVolume_area">
+        UPDATE us_user SET VolumeID=#{arg0}
+        WHERE UserNo IN(#{arg1})
+    </update>
+
 
 </mapper>
