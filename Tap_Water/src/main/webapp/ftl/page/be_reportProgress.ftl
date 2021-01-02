@@ -268,17 +268,17 @@
                     </tr>
 				</#if>
 				</#list>
-                <#--<tr class="todo">-->
-                    <#--<td class="center item">　 待办总数</td>-->
-                    <#--<td class="center num">366</td>-->
-                    <#--<td class="center num">331</td>-->
-                    <#--<td class="center num">174</td>-->
-                    <#--<td class="center num">182</td>-->
-                    <#--<td class="center num">134</td>-->
-                    <#--<td class="center num">164</td>-->
-                    <#--<td class="center num">100</td>-->
-                    <#--<td class="center cnt num">1451</td>-->
-                <#--</tr>-->
+                <tr class="todo">
+                    <td class="center item">　 待办总数</td>
+                    <td class="center num">366</td>
+                    <td class="center num">331</td>
+                    <td class="center num">174</td>
+                    <td class="center num">182</td>
+                    <td class="center num">134</td>
+                    <td class="center num">164</td>
+                    <td class="center num">100</td>
+                    <td class="center cnt num">1451</td>
+                </tr>
 				<#list count as c>
 					<#if c.stepId == -1 || c.stepId ==9>
 					<tr>

@@ -1,7 +1,7 @@
 package com.zhibang.controller.beController;
 
-import com.zhibang.model.BeOrder;
-import com.zhibang.model.BeOrderuser;
+import com.alibaba.fastjson.JSONObject;
+import com.zhibang.model.*;
 import com.zhibang.service.beService.OrderService;
 import com.zhibang.service.beService.OrderUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -24,7 +26,8 @@ import java.util.List;
 public class OpenController {
 
     @Autowired private OrderService orderService;
-    @Autowired private OrderUserService orderUserService;
+    @Autowired private BeOrder beOrder;
+    @Autowired private BeFlow beFlow;
 
     //跳转通水停水页面:yjh
     @GetMapping("/open")
@@ -39,6 +42,31 @@ public class OpenController {
         BeOrder beOrder = orderService.selBeOrderOrderNo(orderNo);
         model.addAttribute("beOrder", beOrder);
         return "/page/be__openForm";
+    }
+
+    //处理
+    @ResponseBody
+    @RequestMapping(value = "/disposeOpen")
+    public Integer nosendOpen(String stmt, String orderNo, Integer orderType, HttpSession httpSession){
+        Integer integer = 0;
+        try {
+            BeOrder upBeOrder = beOrder;
+            upBeOrder.setOrderNo(orderNo);
+            upBeOrder.setOrderType(orderType);
+            SyEmp upSyEmp = (SyEmp) httpSession.getAttribute("s");
+            upBeOrder.setLastEditEmp(upSyEmp);
+
+
+            BeFlow upstepId = beFlow;
+            upstepId.setId(7);
+            upBeOrder.setStepId(upstepId);
+            orderService.upBeOrderStepId(stmt, upBeOrder);
+            integer = 1;
+        }catch (Exception e){
+            integer = 2;
+            e.printStackTrace();
+        }
+        return integer;
     }
 
 }

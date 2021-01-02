@@ -38,7 +38,7 @@
 
             if (rows.length < n) {//需增加行数
                 for (var i = rows.length; i < n; i++) {
-                    $('table.data tbody').append('<tr><td>' + (i + 1) +
+                    $('table.data tbody').append('<tr class="odd"><td>' + (i + 1) +
                             '</td><td><input class="userName"/></td><td><input class="phone"/></td><td><input class="address"/></td></tr>');
                 }
             } else {//需减少行数
@@ -217,7 +217,7 @@
             <div class="tab_container">
                 <ul class="tabs">
                     <li><a href="#tab1">申请表</a></li>
-                    <li><a href="#tab2">新户详细表</a></li>
+                    <li><a href="#tab2" id="xingHu">新户详细表</a></li>
                 </ul>
                 <#if beOrder ?? >
                 <#--<#if 1==1 >-->
@@ -382,11 +382,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
+                                    <tr class="odd">
                                         <td>1</td>
-                                        <td><input class="userName"/></td>
-                                        <td><input class="phone"/></td>
-                                        <td><input class="address"/></td>
+                                        <td><input class="userName" readonly="readonly"/></td>
+                                        <td><input class="phone" readonly="readonly"/></td>
+                                        <td><input class="address" readonly="readonly"/></td>
                                         <td></td>
                                     </tr>
                                     </tbody>
@@ -437,6 +437,14 @@
     });
     
     $(function () {
+        $("#xingHu").click(function () {
+            var userName = $("#userName").val(); //用户名称
+            var phone = $("#phone").val(); //联系电话
+            var address = $("#address").val(); //用户地址
+            $(".odd:eq(0) td:eq(1) .userName").val(userName);
+            $(".odd:eq(0) td:eq(2) .phone").val(phone);
+            $(".odd:eq(0) td:eq(3) .address").val(address);
+        })
         // 办理按钮
         $(".banLi").click(function () {
             var stat = $(".stat").val();

@@ -201,6 +201,9 @@
         <association property="auditEmpId" javaType="SyEmp">
             <result column="AUDITEMPID" property="id"/>
         </association>
+        <association property="areaId" javaType="SyArea">
+            <result column="AREAID" property="id"/>
+        </association>
     </resultMap>
 
     <!--通过工单号查询工单信息：yjh-->
@@ -242,6 +245,19 @@
             ,`ProjectMoney` = #{projectMoney}
             ,`RealMoney` = #{realMoney}
             ,`PayDate` = NOW()
+        </if>
+        <if test="projectDate1 != null and projectDate1 != ''">
+            ,`ProjectDate1` = #{projectDate1}
+        </if>
+        <if test="projectDate2 != null and projectDate2 != ''">
+            ,`ProjectDate2` = #{projectDate2}
+        </if>
+        <if test="areaId != null">
+            ,`AreaID` = #{areaId.id}
+        </if>
+        <if test="stepId != null">
+            ,`CompleteEmp` = #{stepId.id}
+            ,`CompleteDate` = NOW()
         </if>
         WHERE `OrderNo` = #{orderNo} ;
     </update>

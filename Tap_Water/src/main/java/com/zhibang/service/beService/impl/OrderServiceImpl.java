@@ -91,4 +91,11 @@ public class OrderServiceImpl implements OrderService {
         return integer;
     }
 
+    @Override
+    public Integer upOrderAndUserMeter(BeOrder beOrder, UsUser usUser) {
+        orderMapper.updateBeOrderOrderNo(beOrder);
+        Integer integer = userMapper.updateUsUserUserNo(usUser);
+        return integer;
+    }
+
 }

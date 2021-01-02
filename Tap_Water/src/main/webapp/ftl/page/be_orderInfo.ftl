@@ -575,8 +575,14 @@
     <tr class="odd">
         <td>${bou_index}</td>
         <td>${bou.userName}</td>
+        <td>
+            <#list syMetertypes as sm>
+                <#if sm.id == bou.meterTypeId>
+                    ${sm.meterTypeName}
+                </#if>
+            </#list>
+        </td>
         <td>${bou.meterName}</td>
-        <td></td>
         <td>${bou.maxValue}</td>
         <td>${bou.startValue}</td>
         <td>
@@ -646,18 +652,25 @@
                             <tr>
                                 <td>审核人</td>
                                 <td>
-			<#list syEmps as sy>
-				<#if beOrder.auditEmpId.id == sy.id>
-					<input readonly="readonly" value="${sy.empName}"/>
-                </#if>
-            </#list>
+                                    <#if beOrder.auditEmpId ??>
+                                            <#list syEmps as sy>
+                                                <#if beOrder.auditEmpId.id == sy.id>
+                                                    <input readonly="readonly" value="${sy.empName}"/>
+                                                </#if>
+                                            </#list>
+                                        <#else >
+                                        <input readonly="readonly" value=""/>
+                                    </#if>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="vertical-align:top;">审核意见</td>
                                 <td colspan="3">
-                                    <textarea readonly="readonly"
-                                              style="width:426px;height:150px;">${beOrder.auditMessage}</textarea>
+                                    <#if beOrder.auditMessage ??>
+                                            <textarea readonly="readonly" style="width:426px;height:150px;">${beOrder.auditMessage}</textarea>
+                                        <#else >
+                                            <textarea readonly="readonly" style="width:426px;height:150px;"></textarea>
+                                    </#if>
                                 </td>
                             </tr>
                             </tbody>

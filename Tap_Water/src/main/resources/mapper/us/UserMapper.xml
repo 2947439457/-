@@ -40,6 +40,18 @@
         </if>
         <if test="contractNum != null">
             ,`ContractNum` = #{contractNum}
+            ,`ContractDate` = NOW()
+        </if>
+
+        <if test="syArea != null">
+            ,`AreaID` = #{syArea.id}
+        </if>
+        <if test="meterId != null">
+            ,`MeterID` = #{meterId.id}
+        </if>
+
+        <if test="docNum != null">
+            ,`DocNum` = #{docNum}
         </if>
         WHERE `UserNo` = #{userNo} ;
     </update>

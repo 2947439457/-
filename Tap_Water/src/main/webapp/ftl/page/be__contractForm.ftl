@@ -186,8 +186,7 @@
 		<div class="x12">
 			
 			<h2>
-				供水协议 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}
-			</a>
+				供水协议 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
             <input type="hidden" id="userNo" value="${beOrder.userNo.userNo}">

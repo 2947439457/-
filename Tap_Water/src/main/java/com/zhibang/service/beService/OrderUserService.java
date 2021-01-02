@@ -20,5 +20,7 @@ public interface OrderUserService {
     public Integer upOrderuserMoney(BeOrderuser beOrderuser);
     //修改供水合同
     public Integer upOrderuserFormula(BeOrderuser beOrderuser);
+    //修改水表
+    public Integer upOrderuserMeter(BeOrderuser beOrderuser);
 
 }

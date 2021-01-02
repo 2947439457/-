@@ -38,9 +38,9 @@ public class BeOrder implements Serializable {
     private String auditMessage;
     private Double projectMoney;
     private Double realMoney;
-    private Date payDate;
-    private Timestamp projectDate1;
-    private Timestamp projectDate2;
+    private Timestamp payDate;
+    private String projectDate1;
+    private String projectDate2;
     private SyArea areaId;
     private String abortCause;
 
@@ -250,27 +250,27 @@ public class BeOrder implements Serializable {
         this.realMoney = realMoney;
     }
 
-    public Date getPayDate() {
+    public Timestamp getPayDate() {
         return payDate;
     }
 
-    public void setPayDate(Date payDate) {
+    public void setPayDate(Timestamp payDate) {
         this.payDate = payDate;
     }
 
-    public Timestamp getProjectDate1() {
+    public String getProjectDate1() {
         return projectDate1;
     }
 
-    public void setProjectDate1(Timestamp projectDate1) {
+    public void setProjectDate1(String projectDate1) {
         this.projectDate1 = projectDate1;
     }
 
-    public Timestamp getProjectDate2() {
+    public String getProjectDate2() {
         return projectDate2;
     }
 
-    public void setProjectDate2(Timestamp projectDate2) {
+    public void setProjectDate2(String projectDate2) {
         this.projectDate2 = projectDate2;
     }
 

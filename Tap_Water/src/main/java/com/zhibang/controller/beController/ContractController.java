@@ -66,12 +66,11 @@ public class ContractController {
             upUsUser.setFormula(formula);
             upUsUser.setContractNum(contractNum);
 
-//            orderService.upOrderAndUserFormula(upBeOrder, upUsUser);
+            orderService.upOrderAndUserFormula(upBeOrder, upUsUser);
 
             List<BeOrderuser> list = JSONObject.parseArray(orderUser, BeOrderuser.class);
             for (BeOrderuser beOrderuser : list) {
                 beOrderuser.setOrderNo(upBeOrder);
-                System.out.println(beOrderuser);
                 orderUserService.upOrderuserFormula(beOrderuser);
             }
 

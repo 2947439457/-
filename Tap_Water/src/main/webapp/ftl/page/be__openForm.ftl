@@ -185,12 +185,10 @@
 				通水停水 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
-			
+            <input type="hidden" id="orderType" value="${beOrder.orderType}">
 			<div class="buttonrow">
-				<button class="btn-icon btn-arrow-left btn-red" 
-					onclick="showDialog('确认撤回吗？');"><span></span>撤回</button>
-				<button class="btn-icon btn-arrow-right btn-blue" 
-					onclick="showDialog('确认发送吗？');"><span></span>发送</button>
+                <button id="recall" class="btn-icon btn-arrow-left btn-red"><span></span>撤回</button>
+                <button id="send" class="btn-icon btn-arrow-right btn-blue"><span></span>发送</button>
 			</div>
 			
 			<table width="100%">
@@ -245,6 +243,45 @@ $(document).ready ( function ()
 {
 	Dashboard.init ();		
 });
+
+$(function () {
+
+    $("#send").click(function () {
+        if (!confirm("你确定要发送吗？")) {
+            return false;
+        }
+        aa("send");
+    })
+
+    $("#recall").click(function () {
+        if (!confirm("你确定要撤回吗？")) {
+            return false;
+        }
+        aa("recall");
+    })
+
+    var aa = function(stmt){
+        var orderNo = $("#orderNo").text(); //工单号
+        var orderType = $("#orderType").val()
+        $.ajax({
+            url:"/be/disposeOpen",
+            type:"post",
+            data:{
+                "stmt":stmt
+                ,"orderNo":orderNo
+                ,"orderType":orderType
+            },
+            success:function (integer) {
+                if (integer==1){
+                    window.location.href="/success/be/open";
+                }
+                if (integer==2){
+                    window.location.href="/error/be/open";
+                }
+            }
+        });
+    }
+})
 
 </script>
 

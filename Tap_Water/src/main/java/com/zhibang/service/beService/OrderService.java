@@ -27,5 +27,7 @@ public interface OrderService {
     public Integer upOrderAndUserMoney(BeOrder beOrder, UsUser usUser);
     //签订用水协议-yjh
     public Integer upOrderAndUserFormula(BeOrder beOrder, UsUser usUser);
+    //施工竣工
+    public Integer upOrderAndUserMeter(BeOrder beOrder, UsUser usUser);
 
 }

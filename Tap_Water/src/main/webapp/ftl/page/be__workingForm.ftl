@@ -185,12 +185,11 @@
 				施工竣工 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
-			
+            <input type="hidden" id="userNo" value="${beOrder.userNo.userNo}">
+            <input type="hidden" id="orderType" value="${beOrder.orderType}">
 			<div class="buttonrow">
-				<button class="btn-icon btn-arrow-left btn-red" 
-					onclick="showDialog('确认撤回吗？');"><span></span>撤回</button>
-				<button class="btn-icon btn-arrow-right btn-blue" 
-					onclick="showDialog('确认发送吗？');"><span></span>发送</button>
+                <button id="recall" class="btn-icon btn-arrow-left btn-red"><span></span>撤回</button>
+                <button id="send" class="btn-icon btn-arrow-right btn-blue"><span></span>发送</button>
 			</div>
 			
 <table width="100%">
@@ -209,9 +208,17 @@
 		<td>用户名称</td>
 		<td><input readonly="readonly" value="${beOrder.userNo.userName}" /></td>
 		<td>所属辖区</td>
-		<td><select style="width:156px;">
+		<td><select id="areaId" style="width:156px;">
 			<#list syAreas as sa>
-				<option>${sa.areaName}</option>
+				<#if beOrder.areaId ?? >
+					<#if beOrder.areaId.id == sa.id>
+						<option value="${sa.id}" selected>${sa.areaName}</option>
+					<#else >
+						<option value="${sa.id}">${sa.areaName}</option>
+					</#if>
+				<#else >
+					<option value="${sa.id}">${sa.areaName}</option>
+				</#if>
 			</#list>
 		</select></td>
 		<td></td>
@@ -219,9 +226,21 @@
 	</tr>
 	<tr>
 		<td>开工日期</td>
-		<td><input value="" onClick="WdatePicker();"  /></td>
+		<td>
+			<#if beOrder.projectDate1 ??>
+                <input type="date" id="projectDate1" value="${beOrder.projectDate1}" />
+			<#else >
+				<input type="date" id="projectDate1" value=""  />
+			</#if>
+		</td>
 		<td>竣工日期</td>
-		<td><input value="" onClick="WdatePicker();" /></td>
+		<td>
+			<#if beOrder.projectDate2 ??>
+                <input type="date" id="projectDate2" value="${beOrder.projectDate2}"  />
+			<#else >
+				<input type="date" id="projectDate2" value=""  />
+			</#if>
+		</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 	</tr>
@@ -246,9 +265,9 @@
 	<tr class="odd">
 		<td>${bou_index+1}</td>
 		<td>${bou.userName}</td>
-		<td><select style="width:100px;">
+		<td><select class="meterTypeid" style="width:100px;">
 			<#list syMetertypes as sm>
-				<option>${sm.meterTypeName}</option>
+				<option value="${sm.id}">${sm.meterTypeName}</option>
 			</#list>
 			</select></td>
 		<td>
@@ -286,7 +305,7 @@
 </table>
 
 <div class="centerButtons">
-	<button class="btn">保存不发送</button>
+	<button class="btn baoCun">保存不发送</button>
 </div>
 			
 		</div> <!-- .x12 -->
@@ -320,6 +339,89 @@ $(document).ready ( function ()
 {
 	Dashboard.init ();		
 });
+
+$(function () {
+
+    $(".baoCun").click(function () {
+        aa("baoCun");
+    })
+
+    $("#send").click(function () {
+        if (!confirm("你确定要发送吗？")) {
+            return false;
+        }
+        aa("send");
+    })
+
+    $("#recall").click(function () {
+        if (!confirm("你确定要撤回吗？")) {
+            return false;
+        }
+        aa("recall");
+    })
+
+    var aa = function(stmt) {
+        var orderNo = $("#orderNo").text(); //工单号
+        var orderType = $("#orderType").val();
+        var userNo = $("#userNo").val();
+        var areaId = $("#areaId").val();
+        var projectDate1 = $("#projectDate1").val();
+        var projectDate2 = $("#projectDate2").val();
+        var orderUser = new Array();
+        $('.odd').each(function (i, n) {
+            var userName = $(".odd:eq(" + i + ") td:eq(" + 1 + ")").text();
+            var meterTypeId = $(".odd:eq(" + i + ") td:eq(" + 2 + ") .meterTypeid").val();
+            var meterName = $(".odd:eq(" + i + ") td:eq(" + 3 + ") .meterName").val();
+            var maxValue = $(".odd:eq(" + i + ") td:eq(" + 4 + ") .maxValue").val();
+            var startValue = $(".odd:eq(" + i + ") td:eq(" + 5 + ") .startValue").val();
+            var meterFactory = $(".odd:eq(" + i + ") td:eq(" + 6 + ") .meterFactory").val();
+            orderUser.push({
+                "userName": userName,
+                "meterTypeId": meterTypeId,
+                "meterName": meterName,
+                "maxValue": maxValue,
+                "startValue": startValue,
+                "meterFactory": meterFactory
+            });
+        })
+		console.log(stmt);
+        console.log(orderNo);
+        console.log(orderType);
+        console.log(userNo);
+        console.log(areaId);
+        console.log(projectDate1);
+        console.log(projectDate2);
+        console.log(orderUser);
+        $.ajax({
+            url:"/be/disposeWorking",
+            type:"post",
+            data:{
+                "stmt":stmt
+                ,"orderNo":orderNo
+                ,"orderType":orderType
+                ,"userNo":userNo
+                ,"areaId":areaId
+                ,"projectDate1":projectDate1
+                ,"projectDate2":projectDate2
+                ,"orderUser":JSON.stringify(orderUser)
+            },
+            success:function (integer) {
+                if (integer == 0){
+                    alert("保存失败：请检查数据的准确性！")
+                }
+                if (integer==1){
+                    alert("保存成功！");
+                }
+                if (integer==2){
+                    window.location.href="/success/be/working";
+                }
+                if (integer==3){
+                    window.location.href="/error/be/working";
+                }
+            }
+        });
+    }
+})
 
 </script>
 
