@@ -47,6 +47,24 @@
         <if test="contractNum != null">
             ,`ContractNum` = #{contractNum}
         </if>
+        <if test="meterTypeId != null">
+            ,`MeterTypeId` = #{meterTypeId}
+        </if>
+        <if test="meterName != null">
+            ,`MeterName` = #{meterName}
+        </if>
+        <if test="maxValue != null">
+            ,`MaxValue` = #{maxValue}
+        </if>
+        <if test="startValue != null">
+            ,`StartValue` = #{startValue}
+        </if>
+        <if test="meterFactory != null">
+            ,`MeterFactory` = #{meterFactory}
+        </if>
+        <if test="docNum != null">
+            ,`DocNum` = #{docNum}
+        </if>
         WHERE
           `OrderNo` = #{orderNo.orderNo}
         <if test="userName != null">

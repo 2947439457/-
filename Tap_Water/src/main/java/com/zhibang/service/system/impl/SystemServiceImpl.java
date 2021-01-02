@@ -12,9 +12,6 @@ import java.util.List;
 public class SystemServiceImpl implements SystemService {
     @Autowired
     private SystemMapper systemMapper;
-
-
-
     /**
      * 登录验证YX
      * @param syEmp
@@ -24,24 +21,26 @@ public class SystemServiceImpl implements SystemService {
     public SyEmp selectEepById(SyEmp syEmp){
         return systemMapper.selectEepById(syEmp);
     }
+
+    /**
+     * 验证登录信息YX
+     * @param syEmp
+     * @return
+     */
     @Override
     public SyEmp selectSyEmps(SyEmp syEmp){
         return systemMapper.selectSyEmps(syEmp);
     }
+
+    /**
+     * 修改密码
+     * @param syEmp
+     * @return
+     */
     @Override
     public Integer updateSyEmp(SyEmp syEmp){
         return systemMapper.updateSyEmp(syEmp);
     }
-    /**
-     * 查询所有辖区YX
-     * @return
-     */
-    /**
-     * 查询所有部门YX
-     * @return
-     */
-    @Override
-    public List<SyDept> selectSyDept(){return systemMapper.selectSyDept();}
 
     /**
      * 查询所有员工YX

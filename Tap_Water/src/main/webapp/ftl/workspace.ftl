@@ -21,8 +21,12 @@
 	
 	<link rel="stylesheet" href="./css/custom.css" type="text/css" media="screen" title="no title">
 
-</head> 
- 
+</head>
+<script src="js/jquery/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" language="javascript">
+
+
+</script>
 <body> 
 
 <div id="wrapper">
@@ -36,7 +40,7 @@
 			
 			<ul id="nav">
 				
-				<li class="nav_dropdown nav_icon">
+				<li class="nav_dropdown nav_icon" style="display: ${s1}">
 					<a href="javascript:;"><span class="ui-icon ui-icon-wrench"></span>业扩工程</a>
 					
 					<div class="nav_menu">			
@@ -49,16 +53,16 @@
                             <li><a href="/be/working">06 施工竣工</a></li>
                             <li><a href="/be/open">07 通水停水</a></li>
                             <li><a href="/be/save">08 档案存档</a></li>
-							<li><a href="/be/order">工单管理</a></li>
-							<li><a href="/be/abort">终止工单</a></li>
-							<li><a href="page/be_reportProgress.ftl">业扩工程进度</a></li>
-							<li><a href="page/be_reportMoney.ftl">业扩收费报表</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
 						</ul>
 						
 					</div>
 				</li>
 
-				<li class="nav_dropdown nav_icon">
+				<li class="nav_dropdown nav_icon" style="display: ${s2}">
 					<a href="javascript:;"><span class="ui-icon ui-icon-person"></span>用户管理</a>
 					
 					<div class="nav_menu">			
@@ -78,7 +82,7 @@
 					</div>
 				</li>
 
-				<li class="nav_dropdown nav_icon">
+				<li class="nav_dropdown nav_icon" style="display: ${s3}">
 					<a href="javascript:;"><span class="ui-icon ui-icon-pencil"></span>抄表管理</a>
 					
 					<div class="nav_menu">			
@@ -99,7 +103,7 @@
 					</div>
 				</li>
 				
-				<li class="nav_dropdown nav_icon">
+				<li class="nav_dropdown nav_icon" style="display: ${s4}">
 					<a href="javascript:;"><span class="ui-icon ui-icon-star"></span>收费管理</a>
 					
 					<div class="nav_menu">			
@@ -117,7 +121,7 @@
 					</div>
 				</li>
 				
-				<li class="nav_dropdown nav_icon">
+				<li class="nav_dropdown nav_icon" style="display: ${s5}">
 					<a href="javascript:;"><span class="ui-icon ui-icon-script"></span>发票管理</a>
 					
 					<div class="nav_menu">			
@@ -136,7 +140,7 @@
 					</div>
 				</li>
 
-				<li class="nav_dropdown nav_icon">
+				<li class="nav_dropdown nav_icon" style="display: ${s6}">
 					<a href="javascript:;"><span class="ui-icon ui-icon-gear"></span>系统设置</a>
 					
 					<div class="nav_menu">			

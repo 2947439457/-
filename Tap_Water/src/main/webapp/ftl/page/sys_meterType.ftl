@@ -57,10 +57,10 @@
                             <li><a href="/be/working">06 施工竣工</a></li>
                             <li><a href="/be/open">07 通水停水</a></li>
                             <li><a href="/be/save">08 档案存档</a></li>
-							<li><a href="be_order.ftl">工单管理</a></li>
-							<li><a href="be_abort.ftl">终止工单</a></li>
-							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-							<li><a href="be_reportMoney.ftl">业扩收费报表</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
 						</ul>
 						
 					</div>
@@ -149,14 +149,14 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="sys_area.ftl">抄表辖区</a></li>
-							<li><a href="../page/sys_meterType.ftl">水表型号</a></li>
-							<li><a href="sys_dept.ftl">部门管理</a></li>
-							<li><a href="sys_emp.ftl">员工管理</a></li>
-							<li><a href="sys_menupower.ftl">菜单权限设置</a></li>
-							<li><a href="sys_areapower.ftl">辖区权限设置</a></li>
-							<li><a href="sys_waterType.ftl">用水类型设定</a></li>
-							<li><a href="sys_surcharge.ftl">附加费设定</a></li>
+							<li><a href="sys_area">抄表辖区</a></li>
+							<li><a href="../page/sys_meterType">水表型号</a></li>
+							<li><a href="sys_dept">部门管理</a></li>
+							<li><a href="sys_emp">员工管理</a></li>
+							<li><a href="sys_menupower">菜单权限设置</a></li>
+							<li><a href="sys_areapower">辖区权限设置</a></li>
+							<li><a href="sys_waterType">用水类型设定</a></li>
+							<li><a href="sys_surcharge">附加费设定</a></li>
 							<li><a href="sys_flow.ftl">流程配置</a></li>
 						</ul>
 						
@@ -168,9 +168,9 @@
 					
 					<div class="nav_menu">
 						<ul>
-							<li><a href="../workspace.ftl">我的工作台</a></li>
-							<li><a href="sys_pwd.ftl">修改密码</a></li>
-							<li><a href="../login.ftl">退出系统</a></li>
+							<li><a href="../workspace">我的工作台</a></li>
+							<li><a href="sys_pwd">修改密码</a></li>
+							<li><a href="../login">退出系统</a></li>
 						</ul>
 					</div> <!-- .menu -->
 				</li>
@@ -198,14 +198,15 @@
                 <form action="/delsyMetertype">
 				<div class="dialogbutton center" id="bo">
                     <button class="btn" style="width:92px;">是</button>
-                    <button class="btn btn-grey" style="width:92px;">否</button>
 				</div>
                 </form>
+                <button class="btn btn-grey" style="position: relative;top: -32px;right: -130px;width:92px;">
+                    <a href="/sys_meterType" style="width:92px;color: #FFFFFF">否</a></button>
 			</div>
 			
 			<h2>水表型号设置</h2>
             <form action="/sys_meterType_add" method="post" accept-charset="utf-8">
-			<p><button class="btn-icon btn-plus" onClick="location='sys_meterType_add.html';"><span></span>添加水表型号</button></p>
+			<p><button class="btn-icon btn-plus" onClick="location='sys_meterType_add.ftl';"><span></span>添加水表型号</button></p>
             </form>
 			<table class="data display">
 					<thead>

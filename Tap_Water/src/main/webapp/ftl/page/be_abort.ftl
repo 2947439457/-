@@ -52,8 +52,8 @@
                             <li><a href="/be/save">08 档案存档</a></li>
                             <li><a href="/be/order">工单管理</a></li>
                             <li><a href="/be/abort">终止工单</a></li>
-                            <li><a href="../page/be_reportProgress.html">业扩工程进度</a></li>
-                            <li><a href="../page/be_reportMoney.html">业扩收费报表</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
                         </ul>
 
                     </div>
@@ -142,15 +142,15 @@
 
                     <div class="nav_menu">
                         <ul>
-                            <li><a href="../page/sys_area.html">抄表辖区</a></li>
-                            <li><a href="../page/sys_meterType.html">水表型号</a></li>
-                            <li><a href="../page/sys_dept.html">部门管理</a></li>
-                            <li><a href="../page/sys_emp.html">员工管理</a></li>
-                            <li><a href="../page/sys_menupower.html">菜单权限设置</a></li>
-                            <li><a href="../page/sys_areapower.html">辖区权限设置</a></li>
-                            <li><a href="../page/sys_waterType.html">用水类型设定</a></li>
-                            <li><a href="../page/sys_surcharge.html">附加费设定</a></li>
-                            <li><a href="../page/sys_flow.html">流程配置</a></li>
+                            <li><a href="../page/sys_area">抄表辖区</a></li>
+                            <li><a href="../page/sys_meterType">水表型号</a></li>
+                            <li><a href="../page/sys_dept">部门管理</a></li>
+                            <li><a href="../page/sys_emp">员工管理</a></li>
+                            <li><a href="../page/sys_menupower">菜单权限设置</a></li>
+                            <li><a href="../page/sys_areapower">辖区权限设置</a></li>
+                            <li><a href="../page/sys_waterType">用水类型设定</a></li>
+                            <li><a href="../page/sys_surcharge">附加费设定</a></li>
+                            <li><a href="../page/sys_flow">流程配置</a></li>
                         </ul>
 
                     </div>
@@ -161,9 +161,9 @@
 
                     <div class="nav_menu">
                         <ul>
-                            <li><a href="../workspace.html">我的工作台</a></li>
-                            <li><a href="../page/sys_pwd.html">修改密码</a></li>
-                            <li><a href="../login.html">退出系统</a></li>
+                            <li><a href="../workspace">我的工作台</a></li>
+                            <li><a href="../page/sys_pwd">修改密码</a></li>
+                            <li><a href="../login">退出系统</a></li>
                         </ul>
                     </div> <!-- .menu -->
                 </li>
@@ -175,7 +175,7 @@
     <div id="masthead">
         <div>
             <span id="pagetitle"><a href="javascript:;">终止工单</a></span>
-            <span id="welcome_span">欢迎回来，马云</span>
+            <span id="welcome_span">欢迎回来，${s.empName}</span>
         </div>
     </div> <!-- #masthead -->
 

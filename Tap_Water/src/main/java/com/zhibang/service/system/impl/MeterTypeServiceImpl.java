@@ -18,22 +18,27 @@ public class MeterTypeServiceImpl implements MeterTypeService {
     MeterTypeMapper meterMapper;
 
     /**
-     * 查询所有辖区信息YX
+     * 查询所有水表型号信息YX
      * @return
      */
     @Override
     public List<SyMetertype> selectSyMeterType(){return meterMapper.selectSyMeterType();}
 
     /**
-     * 添加辖区信息YX
+     * 添加水表型号信息YX
      * @param syMeterType
      * @return
      */
     @Override
     public Integer addSyMeterType(SyMetertype syMeterType){return meterMapper.addSyMetertype(syMeterType);}
-
     /**
-     * 修改辖区信息YX
+     * 查询单个水表型号YX
+     * @return
+     */
+    @Override
+    public SyMetertype selectSyMetertypeID(Integer id){return meterMapper.selectSyMetertypeID(id);}
+    /**
+     * 修改水表型号信息YX
      * @param syMeterType
      * @return
      */
@@ -41,7 +46,7 @@ public class MeterTypeServiceImpl implements MeterTypeService {
     public Integer updateSyMeterType(SyMetertype syMeterType){return meterMapper.updateSyMetertype(syMeterType);}
 
     /**
-     * 删除辖区信息YX
+     * 删除水表型号信息YX
      * @param id
      * @return
      */

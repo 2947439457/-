@@ -38,7 +38,7 @@
 
             if (rows.length < n) {//需增加行数
                 for (var i = rows.length; i < n; i++) {
-                    $('table.data tbody').append('<tr><td>' + (i + 1) +
+                    $('table.data tbody').append('<tr class="odd"><td>' + (i + 1) +
                             '</td><td><input class="userName"/></td><td><input class="phone"/></td><td><input class="address"/></td></tr>');
                 }
             } else {//需减少行数
@@ -71,10 +71,10 @@
                             <li><a href="/be/working">06 施工竣工</a></li>
                             <li><a href="/be/open">07 通水停水</a></li>
                             <li><a href="/be/save">08 档案存档</a></li>
-                            <li><a href="be_order.ftl">工单管理</a></li>
-                            <li><a href="be_abort.ftl">终止工单</a></li>
-                            <li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-                            <li><a href="be_reportMoney.ftl">业扩收费报表</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
                         </ul>
 
                     </div>
@@ -163,15 +163,15 @@
 
                     <div class="nav_menu">
                         <ul>
-                            <li><a href="sys_area.ftl">抄表辖区</a></li>
-                            <li><a href="sys_meterType.ftl">水表型号</a></li>
-                            <li><a href="sys_dept.ftl">部门管理</a></li>
-                            <li><a href="sys_emp.ftl">员工管理</a></li>
-                            <li><a href="sys_menupower.ftl">菜单权限设置</a></li>
-                            <li><a href="sys_areapower.ftl">辖区权限设置</a></li>
-                            <li><a href="sys_waterType.ftl">用水类型设定</a></li>
-                            <li><a href="sys_surcharge.ftl">附加费设定</a></li>
-                            <li><a href="sys_flow.ftl">流程配置</a></li>
+                            <li><a href="sys_area">抄表辖区</a></li>
+                            <li><a href="sys_meterType">水表型号</a></li>
+                            <li><a href="sys_dept">部门管理</a></li>
+                            <li><a href="sys_emp">员工管理</a></li>
+                            <li><a href="sys_menupower">菜单权限设置</a></li>
+                            <li><a href="sys_areapower">辖区权限设置</a></li>
+                            <li><a href="sys_waterType">用水类型设定</a></li>
+                            <li><a href="sys_surcharge">附加费设定</a></li>
+                            <li><a href="sys_flow">流程配置</a></li>
                         </ul>
 
                     </div>
@@ -183,7 +183,7 @@
                     <div class="nav_menu">
                         <ul>
                             <li><a href="../workspace.ftl">我的工作台</a></li>
-                            <li><a href="sys_pwd.ftl">修改密码</a></li>
+                            <li><a href="sys_pwd">修改密码</a></li>
                             <li><a href="../login.ftl">退出系统</a></li>
                         </ul>
                     </div> <!-- .menu -->
@@ -196,7 +196,7 @@
     <div id="masthead">
         <div>
             <span id="pagetitle"><a href="javascript:;">用户申请</a></span>
-            <span id="welcome_span">欢迎回来，马云</span>
+            <span id="welcome_span">欢迎回来，${s.empName}</span>
         </div>
     </div> <!-- #masthead -->
 
@@ -217,7 +217,7 @@
             <div class="tab_container">
                 <ul class="tabs">
                     <li><a href="#tab1">申请表</a></li>
-                    <li><a href="#tab2">新户详细表</a></li>
+                    <li><a href="#tab2" id="xingHu">新户详细表</a></li>
                 </ul>
                 <#if beOrder ?? >
                 <#--<#if 1==1 >-->
@@ -382,11 +382,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
+                                    <tr class="odd">
                                         <td>1</td>
-                                        <td><input class="userName"/></td>
-                                        <td><input class="phone"/></td>
-                                        <td><input class="address"/></td>
+                                        <td><input class="userName" readonly="readonly"/></td>
+                                        <td><input class="phone" readonly="readonly"/></td>
+                                        <td><input class="address" readonly="readonly"/></td>
                                         <td></td>
                                     </tr>
                                     </tbody>
@@ -437,6 +437,14 @@
     });
     
     $(function () {
+        $("#xingHu").click(function () {
+            var userName = $("#userName").val(); //用户名称
+            var phone = $("#phone").val(); //联系电话
+            var address = $("#address").val(); //用户地址
+            $(".odd:eq(0) td:eq(1) .userName").val(userName);
+            $(".odd:eq(0) td:eq(2) .phone").val(phone);
+            $(".odd:eq(0) td:eq(3) .address").val(address);
+        })
         // 办理按钮
         $(".banLi").click(function () {
             var stat = $(".stat").val();

@@ -52,7 +52,8 @@ public class AreaController {
             System.out.println("进入增加界面");
             return "page/sys_area_add";
         }
-        model.addAttribute("id",id);
+        SyArea syArea = areaService.selectSyAreaID(id);
+        model.addAttribute("syArea",syArea);
         return "page/sys_area_add";
     }
     /**
