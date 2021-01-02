@@ -138,15 +138,15 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="sys_area.ftl">抄表辖区</a></li>
-							<li><a href="sys_meterType.ftl">水表型号</a></li>
-							<li><a href="sys_dept.ftl">部门管理</a></li>
-							<li><a href="sys_emp.ftl">员工管理</a></li>
-							<li><a href="sys_menupower.ftl">菜单权限设置</a></li>
-							<li><a href="sys_areapower.ftl">辖区权限设置</a></li>
-							<li><a href="sys_waterType.ftl">用水类型设定</a></li>
-							<li><a href="sys_surcharge.ftl">附加费设定</a></li>
-							<li><a href="sys_flow.ftl">流程配置</a></li>
+							<li><a href="sys_area">抄表辖区</a></li>
+							<li><a href="sys_meterType">水表型号</a></li>
+							<li><a href="sys_dept">部门管理</a></li>
+							<li><a href="sys_emp">员工管理</a></li>
+							<li><a href="sys_menupower">菜单权限设置</a></li>
+							<li><a href="sys_areapower">辖区权限设置</a></li>
+							<li><a href="sys_waterType">用水类型设定</a></li>
+							<li><a href="sys_surcharge">附加费设定</a></li>
+							<li><a href="sys_flow">流程配置</a></li>
 						</ul>
 						
 					</div>
@@ -157,9 +157,9 @@
 					
 					<div class="nav_menu">
 						<ul>
-							<li><a href="../workspace.ftl">我的工作台</a></li>
-							<li><a href="sys_pwd.ftl">修改密码</a></li>
-							<li><a href="../login.ftl">退出系统</a></li>
+							<li><a href="../workspace">我的工作台</a></li>
+							<li><a href="sys_pwd">修改密码</a></li>
+							<li><a href="../login">退出系统</a></li>
 						</ul>
 					</div> <!-- .menu -->
 				</li>
@@ -170,7 +170,7 @@
 	
 	<div id="masthead">
 		<div>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	

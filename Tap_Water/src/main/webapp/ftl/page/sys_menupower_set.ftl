@@ -149,7 +149,7 @@
 							<li><a href="sys_areapower">辖区权限设置</a></li>
 							<li><a href="sys_waterType">用水类型设定</a></li>
 							<li><a href="sys_surcharge">附加费设定</a></li>
-							<li><a href="sys_flow">流程配置</a></li>
+							<li><a href="sys_flow.ftl">流程配置</a></li>
 						</ul>
 						
 					</div>
@@ -160,9 +160,9 @@
 					
 					<div class="nav_menu">
 						<ul>
-							<li><a href="../workspace.ftl">我的工作台</a></li>
-							<li><a href="sys_pwd.ftl">修改密码</a></li>
-							<li><a href="../login.ftl">退出系统</a></li>
+							<li><a href="../workspace">我的工作台</a></li>
+							<li><a href="sys_pwd">修改密码</a></li>
+							<li><a href="../login">退出系统</a></li>
 						</ul>
 					</div> <!-- .menu -->
 				</li>
