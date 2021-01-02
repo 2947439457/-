@@ -174,7 +174,7 @@
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">抄表辖区设置</a></span>
-			<span id="welcome_span">欢迎回来，马云</span>
+			<span id="welcome_span">欢迎回来，${s.empName}</span>
 		</div>
 	</div> <!-- #masthead -->	
 	
@@ -204,8 +204,9 @@
                 <button class="btn btn-grey" style="position: relative;top: -32px;left: 100px;">
                     <a href="/sys_meterType" style="color: #FFFFFF">返回</a></button>
 
-			<#--</div>-->
+			</div>
 			<#else >
+            <div class="form label-inline uniform">
             <form action="/addmeterType" method="post">
                 <div class="field"><label for="id">水表型号ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>
                 <div class="field"><label for="name">水表型号</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
@@ -219,7 +220,7 @@
             <#--</div>-->
                 <button class="btn">保存</button>
             </form>
-                <button class="btn btn-grey">
+                <button class="btn btn-grey" style="position: relative;top: -32px;left: 100px;">
                     <a href="/sys_meterType" style="color: #FFFFFF">返回</a></button>
 
 			</div>

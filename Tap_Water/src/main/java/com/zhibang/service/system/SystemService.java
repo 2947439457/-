@@ -11,14 +11,19 @@ public interface SystemService {
      * @return
      */
     public SyEmp selectEepById(SyEmp syEmp);
-
-    public SyEmp selectSyEmps(SyEmp syEmp);
-    public Integer updateSyEmp(SyEmp syEmp);
     /**
-     * 查询所有部门YX
+     * 查询登录信息
+     * @param syEmp
      * @return
      */
-    public List<SyDept> selectSyDept();
+    public SyEmp selectSyEmps(SyEmp syEmp);
+    /**
+     * 修改登录密码
+     * @param syEmp
+     * @return
+     */
+    public Integer updateSyEmp(SyEmp syEmp);
+
 
     /**
      * 查询所有员工YX

@@ -12,9 +12,6 @@ import java.util.List;
 public class SystemServiceImpl implements SystemService {
     @Autowired
     private SystemMapper systemMapper;
-
-
-
     /**
      * 登录验证YX
      * @param syEmp
@@ -44,8 +41,6 @@ public class SystemServiceImpl implements SystemService {
     public Integer updateSyEmp(SyEmp syEmp){
         return systemMapper.updateSyEmp(syEmp);
     }
-    @Override
-    public List<SyDept> selectSyDept(){return systemMapper.selectSyDept();}
 
     /**
      * 查询所有员工YX

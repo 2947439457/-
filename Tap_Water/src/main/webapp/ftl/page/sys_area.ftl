@@ -219,7 +219,7 @@
                        <button class="btn" style="width:92px;">是</button>
 				</div>
                 </form>
-                <button class="btn btn-grey" style="position: relative;top: -32px;right: -250px;width:92px;">
+                <button class="btn btn-grey" style="position: relative;top: -32px;right: -130px;width:92px;">
                     <a href="/sys_area" style="width:92px;color: #FFFFFF">否</a></button>
 			</div>
 			

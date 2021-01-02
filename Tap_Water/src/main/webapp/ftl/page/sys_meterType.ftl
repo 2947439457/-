@@ -198,9 +198,10 @@
                 <form action="/delsyMetertype">
 				<div class="dialogbutton center" id="bo">
                     <button class="btn" style="width:92px;">是</button>
-                    <button class="btn btn-grey" style="width:92px;">否</button>
 				</div>
                 </form>
+                <button class="btn btn-grey" style="position: relative;top: -32px;right: -130px;width:92px;">
+                    <a href="/sys_meterType" style="width:92px;color: #FFFFFF">否</a></button>
 			</div>
 			
 			<h2>水表型号设置</h2>

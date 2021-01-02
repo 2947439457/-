@@ -141,15 +141,15 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="sys_area.ftl">抄表辖区</a></li>
-							<li><a href="sys_meterType.ftl">水表型号</a></li>
-							<li><a href="../page/sys_dept.ftl">部门管理</a></li>
-							<li><a href="sys_emp.ftl">员工管理</a></li>
-							<li><a href="sys_menupower.ftl">菜单权限设置</a></li>
-							<li><a href="sys_areapower.ftl">辖区权限设置</a></li>
-							<li><a href="sys_waterType.ftl">用水类型设定</a></li>
-							<li><a href="sys_surcharge.ftl">附加费设定</a></li>
-							<li><a href="sys_flow.ftl">流程配置</a></li>
+							<li><a href="sys_area">抄表辖区</a></li>
+							<li><a href="sys_meterType">水表型号</a></li>
+							<li><a href="../page/sys_dept">部门管理</a></li>
+							<li><a href="sys_emp">员工管理</a></li>
+							<li><a href="sys_menupower">菜单权限设置</a></li>
+							<li><a href="sys_areapower">辖区权限设置</a></li>
+							<li><a href="sys_waterType">用水类型设定</a></li>
+							<li><a href="sys_surcharge">附加费设定</a></li>
+							<li><a href="sys_flow">流程配置</a></li>
 						</ul>
 						
 					</div>
@@ -198,9 +198,9 @@
 			</div>
 			
 			<h2>部门设置</h2>
-			
+            <form action="/sys_dept_add" method="post" accept-charset="utf-8">
 			<p><button class="btn-icon btn-plus" onClick="location='sys_dept_add.html';"><span></span>添加部门</button></p>
-				
+            </form>
 			<table class="data display">
 					<thead>
 						<tr>
@@ -217,8 +217,11 @@
                             <td>${dept.deptName}</td>
                             <td>${dept.remark}</td>
                             <td class="center">
+                                <form action="/sys_dept_add" method="post" accept-charset="utf-8">
+                                    <input type="hidden" name="date" value="${dept.id}">
                                 <button class="btn-icon btn-small btn-blue btn-star" onClick="location='sys_dept_add.html';"><span></span>修改</button>
                                 <a href="#facebox_delete" rel="facebox" class="btn-icon btn-small btn-red btn-cross"><span></span>删除</a>
+                                </form>
                             </td>
                         </tr>
 					</#list>

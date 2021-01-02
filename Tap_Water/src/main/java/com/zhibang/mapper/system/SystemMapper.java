@@ -35,14 +35,6 @@ public interface SystemMapper {
     @Update("UPDATE `sy_emp` SET `Pwd`='${pwd}' WHERE `EmpName`='${empName}';")
     public Integer updateSyEmp(SyEmp syEmp);
 
-
-    /**
-     * 查询所有部门YX
-     * @return
-     */
-    @Select("SELECT * FROM sy_dept WHERE Disabled=true")
-    public List<SyDept> selectSyDept();
-
     /**
      * 查询所有员工YX
      * @return

@@ -167,20 +167,6 @@ public class SystemController {
         return "/login";
     }
 
-
-    /**
-     * 查询所有部门YX
-     * @param model
-     * @return
-     */
-    @RequestMapping("/sys_dept")
-    public String sys_dept(Model model){
-        List<SyDept> syDept = systemService.selectSyDept();
-        model.addAttribute("syDept",syDept);
-        System.out.println(syDept);
-        return "page/sys_dept";
-    }
-
     /**
      * 查询所有员工YX
      * @param model

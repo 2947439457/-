@@ -184,22 +184,42 @@
 		<div class="x12">
 			
 			<h2>添加/修改部门</h2>
-			
+			 <#if SyDept??>
 			<div class="form label-inline uniform">
-	
-				<div class="field"><label for="id">部门ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>
-				
-				<div class="field"><label for="name">部门名称</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
+                <form action="/updatedept" method="post">
+				<div class="field"><label for="id">部门ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="${SyDept.id}" /></div>
+                    <input type="hidden" name="deptid" value="${SyDept.id}">
+				<div class="field"><label for="name">部门名称</label> <input id="name" name="lname" size="50" type="text" class="medium" value="${SyDept.deptName}" /></div>
 
 							
-				<div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
+				<div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description">${SyDept.remark}</textarea></div>
 
-				<div class="buttonrow">
-					<button class="btn">保存</button>  
-					<button class="btn btn-grey" onClick="history.back(-1);">返回</button>
-				</div>
+                    <#--<div class="buttonrow"></div>-->
+					<button class="btn">保存</button>
+                </form>
+                    <button class="btn btn-grey" style="position: relative;top: -32px;left: 100px;">
+                        <a href="/sys_dept" style="color: #FFFFFF">返回</a></button>
 
 			</div>
+             <#else >
+            <div class="form label-inline uniform">
+                <form action="/adddept" method="post">
+                <div class="field"><label for="id">部门ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="自动生成" /></div>
+
+                <div class="field"><label for="name">部门名称</label> <input id="name" name="lname" size="50" type="text" class="medium" /></div>
+
+
+                <div class="field"><label for="description">备注</label> <textarea rows="7" cols="50" id="description" name="description"></textarea></div>
+
+                <#--<div class="buttonrow">-->
+                    <#---->
+                <#--</div>-->
+                    <button class="btn">保存</button>
+                </form>
+                <button class="btn btn-grey" style="position: relative;top: -32px;left: 100px;">
+                    <a href="/sys_dept" style="color: #FFFFFF">返回</a></button>
+            </div>
+             </#if>
 			
 		</div> <!-- .x12 -->
 		
