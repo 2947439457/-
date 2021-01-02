@@ -42,18 +42,18 @@
 
                     <div class="nav_menu">
                         <ul>
-                            <li><a href="../page/be__request.html">01 用户申请</a></li>
-                            <li><a href="../page/be__audit.html">02 初步审核</a></li>
-                            <li><a href="../page/be__pay.html">03 交施工费</a></li>
-                            <li><a href="../page/be__billclear.html">04 水费清算</a></li>
-                            <li><a href="../page/be__contract.html">05 供水协议</a></li>
-                            <li><a href="../page/be__working.html">06 施工竣工</a></li>
-                            <li><a href="../page/be__open.html">07 通水停水</a></li>
-                            <li><a href="../page/be__save.html">08 档案存档</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
                             <li><a href="/be/order">工单管理</a></li>
                             <li><a href="/be/abort">终止工单</a></li>
-                            <li><a href="../page/be_reportProgress.html">业扩工程进度</a></li>
-                            <li><a href="../page/be_reportMoney.html">业扩收费报表</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
                         </ul>
 
                     </div>
@@ -91,10 +91,10 @@
                             <li><a href="../page/rd_audit.html">抄表审核</a></li>
                             <li><a href="../page/rd_reportReading.html">抄表情况查询</a></li>
                             <li><a href="../page/rd_reportVolumeReading.html">抄表统计报表</a></li>
-                            <li><a href="../page/rd_reportZero.html">零吨位用户查询</a></li>
-                            <li><a href="../page/rd_reportMaxValue.html">最大码值修正记录</a></li>
-                            <li><a href="../page/rd_reportCPreAmount.html">底码修正记录</a></li>
-                            <li><a href="../page/rd_reportMeterCheck.html">水表周检报表</a></li>
+                            <li><a href="/rd/zeroUser">零吨位用户查询</a></li>
+                            <li><a href="/rd/changeMaxValue">最大码值修正记录</a></li>
+                            <li><a href="/rd/changeValue">底码修正记录</a></li>
+                            <li><a href="/rd/meteUser">水表周检报表</a></li>
                         </ul>
 
                     </div>

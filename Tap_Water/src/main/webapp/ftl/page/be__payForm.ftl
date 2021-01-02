@@ -39,18 +39,18 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="/be/request">01 用户申请</a></li>
-							<li><a href="/be/audit">02 初步审核</a></li>
-							<li><a href="/be/pay">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
-							<li><a href="be_order.ftl">工单管理</a></li>
-							<li><a href="be_abort.ftl">终止工单</a></li>
-							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-							<li><a href="be_reportMoney.ftl">业扩收费报表</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
 						</ul>
 						
 					</div>
@@ -81,17 +81,17 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="rd_volume.ftl">表册管理</a></li>
+                            <li><a href="/rd/volume_default">表册管理</a></li>
 							<li><a href="rd_init.ftl">抄表初始化</a></li>
 							<li><a href="rd_task.ftl">任务分配</a></li>
 							<li><a href="rd_enter.ftl">抄表录入</a></li>
 							<li><a href="rd_audit.ftl">抄表审核</a></li>
 							<li><a href="rd_reportReading.ftl">抄表情况查询</a></li>
 							<li><a href="rd_reportVolumeReading.ftl">抄表统计报表</a></li>
-							<li><a href="rd_reportZero.ftl">零吨位用户查询</a></li>
-							<li><a href="rd_reportMaxValue.ftl">最大码值修正记录</a></li>
-							<li><a href="rd_reportCPreAmount.ftl">底码修正记录</a></li>
-							<li><a href="rd_reportMeterCheck.ftl">水表周检报表</a></li>
+                            <li><a href="/rd/zeroUser">零吨位用户查询</a></li>
+                            <li><a href="/rd/changeMaxValue">最大码值修正记录</a></li>
+                            <li><a href="/rd/changeValue">底码修正记录</a></li>
+                            <li><a href="/rd/meteUser">水表周检报表</a></li>
 						</ul>
 						
 					</div>
@@ -182,10 +182,11 @@
 		<div class="x12">
 			
 			<h2>
-				交施工费 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-201412-0003</a>
+				交施工费 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
-
+			<input type="hidden" id="userNo" value="${beOrder.userNo.userNo}">
+            <input type="hidden" id="orderType" value="${beOrder.orderType}">
             <div class="buttonrow">
                 <button id="recall" class="btn-icon btn-arrow-left btn-red"><span></span>撤回</button>
                 <button id="send" class="btn-icon btn-arrow-right btn-blue"><span></span>发送</button>
@@ -215,25 +216,25 @@
 		<td>总应收</td>
 		<td>
 			<#if beOrder.projectMoney == 0.00>
-				<input type="number" readonly="readonly" class="yright" value="" />
+				<input readonly="readonly" class="yright" value="" />
 			<#else >
-				<input type="number" readonly="readonly" class="yright" value="${beOrder.projectMoney}" />
+				<input readonly="readonly" class="yright" value="${beOrder.projectMoney}" />
 			</#if>元
 		</td>
 		<td>总实收</td>
 		<td>
-			<#if beOrder.projectMoney == 0.00>
-				<input type="number" readonly="readonly" class="sright" value="" />
+			<#if beOrder.realMoney == 0.00>
+				<input readonly="readonly" class="sright" value="" />
 			<#else >
-				<input type="number" readonly="readonly" class="sright" value="${beOrder.realMoney}" />
+				<input readonly="readonly" class="sright" value="${beOrder.realMoney}" />
 			</#if>元
 		</td>
 		<td>总欠缴</td>
 		<td>
 			<#if beOrder.userNo.userMoney == 0.00>
-				<input type="number" readonly="readonly" class="qright" value="" />
+				<input readonly="readonly" class="qright" value="" />
 			<#else >
-				<input type="number" readonly="readonly" class="qright" value="${beOrder.userNo.userMoney}" />
+				<input readonly="readonly" class="qright" value="${beOrder.userNo.userMoney}" />
 			</#if>元
 		</td>
 	</tr>
@@ -312,53 +313,85 @@ $(document).ready ( function ()
 });
 
 $(function () {
+
     // 保存不发送
     $(".baoCun").click(function () {
-        var ynum = 0;
-        var snum = 0;
-        $('.ymoneys').each(function(i,n){
-            ynum = ynum + Number(n.value);
-        });
-        $('.smoneys').each(function(i,n){
-            snum = snum + Number(n.value);
-        });
-		var yright = $(".yright").val(ynum);
-        var sright = $(".sright").val(snum);
-        var qright = $(".qright").val(ynum-snum);
-        var orderUsers = new Array();
-        $('.odd').each(function (i, n) {
-			alert(i);
-			alert(n.text());
-        })
-        // orderUsers.push({name:""}, ymoneys:"", smoneys:"");
-        // $.ajax({
-		// 	url:"/be/nosendpay",
-		// 	type:"post",
-		// 	data:{},
-        //     traditional: true,
-		// 	success:function () {
-		//
-        //     }
-		// })
+		aa("baoCun");
     })
 
-    // $("#send").click(function () {
-    //     if (!confirm("你确定要发送吗？")) {
-    //         return false;
-    //     }
-    //     window.location.href = ;
-    // })
-    <#--$("#recall").click(function () {-->
-        <#--if (!confirm("你确定要撤回吗？")) {-->
-            <#--return false;-->
-        <#--}-->
-        <#--var audits = $("#audits").val(); //审核意见-->
-        <#--if (audits == ""){-->
-            <#--audits = "无";-->
-        <#--}-->
-        <#--window.location.href = "/be/disposeAudit?stmt=recall&stepId=2&orderNo=${orderNo}&orderType=${orderType}&audit="+audits;-->
-    <#--})-->
+    $("#send").click(function () {
+        if (!confirm("你确定要发送吗？")) {
+            return false;
+        }
+        aa("send");
+    })
 
+    $("#recall").click(function () {
+        if (!confirm("你确定要撤回吗？")) {
+            return false;
+        }
+        aa("recall");
+    })
+
+     var aa = function(stmt){
+         var ynum = 0;
+         var snum = 0;
+         $('.ymoneys').each(function(i,n){
+             ynum = ynum + Number(n.value);
+         });
+         $('.smoneys').each(function(i,n){
+             snum = snum + Number(n.value);
+         });
+         $(".yright").val(ynum); //总应收金额
+         $(".sright").val(snum); //总实收金额
+         $(".qright").val(ynum-snum); //欠缴金额
+         $('.ymoneys').each(function(i,n){
+             if (n.value == ""){
+                 n.value = 0;
+             }
+         });
+         $('.smoneys').each(function(i,n){
+             if (n.value == ""){
+                 n.value = 0;
+             }
+         });
+         var orderNo = $("#orderNo").text(); //工单号
+         var orderUserMoney = new Array();
+         $('.odd').each(function (i, n) {
+             var userName = $(".odd:eq("+i+") td:eq("+1+")").text();
+             var ymoneys = $(".odd:eq("+i+") td:eq("+2+") .ymoneys").val();
+             var smoneys = $(".odd:eq("+i+") td:eq("+3+") .smoneys").val();
+             orderUserMoney.push({"userName":userName, "projectMoney":ymoneys, "realMoney":smoneys});
+         })
+         $.ajax({
+             url:"/be/disposePay",
+             type:"post",
+             data:{
+                 "stmt":stmt
+                 ,"orderNo":orderNo
+				 ,"orderType":$("#orderType").val()
+                 ,"projectMoney":$(".yright").val()
+                 ,"realMoney":$(".sright").val()
+                 ,"userMoney":$(".qright").val()
+                 ,"userNo":$("#userNo").val()
+                 ,"orderUserMoney":JSON.stringify(orderUserMoney)
+             },
+             success:function (integer) {
+                 if (integer == 0){
+                     alert("保存失败：请检查数据的准确性！")
+                 }
+                 if (integer==1){
+                     alert("保存成功！");
+                 }
+                 if (integer==2){
+                     window.location.href="/success/be/pay";
+                 }
+                 if (integer==3){
+                     window.location.href="/error/be/pay";
+                 }
+             }
+         });
+    }
 })
 
 </script>

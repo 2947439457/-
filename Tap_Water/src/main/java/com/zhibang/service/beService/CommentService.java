@@ -15,7 +15,6 @@ public interface CommentService {
 
     //添加附加信息
     public Integer addComment(BeComment beComment);
-
     //通过工单号查询附加信息
     public List<BeComment> selCommentOrderNo(String orderNo);
 

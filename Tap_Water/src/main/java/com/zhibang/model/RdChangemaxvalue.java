@@ -11,7 +11,7 @@ public class RdChangemaxvalue implements Serializable {
   private static final long serialVersionUID = 7324073388324978617L;
   private Integer id;
   private Date datee;
-  private Integer empId;
+  private SyEmp empId;
   private UsUser userNo;
   private UsMeter meterNo;
   private Integer maxValue1;
@@ -34,11 +34,11 @@ public class RdChangemaxvalue implements Serializable {
     this.datee = datee;
   }
 
-  public Integer getEmpId() {
+  public SyEmp getEmpId() {
     return empId;
   }
 
-  public void setEmpId(Integer empId) {
+  public void setEmpId(SyEmp empId) {
     this.empId = empId;
   }
 

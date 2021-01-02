@@ -25,10 +25,34 @@
         UPDATE
           `tap_water`.`us_user`
         SET
-          `UserName` = #{userName},
-          `Address` = #{address},
-          `Phone` = #{phone},
-          `UserType` = #{userType}
+            `UserNo` = #{userNo}
+        <if test="userName != null || address != null || phone != null || userType != null">
+            ,`UserName` = #{userName}
+            ,`Address` = #{address}
+            ,`Phone` = #{phone}
+            ,`UserType` = #{userType}
+        </if>
+        <if test="userMoney != null">
+            ,`UserMoney` = #{userMoney}
+        </if>
+        <if test="formula != null">
+            ,`Formula` = #{formula}
+        </if>
+        <if test="contractNum != null">
+            ,`ContractNum` = #{contractNum}
+            ,`ContractDate` = NOW()
+        </if>
+
+        <if test="syArea != null">
+            ,`AreaID` = #{syArea.id}
+        </if>
+        <if test="meterId != null">
+            ,`MeterID` = #{meterId.id}
+        </if>
+
+        <if test="docNum != null">
+            ,`DocNum` = #{docNum}
+        </if>
         WHERE `UserNo` = #{userNo} ;
     </update>
 

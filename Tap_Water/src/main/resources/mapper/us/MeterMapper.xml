@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhibang.mapper.usMapper.MeterMapper">
+
+    <select id="selectMeterNo" parameterType="String" resultType="String">
+        SELECT MAX(RIGHT(`meterNo`, 2)) FROM us_meter WHERE RIGHT(LEFT(`meterNo`, 11), 10)=#{userNo};
+    </select>
+
+    <insert id="addUsMeter">
+        INSERT INTO `tap_water`.`us_meter` (
+          `MeterNo`, `UserNo`, `MeterName`, `MeterTypeID`,
+          `MaxValue`, `StartValue`, `SetupDate`, `Factory`
+        )
+        VALUES
+          (
+            #{meterNo}, #{userNo.userNo}, #{meterName}, #{meterTypeId.id},
+            #{maxValue}, #{startValue}, NOW(), #{factory}
+          ) ;
+    </insert>
+
+    <update id="upUsMeter">
+        UPDATE
+          `tap_water`.`us_meter`
+        SET
+          `MeterName` =  #{meterName},
+          `MeterTypeID` = #{meterTypeId.id},
+          `MaxValue` = #{maxValue},
+          `StartValue` = #{startValue},
+          `SetupDate` = NOW(),
+          `Factory` = #{factory}
+        WHERE `UserNo` = #{userNo.userNo} ;
+    </update>
+
+    <select id="selectUsMeterUserNo" parameterType="String" resultType="usMeter">
+        SELECT * FROM us_meter WHERE UserNo = #{userNo};
+    </select>
+
+</mapper>

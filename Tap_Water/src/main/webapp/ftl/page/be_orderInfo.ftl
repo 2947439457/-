@@ -107,18 +107,18 @@
 
                     <div class="nav_menu">
                         <ul>
-                            <li><a href="be__request.ftl">01 用户申请</a></li>
-                            <li><a href="be__audit.ftl">02 初步审核</a></li>
-                            <li><a href="be__pay.ftl">03 交施工费</a></li>
-                            <li><a href="be__billclear.ftl">04 水费清算</a></li>
-                            <li><a href="be__contract.ftl">05 供水协议</a></li>
-                            <li><a href="be__working.ftl">06 施工竣工</a></li>
-                            <li><a href="be__open.ftl">07 通水停水</a></li>
-                            <li><a href="be__save.ftl">08 档案存档</a></li>
-                            <li><a href="be_order.ftl">工单管理</a></li>
-                            <li><a href="be_abort.ftl">终止工单</a></li>
-                            <li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-                            <li><a href="be_reportMoney.ftl">业扩收费报表</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
                         </ul>
 
                     </div>
@@ -156,10 +156,10 @@
                             <li><a href="rd_audit.ftl">抄表审核</a></li>
                             <li><a href="rd_reportReading.ftl">抄表情况查询</a></li>
                             <li><a href="rd_reportVolumeReading.ftl">抄表统计报表</a></li>
-                            <li><a href="rd_reportZero.ftl">零吨位用户查询</a></li>
-                            <li><a href="rd_reportMaxValue.ftl">最大码值修正记录</a></li>
-                            <li><a href="rd_reportCPreAmount.ftl">底码修正记录</a></li>
-                            <li><a href="rd_reportMeterCheck.ftl">水表周检报表</a></li>
+                            <li><a href="/rd/zeroUser">零吨位用户查询</a></li>
+                            <li><a href="/rd/changeMaxValue">最大码值修正记录</a></li>
+                            <li><a href="/rd/changeValue">底码修正记录</a></li>
+                            <li><a href="/rd/meteUser">水表周检报表</a></li>
                         </ul>
 
                     </div>
@@ -322,11 +322,7 @@
                                             <tr class="odd">
                                                 <td>
                                                     <b>
-                                            <#list syEmps as se>
-                                                <#if bc.empId == se.empName>
-                                                    ${se.empName}
-                                                </#if>
-                                            </#list>
+                                                    ${bc.empId.empName}
                                                 </b><br/>${bc.datee}<br/>
                                                     <a href="javascript:;" onClick="editTag(34);">改</a>
                                                     <a href="javascript:;" onClick="showDialog('确认删除吗？');">删</a>
@@ -567,6 +563,7 @@
                                 <th width="30">序号</th>
                                 <th width="80">姓名</th>
                                 <th width="80">表径</th>
+                                <th width="80">身表码</th>
                                 <th width="80">最大表码值</th>
                                 <th width="80">起始码</th>
                                 <th width="100">水表厂家</th>
@@ -578,6 +575,13 @@
     <tr class="odd">
         <td>${bou_index}</td>
         <td>${bou.userName}</td>
+        <td>
+            <#list syMetertypes as sm>
+                <#if sm.id == bou.meterTypeId>
+                    ${sm.meterTypeName}
+                </#if>
+            </#list>
+        </td>
         <td>${bou.meterName}</td>
         <td>${bou.maxValue}</td>
         <td>${bou.startValue}</td>
@@ -648,18 +652,25 @@
                             <tr>
                                 <td>审核人</td>
                                 <td>
-			<#list syEmps as sy>
-				<#if beOrder.auditEmpId.id == sy.id>
-					<input readonly="readonly" value="${sy.empName}"/>
-                </#if>
-            </#list>
+                                    <#if beOrder.auditEmpId ??>
+                                            <#list syEmps as sy>
+                                                <#if beOrder.auditEmpId.id == sy.id>
+                                                    <input readonly="readonly" value="${sy.empName}"/>
+                                                </#if>
+                                            </#list>
+                                        <#else >
+                                        <input readonly="readonly" value=""/>
+                                    </#if>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="vertical-align:top;">审核意见</td>
                                 <td colspan="3">
-                                    <textarea readonly="readonly"
-                                              style="width:426px;height:150px;">${beOrder.auditMessage}</textarea>
+                                    <#if beOrder.auditMessage ??>
+                                            <textarea readonly="readonly" style="width:426px;height:150px;">${beOrder.auditMessage}</textarea>
+                                        <#else >
+                                            <textarea readonly="readonly" style="width:426px;height:150px;"></textarea>
+                                    </#if>
                                 </td>
                             </tr>
                             </tbody>

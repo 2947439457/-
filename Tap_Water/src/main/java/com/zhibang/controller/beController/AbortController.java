@@ -32,6 +32,7 @@ public class AbortController {
     @RequestMapping("/selAbort")
     public BeOrder selBorder(String orderNoText){
         BeOrder beOrder = abortService.queryByOrder(orderNoText);
+        System.out.println(beOrder);
         return beOrder;
     }
 

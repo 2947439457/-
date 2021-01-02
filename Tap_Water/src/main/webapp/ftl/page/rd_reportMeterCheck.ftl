@@ -1,64 +1,64 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"> 
- 
-<head> 
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
-	<title>湖南省自来水公司营销管理信息系统</title> 
-	
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>湖南省自来水公司营销管理信息系统</title>
+
 	<link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="../css/text.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="../css/form.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="../css/buttons.css" type="text/css" media="screen" title="no title" />
-	<link rel="stylesheet" href="../css/grid.css" type="text/css" media="screen" title="no title" />	
-	<link rel="stylesheet" href="../css/layout.css" type="text/css" media="screen" title="no title" />	
-	
+	<link rel="stylesheet" href="../css/grid.css" type="text/css" media="screen" title="no title" />
+	<link rel="stylesheet" href="../css/layout.css" type="text/css" media="screen" title="no title" />
+
 	<link rel="stylesheet" href="../css/ui-darkness/jquery-ui-1.8.12.custom.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="../css/plugin/jquery.visualize.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="../css/plugin/facebox.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="../css/plugin/uniform.default.css" type="text/css" media="screen" title="no title" />
 	<link rel="stylesheet" href="../css/plugin/dataTables.css" type="text/css" media="screen" title="no title" />
-	
+
 	<link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen" title="no title">
-</head> 
- 
-<body> 
+</head>
+
+<body>
 
 <div id="wrapper">
-	
+
 	<div id="header">
-		
+
 		<div class="content_pad">
 			<h1><a href="../workspace.ftl">湖南省自来水公司营销管理信息系统</a></h1>
-			
+
 			<ul id="nav">
-				
+
 				<li class="nav_dropdown nav_icon">
 					<a href="javascript:;"><span class="ui-icon ui-icon-wrench"></span>业扩工程</a>
-					
-					<div class="nav_menu">			
+
+					<div class="nav_menu">
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
-							<li><a href="be_order.ftl">工单管理</a></li>
-							<li><a href="be_abort.ftl">终止工单</a></li>
-							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-							<li><a href="be_reportMoney.ftl">业扩收费报表</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
 						</ul>
-						
+
 					</div>
 				</li>
 
 				<li class="nav_dropdown nav_icon">
 					<a href="javascript:;"><span class="ui-icon ui-icon-person"></span>用户管理</a>
-					
-					<div class="nav_menu">			
+
+					<div class="nav_menu">
 						<ul>
 							<li><a href="user_search.ftl">用户查询</a></li>
 							<li><a href="user_add.ftl">快捷新户</a></li>
@@ -71,35 +71,35 @@
 							<li><a href="user_docNum.ftl">档案号管理</a></li>
 							<li><a href="user_sendMsg.ftl">短信群发</a></li>
 						</ul>
-						
+
 					</div>
 				</li>
 
 				<li class="nav_dropdown nav_icon">
 					<a href="javascript:;"><span class="ui-icon ui-icon-pencil"></span>抄表管理</a>
-					
-					<div class="nav_menu">			
+
+					<div class="nav_menu">
 						<ul>
-							<li><a href="rd_volume.ftl">表册管理</a></li>
+                            <li><a href="/rd/volume_default">表册管理</a></li>
 							<li><a href="rd_init.ftl">抄表初始化</a></li>
 							<li><a href="rd_task.ftl">任务分配</a></li>
 							<li><a href="rd_enter.ftl">抄表录入</a></li>
 							<li><a href="rd_audit.ftl">抄表审核</a></li>
 							<li><a href="rd_reportReading.ftl">抄表情况查询</a></li>
 							<li><a href="rd_reportVolumeReading.ftl">抄表统计报表</a></li>
-							<li><a href="rd_reportZero.ftl">零吨位用户查询</a></li>
-							<li><a href="rd_reportMaxValue.ftl">最大码值修正记录</a></li>
-							<li><a href="rd_reportCPreAmount.ftl">底码修正记录</a></li>
-							<li><a href="../page/rd_reportMeterCheck.ftl">水表周检报表</a></li>
+                            <li><a href="/rd/zeroUser">零吨位用户查询</a></li>
+                            <li><a href="/rd/changeMaxValue">最大码值修正记录</a></li>
+                            <li><a href="/rd/changeValue">底码修正记录</a></li>
+                            <li><a href="/rd/meteUser">水表周检报表</a></li>
 						</ul>
-						
+
 					</div>
 				</li>
-				
+
 				<li class="nav_dropdown nav_icon">
 					<a href="javascript:;"><span class="ui-icon ui-icon-star"></span>收费管理</a>
-					
-					<div class="nav_menu">			
+
+					<div class="nav_menu">
 						<ul>
 							<li><a href="pay_window.ftl">窗口收费</a></li>
 							<li><a href="pay_batch.ftl">批量收费</a></li>
@@ -110,14 +110,14 @@
 							<li><a href="pay_reportBalance.ftl">用户预收情况报表</a></li>
 							<li><a href="pay_reportWaterType.ftl">各类用水统计总表</a></li>
 						</ul>
-						
+
 					</div>
 				</li>
-				
+
 				<li class="nav_dropdown nav_icon">
 					<a href="javascript:;"><span class="ui-icon ui-icon-script"></span>发票管理</a>
-					
-					<div class="nav_menu">			
+
+					<div class="nav_menu">
 						<ul>
 							<li><a href="inv_invoiceManage.ftl">发票总表</a></li>
 							<li><a href="inv_invoiceIn.ftl">发票入库</a></li>
@@ -135,8 +135,8 @@
 
 				<li class="nav_dropdown nav_icon">
 					<a href="javascript:;"><span class="ui-icon ui-icon-gear"></span>系统设置</a>
-					
-					<div class="nav_menu">			
+
+					<div class="nav_menu">
 						<ul>
 							<li><a href="sys_area.ftl">抄表辖区</a></li>
 							<li><a href="sys_meterType.ftl">水表型号</a></li>
@@ -148,13 +148,13 @@
 							<li><a href="sys_surcharge.ftl">附加费设定</a></li>
 							<li><a href="sys_flow.ftl">流程配置</a></li>
 						</ul>
-						
+
 					</div>
 				</li>
-				
+
 				<li class="nav_current nav_dropdown nav_icon_only">
 					<a href="javascript:;">&nbsp;</a>
-					
+
 					<div class="nav_menu">
 						<ul>
 							<li><a href="../workspace.ftl">我的工作台</a></li>
@@ -165,38 +165,38 @@
 				</li>
 			</ul>
 		</div> <!-- .content_pad -->
-		
-	</div> <!-- #header -->	
-	
+
+	</div> <!-- #header -->
+
 	<div id="masthead">
 		<div>
 			<span id="pagetitle"><a href="javascript:;">水表周检报表</a></span>
 			<span id="welcome_span">欢迎回来，马云</span>
 		</div>
-	</div> <!-- #masthead -->	
-	
+	</div> <!-- #masthead -->
+
 	<div id="content" class="xgrid" >
 
 		<div class="x12">
-			
+
 			<h2>水表周检报表</h2>
-			
+
 			<div>
-				表龄大于 <input style="width:30px;text-align:right;" value="24" /> 个月
-				<button class="btn btn-small btn-icon btn-find"><span></span>查询</button>
+				表龄大于 <input id="sbtime" style="width:30px;text-align:right;" value="24" /> 个月
+				<button class="btn btn-small btn-icon btn-find"><span></span><a href="/meteUser">查询</a></button>
 			</div>
-			
-			
+
+
 			<div class="reportTitle">
 				表龄大于 24 个月的水表
-			</div>	
+			</div>
 			<div class="height24">
-				<div style="float:left;width:200px;">共计 26 块水表</div>
+					<div style="float:left;width:200px;">共计 ${age} 块水表</div>
 			</div>
 			<table class="report">
 				<thead>
 					<tr>
-						
+
 						<th width="100">用户编码</th>
 						<th width="100">用户姓名</th>
 						<th width="100">表身码</th>
@@ -208,115 +208,20 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td class="center">0100000987</td>
-						<td class="left">张三</td>
-						<td class="center">034-48AF110</td>
-						<td class="center">DN40</td>
-						<td class="center">40</td>
-						<td class="center">2011年01月10日</td>
-						<td class="center">37</td>
-						<td>湖南科能华帝水表二厂</td>
-					</tr>
-					<tr>
-						<td class="center">0100000987</td>
-						<td class="left">张三</td>
-						<td class="center">034-48AF110</td>
-						<td class="center">DN40</td>
-						<td class="center">40</td>
-						<td class="center">2011年02月10日</td>
-						<td class="center">36</td>
-						<td>湖南科能华帝水表二厂</td>
-					</tr>
-					<tr>
-						<td class="center">0100000987</td>
-						<td class="left">张三</td>
-						<td class="center">034-48AF110</td>
-						<td class="center">DN40</td>
-						<td class="center">40</td>
-						<td class="center">2011年03月10日</td>
-						<td class="center">35</td>
-						<td>湖南科能华帝水表二厂</td>
-					</tr>
-					<tr>
-						
-						<td class="center">0100000987</td>
-						<td class="left">张三</td>
-						<td class="center">034-48AF110</td>
-						<td class="center">DN40</td>
-						<td class="center">40</td>
-						<td class="center">2011年04月10日</td>
-						<td class="center">34</td>
-						<td>湖南科能华帝水表二厂</td>
-					</tr>
-					<tr>
-						
-						<td class="center">0100000987</td>
-						<td class="left">张三</td>
-						<td class="center">034-48AF110</td>
-						<td class="center">DN40</td>
-						<td class="center">40</td>
-						<td class="center">2011年05月10日</td>
-						<td class="center">32</td>
-						<td>湖南科能华帝水表二厂</td>
-					</tr>
-					<tr>
-						
-						<td class="center">0100000987</td>
-						<td class="left">张三</td>
-						<td class="center">034-48AF110</td>
-						<td class="center">DN40</td>
-						<td class="center">40</td>
-						<td class="center">2011年06月10日</td>
-						<td class="center">31</td>
-						<td>湖南科能华帝水表二厂</td>
-					</tr>
-					<tr>
-						
-						<td class="center">0100000987</td>
-						<td class="left">张三</td>
-						<td class="center">034-48AF110</td>
-						<td class="center">DN40</td>
-						<td class="center">40</td>
-						<td class="center">2011年07月10日</td>
-						<td class="center">30</td>
-						<td>湖南科能华帝水表二厂</td>
-					</tr>
-					<tr>
-						
-						<td class="center">0100000987</td>
-						<td class="left">张三</td>
-						<td class="center">034-48AF110</td>
-						<td class="center">DN40</td>
-						<td class="center">40</td>
-						<td class="center">2011年08月10日</td>
-						<td class="center">29</td>
-						<td>湖南科能华帝水表二厂</td>
-					</tr>
-					<tr>
-						
-						<td class="center">0100000987</td>
-						<td class="left">张三</td>
-						<td class="center">034-48AF110</td>
-						<td class="center">DN40</td>
-						<td class="center">40</td>
-						<td class="center">2011年09月10日</td>
-						<td class="center">28</td>
-						<td>湖南科能华帝水表二厂</td>
-					</tr>
-					<tr>
-						
-						<td class="center">0100000987</td>
-						<td class="left">张三</td>
-						<td class="center">034-48AF110</td>
-						<td class="center">DN40</td>
-						<td class="center">40</td>
-						<td class="center">2011年10月10日</td>
-						<td class="center">27</td>
-						<td>湖南科能华帝水表二厂</td>
-					</tr>
-					</tbody>
-				</table>
+					<#list meteUser as mu>
+						<tr>
+							<td class="center">${mu.UserNo}</td>
+							<td class="left">${mu.UserName}</td>
+							<td class="center">${mu.MeterName}</td>
+							<td class="center">${mu.MeterTypeName}</td>
+							<td class="center">${mu.Aperture}</td>
+							<td class="center">${mu.SetupDate}</td>
+							<td class="center"></td>
+							<td>${mu.Factory}</td>
+						</tr>
+					</#list>
+				</tbody>
+			</table>
 				<div class="page">
 					<a href="#">第一页</a>
 					<a href="#">上一页</a>
@@ -324,17 +229,17 @@
 					<a href="#">下一页</a>
 					<a href="#">第未页</a>
 				</div>
-				
+
 		</div> <!-- .x12 -->
-		
+
 	</div> <!-- #content -->
-	
-	<div id="footer">		
-		<div class="content_pad">			
+
+	<div id="footer">
+		<div class="content_pad">
 			<p>&copy; 2013-11 版权所有 <a href="#">湖南省自来水公司</a>.   技术支持 <a href="#">华瑞教育</a>.</p>
 		</div> <!-- .content_pad -->
 	</div> <!-- #footer -->
-	
+
 </div> <!-- #wrapper -->
 
 <script src="../js/jquery/jquery-1.5.2.min.js"></script>
@@ -352,16 +257,16 @@
 <script src="../My97DatePicker/WdatePicker.js"></script>
 
 <script type="text/javascript">
-	
-$(document).ready ( function () 
+
+$(document).ready ( function ()
 {
 	Dashboard.init ();
-	
+
 });
 
 
 </script>
 
-</body> 
- 
+</body>
+
 </html>

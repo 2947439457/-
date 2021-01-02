@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhibang.mapper.rdMapper.ChangeMaxValueMapper">
+
+    <!--RD：最大码-->
+    <resultMap id="changemaxvalue" type="com.zhibang.model.RdChangemaxvalue">
+        <id column="ID" property="id" ></id>
+        <result column="Datee" property="datee" ></result>
+        <result column="MaxValue1" property="maxValue1" ></result>
+        <result column="MaxValue2" property="maxValue2" ></result>
+        <result column="Remark" property="remark" ></result>
+
+        <association property="empID" javaType="SyEmp">
+            <result column="ID" property="empID" ></result>
+            <result column="EmpName" property="empName" ></result>
+        </association>
+
+        <association property="userNo" javaType="UsUser">
+            <result column="UserNo" property="userNo" ></result>
+            <result column="UserName" property="userName" ></result>
+        </association>
+    </resultMap>
+
+    <resultMap id="Emp" type="com.zhibang.model.SyEmp">
+        <id column="ID" property="id" ></id>
+        <result column="EmpName" property="empName" ></result>
+    </resultMap>
+
+    <!--查询最大码-->
+    <select id="selectMaxValue" resultType="java.util.HashMap">
+        SELECT
+        a.`datee`,a.`userno`,c.`UserName`,a.`maxvalue1`,a.`maxvalue2`,b.`EmpName`,a.`remark`
+        FROM
+        rd_changemaxvalue AS a
+        JOIN
+        sy_emp AS b ON a.`EmpID`=b.`ID`
+        JOIN
+        us_user AS c ON a.`UserNo`=c.`UserNo`
+        WHERE
+        1=1
+        <!--<if class="medium != '所有'">-->
+            <!--and b.`EmpName` = '%{medium}%'-->
+        <!--</if>-->
+    </select>
+
+    <!--查询所有操作员-->
+    <select id="selEmpName" resultType="List" resultMap="Emp">
+        SELECT
+        `EmpName`
+        FROM
+        sy_emp;
+    </select>
+</mapper>

@@ -43,18 +43,18 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
-							<li><a href="/order/beOrder">工单管理</a></li>
-							<li><a href="/abort/beAbort">终止工单</a></li>
-							<li><a href="/reportProgress/beReportProgress">业扩工程进度</a></li>
-							<li><a href="/reportMoney/beReportMoney">业扩收费报表</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
 						</ul>
 						
 					</div>
@@ -85,17 +85,17 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="rd_volume.ftl">表册管理</a></li>
+                            <li><a href="/rd/volume_default">表册管理</a></li>
 							<li><a href="rd_init.ftl">抄表初始化</a></li>
 							<li><a href="rd_task.ftl">任务分配</a></li>
 							<li><a href="rd_enter.ftl">抄表录入</a></li>
 							<li><a href="rd_audit.ftl">抄表审核</a></li>
 							<li><a href="rd_reportReading.ftl">抄表情况查询</a></li>
 							<li><a href="rd_reportVolumeReading.ftl">抄表统计报表</a></li>
-							<li><a href="rd_reportZero.ftl">零吨位用户查询</a></li>
-							<li><a href="rd_reportMaxValue.ftl">最大码值修正记录</a></li>
-							<li><a href="rd_reportCPreAmount.ftl">底码修正记录</a></li>
-							<li><a href="rd_reportMeterCheck.ftl">水表周检报表</a></li>
+                            <li><a href="/rd/zeroUser">零吨位用户查询</a></li>
+                            <li><a href="/rd/changeMaxValue">最大码值修正记录</a></li>
+                            <li><a href="/rd/changeValue">底码修正记录</a></li>
+                            <li><a href="/rd/meteUser">水表周检报表</a></li>
 						</ul>
 						
 					</div>
@@ -186,15 +186,14 @@
 		<div class="x12">
 			
 			<h2>
-				供水协议 - <a href="be_orderInfo.ftl?id=B1-20140105-0001" target="orderInfo">B1-201412-0003</a>
+				供水协议 - <a href="/be/orderInfo?orderNo=${beOrder.orderNo}" id="orderNo" target="orderInfo">${beOrder.orderNo}</a>
 				<a style="float:right" href="javascript:history.back(-1);">返回</a>
 			</h2>
-			
+            <input type="hidden" id="userNo" value="${beOrder.userNo.userNo}">
+            <input type="hidden" id="orderType" value="${beOrder.orderType}">
 			<div class="buttonrow">
-				<button class="btn-icon btn-arrow-left btn-red" 
-					onclick="showDialog('确认撤回吗？');"><span></span>撤回</button>
-				<button class="btn-icon btn-arrow-right btn-blue" 
-					onclick="showDialog('确认发送吗？');"><span></span>发送</button>
+                <button id="recall" class="btn-icon btn-arrow-left btn-red"><span></span>撤回</button>
+                <button id="send" class="btn-icon btn-arrow-right btn-blue"><span></span>发送</button>
 			</div>
 			
 <table width="100%">
@@ -207,15 +206,24 @@
 <tbody>
 	<tr>
 		<td>用户名称</td>
-		<td><input readonly="readonly" value="张三" /></td>
+		<td><input readonly="readonly" value="${beOrder.userNo.userName}" /></td>
 		<td><span class="text_button">
-			<input id="batchTibi" 
-				style="width:200px;" readonly="readonly" value="[SH:80%][SY:10%][GY:10%]" />
+			<#if beOrder.userNo.formula ??>
+				<input id="formula" style="width:200px;" readonly="readonly" value="${beOrder.userNo.formula}" />
+			<#else >
+				<input id="formula" style="width:200px;" readonly="readonly" value="[SH:80%][SY:10%][GY:10%]" />
+			</#if>
 			<button onClick="setTibi();">设定</button></span>
-			<button onClick="$('input.tibi').val($('#batchTibi').val());">
+			<button onClick="$('input.formula').val($('#formula').val());">
 				批量设定提比提量值</button></td>
-		<td><input id="batchContract" value="HT201402035838" /><button 
-			onclick="$('input.contract').val($('#batchContract').val());">批量设定合同编号</button></td>
+		<td>
+			<#if beOrder.userNo.contractNum ??>
+				<input id="contractNum" value="${beOrder.userNo.contractNum}" />
+			<#else >
+				<input id="contractNum" value="HT201402035838" />
+			</#if>
+			<button
+			onclick="$('input.contractNum').val($('#contractNum').val());">批量设定合同编号</button></td>
 	</tr>
 </tbody>
 </table>
@@ -231,91 +239,34 @@
 	</tr>
 </thead>
 <tbody>
+<#list beOrderusers as bou>
 	<tr class="odd">
-		<td>1</td>
-		<td>张三</td>
+		<td>${bou_index}</td>
+		<td>${bou.userName}</td>
 		<td><span class="text_button">
-			<input class="tibi" style="width:200px;" 
-			readonly="readonly" value="[SH:80%][SY:*]" />
+			<#if bou.formula ??>
+			<input class="formula" style="width:200px;"
+                   readonly="readonly" value="${bou.formula}" />
+			<#else >
+			<input class="formula" style="width:200px;"
+                   readonly="readonly" value="" />
+			</#if>
 			<button onClick="setTibi();">设定</button></span></td>
-		<td><input class="contract" value="" /></td>
+		<td>
+			<#if bou.contractNum ??>
+                <input class="contractNum" value="${bou.contractNum}" />
+			<#else >
+				<input class="contractNum" value="" />
+			</#if>
+		</td>
 		<td></td>
 	</tr>
-	<tr class="even">
-		<td>2</td>
-		<td>李四</td>
-		<td><span class="text_button">
-			<input class="tibi" style="width:200px;" 
-			readonly="readonly" value="[SH:20][SY:20][GY:*]" />
-			<button onClick="setTibi();">设定</button></span></td>
-		<td><input class="contract" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>3</td>
-		<td>王五</td>
-		<td><span class="text_button">
-			<input class="tibi" style="width:200px;" 
-			readonly="readonly" value="[TZ:20][SH:80%][SY:10%][GY:10%]" />
-			<button onClick="setTibi();">设定</button></span></td>
-		<td><input class="contract" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>4</td>
-		<td>赵六</td>
-		<td><span class="text_button">
-			<input class="tibi" style="width:200px;" 
-			readonly="readonly" value="[SH:80%][SY:10%][GY:10%]" />
-			<button onClick="setTibi();">设定</button></span></td>
-		<td><input class="contract" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>5</td>
-		<td>钱七</td>
-		<td><span class="text_button">
-			<input class="tibi" style="width:200px;" 
-			readonly="readonly" value="[GY:100%]" />
-			<button onClick="setTibi();">设定</button></span></td>
-		<td><input class="contract" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>6</td>
-		<td>唐八</td>
-		<td><span class="text_button">
-			<input class="tibi" style="width:200px;" 
-			readonly="readonly" value="[SY:80%][SY:20%]" />
-			<button onClick="setTibi();">设定</button></span></td>
-		<td><input class="contract" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="odd">
-		<td>7</td>
-		<td>何九</td>
-		<td><span class="text_button">
-			<input class="tibi" style="width:200px;" 
-			readonly="readonly" value="[SH:100%]" />
-			<button onClick="setTibi();">设定</button></span></td>
-		<td><input class="contract" value="" /></td>
-		<td></td>
-	</tr>
-	<tr class="even">
-		<td>8</td>
-		<td>布十</td>
-		<td><span class="text_button">
-			<input class="tibi" style="width:200px;" 
-			readonly="readonly" value="[SH:80%][SY:20%]" />
-			<button onClick="setTibi();">设定</button></span></td>
-		<td><input class="contract" value="" /></td>
-		<td></td>
-	</tr>
+</#list>
 </tbody>
 </table>
 			
 <div class="centerButtons">
-	<button class="btn">保存不发送</button>
+    <button class="btn baoCun">保存不发送</button>
 </div>			
 			
 		</div> <!-- .x12 -->
@@ -349,6 +300,70 @@ $(document).ready ( function ()
 {
 	Dashboard.init ();		
 });
+
+$(function () {
+
+    // 保存不发送
+    $(".baoCun").click(function () {
+        aa("baoCun");
+    })
+
+    $("#send").click(function () {
+        if (!confirm("你确定要发送吗？")) {
+            return false;
+        }
+        aa("send");
+    })
+
+    $("#recall").click(function () {
+        if (!confirm("你确定要撤回吗？")) {
+            return false;
+        }
+        aa("recall");
+    })
+
+    var aa = function(stmt){
+        var orderNo = $("#orderNo").text();
+        var orderType = $("#orderType").val();
+        var userNo = $("#userNo").val();
+        var formula = $("#formula").val();
+        var contractNum = $("#contractNum").val();
+        var orderUser = new Array();
+        $(".odd").each(function (i, n) {
+            var userName = $(".odd:eq("+i+") td:eq("+1+")").text();
+            var formulas = $(".odd:eq("+i+") td:eq("+2+") .formula").val();
+            var contractNums = $(".odd:eq("+i+") td:eq("+3+") .contractNum").val();
+            orderUser.push({"userName":userName, "formula":formulas, "contractNum":contractNums});
+        })
+        $.ajax({
+            url:"/be/disposeContract",
+            type:"post",
+            data:{
+                "stmt":stmt
+                ,"orderNo":orderNo
+                ,"orderType":orderType
+                ,"userNo":userNo
+				,"formula":formula
+				,"contractNum":contractNum
+                ,"orderUser":JSON.stringify(orderUser)
+            },
+            success:function (integer) {
+                if (integer == 0){
+                    alert("保存失败：请检查数据的准确性！")
+                }
+                if (integer == 1){
+                    alert("保存成功！");
+                }
+                if (integer == 2){
+                    window.location.href="/success/be/contarct";
+                }
+                if (integer == 3){
+                    window.location.href="/error/be/contarct";
+                }
+            }
+        });
+    }
+})
 
 </script>
 

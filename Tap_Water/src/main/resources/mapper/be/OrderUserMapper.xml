@@ -29,4 +29,48 @@
         WHERE `OrderNo` = #{orderNo} ;
     </delete>
 
+    <!--修改工单信息详情表：可扩展-->
+    <update id="upBeOrderuser">
+        UPDATE
+          `tap_water`.`be_orderuser`
+        SET
+          `OrderNo` = #{orderNo.orderNo}
+        <if test="projectMoney != null">
+            ,`ProjectMoney` = #{projectMoney}
+        </if>
+        <if test="realMoney != null">
+            ,`RealMoney` = #{realMoney}
+        </if>
+        <if test="formula != null">
+            ,`Formula` = #{formula}
+        </if>
+        <if test="contractNum != null">
+            ,`ContractNum` = #{contractNum}
+        </if>
+        <if test="meterTypeId != null">
+            ,`MeterTypeId` = #{meterTypeId}
+        </if>
+        <if test="meterName != null">
+            ,`MeterName` = #{meterName}
+        </if>
+        <if test="maxValue != null">
+            ,`MaxValue` = #{maxValue}
+        </if>
+        <if test="startValue != null">
+            ,`StartValue` = #{startValue}
+        </if>
+        <if test="meterFactory != null">
+            ,`MeterFactory` = #{meterFactory}
+        </if>
+        <if test="docNum != null">
+            ,`DocNum` = #{docNum}
+        </if>
+        WHERE
+          `OrderNo` = #{orderNo.orderNo}
+        <if test="userName != null">
+            AND `UserName` = #{userName}
+        </if>
+        ;
+    </update>
+
 </mapper>

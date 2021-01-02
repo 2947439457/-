@@ -1,6 +1,7 @@
 package com.zhibang.controller.system;
 
 import com.zhibang.model.*;
+import com.zhibang.service.syService.MetertypeService;
 import com.zhibang.service.system.SystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import java.util.List;
 @Controller
 public class SystemController {
     @Autowired  SystemService systemService;
+    @Autowired MetertypeService metertypeService;
 
     /**
      * 登录验证方法YX
@@ -29,7 +31,6 @@ public class SystemController {
     @RequestMapping("/saveCreateDb")
 //    @ResponseBody
     public String yourUrl(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpServletRequest request)  {
-        System.out.println("email="+email+";password="+password);
         SyEmp syEmp = new SyEmp();
         syEmp.setEmpNo(email);
         syEmp.setPwd(password);
@@ -103,7 +104,9 @@ public class SystemController {
         //将数据存储到session中
         session.setAttribute("s", i);
 //        request.setAttribute("s",i);
-        System.out.println(i);
+        //获得全部水表型号
+        List<SyMetertype> syMetertypes = metertypeService.selSyMetertype();
+        session.setAttribute("syMetertypes", syMetertypes);
         return "workspace";
     }
     @RequestMapping("/sys_pwd")

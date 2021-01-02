@@ -38,18 +38,18 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
-							<li><a href="be_order.ftl">工单管理</a></li>
-							<li><a href="be_abort.ftl">终止工单</a></li>
-							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-							<li><a href="be_reportMoney.ftl">业扩收费报表</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
 						</ul>
 						
 					</div>
@@ -80,17 +80,17 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="rd_volume.ftl">表册管理</a></li>
+                            <li><a href="/rd/volume_default">表册管理</a></li>
 							<li><a href="rd_init.ftl">抄表初始化</a></li>
 							<li><a href="rd_task.ftl">任务分配</a></li>
 							<li><a href="rd_enter.ftl">抄表录入</a></li>
 							<li><a href="rd_audit.ftl">抄表审核</a></li>
 							<li><a href="rd_reportReading.ftl">抄表情况查询</a></li>
 							<li><a href="rd_reportVolumeReading.ftl">抄表统计报表</a></li>
-							<li><a href="../page/rd_reportZero.ftl">零吨位用户查询</a></li>
-							<li><a href="rd_reportMaxValue.ftl">最大码值修正记录</a></li>
-							<li><a href="rd_reportCPreAmount.ftl">底码修正记录</a></li>
-							<li><a href="rd_reportMeterCheck.ftl">水表周检报表</a></li>
+                            <li><a href="/rd/zeroUser">零吨位用户查询</a></li>
+                            <li><a href="/rd/changeMaxValue">最大码值修正记录</a></li>
+                            <li><a href="/rd/changeValue">底码修正记录</a></li>
+                            <li><a href="/rd/meteUser">水表周检报表</a></li>
 						</ul>
 						
 					</div>
@@ -184,14 +184,14 @@
 			<div class="searchDiv">
 				抄表年月 
 				<span class="between">
-				<select class="medium" >
+				<select id="qTime" class="medium" >
 							<option>201402</option>
 							<option>201401</option>
 							<option>201312</option>
 							<option>201311</option>
 						 </select>
 				-
-				<select class="medium" >
+				<select id="hTime" class="medium" >
 							<option>201402</option>
 							<option>201401</option>
 							<option>201312</option>
@@ -199,7 +199,7 @@
 						 </select>
 				</span>
 				
-				表册 <select class="medium" >
+				表册 <select id="areaName" class="medium" >
 							<option>所有</option>
 						<optgroup label="城东区">
 							<option>城东#1</option>
@@ -231,12 +231,12 @@
 						
 					</select>
 
-				是否复核 <select class="medium" >
-							<option>是</option>
-							<option>否</option>
+				是否复核 <select id="audit" class="medium" >
+							<option value="0">是</option>
+							<option value="1">否</option>
 						 </select>
 				
-				<button class="btn btn-small btn-icon btn-find"><span></span>查询</button>
+				<button id="butOrder" class="btn btn-small btn-icon btn-find"><span></span>查询</button>
 			</div>
 			
 			
@@ -260,120 +260,27 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td class="center">0100000987</td>
-						<td class="">张三</td>
-						<td class="right">1034</td>
-						<td class="right">1034</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100003487</td>
-						<td class="">李四</td>
-						<td class="right">981</td>
-						<td class="right">981</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100009484</td>
-						<td class="">王五</td>
-						<td class="right">127</td>
-						<td class="right">127</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100000987</td>
-						<td class="">张三</td>
-						<td class="right">1111</td>
-						<td class="right">1111</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100003487</td>
-						<td class="">李四</td>
-						<td class="right">4956</td>
-						<td class="right">4956</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100009484</td>
-						<td class="">王五</td>
-						<td class="right">4820</td>
-						<td class="right">4820</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100000987</td>
-						<td class="">张三</td>
-						<td class="right">2</td>
-						<td class="right">2</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100003487</td>
-						<td class="">李四</td>
-						<td class="right">596</td>
-						<td class="right">596</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100009484</td>
-						<td class="">王五</td>
-						<td class="right">981</td>
-						<td class="right">981</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100000987</td>
-						<td class="">张三</td>
-						<td class="right">2893</td>
-						<td class="right">2893</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100003487</td>
-						<td class="">李四</td>
-						<td class="right">931</td>
-						<td class="right">931</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100009484</td>
-						<td class="">王五</td>
-						<td class="right">9813</td>
-						<td class="right">9813</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100000987</td>
-						<td class="">张三</td>
-						<td class="right">28</td>
-						<td class="right">28</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					<tr>
-						<td class="center">0100003487</td>
-						<td class="">李四</td>
-						<td class="right">198</td>
-						<td class="right">198</td>
-						<td class="right">0</td>
-						<td class="center">是</td>
-					</tr>
-					</tbody>
-				</table>
+					<#list read as rd>
+						<tr>
+							<td class="center">${rd.UserNo}</td>
+							<td class="">${rd.UserName}</td>
+							<td class="right">${rd.PreValue}</td>
+							<td class="right">${rd.CurValue}</td>
+							<td class="right">${rd.Amount}</td>
+							<td class="center">
+								<#if rd.Audit?? >
+									<#if rd.Audit == "0">
+										是
+									<#else >
+										否
+									</#if>
+								<#else >
+
+								</#if></td>
+						</tr>
+					</#list>
+				</tbody>
+			</table>
 				<div class="page">
 					<a href="#">第一页</a>
 					<a href="#">上一页</a>
@@ -416,6 +323,20 @@ $(document).ready ( function ()
 	
 });
 
+$(function () {
+    $("#butOrder").click(function () {
+        var qTime = $("#qTime").val(); //前时间段
+        var hTime = $("#hTime").val(); //后时间段
+        var areaName =$("#areaName").val(); //表册
+        var audit = $("#audit").val(); //是否核实
+        window.location.href="/rd/zeroUser"
+				+"?qTime="+qTime
+				+"&hTime="+hTime
+				+"&areaName="+areaName
+				+"&audit="+audit
+		;
+    })
+})
 
 </script>
 

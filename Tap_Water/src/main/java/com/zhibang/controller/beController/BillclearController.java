@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping("/be")
 public class BillclearController {
 
-    @Autowired OrderService orderService;
+    @Autowired private OrderService orderService;
 
     //跳转水费清单界面:yjh
     @GetMapping("/billclear")

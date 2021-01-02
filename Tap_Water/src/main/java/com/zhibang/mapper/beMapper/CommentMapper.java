@@ -17,7 +17,6 @@ public interface CommentMapper {
 
     //添加附加信息记录
     public Integer addBeComment(BeComment beComment);
-
     //按照工单号查询附加信息记录
     public List<BeComment> selectBeCommentOrderNo(String orderNo);
 

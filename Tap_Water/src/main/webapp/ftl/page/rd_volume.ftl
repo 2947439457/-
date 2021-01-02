@@ -41,18 +41,18 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
-							<li><a href="be_order.ftl">工单管理</a></li>
-							<li><a href="be_abort.ftl">终止工单</a></li>
-							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-							<li><a href="be_reportMoney.ftl">业扩收费报表</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
 						</ul>
 						
 					</div>
@@ -83,17 +83,17 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="../page/rd_volume.ftl">表册管理</a></li>
+							<li><a href="/rd/volume_default">表册管理</a></li>
 							<li><a href="rd_init.ftl">抄表初始化</a></li>
 							<li><a href="rd_task.ftl">任务分配</a></li>
 							<li><a href="rd_enter.ftl">抄表录入</a></li>
 							<li><a href="rd_audit.ftl">抄表审核</a></li>
 							<li><a href="rd_reportReading.ftl">抄表情况查询</a></li>
 							<li><a href="rd_reportVolumeReading.ftl">抄表统计报表</a></li>
-							<li><a href="rd_reportZero.ftl">零吨位用户查询</a></li>
-							<li><a href="rd_reportMaxValue.ftl">最大码值修正记录</a></li>
-							<li><a href="rd_reportCPreAmount.ftl">底码修正记录</a></li>
-							<li><a href="rd_reportMeterCheck.ftl">水表周检报表</a></li>
+                            <li><a href="/rd/zeroUser">零吨位用户查询</a></li>
+                            <li><a href="/rd/changeMaxValue">最大码值修正记录</a></li>
+                            <li><a href="/rd/changeValue">底码修正记录</a></li>
+                            <li><a href="/rd/meteUser">水表周检报表</a></li>
 						</ul>
 						
 					</div>
@@ -227,172 +227,39 @@
 							</thead>
 							<tbody>
 								<tr class="odd gradeX">
-									<td><a href="rd_volume.ftl">未分配表册的用户</a></td>
+									<td><a href="/rd/volume_default">未分配表册的用户</a></td>
 									<td class="right">&nbsp;</td>
 								</tr>
 							</tbody>
 						</table>
+
+					<#list rd_AreaName as an>
 						<table class="data display">
 							<thead>
 								<tr>
-									<th>城东区</th>
+									<#--辖区名-->
+									<th>${an.areaName}</th>
+									<#--空白不用填-->
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="odd gradeX">
-									<td><a href="rd_volume_1.ftl">城东#1</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-								<tr class="odd gradeX">
-									<td><a href="rd_volume_1.ftl">城东#2</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
+								<#list rd_VolumeName as vname>
+									<#if vname.areaId.areaName == an.areaName>
+										<tr class="odd gradeX">
+												<#--辖区中的表册名-->
+											<td><a href="rd_volume_1.ftl">${vname.volumeName}</a></td>
+											<td class="right">
+												<a href="rd_volume_add.ftl">[修改]</a>
+												<a href="#facebox_delete"  rel="facebox">[删除]</a>
+											</td>
+										</tr>
+									</#if>
+								</#list>
 							</tbody>
 						</table>
-						<table class="data display">
-							<thead>
-								<tr>
-									<th>城南区</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="odd gradeX">
-									<td><a href="#">城南#1</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-								<tr class="odd gradeX">
-									<td><a href="#">城南#2</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<table class="data display">
-							<thead>
-								<tr>
-									<th>城西区</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="odd gradeX">
-									<td><a href="#">城西#1</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-								<tr class="odd gradeX">
-									<td><a href="#">城西#2</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<table class="data display">
-							<thead>
-								<tr>
-									<th>城北区</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="odd gradeX">
-									<td><a href="#">城北#1</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-								<tr class="odd gradeX">
-									<td><a href="#">城北#2</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<table class="data display">
-							<thead>
-								<tr>
-									<th>新开发区</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="odd gradeX">
-									<td><a href="#">新区#1</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-								<tr class="odd gradeX">
-									<td><a href="#">新区#2</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<table class="data display">
-							<thead>
-								<tr>
-									<th>旧城区</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="odd gradeX">
-									<td><a href="#">旧城#1</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-								<tr class="odd gradeX">
-									<td><a href="#">旧城#2</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-						<table class="data display">
-							<thead>
-								<tr>
-									<th>特别商户</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="odd gradeX">
-									<td><a href="#">特别商户#1</a></td>
-									<td class="right">
-										<a href="rd_volume_add.ftl">[修改]</a>
-										<a href="#facebox_delete"  rel="facebox">[删除]</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+					</#list>
+
 					</td>
 					<td width="1%">&nbsp;</td>
 					<td width="69%">
@@ -403,34 +270,18 @@
 							<select id="select_area" class="medium" onChange="setVolume();" >
 								<option selected="selected"> </option>
 								<option>未分配</option>
-								<optgroup label="城东区">
-									<option>城东#1</option>
-									<option>城东#2</option>
-								</optgroup>
-								<optgroup label="城南区">
-									<option>城南#1</option>
-									<option>城南#2</option>
-								</optgroup>
-								<optgroup label="城西区">
-									<option>城西#1</option>
-									<option>城西#2</option>
-								</optgroup>
-								<optgroup label="城北区">
-									<option>城北#1</option>
-									<option>城北#2</option>
-								</optgroup>
-								<optgroup label="新开发区">
-									<option>新区#1</option>
-									<option>新区#2</option>
-								</optgroup>
-								<optgroup label="旧城区">
-									<option>旧城#1</option>
-									<option>旧城#2</option>
-								</optgroup>
-								<optgroup label="特别商户">
-									<option>特别商户#1</option>
-								</optgroup>
-								
+								<#list rd_AreaName as an>
+									<#--辖区名-->
+									<optgroup label=${an.areaName}>
+										<#list rd_VolumeName as vname>
+
+											<#if an.areaName == vname.areaId.areaName>
+												<#--表册名-->
+												<option>${vname.volumeName}</option>
+											</#if>
+										</#list>
+									</optgroup>
+								</#list>
 							</select>
 						</div>
 					
@@ -446,182 +297,37 @@
 								</tr>
 							</thead>
 							<tbody>
+							<#list rd_Volume_Default as v>
 								<tr class="odd gradeX">
 									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012345</td>
-									<td>02010631</td>
-									<td>张三</td>
-									<td>十里口8号</td>
+									<#--排序号-->
+									<td>
+										<#--判断是否为非空-->
+                                        <#if v.rdVolume??>
+											${v.rdVolume.id}
+                                            <#else >
+                                               未分配
+                                        </#if>
+									</td>
+									<#--用户编码-->
+									<td>
+                                        ${v.userNo}
+                                    </td>
+									<#--表身码-->
+									<td>
+                                        ${v.usMeter.meterName}
+                                    </td>
+									<#--用户姓名-->
+									<td>
+                                        ${v.userName}
+                                    </td>
+									<#--地址-->
+									<td>
+                                        ${v.address}
+                                    </td>
 								</tr>
-								<tr class="even gradeC">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012346</td>
-									<td>02010632</td>
-									<td>李四</td>
-									<td>十里口9号</td>
-								</tr>
-								<tr class="odd gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012347</td>
-									<td>02010633</td>
-									<td>王五</td>
-									<td>十里口10号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012348</td>
-									<td>02010634</td>
-									<td>赵六</td>
-									<td>十里口11号</td>
-								</tr>
-								<tr class="odd gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012349</td>
-									<td>02010635</td>
-									<td>钱七</td>
-									<td>十里口12号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012350</td>
-									<td>02010636</td>
-									<td>孙八</td>
-									<td>望台坡31号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012351</td>
-									<td>02010637</td>
-									<td>何九</td>
-									<td>望台坡32号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012352</td>
-									<td>02010638</td>
-									<td>布十</td>
-									<td>望台坡33号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012353</td>
-									<td>02010639</td>
-									<td>十一郎</td>
-									<td>望台坡34号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012354</td>
-									<td>02010640</td>
-									<td>张小明</td>
-									<td>望台坡35号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012355</td>
-									<td>02010641</td>
-									<td>王小红</td>
-									<td>望台坡36号</td>
-								</tr>
-								<tr class="odd gradeX">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012356</td>
-									<td>02010642</td>
-									<td>张三</td>
-									<td>望台坡37号</td>
-								</tr>
-								<tr class="even gradeC">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012357</td>
-									<td>02010643</td>
-									<td>李四</td>
-									<td>拐道巷3号</td>
-								</tr>
-								<tr class="odd gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012358</td>
-									<td>02010644</td>
-									<td>王五</td>
-									<td>拐道巷7号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012359</td>
-									<td>02010645</td>
-									<td>赵六</td>
-									<td>拐道巷12号</td>
-								</tr>
-								<tr class="odd gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012360</td>
-									<td>02010646</td>
-									<td>钱七</td>
-									<td>拐道巷15号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012361</td>
-									<td>02010647</td>
-									<td>孙八</td>
-									<td>拐道巷16号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012362</td>
-									<td>02010648</td>
-									<td>何九</td>
-									<td>拐道巷17号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012363</td>
-									<td>02010649</td>
-									<td>布十</td>
-									<td>拐道巷18号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012364</td>
-									<td>02010650</td>
-									<td>十一郎</td>
-									<td>拐道巷19号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>016500123</td>
-									<td>02010651</td>
-									<td>张小明</td>
-									<td>拐道巷20号</td>
-								</tr>
-								<tr class="even gradeA">
-									<td><input type="checkbox" /></td>
-									<td>未分配</td>
-									<td>010012366</td>
-									<td>02010652</td>
-									<td>王小红</td>
-									<td>五山冲9号</td>
-								</tr>
+							</#list>
+
 								</tbody>
 						</table>
 					</td>

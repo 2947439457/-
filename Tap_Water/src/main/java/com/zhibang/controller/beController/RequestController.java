@@ -29,24 +29,21 @@ import java.util.List;
 @RequestMapping("/be")
 public class RequestController {
 
-    @Autowired public Common common; //工具类
-    @Autowired public UsUser usUser; //用户-实体类
-    @Autowired public BeOrder beOrder; //业扩工单-实体类
-    @Autowired public BeFlow beFlow; //流程模板-实体类
-    @Autowired public SyEmp syEmp; //员工-实体类
-    @Autowired public BeOrderuser beOrderuser; //工单用户详情-实体类
-    @Autowired public SyMetertype syMetertype; //水表型号表-实体类
-    @Autowired public MetertypeService metertypeService; //水表型号-数据访问层
-    @Autowired public UserService userService; //用户-数据访问层
-    @Autowired public OrderService orderService; //工单信息-数据访问层
-    @Autowired public OrderUserService orderUserService; //工单用户信息详情-数据访问层
+    @Autowired private Common common; //工具类
+    @Autowired private UsUser usUser; //用户-实体类
+    @Autowired private BeOrder beOrder; //业扩工单-实体类
+    @Autowired private BeFlow beFlow; //流程模板-实体类
+    @Autowired private SyEmp syEmp; //员工-实体类
+    @Autowired private BeOrderuser beOrderuser; //工单用户详情-实体类
+    @Autowired private SyMetertype syMetertype; //水表型号表-实体类
+    @Autowired private MetertypeService metertypeService; //水表型号-数据访问层
+    @Autowired private UserService userService; //用户-数据访问层
+    @Autowired private OrderService orderService; //工单信息-数据访问层
+    @Autowired private OrderUserService orderUserService; //工单用户信息详情-数据访问层
 
     //跳转用户申请界面-yjh
     @GetMapping(value = "/request")
-    public String request(HttpSession httpSession) {
-        //获得全部水表型号
-        List<SyMetertype> syMetertypes = metertypeService.selSyMetertype();
-        httpSession.setAttribute("syMetertypes", syMetertypes);
+    public String request() {
         return "/page/be__request";
     }
 
@@ -68,13 +65,13 @@ public class RequestController {
 
     //用户申请处理-yjh
     @RequestMapping(value = "/requestOrderJudge")
-    public String requestOrderJudge(String orderNo, Integer orderType, Model model){
+    public String requestOrderJudge(String orderNo, Model model){
         BeOrder beOrder = orderService.selBeOrderOrderNo(orderNo);
         List<BeOrderuser> beOrderusers = orderUserService.selOrderuserOrderNo(orderNo);
         model.addAttribute("beOrder", beOrder);
         model.addAttribute("beOrderusers", beOrderusers);
         model.addAttribute("stat", "update");
-        return "/page/be__request"+orderType;
+        return "/page/be__request"+beOrder.getOrderType();
     }
 
     //点击办理，进行判断-yjh

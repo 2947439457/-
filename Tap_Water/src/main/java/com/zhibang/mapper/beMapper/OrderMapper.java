@@ -24,14 +24,14 @@ public interface OrderMapper {
     //查询业扩工单:yjh
     public String selectOrderNo(String orderType);
 
-    //工单管理：xxy
+    //工单管理：根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy
     public List<BeOrder> queryAllOrder(@Param("orderType") String orderType, @Param("stepName") String stepName, @Param("orderNo") String orderNo, @Param("userName") String userName);
 
-    //查询工单进度：xxy
-    public List<BeFlow> queryStepNameType();
+    //业扩收费报表查询：xxy
+    public List<BeOrder> selAllOrder(@Param("orderType") String orderType, @Param("time1") String time1, @Param("time2") String time2);
 
-//    //根据 工单类型 or 工程进度 or 工单号 or 用户姓名查询:xxy
-//    public List<BeOrder> queryTypeOrNameOrUserNo(@Param("orderType") String orderType, @Param("stepName") String stepName, @Param("orderNo") String orderNo, @Param("userName") String userName);
+    //业扩收费查询总交费:xxy
+    public Double selSumMoney(@Param("orderType") String orderType, @Param("time1") String time1, @Param("time2") String time2);
 
     //按流程查询工单：yjh
     public List<BeOrder> selectBeOrderStepId(@Param("stepId")Integer stepId, @Param("orderType")String orderType);

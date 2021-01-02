@@ -17,8 +17,7 @@ import java.util.List;
 @RequestMapping("/be")
 public class OrderController {
 
-    @Autowired
-    private OrderService orderService;
+    @Autowired private OrderService orderService;
 
     /**
      * 跳转到工单管理:xxy
@@ -36,9 +35,13 @@ public class OrderController {
     @RequestMapping("/queryMany")
     public List<BeOrder> queryMany(String orderType, String stepName, String orderNo, String userName) {
         List<BeOrder> user = orderService.queryAllOrder(orderType, stepName, orderNo, userName);
+        for (BeOrder o : user) {
+            System.out.println(o);
+        }
         return user;
     }
-        //跳转到工单信息:xxy
+
+        //跳转到工单信息:yjh
     @RequestMapping("/orderInfo")
     public String orderInfo(){
         return "/page/be_orderInfo";

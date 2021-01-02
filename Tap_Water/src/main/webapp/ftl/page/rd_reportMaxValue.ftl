@@ -38,18 +38,18 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="be__request.ftl">01 用户申请</a></li>
-							<li><a href="be__audit.ftl">02 初步审核</a></li>
-							<li><a href="be__pay.ftl">03 交施工费</a></li>
-							<li><a href="be__billclear.ftl">04 水费清算</a></li>
-							<li><a href="be__contract.ftl">05 供水协议</a></li>
-							<li><a href="be__working.ftl">06 施工竣工</a></li>
-							<li><a href="be__open.ftl">07 通水停水</a></li>
-							<li><a href="be__save.ftl">08 档案存档</a></li>
-							<li><a href="be_order.ftl">工单管理</a></li>
-							<li><a href="be_abort.ftl">终止工单</a></li>
-							<li><a href="be_reportProgress.ftl">业扩工程进度</a></li>
-							<li><a href="be_reportMoney.ftl">业扩收费报表</a></li>
+                            <li><a href="/be/request">01 用户申请</a></li>
+                            <li><a href="/be/audit">02 初步审核</a></li>
+                            <li><a href="/be/pay">03 交施工费</a></li>
+                            <li><a href="/be/billclear">04 水费清算</a></li>
+                            <li><a href="/be/contarct">05 供水协议</a></li>
+                            <li><a href="/be/working">06 施工竣工</a></li>
+                            <li><a href="/be/open">07 通水停水</a></li>
+                            <li><a href="/be/save">08 档案存档</a></li>
+                            <li><a href="/be/order">工单管理</a></li>
+                            <li><a href="/be/abort">终止工单</a></li>
+                            <li><a href="/be/reportProgress">业扩工程进度</a></li>
+                            <li><a href="/be/reportMoney">业扩收费报表</a></li>
 						</ul>
 						
 					</div>
@@ -80,17 +80,17 @@
 					
 					<div class="nav_menu">			
 						<ul>
-							<li><a href="rd_volume.ftl">表册管理</a></li>
+                            <li><a href="/rd/volume_default">表册管理</a></li>
 							<li><a href="rd_init.ftl">抄表初始化</a></li>
 							<li><a href="rd_task.ftl">任务分配</a></li>
 							<li><a href="rd_enter.ftl">抄表录入</a></li>
 							<li><a href="rd_audit.ftl">抄表审核</a></li>
 							<li><a href="rd_reportReading.ftl">抄表情况查询</a></li>
 							<li><a href="rd_reportVolumeReading.ftl">抄表统计报表</a></li>
-							<li><a href="rd_reportZero.ftl">零吨位用户查询</a></li>
-							<li><a href="../page/rd_reportMaxValue.ftl">最大码值修正记录</a></li>
-							<li><a href="rd_reportCPreAmount.ftl">底码修正记录</a></li>
-							<li><a href="rd_reportMeterCheck.ftl">水表周检报表</a></li>
+                            <li><a href="/rd/zeroUser">零吨位用户查询</a></li>
+                            <li><a href="/rd/changeMaxValue">最大码值修正记录</a></li>
+                            <li><a href="/rd/changeValue">底码修正记录</a></li>
+                            <li><a href="/rd/meteUser">水表周检报表</a></li>
 						</ul>
 						
 					</div>
@@ -180,46 +180,22 @@
 		<div class="x12">
 			
 			<h2>最大表码修正记录</h2>
-			
-			<div class="searchDiv">
-				操作人员 <select class="medium" >
-							<option>所有</option>
-							<option>曹操</option>
-							<option>刘备</option>
-							<option>孙权</option>
-							<option>诸葛亮</option>
-							<option>张飞</option>
-							<option>关羽</option>
-							<option>赵云</option>
-							<option>黄忠</option>
-							<option>马超</option>
-							<option>魏延</option>
-							<option>夏侯敦</option>
-							<option>典韦</option>
-							<option>许褚</option>
-							<option>周瑜</option>
-							<option>吕布</option>
-							<option>貂蝉</option>
-							<option>大乔</option>
-							<option>小乔</option>
-							<option>司马懿</option>
-							<option>孟获</option>
-							<option>祝融夫人</option>
-							<option>董卓</option>
-							<option>刘禅</option>
-							<option>蒋干</option>
-							<option>黄盖</option>
-							<option>司马昭</option>
-							<option>李典</option>
-							<option>吕蒙</option>
-						 </select>
-				
-				修正日期 <span class="between">
-							<input onClick="WdatePicker();" /> - <input onClick="WdatePicker();" />
-						</span>
-				<button class="btn btn-small btn-icon btn-find"><span></span>查询</button>
-			</div>
-			
+
+			<form action="changeMaxValue" method="post">
+				<div class="searchDiv">
+					操作人员 <select id="empName" class="medium" >
+								<option>所有</option>
+								<#list empName as en>
+									<option>${en.empName}</option>
+								</#list>
+							 </select>
+
+					修正日期 <span class="between" >
+								<input id="" type="date" /> - <input name="" type="date" />
+							</span>
+					<button class="btn btn-small btn-icon btn-find"><span></span>查询</button>
+				</div>
+            </form>
 			
 			<div class="reportTitle">
 				最大表码修改记录报表
@@ -240,134 +216,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>
-					<tr>
-						<td class="center">2013年12月10日</td>
-						<td class="center">0100000987</td>
-						<td>张三</td>
-						<td class="right">9999</td>
-						<td class="right">99999</td>
-						<td class="center">赵云</td>
-						<td>经核实，此用户的最大表码值是 99999 </td>
-					</tr>	
+					<#list changeMaxValue as cmv>
+						<tr>
+							<td class="center">${cmv.datee}</td>
+							<td class="center">${cmv.userno}</td>
+							<td>${cmv.UserName}</td>
+							<td class="right">${cmv.maxvalue1}</td>
+							<td class="right">${cmv.maxvalue2}</td>
+							<td class="center">${cmv.EmpName}</td>
+							<td>${cmv.remark}</td>
+						</tr>
+					</#list>
 				</tbody>
-				</table>
+			</table>
 				<div class="page">
 					<a href="#">第一页</a>
 					<a href="#">上一页</a>
