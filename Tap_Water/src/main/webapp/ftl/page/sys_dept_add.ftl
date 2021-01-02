@@ -187,6 +187,7 @@
 			 <#if SyDept??>
 			<div class="form label-inline uniform">
                 <form action="/updatedept" method="post">
+
 				<div class="field"><label for="id">部门ID</label> <input id="id" name="fname" size="50" type="text" class="medium" disabled="disabled" value="${SyDept.id}" /></div>
                     <input type="hidden" name="deptid" value="${SyDept.id}">
 				<div class="field"><label for="name">部门名称</label> <input id="name" name="lname" size="50" type="text" class="medium" value="${SyDept.deptName}" /></div>

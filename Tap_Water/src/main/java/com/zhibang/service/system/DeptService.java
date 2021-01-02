@@ -26,6 +26,7 @@ public interface DeptService {
     public SyDept selectSyDeptID(Integer id);
 
     /**
+     *
      * 修改部门信息方法YX
      * @param syDapt
      * @return

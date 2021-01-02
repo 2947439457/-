@@ -34,6 +34,7 @@ public class DeptServiceImpl implements DeptService {
     @Override
     public Integer addDapt(SyDept syDept){return DeptMapper.addDapt(syDept);}
     /**
+     *
      * 修改部门信息YX
      * @param syDapt
      * @return

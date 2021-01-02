@@ -211,6 +211,7 @@
 						</tr>
 					</thead>
 					<tbody>
+
 					<#list syDept as dept>
 						<tr class="odd gradeX">
                             <td>${dept.id}</td>

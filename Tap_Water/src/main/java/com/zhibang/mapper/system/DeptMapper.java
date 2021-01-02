@@ -32,6 +32,7 @@ public interface DeptMapper {
     @Select("SELECT * FROM sy_dept WHERE `ID`=${id} AND Disabled=1")
     public SyDept selectSyDeptID(Integer id);
     /**
+     *
      * 修改部门信息YX
      * @param syDapt
      * @return
