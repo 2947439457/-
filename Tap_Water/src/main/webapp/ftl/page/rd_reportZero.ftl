@@ -184,19 +184,19 @@
 			<div class="searchDiv">
 				抄表年月 
 				<span class="between">
-				<select id="qTime" class="medium" >
-							<option>201402</option>
-							<option>201401</option>
-							<option>201312</option>
-							<option>201311</option>
-						 </select>
-				-
-				<select id="hTime" class="medium" >
-							<option>201402</option>
-							<option>201401</option>
-							<option>201312</option>
-							<option>201311</option>
-						 </select>
+					<select id="qTime" class="medium" >
+						<option>201402</option>
+						<option>201401</option>
+						<option>201312</option>
+						<option>201311</option>
+                	</select>
+					-
+					<select id="hTime" class="medium" >
+						<option>201402</option>
+						<option>201401</option>
+						<option>201312</option>
+						<option>201311</option>
+					</select>
 				</span>
 				
 				表册 <select id="areaName" class="medium" >
@@ -284,7 +284,7 @@
 				<div class="page">
 					<a href="#">第一页</a>
 					<a href="#">上一页</a>
-					<input class="pageIndex" value="1"/> / <input class="pageCount" readonly="readonly" value="98765" />
+					<input class="pageIndex" value="1"/> / <input class="pageCount" readonly="readonly" value="1" />
 					<a href="#">下一页</a>
 					<a href="#">第未页</a>
 				</div>
@@ -329,7 +329,7 @@ $(function () {
         var hTime = $("#hTime").val(); //后时间段
         var areaName =$("#areaName").val(); //表册
         var audit = $("#audit").val(); //是否核实
-        window.location.href="/rd/zeroUser"
+        window.location.href="/rd/zeroUsers"
 				+"?qTime="+qTime
 				+"&hTime="+hTime
 				+"&areaName="+areaName

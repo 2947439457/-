@@ -11,6 +11,7 @@
         <result column="CurValue" property="curValue" ></result>
         <result column="Amount" property="amount" ></result>
         <result column="Audit" property="audit" ></result>
+        <result column="ReadDate" property="readDate"></result>
 
         <association property="userNo" javaType="UsUser">
             <id column="UserNo" property="userNo" ></id>
@@ -31,5 +32,20 @@
         1=1
     </select>
 
+    <!--查询零吨位用户-->
+    <select id="selectZeroUsers" resultType="java.util.Map">
+        SELECT
+        b.`UserNo`,b.`UserName`,a.`PreValue`,a.`CurValue`,a.`Amount`,a.`Audit`
+        FROM
+        RD_Read AS a
+        JOIN
+        us_user AS b ON a.`UserNo`=b.`UserNo`
+        WHERE
+        1=1
+        and a.`Audit` = #{audit}
+        <!--<if test="areaName != '所有'">-->
+        <!--and b.`EmpName` = #{areaName}-->
+        <!--</if>-->
+    </select>
 
 </mapper>

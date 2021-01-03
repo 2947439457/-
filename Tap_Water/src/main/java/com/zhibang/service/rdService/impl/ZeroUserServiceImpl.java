@@ -1,6 +1,7 @@
 package com.zhibang.service.rdService.impl;
 
 import com.zhibang.mapper.rdMapper.ZeroUserMapper;
+import com.zhibang.model.RdRead;
 import com.zhibang.service.rdService.ZeroUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,13 @@ public class ZeroUserServiceImpl implements ZeroUserService {
     //查询零吨位用户数据
     @Override
     public List<Map<String,Object>> selectZeroUser(){
+
         return ZeroUserMapper.selectZeroUser();
     }
 
+    //根据条件进行查询
+    @Override
+    public List<Map<String,Object>> selectZeroUsers(String qTime, String hTime, String areaName,String audit){
+        return ZeroUserMapper.selectZeroUsers(qTime, hTime, areaName, audit);
+    }
 }
