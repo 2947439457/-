@@ -271,7 +271,7 @@
 							分配至 
 							<select id="select_area" class="medium" onclick="openNewPage(this)" >
 								<option selected="selected"> </option>
-								<option>未分配</option>
+								<option value="0">未分配</option>
 								<#list rd_AreaName as an>
 									<#--辖区名-->
 									<optgroup label=${an.areaName}>
@@ -318,28 +318,36 @@
                                     }
 
                                     if(isSelect == true){
-                                       var ID=optionSelect.value;
-                                       var stat=optionSelect.text;
-                                        alert("11");
-                                        var userids = []; //申明数组保存所有被选中checkbox背后的值
-                                        var str="";
-                                        var users = document.getElementsByName("username"); //得到所有的checkbox
-                                        console.log(users);
-                                        for(var i=0; i<users.length; i++){
-                                            if(users[i].checked){ //如果checkbox被选中
+                                        var stat=optionSelect.text;
+                                        var isright=confirm("确定分配至"+stat+"?");
+                                        if (isright){
+                                            var ID=optionSelect.value;
 
-                                                console.log(users[i].value);
+                                            var userids = []; //申明数组保存所有被选中checkbox背后的值
+                                            var str="";
+                                            var users = document.getElementsByName("username"); //得到所有的checkbox
+                                            console.log(users);
+                                            for(var i=0; i<users.length; i++){
+                                                if(users[i].checked){ //如果checkbox被选中
 
-                                                str=str+users[i].value.trim()+","; //将被选中checkbox背后的值添加到数组中
+                                                    console.log(users[i].value);
+
+                                                    str=str+users[i].value.trim()+","; //将被选中checkbox背后的值添加到数组中
+
+                                                }
 
                                             }
+                                            str=str.substring(0,str.length-1);
 
-                                        }
-                                        str=str.substring(0,str.length-1);
-                                        alert(str);
-                                        console.log(str);
+                                            console.log(str);
 
-                                        window.location.href='/rd/volume_area?ID='+ID+'&str='+str+'&stat='+stat;
+											window.location.href='/rd/volume_area?ID='+ID+'&str='+str+'&stat='+stat;
+											alert("操作成功!");
+											return true;
+										} else{
+                                            return false;
+										}
+
 
                                     }
 

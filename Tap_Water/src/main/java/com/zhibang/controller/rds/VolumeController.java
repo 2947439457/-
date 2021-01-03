@@ -256,35 +256,62 @@ public class VolumeController {
         System.out.println(str);
         String[] split = str.split(",");
         for (int i = 0; i <split.length ; i++) {
-            int n = volumeService.updateVolume_area(ID, split[i]);
-            System.out.println("volume_area------------------"+n);
+            if (ID==0){
+                int n = volumeService.updateVolume_area(null, split[i]);
+
+                System.out.println("----------");
+                //获取用户和表身码信息
+                List<UsUser> maps = volumeService.queryAllVolume_Default();
+                //获取所有辖区名称
+                List<SyArea> syAreas = volumeService.queryAllArea();
+                //获取辖区中的表册名
+                List<RdVolume> rdVolumes = volumeService.queryAllVolumeName();
+                //Test：打印数据
+                System.out.println("获取用户和表身码信息" + maps);
+                System.out.println("获取所有辖区名称" + syAreas);
+                System.out.println("获取辖区中的表册名" + rdVolumes);
+
+
+                //向前端携带数据：
+                //用户和表身码信息
+                model.addAttribute("rd_Volume_Default", maps);
+                //所有辖区名称
+                model.addAttribute("rd_AreaName", syAreas);
+                //辖区中的表册名
+                model.addAttribute("rd_VolumeName", rdVolumes);
+                //状态
+                String Volume_stat="未分配";
+                model.addAttribute("Volume_stat",Volume_stat);
+
+            }else{
+                int n = volumeService.updateVolume_area(ID, split[i]);
+
+                System.out.println("stat"+stat);
+                List<UsUser> usUsers = volumeService.queryAllVolume_Param(ID);
+                //获取所有辖区名称
+                List<SyArea> syAreas = volumeService.queryAllArea();
+                //获取辖区中的表册名
+                List<RdVolume> rdVolumes = volumeService.queryAllVolumeName();
+                //Test：打印数据
+                System.out.println("获取用户和表身码信息" + usUsers);
+                System.out.println("获取所有辖区名称" + syAreas);
+                System.out.println("获取辖区中的表册名" + rdVolumes);
+
+                model.addAttribute("rd_Volume_Default", usUsers);
+                //所有辖区名称
+                model.addAttribute("rd_AreaName", syAreas);
+                //辖区中的表册名
+                model.addAttribute("rd_VolumeName", rdVolumes);
+                //状态
+                String Volume_stat=stat;
+                model.addAttribute("Volume_stat",Volume_stat);
+            }
+
+
+//            System.out.println("volume_area------------------"+n);
         }
 
 
-
-
-
-
-
-        System.out.println("stat"+stat);
-        List<UsUser> usUsers = volumeService.queryAllVolume_Param(ID);
-        //获取所有辖区名称
-        List<SyArea> syAreas = volumeService.queryAllArea();
-        //获取辖区中的表册名
-        List<RdVolume> rdVolumes = volumeService.queryAllVolumeName();
-        //Test：打印数据
-        System.out.println("获取用户和表身码信息" + usUsers);
-        System.out.println("获取所有辖区名称" + syAreas);
-        System.out.println("获取辖区中的表册名" + rdVolumes);
-
-        model.addAttribute("rd_Volume_Default", usUsers);
-        //所有辖区名称
-        model.addAttribute("rd_AreaName", syAreas);
-        //辖区中的表册名
-        model.addAttribute("rd_VolumeName", rdVolumes);
-        //状态
-        String Volume_stat=stat;
-        model.addAttribute("Volume_stat",Volume_stat);
 
         return "/page/rd_volume";
     }
